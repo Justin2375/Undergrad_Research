@@ -19,7 +19,7 @@ public class SentiTool {
 		System.out.println("Please enter text to be analyzed:");
 		textOrFile = in.nextLine();
 		while(explainStat != 'y' && explainStat != 'n'){
-			System.out.println("Would you like to have the results explained?[y/n]");
+			System.out.println("Would you like to have the results explained?");
 			explainStat = in.next().charAt(0);
 		}
 		execSentiStrength(textOrFile, explainStat); // Makes a call that runs SentiStrength with the given data
