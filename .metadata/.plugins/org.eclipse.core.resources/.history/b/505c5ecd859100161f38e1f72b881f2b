@@ -38,7 +38,7 @@ public class SentiTool {
 		// Converts the list to  a string form to be passed as the input 
 		String cliArgs[] = sshInitializationAndText.toArray(new String[sshInitializationAndText.size()]);
 		
-		SentiStrength.main(cliArgs); // Runs SentiStrength using the user declared variables 
+		SentiStrength.main(cliArgs); // Runs SentiStrength and 
 	}
 
 }
