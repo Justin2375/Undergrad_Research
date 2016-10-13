@@ -1,0 +1,47 @@
+import java.util.*;
+import uk.ac.wlv.sentistrength.*;
+
+
+public class SentiTool {
+
+	/**
+	 * @param args
+	 * @author jacob reed
+	 * @category sentiment analysis
+	 */
+	
+	private static final String SENTI_DATA_PATH = "/home/jacob/Development/Undergrad_Research/SentiStrength/SentStrength_Data_Sept2011";
+	private static String mode, textOrFile, explainStat;
+	private static Scanner in = new Scanner(System.in); // This will read user input and will allow 
+	
+	public static void main(String[] args) {
+		System.out.println("Please enter text to be analyzed:");
+		textOrFile = in.nextLine();
+		
+		ArrayList<String> sshInitializationAndText = new ArrayList<String>();
+		sshInitializationAndText.add("sentidata");
+		sshInitializationAndText.add(SENTI_DATA_PATH);
+		sshInitializationAndText.add("text");
+		sshInitializationAndText.add(textOrFile);
+				//{"sentidata", SENTI_DATA_PATH, "text", textOrFile}; // Takes in the input in command form
+		//System.out.println(Arrays.toString(sshInitializationAndText)); // For testing purposes
+		
+		//do {
+			System.out.println("Would you like to have the results explained?");
+			explainStat = in.nextLine();
+		//}while(!explainStat.equals("y") || !explainStat.equals("n"));
+		
+		// Checks to see if the user wishes to have the results explained to them
+		if(explainStat.equals("y")){
+			sshInitializationAndText.add("explain");
+		}
+		
+		String cliArgs[] = sshInitializationAndText.toArray(new String[sshInitializationAndText.size()]);
+		
+		SentiStrength.main(cliArgs);
+		
+		SentiStrength sentiStrength = new SentiStrength();
+		
+	}
+
+}

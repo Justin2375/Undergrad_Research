@@ -1,0 +1,14 @@
+
+public class SentiTool {
+
+	/**
+	 * @param args
+	 * @author jacob reed
+	 * @category sentiment analysis
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

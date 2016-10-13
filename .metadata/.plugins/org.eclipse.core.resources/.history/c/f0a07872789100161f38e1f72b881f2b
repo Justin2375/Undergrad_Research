@@ -1,0 +1,16 @@
+
+public class SentiTool {
+
+	/**
+	 * @param args
+	 * @author jacob reed
+	 * @category sentiment analysis
+	 */
+	
+	import java.util.*;
+	import uk.ac.wlv.sentistrength.*;
+	public static void main(String[] args) {
+		
+	}
+
+}

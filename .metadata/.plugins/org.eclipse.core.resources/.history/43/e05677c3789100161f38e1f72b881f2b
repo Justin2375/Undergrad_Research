@@ -1,0 +1,20 @@
+import java.util.*;
+import uk.ac.wlv.sentistrength.*;
+
+
+public class SentiTool {
+
+	/**
+	 * @param args
+	 * @author jacob reed
+	 * @category sentiment analysis
+	 */
+	
+	private static final String SENTI_DATA_PATH = "/home/jacob/Development/Undergrad_Research/SentiStrength/SentStrength_Data_Sept2011";
+	private static String mode, textOrFile;
+	
+	public static void main(String[] args) {
+		
+	}
+
+}
