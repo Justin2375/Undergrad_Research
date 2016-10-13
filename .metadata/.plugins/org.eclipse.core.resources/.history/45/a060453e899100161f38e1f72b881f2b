@@ -17,37 +17,37 @@ public class SentiTool {
 	public static void main(String[] args) {
 		System.out.println("Please enter text to be analyzed:");
 		textOrFile = in.nextLine();
+
 		do {
 			System.out.println("Would you like to have the results explained?");
 			explainStat = in.nextLine();
 		}while(explainStat.equals('y') || explainStat.equals('n'));
-		execSentiStrength(textOrFile, explainStat); // Makes a call that runs SentiStrength with the given data
-	}
-	
-	/**
-	 * @param userInput String or file path for the text to be examined
-	 * @param explainFLag String that determines if the user wants the results explained
-	 * */
-	public static void execSentiStrength(String userInput, String explainFlag){
-		 ArrayList<String> sshInitializationAndText;
 		
-		//Creates the list where the the various parts of the command to run SentiStrength will be stored
-		sshInitializationAndText = new ArrayList<String>();
+		ArrayList<String> sshInitializationAndText = new ArrayList<String>();
 		sshInitializationAndText.add("sentidata");
 		sshInitializationAndText.add(SENTI_DATA_PATH);
 		sshInitializationAndText.add("text"); 
-		sshInitializationAndText.add(userInput); 
+		sshInitializationAndText.add(textOrFile); 
+		//System.out.println(Arrays.toString(sshInitializationAndText)); // For testing purposes
+		
+		
 		
 		// Checks to see if the user wishes to have the results explained to them
-		if(explainFlag.equals("y")){
+		if(explainStat.equals("y")){
 			sshInitializationAndText.add("explain");
 		}
 		
 		// Converts the list to  a string form to be passed as the input 
 		String cliArgs[] = sshInitializationAndText.toArray(new String[sshInitializationAndText.size()]);
 		
-		// Runs SentiStrength using the user declared variables 
-		SentiStrength.main(cliArgs); 
+		SentiStrength.main(cliArgs); // Runs SentiStrength using the user declared variables 
+	}
+	/**
+	 * @param userInput String or filepath for the text to be examined
+	 * @param explainFLag String that determines if the user wants the results explained
+	 * */
+	public static void execSentiStrength(String userInput, String explainFlag){
+		
 	}
 
 }
