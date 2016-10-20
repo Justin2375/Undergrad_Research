@@ -29,6 +29,7 @@ acheson	1	kev
 acheta	1	kev
 aching	-2	removed active*	2	
 acrimon*	-2	General Inquirer Feb 2010
+accuracy	2	IEEE
 addict*	-2	General Inquirer Feb 2010
 admir*	3	
 admiral*	1	kev
@@ -63,6 +64,7 @@ ails	-2	General Inquirer Feb 2010
 aimless*	-2	General Inquirer Feb 2010
 alarm*	-3	
 alas	-2	General Inquirer Feb 2010
+algorithm	1	FDA Comp. Terms
 alibi*	-2	General Inquirer Feb 2010
 alien	-2	General Inquirer Feb 2010
 alienat*	-2	General Inquirer Feb 2010
@@ -99,7 +101,7 @@ annihilate*	-3	General Inquirer Feb 2010
 annihilation	-4	General Inquirer Feb 2010
 annoy*	-3	
 anomalous	-2	General Inquirer Feb 2010
-anomaly	-2	General Inquirer Feb 2010
+anomaly	-3	General Inquirer Feb 2010
 antagoni*	-2	
 anti-social	-2	General Inquirer Feb 2010
 antipathy	-2	General Inquirer Feb 2010
@@ -115,10 +117,13 @@ appreciat*	2
 apprehens*	-3	
 apprehens*	-3	General Inquirer Feb 2010
 arbitrary	-2	General Inquirer Feb 2010
+architecture	2	FDA Comp. Terms
+archive	1	FDA Comp. Terms
 ardent	3	Hannes GI add
 arduous*	-2	General Inquirer Feb 2010
 argh*	-2	
-argu*	-2	
+argu*	-2
+array	1	
 arrogan*	-3	
 arsehole*	-3	
 artificial	-1	General Inquirer Feb 2010
@@ -129,6 +134,8 @@ assail*	-3	General Inquirer Feb 2010
 assassin*	-3	General Inquirer Feb 2010
 assault*	-3	
 asshole*	-3	remvoed assur*	2	
+assemble	-1	FDA Comp. Terms
+assertion	-1	FDA Comp. Terms
 asswipe	-3	Feb-11
 astray	-2	General Inquirer Feb 2010
 asunder	-2	General Inquirer Feb 2010
@@ -137,6 +144,7 @@ atrophy	-2	General Inquirer Feb 2010
 attachment*	1	
 attack*	-3	
 attract*	2	
+audit	-3	FDA Comp. Terms
 auster*	-2	General Inquirer Feb 2010 kev mod
 autocrat*	-2	General Inquirer Feb 2010
 autocratic	-3	General Inquirer Feb 2010
@@ -172,6 +180,7 @@ barbari*	-3	General Inquirer Feb 2010
 barf*	-2	Feb-11
 barren	-2	General Inquirer Feb 2010
 barrier*	-2	General Inquirer Feb 2010
+baseline	2	FDA Comp. Terms
 bashful*	-3	
 bastard*	-3	removed battl*	-2	
 battle*	-2	General Inquirer Feb 2010
@@ -205,8 +214,10 @@ beware	-2	General Inquirer Feb 2010
 bewilder*	-3	General Inquirer Feb 2010
 bff	4	best friends forever
 bg	2	big grin
+bias	-1	FDA Comp. Terms
 bigot*	-2	Feb-11
 bilge	-2	Feb-11
+binary	1	FDA Comp. Terms
 birdbrain*	-2	Feb-11
 bitch*	-2	auto check 4 aug 2009
 bitter*	-2	
@@ -240,11 +251,12 @@ boast*	-2	General Inquirer Feb 2010
 bogus*	-2	General Inquirer Feb 2010
 boisterous*	-2	General Inquirer Feb 2010
 bolt*	-2	General Inquirer Feb 2010
-bomb*	-2	General Inquirer Feb 2010
+bomb*	-3	General Inquirer Feb 2010
 bondage	-2	General Inquirer Feb 2010
 bonehead*	-2	Feb-11
 bonny	2	Hannes GI add
 bonus*	1	
+bootstrap	1	FDA Comp. Terms
 bore*	-2	29 July 2009 - changed from -3
 boring*	-2	
 bother*	-2	
