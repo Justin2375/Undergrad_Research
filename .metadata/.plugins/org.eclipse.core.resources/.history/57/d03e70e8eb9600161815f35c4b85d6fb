@@ -16,24 +16,13 @@ public class SentiTool {
 	private static Scanner in = new Scanner(System.in); // This will read user input and will allow 
 	
 	public static void main(String[] args) {
-		System.out.println("Choose an option: \n\t1) Run SentiStrength with against a file/Stdin." +
-				"\n\t2) Train SentiStrength using a results file");
-		int userChoice = in.nextInt();
-		in.nextLine();
-		switch(userChoice){
-		case 1:
-			System.out.println("Please enter text to be analyzed:");
-			textOrFile = in.nextLine();
-			while(explainStat != 'y' && explainStat != 'n'){
-				System.out.println("Would you like to have the results explained?[y/n]");
-				explainStat = in.next().charAt(0);
-			}
-			execSentiStrength(textOrFile, explainStat); // Makes a call that runs SentiStrength with the given data
-			break;
-		case 2:
-			System.out.println("Reached");
-			break;
+		System.out.println("Please enter text to be analyzed:");
+		textOrFile = in.nextLine();
+		while(explainStat != 'y' && explainStat != 'n'){
+			System.out.println("Would you like to have the results explained?[y/n]");
+			explainStat = in.next().charAt(0);
 		}
+		execSentiStrength(textOrFile, explainStat); // Makes a call that runs SentiStrength with the given data
 	}
 	
 	/**
@@ -63,13 +52,9 @@ public class SentiTool {
 	}
 	
 	/**
-	 * Allows SentiStrength to be trained against the gathered results from
-	 * a previous test or manually calculated results.  File should be passed
-	 * as a text file to this method. 
 	 * @return void
-	 * @param filePath Path of the file that contains result information
 	 * */
-	public static void trainSentiStrength(String filePath){
+	public static void trainSentiStrength(){
 		
 	}
 

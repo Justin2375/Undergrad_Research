@@ -19,7 +19,6 @@ public class SentiTool {
 		System.out.println("Choose an option: \n\t1) Run SentiStrength with against a file/Stdin." +
 				"\n\t2) Train SentiStrength using a results file");
 		int userChoice = in.nextInt();
-		in.nextLine();
 		switch(userChoice){
 		case 1:
 			System.out.println("Please enter text to be analyzed:");
@@ -32,8 +31,8 @@ public class SentiTool {
 			break;
 		case 2:
 			System.out.println("Reached");
-			break;
 		}
+		
 	}
 	
 	/**

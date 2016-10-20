@@ -32,8 +32,8 @@ public class SentiTool {
 			break;
 		case 2:
 			System.out.println("Reached");
-			break;
 		}
+		
 	}
 	
 	/**
