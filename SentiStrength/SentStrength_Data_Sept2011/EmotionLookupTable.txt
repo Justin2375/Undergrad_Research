@@ -15,6 +15,7 @@ absurd*	-2	Feb-11
 abuse*	-4	
 abusi*	-4	removed accept	1	accepta*	2	accepted	2	accepting	2	accepts	2	
 abyss	-2	General Inquirer Feb 2010
+access	1	FDA Comp Terms
 accident*	-2	General Inquirer Feb 2010
 accomplish*	2	Hannes GI add
 accost*	-2	General Inquirer Feb 2010
