@@ -37,9 +37,7 @@ public class SentiTool {
 	}
 	
 	/**
-	 * Method that allows for the passing of text or a file to SentiStrength.  This
-	 * also will give the user the ability to ask for the results to be explained.
-	 * That can be helpful when correcting misinterpreted text.
+	 * Method that allows for the passing of text or a file to SentiStrength
 	 * @param userInput String or file path for the text to be examined
 	 * @param explainFLag String that determines if the user wants the results explained
 	 * */
