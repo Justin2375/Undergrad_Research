@@ -1364,6 +1364,7 @@ lame*	-3
 lament*	-2	General Inquirer Feb 2010
 languish	-2	General Inquirer Feb 2010
 lapse	-2	General Inquirer Feb 2010
+latency	-2	FDA Comp. Terms
 laugh*	2	27 July 2009 change from 2
 laughable	-2	Feb-11
 laughingstock*	-3	kev add
@@ -1501,7 +1502,9 @@ mocked	-3
 mocker*	-3	
 mocking	-3	
 mockingbird	1	kev add
-mocks	-3	
+mocks	-3
+modeling	2	FDA Comp. Terms	
+modul*	2	FDA Comp. Terms
 mogoloid	-2	Feb-11
 molest*	-4	
 momentous	3	Hannes GI add
@@ -1551,6 +1554,7 @@ nimble	2	Hannes GI add
 nincompoop	-2	Feb-11
 ninny	-2	Feb-11
 nix	-2	General Inquirer Feb 2010
+node	1	FDA Comp. Terms
 noise	-1	General Inquirer Feb 2010
 nonchalant	-1	General Inquirer Feb 2010
 nonsens*	-2	Feb-11
@@ -1568,6 +1572,7 @@ numpty	-2	Feb-11
 nurtur*	1	
 nutcase*	-2	Feb-11
 nutter*	-2	new
+null	-1	FDA Comp. Terms
 oaf	-2	Feb-11
 obes*	-2	Feb-11
 objection*	-2	General Inquirer Feb 2010
@@ -1599,6 +1604,7 @@ omit	-2	General Inquirer Feb 2010
 openminded*	1	
 openness	1	
 opinionated	-2	General Inquirer Feb 2010
+opperator	1	FDA Comp. Terms
 opponent	-2	General Inquirer Feb 2010
 opportun*	1	
 oppose	-2	General Inquirer Feb 2010
@@ -1623,7 +1629,7 @@ outrag*	-3
 outsider*	-2	General Inquirer Feb 2010
 outstanding	3	Hannes GI add
 overbearing	-2	General Inquirer Feb 2010
-overflow*	-2	General Inquirer Feb 2010
+overflow*	-4	General Inquirer Feb 2010
 overjoyed	5	Hannes GI add
 overlook*	-2	General Inquirer Feb 2010
 overpower*	-2	General Inquirer Feb 2010
@@ -1635,6 +1641,7 @@ overweight	-2	Feb-11
 overwhelm*	-3	
 overwork*	-2	General Inquirer Feb 2010
 owe	-2	General Inquirer Feb 2010
+pag*	1	FDA Comp. Terms
 pain	-4	
 pained	-2	
 painf*	-4	
@@ -1650,16 +1657,19 @@ pampers	1	kev add
 pandemonium	-2	General Inquirer Feb 2010
 panic*	-3	
 paradise	4	
+parallel	3	FDA Comp. Terms
 paralysis	-2	General Inquirer Feb 2010
 paralyzed	-2	General Inquirer Feb 2010
 paranoi*	-3	
 parasit*	-3	General Inquirer Feb 2010
+parity	1	FDA Comp. Terms
 partie*	1	
 partition*	-2	General Inquirer Feb 2010
 party*	1	
 passe	-2	General Inquirer Feb 2010
 passion*	3	
 pathetic*	-3	
+patch	2	FDA Comp. Terms
 peace*	1	
 peculiar*	-1	
 perfect*	2	
@@ -1675,6 +1685,7 @@ pest	-2	General Inquirer Feb 2010
 petrif*	-4	
 pettie*	-1	
 petty*	-1	
+perform	2	FDA Comp. Terms
 phobi*	-3	
 picturesque	2	Hannes GI add
 piffle	-2	Feb-11
@@ -1718,6 +1729,7 @@ prannock*	-2	Feb-11
 prat	-2	Feb-11
 precarious*	-2	General Inquirer Feb 2010
 precious*	3	
+precision	3	FDA Comp. Terms
 precipitate*	-2	General Inquirer Feb 2010
 predicament*	-2	General Inquirer Feb 2010
 prejudic*	-3	
@@ -1743,6 +1755,7 @@ prod	-2	General Inquirer Feb 2010
 profit*	2	kev mod
 profiteer*	-2	kev mod
 profitless*	-2	kev mod
+program	1	FDA Comp. Terms
 prohibit*	-2	General Inquirer Feb 2010
 promis*	2	
 promiscu*	-2	kev mod
@@ -1758,6 +1771,7 @@ provocation*	-2	General Inquirer Feb 2010
 provoke	-2	General Inquirer Feb 2010
 prowl*	-2	General Inquirer Feb 2010
 pry*	-2	General Inquirer Feb 2010
+psuedo	1	FDA Comp. Terms
 puk*	-3	
 puka	3	kev add
 pukka	3	kev add
@@ -1806,6 +1820,7 @@ rebut*	-2	Feb-11
 recalcitrant	-2	General Inquirer Feb 2010
 recede	-2	General Inquirer Feb 2010
 recession*	-2	General Inquirer Feb 2010
+recursion	1	FDA Comp. Terms 
 reckless*	-2	General Inquirer Feb 2010
 recoil	-2	General Inquirer Feb 2010
 redundan*	-2	General Inquirer Feb 2010
@@ -1821,6 +1836,8 @@ reject*	-2
 rejoice	4	Hannes GI add
 relapse	-2	General Inquirer Feb 2010
 relax*	3	
+release	2	FDA Comp. Terms
+reliability	3	FDA Comp. Terms
 relief	2	
 reliev*	2	
 reluctan*	-2	
@@ -1835,6 +1852,7 @@ repudiate*	-2	General Inquirer Feb 2010
 repugnan*	-3	General Inquirer Feb 2010
 repulse	-2	General Inquirer Feb 2010
 repulsive	-4	General Inquirer Feb 2010
+require*	1	FDA Comp. Terms
 resent*	-3	
 resign*	-2	
 resignation*	-2	General Inquirer Feb 2010
@@ -1851,6 +1869,7 @@ retreat*	-2	General Inquirer Feb 2010
 revenge*	-2	
 revere	2	Hannes GI add
 revert*	-2	General Inquirer Feb 2010
+review	1	
 revigor*	2	
 revitalize	2	Hannes GI add
 revoke*	-2	General Inquirer Feb 2010
