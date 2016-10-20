@@ -262,6 +262,7 @@ boring*	-2
 bother*	-2	
 bountiful	2	Hannes GI add
 brag*	-2	General Inquirer Feb 2010
+branch	2	FDA Comp. Terms
 brandish*	-2	General Inquirer Feb 2010
 brat	-2	General Inquirer Feb 2010
 bravado	-2	General Inquirer Feb 2010
@@ -361,6 +362,7 @@ cock	-2	Feb-11
 cockiness	-2	General Inquirer Feb 2010
 cocksucker*	-4	Feb-11
 cocky	-2	General Inquirer Feb 2010
+coding	3	FDA Comp Terms
 coerc*	-3	General Inquirer Feb 2010
 cold*	-2	General Inquirer Feb 2010
 collapse*	-2	General Inquirer Feb 2010
@@ -374,14 +376,18 @@ comedown*	-2	kev
 comfort*	2	kev change removed	commitment*	2
 comfortless*	-3	kev
 commemorate*	-2	Feb-11
+comment	1	FDA Comp Terms 
 commiseration	-2	General Inquirer Feb 2010
 commit	1	kev mod
 commoner	-2	General Inquirer Feb 2010
 commonplace	1	kev mod
 commotion	-2	General Inquirer Feb 2010
 compassion*	2	
+compatible	3	FDA Comp Terms 
 compel	-2	General Inquirer Feb 2010
+compilation	1	FDA Comp Terms
 complain*	-2	
+complexity	-1	FDA Comp Terms
 complicate*	-2	General Inquirer Feb 2010
 complication*	-2	General Inquirer Feb 2010
 complicity	-2	General Inquirer Feb 2010
@@ -413,6 +419,7 @@ congratulate*	2	Hannes GI add
 congratulation*	3	Hannes GI add
 congratulatory	2	Hannes GI add
 considerate	2	
+consistency	3	FDA Comp Terms
 conspiracy	-2	General Inquirer Feb 2010
 conspirator*	-2	General Inquirer Feb 2010
 conspire*	-2	General Inquirer Feb 2010
@@ -437,7 +444,7 @@ corrode	-2	General Inquirer Feb 2010
 corrosion	-2	General Inquirer Feb 2010
 corrosive*	-2	General Inquirer Feb 2010
 corrupt*	-3	General Inquirer Feb 2010
-corruption	-3	General Inquirer Feb 2010
+corruption	-4	General Inquirer Feb 2010
 cosi*	2	kev
 costliness	-2	General Inquirer Feb 2010
 costly	-2	General Inquirer Feb 2010
@@ -458,6 +465,7 @@ cramp*	-2	General Inquirer Feb 2010
 cranky	-2	General Inquirer Feb 2010
 crap	-3	
 crappy	-3	
+crash	-4	FDA Comp terms
 crass	-2	General Inquirer Feb 2010
 crave*	-2	General Inquirer Feb 2010
 crawl*	-1	General Inquirer Feb 2010
@@ -525,6 +533,7 @@ dearth	-2	General Inquirer Feb 2010
 death*	-3	Feb-11
 debatable	-2	General Inquirer Feb 2010
 debtor*	-2	General Inquirer Feb 2010
+debugging	-1	FDA Comp Terms
 decadence	-2	General Inquirer Feb 2010
 decadent*	-2	General Inquirer Feb 2010
 decay*	-2	Feb-11
@@ -541,8 +550,8 @@ defam*	-2	General Inquirer Feb 2010
 default	-2	General Inquirer Feb 2010
 defeat*	-1	
 defeatis*	-2	kev
-defect*	-2	
-defective*	-3	kev
+defect*	-3	
+defective*	-4	kev
 defenc*	-1	removed	defens*	-1	definite	2	definitely	2
 defendant*	-2	General Inquirer Feb 2010
 defensive*	-2	General Inquirer Feb 2010
@@ -593,6 +602,7 @@ derogatory	-2	General Inquirer Feb 2010
 desert	-1	General Inquirer Feb 2010
 deserting	-2	General Inquirer Feb 2010
 desertion*	-2	General Inquirer Feb 2010
+design	2	FDA Comp Terms
 desirable	4	Hannes GI add
 desolate	-2	General Inquirer Feb 2010
 desolation	-2	General Inquirer Feb 2010
@@ -616,6 +626,7 @@ detract*	-2	General Inquirer Feb 2010
 detrimental	-2	General Inquirer Feb 2010
 devastat*	-5	kev mod
 devastate	-3	kev mod
+developer	2	FDA Comp Terms
 deviate	-2	General Inquirer Feb 2010
 deviation	-2	General Inquirer Feb 2010
 devil*	-2	
@@ -623,6 +634,7 @@ devious*	-2	General Inquirer Feb 2010 kev mod
 devoid	-2	General Inquirer Feb 2010
 devot*	3	
 diabolic*	-2	General Inquirer Feb 2010
+diagnostic	-1	FDA Comp terms
 dickhead*	-2	Feb-11
 dictate	-2	General Inquirer Feb 2010
 dictatorial	-2	General Inquirer Feb 2010
@@ -711,6 +723,7 @@ division	-2	General Inquirer Feb 2010
 divorce*	-2	General Inquirer Feb 2010
 dizziness	-2	General Inquirer Feb 2010
 dizzy	-2	General Inquirer Feb 2010
+documentation	2	FDA Comp. Terms
 doldrums	-2	General Inquirer Feb 2010
 dolt	-2	Feb-11
 dominate*	-2	General Inquirer Feb 2010
@@ -762,6 +775,7 @@ easygoing*	2	kev mod
 eccentric	-2	General Inquirer Feb 2010
 eccentricity	-2	General Inquirer Feb 2010
 ecsta*	4	removed	efficien*	2
+edit	-1	FDA Comp. Terms
 eejit	-3	Feb-11
 egotis*	-3	
 elegan*	2	
@@ -773,6 +787,7 @@ emergency	-2	General Inquirer Feb 2010
 emotional	-2	
 empt*	-1	
 emptiness	-3	kev mod
+encapsulation	1	FDA Comp. Terms
 encourag*	2	
 encroach*	-2	General Inquirer Feb 2010
 endanger*	-2	General Inquirer Feb 2010
@@ -801,7 +816,7 @@ erode*	-2	General Inquirer Feb 2010
 erosion	-2	General Inquirer Feb 2010
 err	-2	General Inquirer Feb 2010
 erroneous*	-2	General Inquirer Feb 2010
-error*	-2	General Inquirer Feb 2010
+error*	-3	General Inquirer Feb 2010
 esoteric	-2	General Inquirer Feb 2010
 estranged	-2	General Inquirer Feb 2010
 evade*	-2	General Inquirer Feb 2010
@@ -844,6 +859,7 @@ fabricat*	-2	General Inquirer Feb 2010
 fabulous*	3	
 faggot	-2	Feb-11
 fail*	-3	
+failure	-4	FDA Comp. Terms
 faint	-2	General Inquirer Feb 2010
 faith*	2	
 faithless*	-3	kev add
@@ -864,7 +880,7 @@ fatal*	-3
 fathead*	-3	Feb-11
 fatigu*	-3	
 fatty	-2	Feb-11
-fault*	-2	
+fault*	-4	
 favor*	2	
 favoritism*	-2	kev add
 favour*	2	
@@ -892,6 +908,7 @@ fierce*	-3	General Inquirer Feb 2010
 fiery	-2	
 fiesta*	1	
 fight*	-3	
+file	1	FDA Comp Terms
 filth	-4	Feb-11
 filthy	-2	General Inquirer Feb 2010
 fine	3	auto check 4 aug 2009
@@ -1068,6 +1085,7 @@ happi*	3
 happy	2	27 July 2009 down from +3
 harass*	-3	
 hardship*	-2	General Inquirer Feb 2010
+hardware	1	FDA Comp Terms
 harm	-3	
 harmed	-3	
 harmful*	-2	
@@ -1196,6 +1214,7 @@ impediment	-2	General Inquirer Feb 2010
 imperfect*	-2	General Inquirer Feb 2010
 impersonal	-1	
 impetuous*	-2	General Inquirer Feb 2010
+implementation	1	FDA Comp Terms
 implicate	-2	General Inquirer Feb 2010
 implore	-2	General Inquirer Feb 2010
 impolite*	-3	
@@ -1244,6 +1263,7 @@ infamous*	-2	General Inquirer Feb 2010
 infect*	-2	General Inquirer Feb 2010
 inferior* 	-2	
 infest*	-3	General Inquirer Feb 2010
+infeasible	-3	FDA Comp. Terms
 infiltrat*	-2	General Inquirer Feb 2010
 inflame*	-2	General Inquirer Feb 2010
 inflation	-2	General Inquirer Feb 2010
@@ -1269,13 +1289,16 @@ insinuat*	-2	General Inquirer Feb 2010
 insolence	-2	General Inquirer Feb 2010
 insolent	-2	General Inquirer Feb 2010
 inspir*	3	
+inspection	-1	FDA Comp. Terms
 instability	-2	General Inquirer Feb 2010
 instable	-2	General Inquirer Feb 2010
+instrumentation	2	FDA Comp. Terms
 insufficien*	-2	General Inquirer Feb 2010
 insult*	-3	
 intellect	1	kev add
 intelligent*	2	kev add/mod
 intelligib*	1	kev add
+interactive	3	FDA Comp. Terms
 interest*	2	
 interfer*	-2	General Inquirer Feb 2010
 interrup*	-2	
@@ -1287,7 +1310,7 @@ intrud*	-2	General Inquirer Feb 2010
 intrusion*	-2	General Inquirer Feb 2010
 inundate*	-2	General Inquirer Feb 2010
 invade*	-2	General Inquirer Feb 2010
-invalid*	-2	General Inquirer Feb 2010
+invalid*	-3	General Inquirer Feb 2010
 invigor*	2	
 invisible	-2	General Inquirer Feb 2010
 involuntary	-2	General Inquirer Feb 2010
