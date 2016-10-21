@@ -24,17 +24,15 @@ public class SentiTool {
 		switch(userChoice){ 
 		case 1:
 			System.out.println("Please enter text to be analyzed:");
-			textOrFile = in.nextLine(); // Read file path
+			textOrFile = in.nextLine();
 			while(explainStat != 'y' && explainStat != 'n'){
 				System.out.println("Would you like to have the results explained?[y/n]");
-				explainStat = in.next().charAt(0); // Gets the user's response 
+				explainStat = in.next().charAt(0);
 			}
 			execSentiStrength(textOrFile, explainStat); // Makes a call that runs SentiStrength with the given data
 			break;
 		case 2:
 			System.out.println("Please enter the file path to train SentiStrength:");
-			textOrFile = in.nextLine(); // Read file path
-			trainSentiStrength(textOrFile); // Sends the file path to the method to create the command to train SentiStrength
 			break;
 		}
 	}
@@ -74,7 +72,7 @@ public class SentiTool {
 	 * @param filePath Path of the file that contains result information
 	 * */
 	public static void trainSentiStrength(String filePath){
-		// Creates the list for creating the command to run training on SentiStrength
+		// Creates the list where 
 		sshInitializationAndText = new ArrayList<String>();
 		sshInitializationAndText.add("sentidata");
 		sshInitializationAndText.add(SENTI_DATA_PATH);
