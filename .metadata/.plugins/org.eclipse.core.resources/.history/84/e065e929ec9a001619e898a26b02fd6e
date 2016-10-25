@@ -36,14 +36,7 @@ public class SentimentTest {
 		return oracle;
 	}
 	
-	/**
-	 * Constructor for the SentiStrength runner program.
-	 * This will take in a .csv file containing the human codedd
-	 * values, comments, and the comment number to be processed by
-	 * SentiStrength.
-	 * @param oracleFile  .csv file that will be read like a DB table containing comments, comment number, 
-	 * and the human coded final rating.
-	 */
+	
 	public SentimentTest(String oracleFile){
 		SentiStrength sentiStrength = new SentiStrength(); 
 		String ssthInitialisation[] = {"sentidata", "./data/","trinary"};
@@ -61,7 +54,6 @@ public class SentimentTest {
 				
 				int rating=Integer.parseInt(sentiResult[2]);
 				
-				// Increment the number of correct answers if the human code value and sentiment value are equivalent 
 				if(comment.getRating()==rating)
 					numCorrect++;								
 			}
