@@ -21,10 +21,12 @@ public class SentimentTest {
 	
 	public ArrayList<RatedComment> readCSVFile(String fileName) throws IOException{
 		
+		// Reader created for the file
 		CSVReader reader = new CSVReader(new FileReader(fileName));
 	    
+		// ArrayList of type RatedComment will store the comments from the .csv file 
 		ArrayList<RatedComment> oracle=new ArrayList<RatedComment>();
-		String [] nextLine;
+		String [] nextLine; 
 	        
 	    
 	    while ((nextLine = reader.readNext()) != null) {
