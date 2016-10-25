@@ -24,13 +24,6 @@ public class RatedComment {
 		return comments;
 	}
 	
-	/**
-	 * Constructor for each of the scraped comments.
-	 * Each comment will be of this object type which
-	 * will store the comment and it's final rating.
-	 * @param comments The body of the comment
-	 * @param rating The final rating of the comment 
-	 */
 	public RatedComment(String comments, int rating){
 		this.comments=comments;
 		this.rating=rating;
