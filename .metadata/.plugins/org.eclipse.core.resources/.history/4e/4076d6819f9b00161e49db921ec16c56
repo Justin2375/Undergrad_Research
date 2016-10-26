@@ -92,6 +92,7 @@ public class SentimentTest {
 			}
 			writer.close();
 			
+			
 			// Compute the acurracy of SentiStrength by taking the given result divided by the human coded result
 			float accuracy = ((float)numCorrect/(float)numComment) * 100;
 			

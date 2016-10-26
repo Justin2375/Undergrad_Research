@@ -69,18 +69,21 @@ public class SentimentTest {
 		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
-			writer = new CSVWriter(new FileWriter("indv_results.csv"));
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
+				
 				// Create array from individual result
-				for(int i = 0; i < result.length; i++){
-					if(i < result.length-1)
+				for(int i = 0; i <= result.length; i++){
+					if(i < result.length)
 						result[i] = sentiResult[i];
 					else
 						result[i] = comment.getComments();
 				}
+				
+				writer = new CSVWriter(new FileWriter("indv_results.csv"));
 				writer.writeNext(result);
+				
 				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
 				
 				// Parse the human coded rating from the .csv file
@@ -90,7 +93,7 @@ public class SentimentTest {
 				if(comment.getRating()==rating)
 					numCorrect++;								
 			}
-			writer.close();
+			
 			
 			// Compute the acurracy of SentiStrength by taking the given result divided by the human coded result
 			float accuracy = ((float)numCorrect/(float)numComment) * 100;

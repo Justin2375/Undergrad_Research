@@ -19,11 +19,7 @@ import uk.ac.wlv.sentistrength.SentiStrength;
  * @author jakereed
  *
  */
-
 public class SentimentTest {
-	
-	private CSVWriter writer;
-	private String[] result = new String[3];
 	
 	/**
 	 * Reads the .csv file as an input to the program 
@@ -48,8 +44,19 @@ public class SentimentTest {
 		return oracle;
 	}
 	
-	public void writeIndividualResultsToFile(String[] result, CSVWriter writer) throws IOException{
-		writer.writeNext(result);
+	/**
+	 * Writes individual sentiment results to a .csv file for
+	 * better understanding of how SentiStrength is scoring comments.
+	 * Will be handy in optimizing SentiStrength.
+	 * @param posSentiment Positive sentiment score given to the comment
+	 * @param negSentiment Negative Sentiment score given to the comment
+	 * @param comBody The comment itself
+	 * @throws IOException Thrown if the file does not exist
+	 */
+	public void writeIndividualResultsToFile(String posSentiment, String negSentiment, String comBody) throws IOException{
+		CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), '\t');
+		String[] individualResult = {posSentiment, negSentiment, comBody};
+		writer.writeNext((String[]) individualResult);
 	}
 	
 	/**
@@ -69,18 +76,11 @@ public class SentimentTest {
 		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
-			writer = new CSVWriter(new FileWriter("indv_results.csv"));
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
-				// Create array from individual result
-				for(int i = 0; i < result.length; i++){
-					if(i < result.length-1)
-						result[i] = sentiResult[i];
-					else
-						result[i] = comment.getComments();
-				}
-				writer.writeNext(result);
+				
+				writeIndividualResultsToFile(sentiResult[0], sentiResult[1], comment.getComments());
 				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
 				
 				// Parse the human coded rating from the .csv file
@@ -90,7 +90,6 @@ public class SentimentTest {
 				if(comment.getRating()==rating)
 					numCorrect++;								
 			}
-			writer.close();
 			
 			// Compute the acurracy of SentiStrength by taking the given result divided by the human coded result
 			float accuracy = ((float)numCorrect/(float)numComment) * 100;
