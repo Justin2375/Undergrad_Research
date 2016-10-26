@@ -73,7 +73,7 @@ public class SentimentTest {
 		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
-			CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), '\t');
+			CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), ',');
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
