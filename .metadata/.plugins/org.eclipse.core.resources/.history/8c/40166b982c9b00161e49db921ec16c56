@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -74,8 +73,6 @@ public class SentimentTest {
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
-				
-				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
 				
 				// Parse the human coded rating from the .csv file
 				int rating = Integer.parseInt(sentiResult[2]);

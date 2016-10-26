@@ -75,7 +75,7 @@ public class SentimentTest {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
 				
-				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
+				System.out.println(Arrays.toString(sentiResult));
 				
 				// Parse the human coded rating from the .csv file
 				int rating = Integer.parseInt(sentiResult[2]);
