@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-//import java.util.Arrays; DEBUGGING
+import java.util.Arrays;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -48,10 +48,10 @@ public class SentimentTest {
 	 * Writes individual sentiment results to a .csv file for
 	 * better understanding of how SentiStrength is scoring comments.
 	 * Will be handy in optimizing SentiStrength.
-	 * @param posSentiment Positive sentiment score given to the comment
-	 * @param negSentiment Negative Sentiment score given to the comment
-	 * @param comBody The comment itself
-	 * @throws IOException Thrown if the file does not exist
+	 * @param posSentiment Positive sentiment score given to to comment
+	 * @param negSentiment
+	 * @param comBody
+	 * @throws IOException
 	 */
 	public void writeIndividualResultsToFile(int posSentiment, int negSentiment, String comBody) throws IOException{
 		CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), '\t');
