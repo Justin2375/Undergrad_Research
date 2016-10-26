@@ -48,9 +48,17 @@ public class SentimentTest {
 		return oracle;
 	}
 	
-	
-	public void constructCSVListRow(int posSentiment, int negSentiment, String comBody){
-		row.add(new ResultRowItem(posSentiment, negSentiment, comBody));
+	/**
+	 * Takes the results from each comment and writes them
+	 * to a file. This allows for better analysis of where
+	 * SentiStrength might need to be improved
+	 * @param posSentiment
+	 * @param negSentiment
+	 * @param writer
+	 * @throws IOException
+	 */
+	public void constructCSVList(int posSentiment, int negSentiment, String comBody){
+		
 	}
 	
 	/**

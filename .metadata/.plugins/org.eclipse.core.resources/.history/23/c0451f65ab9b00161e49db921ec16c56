@@ -48,7 +48,6 @@ public class SentimentTest {
 		return oracle;
 	}
 	
-	
 	public void constructCSVListRow(int posSentiment, int negSentiment, String comBody){
 		row.add(new ResultRowItem(posSentiment, negSentiment, comBody));
 	}

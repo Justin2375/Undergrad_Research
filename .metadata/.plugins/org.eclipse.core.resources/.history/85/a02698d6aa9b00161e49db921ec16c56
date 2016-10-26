@@ -1,0 +1,5 @@
+package edu.siu.sentiment;
+
+public class ResultRowItem {
+
+}

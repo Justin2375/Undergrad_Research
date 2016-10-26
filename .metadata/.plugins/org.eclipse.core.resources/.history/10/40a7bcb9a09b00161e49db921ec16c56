@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-//import java.util.Arrays; //DEBUGGING
+//import java.util.Arrays; DEBUGGING
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -23,7 +23,7 @@ import uk.ac.wlv.sentistrength.SentiStrength;
 public class SentimentTest {
 	
 	private CSVWriter writer;
-	ArrayList<ResultRowItem> row = new ArrayList<ResultRowItem>();
+	private String[] result = new String[3];
 	
 	/**
 	 * Reads the .csv file as an input to the program 
@@ -48,9 +48,17 @@ public class SentimentTest {
 		return oracle;
 	}
 	
-	
-	public void constructCSVListRow(int posSentiment, int negSentiment, String comBody){
-		row.add(new ResultRowItem(posSentiment, negSentiment, comBody));
+	/**
+	 * Takes the results from each comment and writes them
+	 * to a file. This allows for better analysis of where
+	 * SentiStrength might need to be improved
+	 * @param posSentiment
+	 * @param negSentiment
+	 * @param writer
+	 * @throws IOException
+	 */
+	public void writeResultsToCSV(String posSentiment, String negSentiment, CSVWriter writer) throws IOException{
+		
 	}
 	
 	/**
@@ -70,7 +78,7 @@ public class SentimentTest {
 		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
-			writer = new CSVWriter(new FileWriter("indv_results.csv"), ',', '\t');
+			writer = new CSVWriter(new FileWriter("indv_results.csv"));
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
@@ -81,7 +89,7 @@ public class SentimentTest {
 					else
 						result[i] = comment.getComments();
 				}
-				writer.writeNext(result.split(","));
+				writer.writeNext(result);
 				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
 				
 				// Parse the human coded rating from the .csv file
