@@ -43,12 +43,6 @@ public class SentimentTest {
 		return oracle;
 	}
 	
-	/**
-	 * Function writes the individual results to file.
-	 * This is useful for noticing where the issues lie with
-	 * SnetiStrength's analysis is.
-	 * @throws IOException Thrown if the file does not exist or cannot be written to.
-	 */
 	public void writeIndividualResultsToFile() throws IOException{
 		CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), '\t');
 	}

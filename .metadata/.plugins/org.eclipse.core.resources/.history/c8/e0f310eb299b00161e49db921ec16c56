@@ -32,8 +32,8 @@ public class RatedComment {
 	 * @param rating The final rating of the comment 
 	 */
 	public RatedComment(String comments, int rating){
-		this.comments = comments;
-		this.rating = rating;
+		this.comments=comments;
+		this.rating=rating;
 	}
 	
 }

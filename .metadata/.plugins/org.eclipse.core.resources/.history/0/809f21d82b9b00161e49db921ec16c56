@@ -4,7 +4,6 @@
 package edu.siu.sentiment;
 
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -43,14 +42,8 @@ public class SentimentTest {
 		return oracle;
 	}
 	
-	/**
-	 * Function writes the individual results to file.
-	 * This is useful for noticing where the issues lie with
-	 * SnetiStrength's analysis is.
-	 * @throws IOException Thrown if the file does not exist or cannot be written to.
-	 */
-	public void writeIndividualResultsToFile() throws IOException{
-		CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), '\t');
+	public {
+		CSVWriter writer = new CSVWriter(new FileWriter(), ',');
 	}
 	
 	/**
