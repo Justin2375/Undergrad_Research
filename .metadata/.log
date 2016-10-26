@@ -586,3 +586,12 @@ Caused by: java.lang.IllegalArgumentException: Argument not valid
 
 !ENTRY com.google.gdt.eclipse.suite 1 0 2016-10-25 17:45:43.109
 !MESSAGE Registering: com.google.gwt.eclipse.sdkbundle_2.6.0
+!SESSION 2016-10-25 21:57:14.624 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-10-25 21:57:33.870
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

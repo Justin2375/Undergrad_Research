@@ -1,0 +1,101 @@
+import java.io.FileNotFoundException;
+import java.util.*;
+import uk.ac.wlv.sentistrength.*;
+
+
+public class SentiTool {
+
+	/**
+	 * @param args
+	 * @author jacob reed
+	 * @category sentiment analysis
+	 */
+	
+	private static final String SENTI_DATA_PATH = "/home/jacob/Development/Undergrad_Research/SentiStrength/SentStrength_Data_Sept2011/";
+	private static String mode, textOrFile;
+	private static char explainStat = ' ';
+	private static Scanner in = new Scanner(System.in); // This will read user input and will allow 
+	private static ArrayList<String> sshInitializationAndText;
+	
+	public static void main(String[] args) {
+		System.out.println("Choose an option: \n\t1) Run SentiStrength with against a file/Stdin." +
+				"\n\t2) Train SentiStrength using a results file");
+		int userChoice = in.nextInt();
+		in.nextLine(); // Clear Scanner buffer
+		switch(userChoice){ 
+		case 1:
+			System.out.println("Please enter text to be analyzed:");
+			textOrFile = in.nextLine(); // Read file path
+			while(explainStat != 'y' && explainStat != 'n'){
+				System.out.println("Would you like to have the results explained?[y/n]");
+				explainStat = in.next().charAt(0); // Gets the user's response 
+			}
+			execSentiStrength(textOrFile, explainStat); // Makes a call that runs SentiStrength with the given data
+			break;
+		case 2:
+			System.out.println("Please enter the file path to train SentiStrength:");
+			textOrFile = in.nextLine(); // Read file path
+			try {
+				trainSentiStrength(textOrFile);
+			} catch (NullPointerException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Error: Could not locate file "+textOrFile);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Error");
+			}
+			break;
+		}
+	}
+	
+	/**
+	 * Method that allows for the passing of text or a file to SentiStrength.  This
+	 * also will give the user the ability to ask for the results to be explained.
+	 * That can be helpful when correcting misinterpreted text.
+	 * @param userInput String or file path for the text to be examined
+	 * @param explainFLag String that determines if the user wants the results explained
+	 * */
+	public static void execSentiStrength(String userInput, char explainFlag){
+		//Creates the list where the the various parts of the command to run SentiStrength will be stored
+		sshInitializationAndText = new ArrayList<String>();
+		sshInitializationAndText.add("sentidata");
+		sshInitializationAndText.add(SENTI_DATA_PATH);
+		sshInitializationAndText.add("text"); 
+		sshInitializationAndText.add(userInput); 
+		
+		// Checks to see if the user wishes to have the results explained to them
+		if(explainFlag == 'y'){
+			sshInitializationAndText.add("explain");
+		}
+	
+		// Converts the list to  a string form to be passed as the input 
+		String cliArgs[] = sshInitializationAndText.toArray(new String[sshInitializationAndText.size()]);
+		
+		// Runs SentiStrength using the user declared variables 
+		SentiStrength.main(cliArgs); 
+	}
+	
+	/**
+	 * Allows SentiStrength to be trained against the gathered results from
+	 * a previous test or manually calculated results.  File should be passed
+	 * as a text file to this method. 
+	 * @return void
+	 * @param filePath Path of the file that contains result information
+	 * */
+	public static void trainSentiStrength(String filePath) throws FileNotFoundException{
+		
+		// Creates the list for creating the command to run training on SentiStrength
+		sshInitializationAndText = new ArrayList<String>();
+		sshInitializationAndText.add("sentidata");
+		sshInitializationAndText.add(SENTI_DATA_PATH);
+		sshInitializationAndText.add("input");
+		sshInitializationAndText.add(filePath);
+		sshInitializationAndText.add("train");
+		
+		// Create a string from the list
+		String cliArgs[] = sshInitializationAndText.toArray(new String[sshInitializationAndText.size()]);
+		
+		// Execute SentiStrength
+		SentiStrength.main(cliArgs);
+	}
+}
