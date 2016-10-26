@@ -1,0 +1,5 @@
+"2"	"-3"	"Patch Set 4:
+
+I uploaded a patch set 4 which uses a VariableFrontend for TCA caching.
+
+But now the test ""loadBaseTcaCreatesCacheFileWithContentOfAnExtensionsConfigurationTcaPhpFile"" fails."

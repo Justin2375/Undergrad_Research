@@ -53,8 +53,11 @@ public class SentimentTest {
 	 * @param comBody The comment itself
 	 * @throws IOException Thrown if the file does not exist
 	 */
-	public void writeIndividualResultsToFile(int posSentiment, int negSentiment, String comBody) throws IOException{
+	public void writeIndividualResultsToFile(String posSentiment, String negSentiment, String comBody) throws IOException{
 		CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), '\t');
+		String[] individualResult = {posSentiment, negSentiment, comBody};
+		writer.writeNext((String[]) individualResult);
+		writer.close();
 	}
 	
 	/**
@@ -78,6 +81,7 @@ public class SentimentTest {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
 				
+				writeIndividualResultsToFile(sentiResult[0], sentiResult[1], comment.getComments());
 				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
 				
 				// Parse the human coded rating from the .csv file
