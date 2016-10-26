@@ -17,15 +17,10 @@ import uk.ac.wlv.sentistrength.SentiStrength;
  *
  */
 public class SentimentTest {
+
 	
-	/**
-	 * Reads the .csv file as an input to the program 
-	 * to be used against SentiStrength.
-	 * @param fileName .csv file that will be used for human coded data 
-	 * @return The array list that has the information regarding comments and human coded values
-	 * @throws IOException Thrown when there is an issue reading the file or one does not exist
-	 */
 	public ArrayList<RatedComment> readCSVFile(String fileName) throws IOException{
+		
 		// Reader created for the file
 		CSVReader reader = new CSVReader(new FileReader(fileName));
 	    
@@ -33,10 +28,12 @@ public class SentimentTest {
 		ArrayList<RatedComment> oracle=new ArrayList<RatedComment>();
 		String [] nextLine; 
 	        
-	    // Read from the file until all comments have been read
+	    
 	    while ((nextLine = reader.readNext()) != null) {
+	        
 	    	RatedComment comment= new RatedComment(nextLine[1], Integer.parseInt(nextLine[2]));
 	    	oracle.add(comment);
+	        
 	     }
 		return oracle;
 	}
@@ -53,17 +50,18 @@ public class SentimentTest {
 		SentiStrength sentiStrength = new SentiStrength(); 
 		String ssthInitialisation[] = {"sentidata", "./data/","trinary"};
 		sentiStrength.initialise(ssthInitialisation); 
-		int numComment = 0;
-		int numCorrect = 0;
+		int numComment=0;
+		int numCorrect=0;
 		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
-			for(RatedComment comment : commentOracle ) {
+			
+			for(RatedComment comment : commentOracle )
+			{
 				numComment++;
 				String[] sentiResult=sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
 				
-				// Parse the human coded rating from the .csv file
-				int rating = Integer.parseInt(sentiResult[2]);
+				int rating=Integer.parseInt(sentiResult[2]);
 				
 				// Increment the number of correct answers if the human code value and sentiment value are equivalent 
 				if(comment.getRating()==rating)

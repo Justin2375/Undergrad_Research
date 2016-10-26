@@ -23,7 +23,7 @@ public class SentimentTest {
 	 * to be used against SentiStrength.
 	 * @param fileName .csv file that will be used for human coded data 
 	 * @return The array list that has the information regarding comments and human coded values
-	 * @throws IOException Thrown when there is an issue reading the file or one does not exist
+	 * @throws IOException
 	 */
 	public ArrayList<RatedComment> readCSVFile(String fileName) throws IOException{
 		// Reader created for the file
