@@ -1,13 +1,10 @@
-/**
- * 
- */
 package edu.siu.sentiment;
 
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-//import java.util.Arrays; //DEBUGGING
+//import java.util.Arrays; DEBUGGING
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -19,11 +16,7 @@ import uk.ac.wlv.sentistrength.SentiStrength;
  * @author jakereed
  *
  */
-
 public class SentimentTest {
-	
-	private CSVWriter writer;
-	ArrayList<ResultRowItem> row = new ArrayList<ResultRowItem>();
 	
 	/**
 	 * Reads the .csv file as an input to the program 
@@ -38,7 +31,7 @@ public class SentimentTest {
 	    
 		// ArrayList of type RatedComment will store the comments from the .csv file 
 		ArrayList<RatedComment> oracle = new ArrayList<RatedComment>();
-		String[] nextLine; 
+		String [] nextLine; 
 	        
 	    // Read from the file until all comments have been read
 	    while ((nextLine = reader.readNext()) != null) {
@@ -48,9 +41,19 @@ public class SentimentTest {
 		return oracle;
 	}
 	
-	
-	public void constructCSVListRow(int posSentiment, int negSentiment, String comBody){
-		row.add(new ResultRowItem(posSentiment, negSentiment, comBody));
+	/**
+	 * Takes in the possitive, negative, and comment
+	 * body to be put into the individual results file.
+	 * This will be handy when optimizing SentiStrength.
+	 * @param posSentiment Possitive sentiment score given to the comment
+	 * @param negSentiment Negative sentiment score given to the comment 
+	 * @param comBody Body of the comment that was analyzed
+	 * @param writer Writer will be responsible for writing the string to the .csv file
+	 * @throws IOException  Thrown when there is an issue reading or finding the file
+	 */
+	public void writeIndividualResultsToFile(String posSentiment, String negSentiment, String comBody, CSVWriter writer) throws IOException{
+		String[] individualResult = {posSentiment, negSentiment, comBody};
+		writer.writeNext(individualResult);
 	}
 	
 	/**
@@ -70,32 +73,22 @@ public class SentimentTest {
 		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
-			writer = new CSVWriter(new FileWriter("indv_results.csv"), ',', '\t');
+			CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), ',');
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
-				// Create array from individual result
-				for(int i = 0; i < result.length; i++){
-					if(i < result.length-1)
-						result[i] = sentiResult[i];
-					else
-						result[i] = comment.getComments();
-				}
-				writer.writeNext(result.split(","));
+				writeIndividualResultsToFile(sentiResult[0], sentiResult[1], comment.getComments(), writer);
 				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
-				
 				// Parse the human coded rating from the .csv file
 				int rating = Integer.parseInt(sentiResult[2]);
-				
 				// Increment the number of correct answers if the human code value and sentiment value are equivalent 
 				if(comment.getRating()==rating)
 					numCorrect++;								
 			}
+			// Close the writer after all individual results have been writen to the file
 			writer.close();
-			
 			// Compute the acurracy of SentiStrength by taking the given result divided by the human coded result
 			float accuracy = ((float)numCorrect/(float)numComment) * 100;
-			
 			// Output the accuracy to the console
 			System.out.println("Total comment "+ numComment+ ", Got accurate: "+numCorrect);
 			System.out.println("Accuracy: "+accuracy);
@@ -104,7 +97,6 @@ public class SentimentTest {
 			System.out.println("ERROR:  Unable to read the file!");
 			e.printStackTrace();
 			return;
-			
 		}
 	}
 	
@@ -116,7 +108,7 @@ public class SentimentTest {
 	 */
 	public static void main(String[] args) {
 		// Create a new test object and run SentiStrength
-		SentimentTest test = new SentimentTest("Sentiment-comments.csv");
+		SentimentTest test=new SentimentTest("Sentiment-comments.csv");
 	}
 
 }
