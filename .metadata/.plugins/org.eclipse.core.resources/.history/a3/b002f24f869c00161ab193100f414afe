@@ -51,7 +51,7 @@ public class SentimentTest {
 	 * @param writer Writer will be responsible for writing the string to the .csv file
 	 * @throws IOException  Thrown when there is an issue reading or finding the file
 	 */
-	public void writeToCSV(String posSentiment, String negSentiment, String comBody, CSVWriter writer) throws IOException{
+	public void writeIndividualResultsToFile(String posSentiment, String negSentiment, String comBody, CSVWriter writer) throws IOException{
 		String[] individualResult = {posSentiment, negSentiment, comBody};
 		writer.writeNext(individualResult);
 	}
@@ -74,11 +74,10 @@ public class SentimentTest {
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
 			CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), ',');
-			writeToCSV("Possitve Sentiment", "Negative Sentiment", "Comment Body", writer);
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
-				writeToCSV(sentiResult[0], sentiResult[1], comment.getComments(), writer);
+				writeIndividualResultsToFile(sentiResult[0], sentiResult[1], comment.getComments(), writer);
 				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
 				// Parse the human coded rating from the .csv file
 				int rating = Integer.parseInt(sentiResult[2]);

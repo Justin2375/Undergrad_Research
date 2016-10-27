@@ -74,11 +74,11 @@ public class SentimentTest {
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
 			CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), ',');
-			writeToCSV("Possitve Sentiment", "Negative Sentiment", "Comment Body", writer);
+			write
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
-				writeToCSV(sentiResult[0], sentiResult[1], comment.getComments(), writer);
+				writeIndividualResultsToFile(sentiResult[0], sentiResult[1], comment.getComments(), writer);
 				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
 				// Parse the human coded rating from the .csv file
 				int rating = Integer.parseInt(sentiResult[2]);
