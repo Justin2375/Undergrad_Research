@@ -74,7 +74,7 @@ public class SentimentTest {
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
 			CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv"), ',');
-			writeToCSV("Possitve Sentiment", "Negative Sentiment", "Total Score", "Comment Body", writer);
+			writeToCSV("Possitve Sentiment", "Negative Sentiment","Total Score", "Comment Body", writer);
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
