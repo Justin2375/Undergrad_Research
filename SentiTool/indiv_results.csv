@@ -1,3 +1,4 @@
+"Possitve Sentiment","Negative Sentiment","Comment Body"
 "1","-1","GSM isn't in the original list which is why it isn't in the enum."
 "2","-1","Since we are not really using any methods from Collections, and only iterating through elements, having String arrays is good enough."
 "1","-2","We very much prefer to not record that information in the source tree, the change history contains that information."
