@@ -108,7 +108,7 @@ However STLPORT_WHITELIST isn't defined yet at this point.
 In config.mk it loads envsetup.mk (which eventually loads the product makefiles) before it defines STLPORT_WHITELIST.
 On the other hand, we can remove libstlport from this file, and add it to specific device's makefile, such as device/asus/flo/device-common.mk. I'd really like to keep the device names out of the build project."
 "1","-1","0","maybe this runnable needs to run after the previous one's onSuccess?"
-"1","-3","-1","We would prefer to keep this.  It is possible for the RILD and radio code to pass the sequence number through into radio state as the request is being acted on - the RILD may notice the socket error and re-establish the connection and then the response comes back from the radio with the old sequence number and get's passed back through the newly-connected RILD.
+"1","-2","-1","We would prefer to keep this.  It is possible for the RILD and radio code to pass the sequence number through into radio state as the request is being acted on - the RILD may notice the socket error and re-establish the connection and then the response comes back from the radio with the old sequence number and get's passed back through the newly-connected RILD.
 
 Just because your implementation may not do this, we can imagine other OEMs passing back obsolete responses that would match a newly-zero'd RIL sequence number and confuse things.
 
@@ -246,7 +246,7 @@ Unfortunately, this increases the diff a lot. Again in language/tables.go. But y
 "1","-2","-1","Omit the err at the end.  Its the result of the last possible test making it probably meaningless and possibly misleading."
 "2","-2","-1","The idea was that if we are in the _GCmark phase and a goroutine is no longer _Grunning then do the scan now instead of waiting and doing it in the STW _GCmarktermination phase. Upon reflection I now have concerns about slowing down the preemption. I'm deleting this until we see a valuable use case."
 "1","-2","-1","Sorry, wasn't paying enough attention to the context (clearly the param is moved to the heap) and instead assumed that if esc was not EscHeap, that therefore it was not ""heap""."
-"1","-3","-1","you should implement a new (private) type here which implements UnmarshalJSON and check for a string or int (not a float64) in your unmarshal func, returning an error if it's unexpected (e.g. a JSON Object or a bool, which you don't handle below)"
+"1","-1","0","you should implement a new (private) type here which implements UnmarshalJSON and check for a string or int (not a float64) in your unmarshal func, returning an error if it's unexpected (e.g. a JSON Object or a bool, which you don't handle below)"
 "1","-1","0","s/importsSet/pkgSet/
 
 should explain that this set is only needed so we can create an duplicate free pkgList"
@@ -303,7 +303,7 @@ I wonder what Rob thinks. Can you start a separate e-mail thread just for API de
 "1","-1","0","We only have islibrary available right now, set by the linker when linked with '-shared'.
 
 Or are you making a subtler point that we shouldn't forward for shared libraries as well?"
-"3","-3","-1","Add a test case for a package whose base name is not a valid identifier, e.g.,
+"3","-2","1","Add a test case for a package whose base name is not a valid identifier, e.g.,
 
 ""foo/bar-v2.0""
 
@@ -399,7 +399,7 @@ would mean you don't break if someone runs this from another dir."
 "1","-1","0","// _g_.m is reachable via allgs, so WB can be eliminated."
 "1","-2","-1","""Types"" is an overloaded term in programming. Is it an actual term in the source documents, or can we use a different term here? Is ""type"" the same as ""MIB""??"
 "2","-1","1","It would be good to try to use the (*types.Package).Name() instead of assuming that it's the same as the last segment of the import path; the latter is only a convention, and it is not followed by users of the http://pkg.in service."
-"1","-3","-1","I'm not sure it does leak that, the litmus test in question is a PUT; so lock errors don't disclose existence, only that a lock exists on that path?"
+"1","-2","-1","I'm not sure it does leak that, the litmus test in question is a PUT; so lock errors don't disclose existence, only that a lock exists on that path?"
 "3","-1","1","Object is not overloaded in Go.  Here it refers to any touchable object, so overloading is fine.  I'll change it to Widget if that's clearer."
 "2","-2","-1","Copied from sys_openbsd_386s.s and missed - fixed :)"
 "2","-1","1","https://msdn.microsoft.com/en-us/library/windows/desktop/aa366058(v=vs.85).aspx#IfType
@@ -509,7 +509,7 @@ It is initialized in the bootstrap. Basically this global does not need initiali
 "1","-1","0","In what way? I wanted to express that this all belongs below there ""where"", so I indented it another level."
 "1","-1","0","Same question on side-effects as on the previous file"
 "2","-1","1","no hsc in exceptions please. the exception handler does take care of proper encoding"
-"2","-3","-1","ERROR: TRUE, FALSE and NULL must be uppercase; expected ""FALSE"" but found ""false"""
+"2","-1","1","ERROR: TRUE, FALSE and NULL must be uppercase; expected ""FALSE"" but found ""false"""
 "3","-1","1","it would be nice to use a DTO for the options. this would make it possible to extend it later (which I am pretty sure we will do) without breaking extensions using the interface"
 "1","-1","0","It is not really a service, rather a ""strategy"", what about calling it as such?"
 "1","-1","0","are you sure about this loop, which does not run ;-)"
@@ -538,7 +538,7 @@ same for CMS8"
 "1","-1","0","The new/better URL would be http://tracker.phpbb.com/browse/PHPBB3-3832"
 "1","-1","0","You are free to decide, preference is usage of use keyword. IDEs do this on their own."
 "2","-1","1","did you want to save the three characters ""urn""? not worth it IMO ;)"
-"1","-3","-1","+1
+"1","-1","0","+1
 Also this method shows a lot of errors/hints in the code inspector (unused variables etc.) but I find it hard to refactor this atm"
 "2","-1","1","I'd say yes. I mean, why not have hex for your file sizes internally? :)"
 "1","-1","0","should we mention the full classname here?
@@ -553,7 +553,7 @@ Your account or email address does not exist."
 "2","-1","1","please use a better var name, Panels says nothing :)
 
 eg: TYPO3.Viewport.ContentCards"
-"3","-1","1","I wouldn't recommend to use a percentage here.. With ""This change is backwards-compatible most of the time"" or ""This does not change the public API..."" we should be on the safe side"
+"2","-1","1","I wouldn't recommend to use a percentage here.. With ""This change is backwards-compatible most of the time"" or ""This does not change the public API..."" we should be on the safe side"
 "2","-1","1","actually I don't know why it is like this in the login but not in the logout.. I would assume it should be the same in both places, and that this one is the more robust one.."
 "1","-1","0","you can remove the access tag and set the function actually to private"
 "2","-2","-1","It is a core class, why should it be independent from core usage?
@@ -608,7 +608,7 @@ We should re-use the filename (micro-op)."
 "2","-1","1","Please use $GLOBALS['TBE_TEMPLATE'] here, so the code is more consistent"
 "1","-2","-1","WARNING: Code after RETURN statement cannot be executed"
 "1","-2","-1","I don't care about the number of instances of ReferenceIndex. I want to have this cache inside BackendUtility::explodeSoftRefParserList() which is static."
-"1","-3","-1","alternatively trigger_error() can be used instead of the HtmlMessageHandler.. Basically it's a problem with PHP, read more here http://stackoverflow.com/questions/2429642/why-its-impossible-to-throw-exception-from-tostring"
+"1","-2","-1","alternatively trigger_error() can be used instead of the HtmlMessageHandler.. Basically it's a problem with PHP, read more here http://stackoverflow.com/questions/2429642/why-its-impossible-to-throw-exception-from-tostring"
 "1","-1","0","I think, we should replace this by getBySeverity() to avoid juggling with message types in userland"
 "1","-1","0","i don't think we should remove this map now ... lets wait until 6.2 for this, just as announced."
 "2","-1","1","Could be
@@ -800,7 +800,7 @@ This is the .h file.
 
 Please run KWStyle."
 "1","-2","-1","I do have KWStyle but somehow I think it only complains if I have end-of-line whitespace. I'll remove the tabs."
-"1","-3","-1","These misaligned typedefs should be causing KWstyle errors. Are you not getting any?"
+"1","-1","0","These misaligned typedefs should be causing KWstyle errors. Are you not getting any?"
 "1","-1","0","Not sure about this method. It seems to make sense to me the way Dan explained it but I'm not comfortable giving this change a +2 since I didn't write any of the original code and may not be aware of all of the issues."
 "2","-1","1","Good catch.  Debugging needs to be removed.  Will remove in next patch set."
 "1","-1","0","Line 240 in cxx file cannot accept const reference:
@@ -840,7 +840,7 @@ shouldn't it be SLERP instead of Slerp ?
 "1","-1","0","Why use a Pointer ?,   the ""const Self *"" should be enough..."
 "2","-2","-1","This is not necessary. The same array can be used as multiple ""things"" without any problems. Just make sure that code handles it correctly. Don't forget to update the documentation in the header."
 "1","-1","0","This seemed to be triggered too hurly. So I'm not sure that actually work."
-"1","-3","-1","This check was removed along with the corresponding GenFramebuffers and GenRenderbuffers calls because they are redundant(see CheckFBOResources bellow) and the allocated buffers are leaked. This is one of the bugs that my patch fixes. In my patch the buffers are allocated only once(with error checking) in the AllocateFBOResources method."
+"1","-2","-1","This check was removed along with the corresponding GenFramebuffers and GenRenderbuffers calls because they are redundant(see CheckFBOResources bellow) and the allocated buffers are leaked. This is one of the bugs that my patch fixes. In my patch the buffers are allocated only once(with error checking) in the AllocateFBOResources method."
 "2","-2","-1","we can add at the end the following args ""--"" ""-j8"" but that won't work for windows.
 
 Moreover we need to provide the generator. I was lucky enough that the system was picking the last one that I used.
@@ -851,7 +851,7 @@ So we might need to stick with a CMake call that configure the pom for you. So m
   // Description:
 If this line is missing, then the automatic document generation will not work."
 "2","-1","1","Done, although this filter is specialized for 3D only."
-"1","-3","-1","This is an attempt to clear the following dashboard error:
+"1","-1","0","This is an attempt to clear the following dashboard error:
 https://open.cdash.org/viewBuildError.php?buildid=3611001"
 "1","-1","0","Can I call GetMatrix w/out having called SetDataFrameObject? Add a bried usage description here."
 "2","-1","1","Smart pointers are initialized to NULL already in there constructor."
@@ -954,7 +954,7 @@ but this is bogus anyway - commit message are expected to be self-contained, and
 I suggest moving the typedefs below the QT_BEGIN_NAMESPACE at line 94. Feel free to ignore this suggestion though since it's valid C++ either way."
 "1","-1","0","About { on the same line? yeah it's probably on the one below."
 "2","-1","1","OK, I see. Then I don't have a strong preference, but please either add a small comment or change to upper case."
-"2","-3","-1","I do not like the lower part here, but if I set ""launchGitK"" function to be only one like this:
+"2","-2","-1","I do not like the lower part here, but if I set ""launchGitK"" function to be only one like this:
 
 void GitClient::launchGitK(const QString &workingDirectory, const QString &fileName = QString()) ...
 
@@ -967,7 +967,7 @@ I get error in gitPlugin.cpp file, on line 424:
 he can not recognize  ""&GitClient::launchGitK"" part any more if there is no function prototype with only one parameter."
 "1","-2","-1","Still I don't agree on treating the operation differently depending on whether the editor is modified or not. In my opinion this should not affect the behavior. What if, for example, there's only one change in the document, the user adds/remove BOM, but then triggers undo (which would bring the editor to not modified state again)? What would one expect?"
 "1","-1","0","Various tests won't link if I leave the macros out. F.e. tst_qpropertyanimation, tst_qitemmodel, tst_qsettings, ..."
-"1","-3","-1","We take an ""error_list"" from the framework here, but ""message"" is passed as an argument. Looking at how message is constructed, this also could be generated here (there is no need to pass it through argument).
+"1","-2","-1","We take an ""error_list"" from the framework here, but ""message"" is passed as an argument. Looking at how message is constructed, this also could be generated here (there is no need to pass it through argument).
 
 So either both message and error_list are this function arguments, or none of them."
 "1","-1","0","I'd move ModelAdapterSource into the d pointer, and hide all the IPC API from the user-facing API here. That would reduce this to take a QAIM to remote, and a name for it, everything else can be internal."
@@ -1001,7 +1001,7 @@ I don't think absolutePath() is a valid method call on bool"
 "1","-1","0","Why don't you emit sdkPathChanged from within the checkSdkPath once the path is valid? this will avoid to check the path twice (in checkSdkPath and isComplete() on the wizzardPage) and the BlackBerrySetupWizardNdkPage::changedCompleted will be then emitted only if the path is correct (even though you still need to re-check the path in isComplete() method...)"
 "2","-1","1","If you dig into the code, at some point you will reach a very strange statement (a couple of calls from setCacheSize), qMax(qMin(.....), 25).
 The size reported by that might differ from the size specified by the caller, in which case the caller should be informed of that. If you query cacheSize() you will get the value of the variable, not the value that was adjusted after the qMax(qMin...) calls."
-"1","-3","-1","What's the error message? and is that with the latest transform change?"
+"1","-1","0","What's the error message? and is that with the latest transform change?"
 "1","-2","-1","No other platform requires apps to be built as static libs with command-line tools and then linked into an app with Xcode. No precedent doesn't mean it's not needed. This file must be included in *every* app .pro file. Suggestions, or it stays..."
 "1","-1","0","That code mirrors exactly what the batch file does. That one checks for ""10.0"""
 "2","-1","1","If we're trying to make this documentation more consistent with other module pages, then I assume this page is meant to be similar to http://qt-project.org/doc/qt-5.0/qtcore/qtcore-index.html in terms of listing the types provided by the module, so we should add a list here that link to the following types:
@@ -1162,7 +1162,7 @@ Now considering this last case if we set ImageName = ImageId, then the displayed
 Please let me know if you have a better idea on how to handle this all.
 
 Anyway (beside the image name displaying) I think that the safest way to address this now is not to set an ImageName since in fact there's not an additional friendly name to set."
-"1","-3","-1","no chance vds is null? lets say vds moved to error, then user remove it from system, will this timer still trigger?"
+"1","-1","0","no chance vds is null? lets say vds moved to error, then user remove it from system, will this timer still trigger?"
 "1","-1","0","did you checked that this change is not breaks other tests?"
 "1","-1","0","This repeats the name of the test, better use convert() as the other tests. If you think it is more clear, change all the tests, probably in another patch."
 "1","-1","0","I guess above versioning should be updated since API changed"
@@ -1524,7 +1524,7 @@ last_edit_title definitely needs a rename."
 'token' => ""A token previously acquired with $action"","
 "1","-1","0","Hook parameter.  I need to print it, I think it holds the CentralAuth ""Logging you in to the following wikis"""
 "2","-1","1","I'm not sure if that should be a staticmethod or a module function."
-"2","-3","-1","Oh right the $ to global is a nicer idea.  I have just removed jquery statement and did not add the global.  That is just a few errors and they do need fixing."
+"2","-1","1","Oh right the $ to global is a nicer idea.  I have just removed jquery statement and did not add the global.  That is just a few errors and they do need fixing."
 "1","-1","0","This should be references with an 's' â€“ see Cite.git, i18n/core/en.json line 38."
 "1","-1","0","Yes, and it does. I submitted an amendment with a better comment explaining that."
 "1","-1","0","Why did you add this back? It's not needed as far as I know."
@@ -1564,8 +1564,8 @@ If you want to put an ID, put it in the body (and using the git SHA of the previ
 "1","-1","0","P.S. - now that this is an attribute of the campaign, not an action, we need to change the i18n string to ""Archived"""
 "1","-2","-1","how about use default wikitext namespace (see getDefaultWikitextNS below) or allow specifying namespace as an argument?"
 "2","-1","1","To elaborate: @param and @type are only used for functions and methods. But this docstring is describing the module and a module has no explicit parameters (you could say they have sys.argv but they don't need to interpret them)."
-"1","-4","-1","am i confused, or will this get the above error ""Invalid host name (docroot="" . $docRoot . ""), can't determine language."" ?does it need to be in an other ""} else if {""?"
-"3","-4","-1","I swear I read somewhere on Smashing magazine along time ago that all pseudo selectors are less performant but I can't find such an article. I can only find these 2 references (not sure of there credibility):
+"1","-3","-1","am i confused, or will this get the above error ""Invalid host name (docroot="" . $docRoot . ""), can't determine language."" ?does it need to be in an other ""} else if {""?"
+"2","-4","-1","I swear I read somewhere on Smashing magazine along time ago that all pseudo selectors are less performant but I can't find such an article. I can only find these 2 references (not sure of there credibility):
 * http://stackoverflow.com/questions/4082077/first-child-is-too-slow-alternatives/4082105#4082105
 * http://www.onextrapixel.com/2012/05/03/css-tricks-how-to-speed-up-css-rendering/
 
@@ -1645,7 +1645,7 @@ How is en:meatball:Foo an invalid link? I've added that to the link tests and it
 
 You're going to have to explain how you expect 'redirected from' from a HTTP redirect would be handled. Because so far everyone who's attempted to turn redirect pages into HTTP redirects while preserving 'redirected from' properly has failed."
 "1","-1","0","Hm, alright, fair enough. Most of the code I've seen uses mw.msg(), though."
-"2","-3","-1","This works. :) Still, I think it might be nicer to do the check and call the error page from showBannerEditor(), since that's the method that mostly deals with output. This method just returns an array for form generation, and may be called more than once in a single request."
+"2","-1","1","This works. :) Still, I think it might be nicer to do the check and call the error page from showBannerEditor(), since that's the method that mostly deals with output. This method just returns an array for form generation, and may be called more than once in a single request."
 "1","-1","0","Why not put this in begin(), so that all subclasses will have the trxFname logic?"
 "2","-1","1","Yep, not sure why it was using a string there. Thanks."
 "1","-1","0","A title being edited will not show up in action=post-history."
@@ -1673,7 +1673,7 @@ I will peg Date to date serial number conversion as a toDo item on my lo-task st
 "1","-1","0","Why an extra header file? The definitions can go directly to settings.cxx"
 "1","-2","-1","These 2 functions should return const OUString& to avoid unnecessary copying."
 "1","-1","0","This entire change is probably moot if the corresponding aFunkMarkExt was passed to the ctor, see comment in viewfunc.cxx"
-"1","-3","-1","Using a direct english string here means it can't be translated :-(
+"1","-2","-1","Using a direct english string here means it can't be translated :-(
 
 You can do a grep for e.g. RID_SVXSTR_LOAD_ERROR for a sample trivial translatable string example you can follow to get a translatable string here"
 "2","-1","1","Why would you remove it ? Please keep gid_File_Bin_UnpackUpdate untouched."
@@ -1776,7 +1776,7 @@ searching for a candidate for a regression in 200+ commits"
 "2","-1","1","The change here reminds me that also some of the new oc..._MS opcodes may need an entry here. Could you take care of those in a follow-up patch?"
 "1","-1","0","the old code only replaced one instance not all but the string shouldn't contain more than one anyways..."
 "1","-2","-1","By the way, why are you adding patches for specific platform w/o $(if $(filter blah?"
-"2","-3","-1","Yes, this is correct! The error was introduced by bbc94edb9a91b27910d43610db9994df10dd99e1"
+"2","-1","1","Yes, this is correct! The error was introduced by bbc94edb9a91b27910d43610db9994df10dd99e1"
 "2","-2","-1","How is determined which of the opcodes is actually taken during import of _xlfn.CEILING.MATH ? I think that's missing.
 
 Note that now that we use RID_STRLIST_FUNCTION_NAMES_ENGLISH_OOXML with the formula compiler, the tables in sc/source/filter/oox/formulabase.cxx are only provided for API support (of which we actually don't know if anyone is using it at all). Our internal OOXML import/export doesn't use them anymore, so any ""only for import / only for export"" usage needs to be implemented differently."
@@ -1920,7 +1920,7 @@ Done"
 "1","-2","-1","Two trivial comments:
 -Why the leading ""d""?
 -Why not %x instead of %d for the row version?"
-"1","-3","-1","Moving this logic to ProcjectControl will also require additional modifications in ReceiveCommits. My approach fixes both issues in one place. Also this approach protect us from making same error in future.
+"1","-1","0","Moving this logic to ProcjectControl will also require additional modifications in ReceiveCommits. My approach fixes both issues in one place. Also this approach protect us from making same error in future.
 
 Personally I wouldn't move this logic to upper level. Signature of this method can be changed to canCreate(Map<Stirng, Ref>, RevWalk, RevObject) instead of using Repository. But IMO will keep this logic here  to prevent from this issue in future."
 "2","-2","-1","that way you wouldn't create the list (line 174) and throw it away (lines 183-185 above):
@@ -2033,18 +2033,18 @@ is not needed."
 "1","-1","0","Combine both the if statements into one single if statement."
 "1","-1","0","Should it be possible to rebase the change if having submit permission, but not rebase permission?"
 "1","-1","0","I don't want to change the actual messages in this change for reasons stated above."
-"2","-3","-1","It looks like this allows a user who cannot see all branches to probe which branches exist. By looking at the error message ""it doesn't exist"" vs. ""user does not have rights to delete it."" a user can detect if a branch that is not visible to him exists."
+"2","-1","1","It looks like this allows a user who cannot see all branches to probe which branches exist. By looking at the error message ""it doesn't exist"" vs. ""user does not have rights to delete it."" a user can detect if a branch that is not visible to him exists."
 "1","-2","-1","Used AccountCache. It feels a bit weird that if we do a bulk load we have no way of setting the results on AccountCache. Perhaps that class should be extended so bulk loading is faster, but that is beyond this change. (Slight aside, Guava caches don't have any first-class bulk loading functionality, sadly.)"
 "1","-1","0","I wonder if eventually we should put these in the file table as well :)
 
 Not in this change, though."
 "1","-1","0","Hi, so should we keep this as ""local"" or change to ""mergeStrategies""?"
 "1","-2","-1","I'm not really liking this name, maybe just 'Resources'?"
-"1","-3","-1","If a user term isn't returned I believe you'll get NPEs when displaying lists of changes. That's why I wrote https://gerrit-review.googlesource.com/35201 so that this error is discovered early and is properly reported. I was a while since I looked at it, and the code might've changed since then, so don't take my word for it."
+"1","-1","0","If a user term isn't returned I believe you'll get NPEs when displaying lists of changes. That's why I wrote https://gerrit-review.googlesource.com/35201 so that this error is discovered early and is properly reported. I was a while since I looked at it, and the code might've changed since then, so don't take my word for it."
 "1","-2","-1","It feels wrong to be doing this sort of checking in this class, it is huge already.  I suspect that passing in the appropriate merge strategy via the factory would be cleaner."
 "2","-2","-1","Is this necessary though?  Would anything bad happen if we encode to utf-8?  Also, it looks like this exists to make sure that we aren't using utf-16 or something else, in which case we would definitely want to keep this even in python3."
 "1","-1","0","Correct, I mentioned in the commit message that it's undocumented."
-"2","-3","-1","We probably should ensure the project is clean before doing this, otherwise a user might lose uncommitted changes they care about:
+"2","-1","1","We probably should ensure the project is clean before doing this, otherwise a user might lose uncommitted changes they care about:
 
   project = Project(
     manifest = self.manifest,
@@ -2281,12 +2281,12 @@ Independent of whether splitting things up is a good idea, if Mike (who knows ba
 "2","-1","1","Patch Set 2: Looks good to me, approved
 
 I concur with jrbarnette@.  It sounds like we can do a separate issue/CL for removing the pragma.  To that end, I think a TODO() referring to that issue could be useful if added to this CL."
-"2","-3","-1","NIT: a docstring of this Exception would be useful. Including the error above this."
+"2","-1","1","NIT: a docstring of this Exception would be useful. Including the error above this."
 "2","-4","-1","1. This seems like a hack to work around a bug -- why are we reading from the pty after it is closed?
 2. This hack also looks too broad -- if any error occurs we close the pipe and stop reading, while squelching the error. This seems bad.
 
 Same comments below."
-"1","-3","-1","a bit weird that you have this error change in Populate but not in the constructor"
+"1","-2","-1","a bit weird that you have this error change in Populate but not in the constructor"
 "2","-2","-1","Ah.  Yes, the test_wait_for_sleep() method implicitly assumes
 that sleep has already been triggered, but that won't be true if
 the trigger happens asynchronously.  :-(
@@ -2313,9 +2313,9 @@ PTAL now.  See referenced bug for scope traces."
 
 LGTM after a small bug fix."
 "1","-4","-1","Make sure to remove the bug description as well, it might confuse things when parsed."
-"1","-3","-1","nit: use die, not echo, same for all errors below"
-"2","-3","-1","The best way to keep someone from doing this is to raise NotImplemented errors instead of pass"
-"1","-3","-1","Patch Set 2:
+"1","-1","0","nit: use die, not echo, same for all errors below"
+"2","-1","1","The best way to keep someone from doing this is to raise NotImplemented errors instead of pass"
+"1","-1","0","Patch Set 2:
 
 This patch fixed the style errors and separated the DDR3 config change to anther commit.
 
@@ -2403,12 +2403,12 @@ thanks"
 "2","-1","1","I don't get it - you do not have the same keys here and in the rpm-based part. We'd like this to be a portability layer, so that Engine should not care if it's RPM or DEB.
 
 Maybe the mapping is impossible - but it does not seem that there's an attempt here."
-"1","-3","-1","maybe: 
+"1","-1","0","maybe: 
 The specific reason the vm cannot run. ?
 or:
 The specific error that is preventing the vm from running. ?"
-"2","-3","-1","Please introduce new value in VdcBllErrors for VDSM error related to this command, and also add handling for it in AbstractGlusterBrokerCommand"
-"2","-4","-1","Patch Set 2: Fails
+"2","-1","1","Please introduce new value in VdcBllErrors for VDSM error related to this command, and also add handling for it in AbstractGlusterBrokerCommand"
+"2","-3","-1","Patch Set 2: Fails
 
 Configuring Firewall...                                 [ DONE ]
 
@@ -2454,11 +2454,11 @@ Sorry for the hassle."
 "2","-4","-1","I understand that right not only root is supported by engine, but I prefer that the API layer will pass to the engine all the information that the user provided. Engine may choose to ignore, for now, all users aside for 'root'. 
 
 The way it's written here, is just a bug waiting to happen - tomorrow engine will support other users, and suddenly we will have a bug in the API: some users are not passed on to the engine, for some reason."
-"1","-3","-1","this enabled should be only after no errors at all..."
-"2","-3","-1","Patch Set 4: I would prefer that you didn't submit this
+"1","-1","0","this enabled should be only after no errors at all..."
+"2","-1","1","Patch Set 4: I would prefer that you didn't submit this
 
 Please fix the indent pep8 errors in gluster_cli_tests.py at least."
-"1","-3","-1","Patch Set 20:
+"1","-1","0","Patch Set 20:
 
 Same compilation errors in SshSoftFencingCommand and VdsStaticDAODbFacadeImpl as I wrote about in PS19 comments"
 "1","-3","-1","Patch Set 1:
@@ -2515,7 +2515,7 @@ AttributeError: 'setMaxHostID' object has no attribute 'stopRepoStats'"
 verified behavior.
 There is a problem when selecting a key and value remains empty: Validation isn't being performed on the client side and it fails on validation on the engine-core instead (i.e. CanDoAction).
 Can be fixed later in a separate patch."
-"2","-4","-1","Patch Set 2: Fails
+"2","-3","-1","Patch Set 2: Fails
 
 Configuring Firewall...                                 [ DONE ]
 
@@ -2602,8 +2602,8 @@ As this is confusing for integrators in general, I would rather propose that som
 I am undecided still if we should revert this merge, but I am currently pretty sure we should not backport that to 4.5.
 
 Maybe in your research you find out different aspects than I did or you can prove me wrong as I have only touched the ""surface"" of the whole complex. Please let me know!"
-"1","-3","-1","whitespace error (no trailing whitespace is allowed according to CGL)"
-"2","-3","-1","please phrase commit messages as solution, not as error description (even if that'll be ""...not anymore"" or so...)"
+"1","-1","0","whitespace error (no trailing whitespace is allowed according to CGL)"
+"2","-1","1","please phrase commit messages as solution, not as error description (even if that'll be ""...not anymore"" or so...)"
 "2","-4","-1","Patch Set 1:
 
 Sorry, the news be module is completely broken for me ... sql error, then namespace errors ...
@@ -2613,7 +2613,7 @@ but the news be module with 4-7 suffers from the exact error my patch has fixed 
 On top of that, there is no point to check for the object we just created, thus we either remove the check, then we are back to the state before my patch which creates a warning.
 
 Please tell me the exact error that happens, otherwise I can not reproduce the regression."
-"2","-3","-1","This seems a bit error prone and hacky to me. What if $contentContext->getInaccessibleContentShown() was TRUE before. It would be FALSE afterwards (probably not relevant here, but maybe elsewhere).
+"2","-2","-1","This seems a bit error prone and hacky to me. What if $contentContext->getInaccessibleContentShown() was TRUE before. It would be FALSE afterwards (probably not relevant here, but maybe elsewhere).
 What about a second argument in ""getNode()"" that allows to even fetch hidden/protected nodes?"
 "2","-2","-1","maybe add TRUE as the third argument for using strict comparisons?"
 "2","-2","-1","I read it as alternatives to TRUE are ... so all upper case would still be the default. But, actually, I would not mention the alternatives at all."
@@ -2624,7 +2624,7 @@ TYPO3 4.6 branch is at the end of bug fixing period. Only priority changes will 
 
 The indexer usage was not changed, it just fixes the bug and it works. :) Adapting to the new indexer is yet another task, of course."
 "1","-4","-1","I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done..."
-"3","-3","-1","Patch Set 3:
+"3","-2","1","Patch Set 3:
 
 I have a separate TYPO3 installation running in an alias on the main site - that is in /home/. So domain.com is one TYPO3 installation and /home/ is a separate one using alias in Apache.
 
@@ -2635,10 +2635,10 @@ The automatically created JS and CSS has the filename http://domain.com/typo3tem
 Does the above make sense?
 
 This patch fixes the errors in the log where php tries to execute filemtime(""/home/domain.com/home/htdocs/http://domain.com/home/typo3temp..."")"
-"2","-3","-1","Patch Set 1: Looks good to me, but someone else must approve
+"2","-1","1","Patch Set 1: Looks good to me, but someone else must approve
 
 Just fix those three whitespace errors in the test class."
-"2","-3","-1","Patch Set 2: Verified by team member; Looks good to me, approved
+"2","-1","1","Patch Set 2: Verified by team member; Looks good to me, approved
 
 I could not reproduce the errors - however the changes look straight-forward."
 "1","-3","-1","Will fail with: ""uid , pid , crdate"".

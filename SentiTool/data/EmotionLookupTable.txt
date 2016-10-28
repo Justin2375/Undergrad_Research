@@ -359,7 +359,6 @@ cock	-2	Feb-11
 cockiness	-2	General Inquirer Feb 2010
 cocksucker*	-4	Feb-11
 cocky	-2	General Inquirer Feb 2010
-coding	3	FDA Comp Terms
 coerc*	-3	General Inquirer Feb 2010
 cold*	-2	General Inquirer Feb 2010
 collapse*	-2	General Inquirer Feb 2010
@@ -380,7 +379,7 @@ commoner	-2	General Inquirer Feb 2010
 commonplace	1	kev mod
 commotion	-2	General Inquirer Feb 2010
 compassion*	2	
-compatible	3	FDA Comp Terms 
+compatible	2	FDA Comp Terms 
 compel	-2	General Inquirer Feb 2010
 compilation	1	FDA Comp Terms
 complain*	-2	
@@ -813,7 +812,7 @@ erode*	-2	General Inquirer Feb 2010
 erosion	-2	General Inquirer Feb 2010
 err	-2	General Inquirer Feb 2010
 erroneous*	-2	General Inquirer Feb 2010
-error*	-3	General Inquirer Feb 2010
+error*	-1	General Inquirer Feb 2010
 esoteric	-2	General Inquirer Feb 2010
 estranged	-2	General Inquirer Feb 2010
 evade*	-2	General Inquirer Feb 2010
