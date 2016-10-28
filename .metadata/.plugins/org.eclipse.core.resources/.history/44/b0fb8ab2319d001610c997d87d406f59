@@ -108,7 +108,6 @@ public class SentimentTest {
 	 * the sentiment was positive negative or neutral
 	 * @param args
 	 */
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// Create a new test object and run SentiStrength
 		SentimentTest test=new SentimentTest("Sentiment-comments.csv");

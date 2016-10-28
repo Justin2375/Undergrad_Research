@@ -25,7 +25,6 @@ public class SentimentTest {
 	 * @return The array list that has the information regarding comments and human coded values
 	 * @throws IOException Thrown when there is an issue reading the file or one does not exist
 	 */
-	@SuppressWarnings("resource")
 	public ArrayList<RatedComment> readCSVFile(String fileName) throws IOException{
 		// Reader created for the file
 		CSVReader reader = new CSVReader(new FileReader(fileName));
@@ -108,7 +107,6 @@ public class SentimentTest {
 	 * the sentiment was positive negative or neutral
 	 * @param args
 	 */
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// Create a new test object and run SentiStrength
 		SentimentTest test=new SentimentTest("Sentiment-comments.csv");
