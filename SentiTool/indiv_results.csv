@@ -2,7 +2,7 @@
 "1","-1","0","GSM isn't in the original list which is why it isn't in the enum."
 "2","-1","1","Since we are not really using any methods from Collections, and only iterating through elements, having String arrays is good enough."
 "1","-2","-1","We very much prefer to not record that information in the source tree, the change history contains that information."
-"2","-2","-1","Yeah, we can file a bug against android or just fix it and submit a patch."
+"1","-4","-1","Yeah, we can file a bug against android or just fix it and submit a patch."
 "3","-2","1","when i was suggesting flipping the boolean, i did also wonder whether we wouldn't be better off just passing in the length. if it's <= 0, interpret that as ""don't know""? that would then move 8192 down out of the callers too.
 
 or... i really like the way you went for readFully rather than implementing the missing read()s, which is what i'd actually imagined. how about we go one further and just have a static fromFile or similar? then it could do the stat, and have everything it needs. you could even use Libcore.os open/fstat/read/close to avoid the RandomAccessFile without increasing the overall amount of code."
@@ -16,7 +16,7 @@ or... i really like the way you went for readFully rather than implementing the 
 "2","-1","1","if we've got this, do we still need the flag?
 
 this field should probably be called something more like ""allocated_stack_size""."
-"2","-2","-1","I think the cleanest style here would be to make this:
+"2","-1","1","I think the cleanest style here would be to make this:
 class_linker->IsCompiledImageMethod(m)
 and then embed MayBe... into ClassLinker as IsCompiledImageMethod. It'd be nice to avoid exposing the debugger to inner notions of oat files."
 "1","-1","0","Just a question: Does ant use ; as a path separator on all platforms, or should you use File.pathSeparator (which will be : on Windows) ?"
@@ -32,7 +32,7 @@ and then embed MayBe... into ClassLinker as IsCompiledImageMethod. It'd be nice 
 if(icmp->type != ICMP_ECHO && icmp->type != ICMP_ECHOREPLY) {
 
 Can you make the two consistent?"
-"2","-2","-1","Added tests for other resource type.
+"2","-4","-1","Added tests for other resource type.
 
 I feel there should be a test that ensure the issue in the bug is resolved.  It also verifies that the generated.xml can at least run through aapt."
 "2","-3","-1","Doing this will trigger mOnDateChangedListener to be fired twice. Please put a guard to avoid that (see the listener above on mDayPicker.)"
@@ -73,7 +73,7 @@ pass_manager_options->SetDisablePassList(""GVN,DCE"") in jit_compiler.cc, there 
 i.e., now that we do this, we shouldn't have to modify other projects, only this project since all others should already be in sync.
 
 The fishy part here is just that choosing something in a project import dialog affects other projects which doesn't make sense. If you want that experience, then the dialog should be more of a global IDE preference."
-"2","-2","-1","Yes, it is a bug in adb, no ambiguity here, but it's really subtle, so it'd be nice to have a better description of the problem, it's not really Python specific as you mention, i.e. something like:
+"2","-4","-1","Yes, it is a bug in adb, no ambiguity here, but it's really subtle, so it'd be nice to have a better description of the problem, it's not really Python specific as you mention, i.e. something like:
 
 """"""
 Some programs want to launch an adb command and collect its output by calling CreateProcess with inheritable stdout/stderr handles, then using read() to get its output. When this happens, the stdout/stderr handles passed to the adb client process will also be inheritable.
@@ -139,10 +139,10 @@ Couldn't you just remember the first sequence number your RILD connection receiv
 "1","-2","-1","Actually, I realized late last night that it probably didn't make sense to specify the damage using frects, since the damage is defined on pixel boundaries (I was originally thinking frect because sourceCrop is a frect, but that's not exactly analagous).
 
 I think this should be hwc_rect_t. That probably implies that we should use hwc_region_t, except that size_t is way overkill and will eat another 8 bytes in 64-bit relative to this (since we're currently getting the uint32_t for free because of padding)."
-"1","-2","-1","That's just the thing; I don't have a bug report. Somebody complained on Google+ that setting this attribute has the undesirable side effect of killing onClick attributes; when I asked Roman if he knew anything about this (we had discussed textIsSelectable before, in the context of adding them to the default templates) he mentioned he had also seen some weirdness around these, but didn't have details.
+"1","-4","-1","That's just the thing; I don't have a bug report. Somebody complained on Google+ that setting this attribute has the undesirable side effect of killing onClick attributes; when I asked Roman if he knew anything about this (we had discussed textIsSelectable before, in the context of adding them to the default templates) he mentioned he had also seen some weirdness around these, but didn't have details.
 
 I should dig deeper, but since I'm swamped with some other work I figured it was better to just disable this check until I know more. (It's actively suggesting users set an attribute that apparently isn't always the right thing.)"
-"1","-2","-1","It seems to me to be the case. There is a bug:
+"1","-4","-1","It seems to me to be the case. There is a bug:
 https://b.corp.google.com/issues/17586779
 shertz probably knows more about it."
 "2","-1","1","Technically missing spaces before/after the parentheses. Would be good to fix in a future upload, if there's a chance. See also the while() a few lines below."
@@ -377,7 +377,7 @@ Also, given that now it's just the callersp, s/frame/sp/ everywhere, including i
 same below"
 "1","-1","0","can you combine the declaration of ctstr above with this assignment ?"
 "1","-2","-1","Fair enough. But still deleting registry entries is wrong - you won't be able to run that program again without them. You can disable service from inside your program too http://godoc.org/code.google.com/p/winsvc/mgr."
-"1","-2","-1","Consider merging these uncommon write barrier forms in to one function that takes flags.  I think there's a bug in the later atomic function fixes that this would help address."
+"1","-4","-1","Consider merging these uncommon write barrier forms in to one function that takes flags.  I think there's a bug in the later atomic function fixes that this would help address."
 "1","-1","0","Compiles with go:nowritebarrier so I just did the assignment."
 "2","-1","1","we need to test both non-privileged ""udp4"" and privileged ""ip4"" sockets here."
 "1","-1","0","this isn't an endpoint. It's a string. And now it can be a const, not a var."
@@ -528,7 +528,7 @@ Apart from the above, no there is not a filename, and yes there needs to be a sl
 "1","-1","0","functional changes?? I just flipped the ifs. But I just see that there's still the skipSystemDependencyCheck stuff in it."
 "2","-4","-1","I actually fear that PHP accepts this due to some easteregg or so :)"
 "2","-2","-1","Sorry but I didn't get why we need 199 here - to trigger some update to 200 afterwards? What if we just fix the update for afterwards then?!?"
-"2","-2","-1","why do we json_encode() $scopeData here? We do not do this in the base class. Furthermore it is already serialized.
+"2","-4","-1","why do we json_encode() $scopeData here? We do not do this in the base class. Furthermore it is already serialized.
 
 The only difference in this method compared to the one in the base class is now the Tree.thisScript stuff. The question therefore is: Is this a bug in the baseclass that Tree.thisScript is not set, or is it superfluous here?
 If neither applies, then still the question remains, if there's a nicer way of adding this code snippet without overriding (and copyiing) the complete method from the base class?"
@@ -609,7 +609,7 @@ We should re-use the filename (micro-op)."
 "1","-2","-1","WARNING: Code after RETURN statement cannot be executed"
 "1","-2","-1","I don't care about the number of instances of ReferenceIndex. I want to have this cache inside BackendUtility::explodeSoftRefParserList() which is static."
 "1","-3","-1","alternatively trigger_error() can be used instead of the HtmlMessageHandler.. Basically it's a problem with PHP, read more here http://stackoverflow.com/questions/2429642/why-its-impossible-to-throw-exception-from-tostring"
-"1","-2","-1","I think, we should replace this by getBySeverity() to avoid juggling with message types in userland"
+"1","-1","0","I think, we should replace this by getBySeverity() to avoid juggling with message types in userland"
 "1","-1","0","i don't think we should remove this map now ... lets wait until 6.2 for this, just as announced."
 "2","-1","1","Could be
 
@@ -620,7 +620,7 @@ since colPos is set using $cRow['colPos'], thus the type must be the same.
 Just have to remove $colPos = '' a few lines before."
 "1","-1","0","Between Patchset 5 and 6 the API was changed, so this use isn't needed anymore."
 "2","-1","1","Comment should have a space and uppercase the first letter like in the other comments."
-"2","-1","1","I removed this in patch set 2 - my use case should be handled in the (abstract) controller"
+"1","-1","0","I removed this in patch set 2 - my use case should be handled in the (abstract) controller"
 "2","-1","1","This check is improved in https://review.typo3.org/#/c/32645/1"
 "2","-3","-1","<cgl>It should be ""HostPattern"" according to our CGL.
 I know that we violate this already in Flow with CsrfProtection and Uri pattern, but this would be a good chance to fix this (I can take care of this if we agreed on the other issues)</cgl>"
@@ -724,7 +724,7 @@ Since getting the children shouldn't result in a modification of this node."
 if (dy > 0) â€¦ else if (dy < 0) â€¦ 
 
 much easier to read."
-"1","-2","-1","The Slerp I was thinking of, http://en.wikipedia.org/wiki/Slerp doesn't seem to be in all caps - is this something else? It does say somewhere to avoid acronyms but there are exceptions (this may be one of them)."
+"1","-1","0","The Slerp I was thinking of, http://en.wikipedia.org/wiki/Slerp doesn't seem to be in all caps - is this something else? It does say somewhere to avoid acronyms but there are exceptions (this may be one of them)."
 "1","-1","0","ThreadIdType numberOfThreads = this->GetNumberOfThreadsUsed();"
 "1","-1","0","bodies of ""if""s must be inside brackets, even if it is only one line."
 "1","-1","0","PointContainer * points = this->m_Mesh->GetPoints();"
@@ -812,7 +812,7 @@ this->m_Metric->SetParameters( this->GetInitialPosition() );"
   void GetColorAsUnsignedChars(const double colorIn[4], unsigned char colorOut[4])
 
 This makes the number of input & output values explicit.   Also, my preference is to return ""void"" because returning the output is unnecessary redundancy."
-"2","-2","-1","I will remove all of the debug and most of the other messages after the VectorImage is working.  Main reason to use the Logger is to print interleaved messages from multiple threads legibly.  Other reason I'm avoiding debugMacro until VectorImage is working is so that I can continue to see debug messages even when compiled in Release mode for speed."
+"2","-1","1","I will remove all of the debug and most of the other messages after the VectorImage is working.  Main reason to use the Logger is to print interleaved messages from multiple threads legibly.  Other reason I'm avoiding debugMacro until VectorImage is working is so that I can continue to see debug messages even when compiled in Release mode for speed."
 "1","-1","0","No need for indentation on the last line, or even the preceding newline for that matter."
 "1","-1","0","line length. You can also use qPrintable(m_keyPressBuffer) here."
 "2","-2","-1","Good point.  I'll move to the other block of ITKDeprecatedTestDriver."
@@ -840,7 +840,7 @@ shouldn't it be SLERP instead of Slerp ?
 "1","-1","0","Why use a Pointer ?,   the ""const Self *"" should be enough..."
 "2","-2","-1","This is not necessary. The same array can be used as multiple ""things"" without any problems. Just make sure that code handles it correctly. Don't forget to update the documentation in the header."
 "1","-1","0","This seemed to be triggered too hurly. So I'm not sure that actually work."
-"2","-3","-1","This check was removed along with the corresponding GenFramebuffers and GenRenderbuffers calls because they are redundant(see CheckFBOResources bellow) and the allocated buffers are leaked. This is one of the bugs that my patch fixes. In my patch the buffers are allocated only once(with error checking) in the AllocateFBOResources method."
+"1","-3","-1","This check was removed along with the corresponding GenFramebuffers and GenRenderbuffers calls because they are redundant(see CheckFBOResources bellow) and the allocated buffers are leaked. This is one of the bugs that my patch fixes. In my patch the buffers are allocated only once(with error checking) in the AllocateFBOResources method."
 "2","-2","-1","we can add at the end the following args ""--"" ""-j8"" but that won't work for windows.
 
 Moreover we need to provide the generator. I was lucky enough that the system was picking the last one that I used.
@@ -897,7 +897,7 @@ Note that using Damian's repro also uncovered a crash in QNetworkAccessFtpBacken
 "1","-3","-1","My theory of this test: count goes to zero because the delegates go far enough out of bounds to be destroyed.  But because of the easing formula, you have to flick harder to make them go that far out of bounds now."
 "1","-1","0","Don't strictly need this check, but maybe it's quicker to cmp and rjmp than to mul zero?  Not sure."
 "1","-1","0","Ð•Ñ�Ñ‚ÑŒ Ð²Ð½ÑƒÑ‚Ñ€ÐµÐ½Ð½ÐµÐµ Ñ‡ÑƒÐ²Ñ�Ñ‚Ð²Ð¾, Ñ‡Ñ‚Ð¾ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½ÐµÐµ ""Ð½ÐµÐ¾Ð±Ñ�Ð·Ð°Ñ‚ÐµÐ»ÐµÐ½"" )"
-"2","-1","1","this should better be moved to a signal in IWizardFactory then, I suppose. but different patch."
+"1","-1","0","this should better be moved to a signal in IWizardFactory then, I suppose. but different patch."
 "1","-1","0","I will update the currently commented font.family in another change. I will need to add the font first."
 "2","-1","1","Maybe name this installToDispatcher() or something like that? I had a hard time understanding all the different classes."
 "1","-3","-1","i wonder where you see that - i don't. maybe it's not explicit enough for your taste in telling you that you are an idiot if you try?
@@ -941,7 +941,7 @@ For section titles, it is best to use the gerund (ing) because it is a task. ""U
 "1","-1","0","This displays the opening curly brace, but not the closing one. Is that intentional?"
 "1","-1","0","does that make sense? why not just leave the reservation?"
 "1","-1","0","I think it might be worth a comment up here what this class is intended to do and how it does it."
-"1","-2","-1","no need to be redundant ""described in the report"".
+"1","-4","-1","no need to be redundant ""described in the report"".
 
 but this is bogus anyway - commit message are expected to be self-contained, and the bug links are merely ""for more info, see ..."" style."
 "1","-1","0","Right. Ok, then let's fix this in dev only and ignore the test coverage in 5.5. Can you make yourself a note to fix the blacklist in dev once the merges are through?"
@@ -998,7 +998,7 @@ Should probably go as a separate commit."
 The first part cannot have any whitespaces after the escaped newline - after hitting newline we're definitely on the next line (if you go back and put spaces at the end of this line you won't escape the newline anymore but the whitespace instead)."
 "1","-1","0","but cd() returns bool
 I don't think absolutePath() is a valid method call on bool"
-"1","-2","-1","Why don't you emit sdkPathChanged from within the checkSdkPath once the path is valid? this will avoid to check the path twice (in checkSdkPath and isComplete() on the wizzardPage) and the BlackBerrySetupWizardNdkPage::changedCompleted will be then emitted only if the path is correct (even though you still need to re-check the path in isComplete() method...)"
+"1","-1","0","Why don't you emit sdkPathChanged from within the checkSdkPath once the path is valid? this will avoid to check the path twice (in checkSdkPath and isComplete() on the wizzardPage) and the BlackBerrySetupWizardNdkPage::changedCompleted will be then emitted only if the path is correct (even though you still need to re-check the path in isComplete() method...)"
 "2","-1","1","If you dig into the code, at some point you will reach a very strange statement (a couple of calls from setCacheSize), qMax(qMin(.....), 25).
 The size reported by that might differ from the size specified by the caller, in which case the caller should be informed of that. If you query cacheSize() you will get the value of the variable, not the value that was adjusted after the qMax(qMin...) calls."
 "1","-3","-1","What's the error message? and is that with the latest transform change?"
@@ -1059,7 +1059,7 @@ are the above valid to this task?
 the new code of vdsm-reg will call vdsm-tool vdsm-id --force and get id no matter if it is uuid or generated from anywhere else, this id is required for registration.
 
 if you then want to improve how it is 'generated' you are welcome to do so, it will not break the interface."
-"2","-2","-1","another note for future patch: replace static references by the proper Dao getter."
+"1","-2","-1","another note for future patch: replace static references by the proper Dao getter."
 "3","-1","1","this one could be different too.  I would like to hold off it and update in future on demand. Are you fine with it?"
 "2","-2","-1","huh? namedtuple() is a new-style class (otherwise __getattribute__ won't fly for it!).
 
@@ -1067,7 +1067,7 @@ Note that namedtuple(verbose=True) shows that it uses __slot__=() by default, so
 "2","-1","1","where size is not the issue, and performance is not a big deal like in test, please use range() to mainatain future compat with python3"
 "2","-1","1","Omer, I am not quite understand ""polling will not start for these hosts"", would you give me more backgroud information?
 as to save the status in the db, you mean save host's status, 'nonoperational' in this place in db?"
-"1","-2","-1","this is the cause of the bug - you should remove it instead the other one if you want to keep the removal as part of supervdsmServer"
+"1","-4","-1","this is the cause of the bug - you should remove it instead the other one if you want to keep the removal as part of supervdsmServer"
 "1","-1","0","What are the meanings of D and C here? D for ""data"" and C for ""collection"". Could use longer names or comments."
 "1","-1","0","what about this case? if user selected sysprep/cloud init in run once (then we get here) but also have payload configured?"
 "1","-1","0","consider using 0.0 instead of another variable called zero."
@@ -1075,7 +1075,7 @@ as to save the status in the db, you mean save host's status, 'nonoperational' i
 wrapper, that can be used to export any reports in future.Like this class doesn't dictate any specific layout and provides methods to create the layout elements of choice although, it currently provides only a small number of layout elements like list,table."
 "1","-1","0","split to chunks was added, no vms/templates in memory during vds operation."
 "1","-1","0","i think you can use here getAndSetVdsStatic() to get the vds name, so we will have it in the log, i think it is called anyway for the logging infrastructure (""FINISH"")"
-"2","-3","-1","When you move a host to maintenance then that calls disconnectStorageServer which should remove this definition so in general this shouldn't affect anything negatively.  The case where this would remain is in case of an error flow where for some reason it wasn't disconnected properly or something.  Even if that happens, it's not that interesting as a few leftover connections shouldn't affect the host negatively (think about FC where the host is always connected).
+"2","-4","-1","When you move a host to maintenance then that calls disconnectStorageServer which should remove this definition so in general this shouldn't affect anything negatively.  The case where this would remain is in case of an error flow where for some reason it wasn't disconnected properly or something.  Even if that happens, it's not that interesting as a few leftover connections shouldn't affect the host negatively (think about FC where the host is always connected).
 The advantage is that most of the time (since hosts don't move between DCs very often) the host would automatically reconnect whenever it reboots (e.g. due to sanlock fencing) and it would be available to engine almost immediately reducing recovery time.  Imo that is more important.
 See oVirt Bug 881941 - After a reboot of both engine and vdsm domains take a long time (15 minutes) to recover"
 "3","-1","1","For consistency, this could be named ""storeInHttpSession""."
@@ -1101,7 +1101,7 @@ it's better to create a separate function, in case we will need to add a new ""l
 About "">= 0.6"": I monkeypatched the methods that are used by old websockify to use logger.
 
 (What I'm worried about is the fact I see duplicate lines in syslog - one line comes from ""journal"", the other one from ""ovirt-websocket-proxy"" and they are identical. I need to investigate this further.)"
-"1","-2","-1","This is a bug
+"1","-4","-1","This is a bug
 
 if the disk is shareable then the disk will be updated with the last VM in the for loop."
 "1","-1","0","indent.
@@ -1124,7 +1124,7 @@ Looking at the horrible Python code we are using , I think this should be deferr
 "2","-2","-1","There is no VDSM action here, only database - just make the command transactive, and save yourself all this hassle."
 "2","-2","-1","I'd probably make this _parseMemInfo. If we see that we need it outside this module we can always drop the leading underscore."
 "2","-1","1","please update this at https://gerrit.ovirt.org/#/c/39024"
-"2","-1","1","as noted in patch set 2, message should be:
+"1","-1","0","as noted in patch set 2, message should be:
 CANNOT REMOVE STORAGE POOL WITH NON MASTER DOMAINS
 or something."
 "1","-4","-1","You cannot design an API for logging. We should take out the ""command"" argument and have generic errors. It's easy looking at vdsm.log to discover what was the command executed before this failure."
@@ -1134,12 +1134,12 @@ or something."
 The idea is to have valid NotificationProperties
 We need a notification method (currently smtp and later smtp/snmp)
 So it cant ba validates inside smtp?"
-"2","-1","1","it was made before mike's suggestion to merge similar messages. I agree that it would be better, but if we'll agree on the different comments and no other patch-set will be necessary for this patch, I prefer to make this message more generic in the patch that implements the export/import VM without read lock because this one is already verified (and there won't be duplicate entries until then)"
+"1","-1","0","it was made before mike's suggestion to merge similar messages. I agree that it would be better, but if we'll agree on the different comments and no other patch-set will be necessary for this patch, I prefer to make this message more generic in the patch that implements the export/import VM without read lock because this one is already verified (and there won't be duplicate entries until then)"
 "2","-1","1","Good point. We need to make sure that we use jsonrpc."
 "2","-2","-1","The convention is to have all mappers static in order to reduce their instantiations as they have no state. 
 
 Please extract it into a private static class."
-"2","-3","-1","I'll remove it here, but so you know - there's a problem - if someone sets it to null (for example from REST), it fails with NPE in StorageComandBase. but that can be fixed in a different patch."
+"1","-3","-1","I'll remove it here, but so you know - there's a problem - if someone sets it to null (for example from REST), it fails with NPE in StorageComandBase. but that can be fixed in a different patch."
 "2","-1","1","if you put editable, no need for editableOnTemplate, its good for both"
 "2","-2","-1","this method only load data from the db
 i think that it's confusing to set this info to the disk within this scope, hard to debug and to track. please move it from here and preferably use the vm device instead of setting it to the disks.
@@ -1164,7 +1164,7 @@ Please let me know if you have a better idea on how to handle this all.
 Anyway (beside the image name displaying) I think that the safest way to address this now is not to set an ImageName since in fact there's not an additional friendly name to set."
 "1","-3","-1","no chance vds is null? lets say vds moved to error, then user remove it from system, will this timer still trigger?"
 "1","-1","0","did you checked that this change is not breaks other tests?"
-"2","-1","1","This repeats the name of the test, better use convert() as the other tests. If you think it is more clear, change all the tests, probably in another patch."
+"1","-1","0","This repeats the name of the test, better use convert() as the other tests. If you think it is more clear, change all the tests, probably in another patch."
 "1","-1","0","I guess above versioning should be updated since API changed"
 "1","-2","-1","It would require to change diskImageGuid member to static as well."
 "2","-2","-1","this should be done (if any) when first connection is established.
@@ -1256,13 +1256,13 @@ So I would hide them originally, say by extending the createNewLineModel() metho
 "1","-1","0","""""""create a vdsm.config.config clone, modified by tunables
 
 tunables is a list of (section, key, val) tuples"""""""
-"2","-2","-1","Doing a blind re.replace on an XML is a bug waiting to happen. The XML has structure and it is safer to use it. Please parse the XML and replace only the element you expect. Unless, of course, you have a particular intention here."
+"2","-4","-1","Doing a blind re.replace on an XML is a bug waiting to happen. The XML has structure and it is safer to use it. Please parse the XML and replace only the element you expect. Unless, of course, you have a particular intention here."
 "1","-1","0","I would remove the setter, and have a public getter you could always spy."
-"2","-1","1","I guess this change (New) will be handled in a separate patch..."
+"1","-1","0","I guess this change (New) will be handled in a separate patch..."
 "2","-1","1","Please remove this log, it's a part of the if below"
 "1","-1","0","The logic in this method is quite heavy for each selection... Instead, I'd prefer to see it in a popup invoked from the General sub-tab. But I guess it's a UX decision."
 "1","-1","0","perhaps replace the whole thing with platform.linux_distribution() ?"
-"2","-2","-1","I see no problem in breaking the line with parentheses. But the issue is too minor to keep discussing.
+"2","-4","-1","I see no problem in breaking the line with parentheses. But the issue is too minor to keep discussing.
 
 Please tick Verified+1 if this patch solves the bug."
 "1","-3","-1","any reason for not using constants from the enum? if you'll ever change the enum,
@@ -1277,7 +1277,7 @@ Please split it to another patch."
 "1","-1","0","s/VURTI/Host Monitoring
 It is about to change soon."
 "1","-1","0","It is not out convention to write comments in line (across this class)"
-"2","-1","1","You are right, this won't work without the next patch (use DbGroup instead of LdapGroup), I will check again and I will probably have to merge both this patch and next one into one single patch."
+"1","-1","0","You are right, this won't work without the next patch (use DbGroup instead of LdapGroup), I will check again and I will probably have to merge both this patch and next one into one single patch."
 "3","-1","1","hmmm... this is strange... ok, we succeeded in authn, but have not yet authz, so we cannot report it here.
 
 we should report only after we have all information... where do we do authz in this case?"
@@ -1298,7 +1298,7 @@ In the future: core plugins - certified by Mirantis, experimental - verified by 
 "1","-1","0","This isn't going to pass pep8 anyway because this line is too long and the parameters to getattr don't have proper spacing.
 
 And why are we still looking at exc.message here?"
-"2","-2","-1","This patch evelvate context to fix tempest exeption unauthorized"
+"1","-2","-1","This patch evelvate context to fix tempest exeption unauthorized"
 "1","-1","0","Along the same vein of getting the class's METADATA_TYPE when deserializing the response, since you are checking if the METADATA_TYPE is located in the json_dict, you could reference the class's METADATA_TYPE directly.
 
 (I should have seen this in the last code review)
@@ -1311,7 +1311,7 @@ The same applies for the properties keyword check in line 67."
 This allowed user_id to be stored as string regardless of its definition.Things would fail when we have LDAP and a regular DB like postgres.
 However this is present in other models like tokens where user_id is defined as Integer.So this all together should be a separate issue."
 "1","-2","-1","the arguments to init should be documented somewhere."
-"2","-1","1","Still have a question: why do you add changes for software_config and software_deployment tables here?
+"1","-1","0","Still have a question: why do you add changes for software_config and software_deployment tables here?
 As far I understand they were fixed in previous patch for both tables."
 "1","-2","-1","it seems to me that this operation is not optimal as it would try to find a number in a list, while you only need to check it against 0, 4095 boundaries."
 "2","-2","-1","well, since we're doing this, might as well do this instead, since it's cleaner and looks better (and sanitized).
@@ -1363,7 +1363,7 @@ As for the examples and definition, I think that could live in a devref guide li
 "2","-1","1","please move command to system.py so this can be reduced to ""cmd_node_init""."
 "2","-3","-1","We kind of discussed this last time - and thought that we didn't want to fail any calls if the operators were not recognised.."
 "1","-1","0","this file is a legacy code and not used, but I can live with that change"
-"1","-2","-1","There are no such method as ""assert_called_once"". See: https://bugs.launchpad.net/manila/+bug/1330391"
+"1","-4","-1","There are no such method as ""assert_called_once"". See: https://bugs.launchpad.net/manila/+bug/1330391"
 "1","-1","0","I saw you added a comment at https://review.openstack.org/#/c/138310/1/specs/kilo/store-capabilities.rst , I think you probably already know the reason of this, right?"
 "2","-2","-1","This is better, but the registered variable is unnecessary:
 
@@ -1406,7 +1406,7 @@ s/then/other than/ ?"
                 net_id, project_only='allow_none')
      allocate_mock.assert_called_once_with(self.context, FAKEUUID,
                             mock.sentinel.network, address=None)"
-"2","-1","1","You're right. Ivan,tenant_id is non-admin tenant need to change to admin tennt id here. will fix it in next patch."
+"1","-1","0","You're right. Ivan,tenant_id is non-admin tenant need to change to admin tennt id here. will fix it in next patch."
 "1","-1","0","Yes when exception is caught it will set the subnets to [] and then L299 will return empty list."
 "1","-1","0","nit: this sentence has six commas and two separate alternations ('or's). Maybe it could be split up?"
 "1","-1","0","""apt-get"" is distro specific... perhaps make it clear that this is an example and that other systems would be installed differently"
@@ -1439,7 +1439,7 @@ config_path = os.path.abspath(config_path)
 "1","-1","0","This is an unrelated change that should be dropped."
 "1","-2","-1","context is not an argument anymore. Same for other methods."
 "2","-1","1","Please describe the important points it is missing and their impact. It will help motivate the changes to mention below"
-"2","-1","1","Read my comment regarding this in previous patch sets"
+"1","-1","0","Read my comment regarding this in previous patch sets"
 "1","-1","0","I am not sure if this might break other templates which people would be using. Tripleo might also break because of this change,"
 "1","-1","0","possible way to remove this constant and use information from setup.cfg:
 
@@ -1452,7 +1452,7 @@ config_path = os.path.abspath(config_path)
     for line in setup_lines:
         if line.startswith('version'):
             version = line.split()[-1]"
-"2","-1","1","But what we are using is oslo version. I think this should be fixed in oslo. I submitted a patch to oslo https://review.openstack.org/56211"
+"1","-1","0","But what we are using is oslo version. I think this should be fixed in oslo. I submitted a patch to oslo https://review.openstack.org/56211"
 "1","-1","0","When using this many parameters, using named parameters is preferable to make things more clear"
 "3","-4","-1","A better way to do this is
 | awk '$2==""id"" {print $4}'
@@ -1475,7 +1475,7 @@ I guess a call to a policy.get_newest(file_set) would do it. But what I'd really
 
 So, I'm going to change it for libvirt_images_rbd_pool."
 "2","-1","1","I think *both* initramfs and kernel image should be downloaded even if one of these files already exists. Otherwise we might end up with a version of a kernel different from that of the modules (in initramfs)."
-"2","-3","-1","you could use `self.patchobject` from HeatTestCase, that does all the boilerplate for you. Or use @mock.patch.object as class decorator, as you seem to use this mock in all tests."
+"1","-3","-1","you could use `self.patchobject` from HeatTestCase, that does all the boilerplate for you. Or use @mock.patch.object as class decorator, as you seem to use this mock in all tests."
 "2","-1","1","self.SECURITY_GROUPS/self.SECURITY_GROUP_IDS
 self.NETWORK_INTERFACES"
 "1","-1","0","Anyone who looks at this commit is going to have some questions - we should be anticipating and answering those in commit messages
@@ -1494,7 +1494,7 @@ self.NETWORK_INTERFACES"
 "1","-1","0","http://en.wikipedia.beta.wmflabs.org/wiki/Hurricane_Celeste_(1972)"
 "1","-1","0","Err, actually that won't hurt anything, and if anyone ever changes the canonical form to be this, then the entry would get used."
 "1","-1","0","It would be would to expand into '... main stats view in rt server' or similar."
-"1","-2","-1","We ironed out the issues on bug 49965, a few patches are linked from it."
+"1","-4","-1","We ironed out the issues on bug 49965, a few patches are linked from it."
 "1","-1","0","This class is too generic...
 
 It's likely better to take all configuration and wrap it in a class named ""misc::reportcard""."
@@ -1503,7 +1503,7 @@ http://git.wikimedia.org/blobdiff/pywikibot%2Fcompat.git/d5a3b0349e0264a298d909d
 "2","-1","1","Should be tied to the wiki it was started from, like the other global actions, in my opinion."
 "1","-2","-1","â€¦this (usage of setdefault) would be unnecessary."
 "1","-2","-1","Do we need to enforce the same type for all elements in the array, or do we not care as long it's one of the string/numeric/numeric string primitives?"
-"2","-1","1","Then this one can use SHA1 and another patch could change the existing instances."
+"1","-1","0","Then this one can use SHA1 and another patch could change the existing instances."
 "2","-1","1","I'm fairly sure Siebrand would say yes, we need the additional message. Imagine some language phrases the interlanguage-link-title message similar to ""$1 in $2 language"", e.g. ""PoÃ©sie in French language"". This is not appropriate for non-language sites, hence the need for the additional message.
 
 I'll fix the $languageLinkTitleText case, thanks for pointing it out."
@@ -1536,7 +1536,7 @@ Also, while I'm on this, is there a reason we call the CursorLoader parameter Cu
 "1","-4","-1","I really dislike modifying unrelated code. (All around.) All this is going to give us is merge conflicts. You're not even consistent, you left ""$(this)"" unchanged."
 "2","-2","-1","Minor and optional cleanup: I think we can drop support for mw:WikiLink/* at this point both here and in magLinkRe."
 "2","-2","-1","Woops! Sorry. I'll fix this in the upstream (well, it's my upstream after all) and add a patch to the queue to update the library."
-"2","-2","-1","inline-block elements default to vertical-align: baseline. I don't want this I want top. I'm not sure how I can make this comment more descriptive..."
+"1","-2","-1","inline-block elements default to vertical-align: baseline. I don't want this I want top. I'm not sure how I can make this comment more descriptive..."
 "1","-2","-1","This is unnecessary, only MWExtensionInspector uses nodeModel"
 "1","-1","0","setPageTitle() takes a Message, so no need to change anything here."
 "1","-1","0","Should probably say ""... we are not clicking on the menu button"""
@@ -1767,7 +1767,7 @@ I actually don't see a reason to deprecate the configuration via autogen.sh comm
 But more generally, this is a base class - please stick specific functionality into derived classes. You already did that in SlideFragmentHandler for parts of it - for PPT_TOKEN( text ), when it comes in the SlideFragmentHandler context, just generate a new child context - e.g. like new SlideTimingContext( *this, mpSlidePersistPtr->getTimeNodeList() ) in that file.
 
 With that, you will get rid of that global state anyway."
-"2","-1","1","should this patch only be added if $(SYSTEM_MYSQL) is NO ?"
+"1","-1","0","should this patch only be added if $(SYSTEM_MYSQL) is NO ?"
 "1","-1","0","Note that these can be usually written simpler as just """" instead of OUString()."
 "2","-2","-1","Can we _please_ use short-log message a bit more
 useful that this.
@@ -1826,7 +1826,7 @@ but the old code called operator<<(ONDXPagePtr&) which does something different 
 "1","-1","0","See other comment about OUString together with ScResId. Just as short explanation:
 
 The current code creates a SchResId object which has an operator OUString which is called here. Then the OUString copy c'tor is called to generate a copy from the returned OUString."
-"2","-2","-1",">OTOH we might grep in ""$@"" for ""project:"" and only add project:core if none was given.
+"1","-2","-1",">OTOH we might grep in ""$@"" for ""project:"" and only add project:core if none was given.
 but then we could do the same with branch and status: default branch = master, default status = open => logerrit query would be translated to core/master/open. How about it?"
 "1","-1","0","For the final commit remove ""[part 2of 2]"" and join the ""ODFF function FDIST"" to the first summary line."
 "2","-2","-1","Conversion was done for binary files to be stored in earlier formats. Encountering such versions isn't the case anymore with copy&paste and conversion would never be executed, so that code could be removed along with the check. If you want you can remove that code in a follow-up patch, getting rid of unused code is always good :-)
@@ -2015,7 +2015,7 @@ I see how it might be annoying to have to redo a change if you used the wrong br
 
  sorry I try every corner and cannot find the difference after adding this line."
 "2","-1","1","--add will add a value on top of another/others. The above line will replace any previous value with this one. Not sure which effect the author is looking for, but I personally don't understand why you'd want to have several download.scheme variables?"
-"1","-2","-1","This does not correspond to an issue on the gerrit issue tracker [1].
+"1","-4","-1","This does not correspond to an issue on the gerrit issue tracker [1].
 
 Issues should be listed in the change footer in the form:
 
@@ -2078,7 +2078,7 @@ Can you try it with non existing H2 Database:
 "2","-1","1","nit: wording.  the sentence doesn't make sense. perhaps:
 
 Support creating a request for authentication of a remote..."
-"2","-1","1","For this case a regular expression is not needed, it could be simply a ref pattern:
+"1","-1","0","For this case a regular expression is not needed, it could be simply a ref pattern:
 
   branch = refs/heads/video-1.0/*"
 "1","-1","0","Just use 10px. I also rebased on latest master and adjusted look and feel of buttons here to match the changes made in context of [1].
@@ -2091,7 +2091,7 @@ Support creating a request for authentication of a remote..."
 "1","-1","0","OK.  I'll check if [1] still works with asiidoctor before pursuing it any further then.
 
 [1] https://gerrit-review.googlesource.com/#/c/49451/"
-"2","-1","1","I got the idea for adding such a message from your change (only you had it even more verbose adding a message per approval that was copied). I can try to incorporate this into the patch set created message, but not sure if this is easily possible."
+"1","-1","0","I got the idea for adding such a message from your change (only you had it even more verbose adding a message per approval that was copied). I can try to incorporate this into the patch set created message, but not sure if this is easily possible."
 "1","-1","0","""that all 4 projects are imported"" or ""that it imports all 4 projects"""
 "3","-1","1","I think as long as it's explained in the dev instructions you're checking in, this is fine."
 "1","-1","0","Sure, we could do it on master, but then the old API has to remain in 2.8.
@@ -2119,7 +2119,7 @@ or
 "1","-1","0","as Shawn mentioned in another comment: s/wild project/AllProjects project/
 
 more occurrences below"
-"2","-1","1","What happens if the specified branch doesn't exist?  Will that be caught by the check at line 154?"
+"1","-1","0","What happens if the specified branch doesn't exist?  Will that be caught by the check at line 154?"
 "2","-2","-1","This was a mistake. If JGit doesn't support concurrent branch deletion we should do it sequentially :)"
 "1","-1","0","Must have been something in formatOne at some point. Not sure why Eclipse didn't warn me. Done."
 "2","-1","1","refs/users/ is sufficient prefix. No need for refs/meta. We should be plural like changes heads and tags."
@@ -2153,7 +2153,7 @@ java.lang.IllegalStateException: Committed
   at com.google.gerrit.httpd.AllRequestFilter$FilterProxy.doFilter(AllRequestFilter.java:57)
   at com.google.gerrit.httpd.RequestContextFilter.doFilter(RequestContextFilter.java:75)"
 "1","-2","-1","Wasn't the trailing slash already removed when the GitHub URL was read from the config?"
-"2","-3","-1","Hi Edwin
+"2","-4","-1","Hi Edwin
 
  thank you to have a look.
  I removed them, because current version of ProjectsTable already has these 2 lines content .
@@ -2182,7 +2182,7 @@ I believe the empty username is a valid name."
 "1","-1","0","Can this actually happen? Wouldn't revision have to have _number 0, so the previous comparison would be false?"
 "1","-1","0","nit: this import is not needed anymore and can be removed"
 "1","-1","0","I suppose this is readable, but it's a lot of boilerplate compared to having a single callback each for comments/drafts with the if in the body."
-"2","-2","-1","Right, I would assume the problem occurs when the user doesn't intend to sync to a fixed version.
+"1","-2","-1","Right, I would assume the problem occurs when the user doesn't intend to sync to a fixed version.
 
 However, if that's the case, I'm not sure just switching this to only happen with current-branch-only will be enough. We at least should update the docs for --current-branch to make it clear that it will have this behavior and that if all objects are desired, they should run sync without -c (either for all projects or just a specific project)."
 "2","-1","1","Because we don't need anything that it provides (checking that the value is not None and encoding it) so there's not much point pulling it out of the loop below. Actually, we would have to leave it in the loop below as well since it uses the `env' outer variable."
@@ -2190,10 +2190,10 @@ However, if that's the case, I'm not sure just switching this to only happen wit
 "1","-1","0","This method now only sends email; I would change the name to reflect this fact."
 "1","-1","0","I think this should say Alias for 'gerrit remove plugin' (see line 150)?"
 "1","-1","0","The previous one says ""server assigned"".  Is the difference intentional?"
-"2","-3","-1","This works for the example I provided in the review of the patch set 4 but it still fails to render """"r"""" in a little bit different case.
+"1","-3","-1","This works for the example I provided in the review of the patch set 4 but it still fails to render """"r"""" in a little bit different case.
 For example change this file content:
 "
-"2","-2","-1","Since there is a Gerrit issue [1] for this bug, can you please add a reference to this bug as footer?
+"2","-4","-1","Since there is a Gerrit issue [1] for this bug, can you please add a reference to this bug as footer?
 
   Bug: issue 871
 
@@ -2234,7 +2234,7 @@ I agree the name is not great - we can change it if you like. But the intention 
 "2","-1","1","Patch Set 1: Looks good to me, approved
 
 LGTM; and yes please do upstream."
-"2","-2","-1","Patch Set 1:
+"1","-2","-1","Patch Set 1:
 
 These are used in decoding also, so yes they should obviously be enabled when possible. Alternatively, someone should rewrite all this in intrinsics and verify it's not slower.
 
@@ -2250,7 +2250,7 @@ My understanding is that Chrome on win32 does (C) (i.e. the windows/msvc linker 
 "3","-2","1","machine_emergency_restart is a good place for the cache flush in the sense that it is already machine-specific.
 
 But yes it's fine to take this approach. LGTM"
-"2","-2","-1","Patch Set 5:
+"2","-4","-1","Patch Set 5:
 
 > David - it used to be that you needed to land both the 
 > stable and the 9999 cros workon ebuild at the same time.  
@@ -2282,7 +2282,7 @@ Independent of whether splitting things up is a good idea, if Mike (who knows ba
 
 I concur with jrbarnette@.  It sounds like we can do a separate issue/CL for removing the pragma.  To that end, I think a TODO() referring to that issue could be useful if added to this CL."
 "2","-3","-1","NIT: a docstring of this Exception would be useful. Including the error above this."
-"2","-3","-1","1. This seems like a hack to work around a bug -- why are we reading from the pty after it is closed?
+"2","-4","-1","1. This seems like a hack to work around a bug -- why are we reading from the pty after it is closed?
 2. This hack also looks too broad -- if any error occurs we close the pipe and stop reading, while squelching the error. This seems bad.
 
 Same comments below."
@@ -2304,28 +2304,28 @@ Also, the hard-coded timeouts here need names, and some
 justification for their length."
 "2","-1","1","Is it always true for all CrOS devices that if eth1 exists it is an LTE system, and that we should use eth1 for communication in this test? I am guessing this would print out 'LTE system' on a CrOS device with on board Ethernet."
 "4","-1","1","Wow! Is this really true for any of the targets?"
-"2","-2","-1","Patch Set 4: Verified
+"1","-4","-1","Patch Set 4: Verified
 
 PTAL now.  See referenced bug for scope traces."
-"2","-2","-1","Patch Set 1: I would prefer that you didn't submit this
+"1","-4","-1","Patch Set 1: I would prefer that you didn't submit this
 
 (1 inline comment)
 
 LGTM after a small bug fix."
-"1","-2","-1","Make sure to remove the bug description as well, it might confuse things when parsed."
+"1","-4","-1","Make sure to remove the bug description as well, it might confuse things when parsed."
 "1","-3","-1","nit: use die, not echo, same for all errors below"
 "2","-3","-1","The best way to keep someone from doing this is to raise NotImplemented errors instead of pass"
-"2","-3","-1","Patch Set 2:
+"1","-3","-1","Patch Set 2:
 
 This patch fixed the style errors and separated the DDR3 config change to anther commit.
 
 Some issues Simon pointed out still need Samsung people to fix."
 "1","-3","-1","what does this mean? there's a scan result we currently fail to parse?"
-"2","-3","-1","Patch Set 4: Fails
+"1","-3","-1","Patch Set 4: Fails
 
 Unit tests fail for chromeos-ec so no changes can be committed until this is fixed :("
 "1","-3","-1","EAPI is not required to be numeric, so this will fail when it is a string"
-"2","-4","-1","Patch Set 3: No score
+"1","-4","-1","Patch Set 3: No score
 
 Removing fails since I tracked down the failure to the previous CL."
 "1","-4","-1","Is snd_pcm_close() the same as snd_output_close()?
@@ -2342,7 +2342,7 @@ Re working_fdt, I do prefer a single reference to a global rather than multiple 
 "2","-3","-1","Patch Set 5: Fails
 
 This already failed the unit tests once. Please do not submit any CLs until the unit tests are fixed."
-"2","-3","-1","Patch Set 1: Fails
+"1","-3","-1","Patch Set 1: Fails
 
 here is the error which failed your powertop bump:
 
@@ -2361,7 +2361,7 @@ this CL is breaking the CQ.  please try running it against a 32bit x86 board (li
   * ERROR: chromeos-base/vboot_reference-1.0-r811 failed (test phase):"
 "1","-4","-1","What happens if this fails? How do we ensure ssh is killed? Maybe a trap would be more supportable?"
 "1","-3","-1","I think this should remain in cleanup() or else it will not be called if the above fails."
-"2","-3","-1","Patch Set 1: Fails
+"1","-3","-1","Patch Set 1: Fails
 
 (1 inline comment)
 
@@ -2382,7 +2382,7 @@ Greg,
 
 Thanks for the info.  I agree with your assessment on caching as well."
 "2","-1","1","I agree that a trailing ""or"" is missing here (though defining a function is_configured and putting the grep's in it would have been better than any commenting. I cannot say that I like duplicating bash logic in English)"
-"2","-1","1","I agree with the above comment ... the above logic change  should be in a separate patch than the channel handling"
+"1","-1","0","I agree with the above comment ... the above logic change  should be in a separate patch than the channel handling"
 "2","-1","1","I feel like two question are in order, one question to select the firewall manager and not present it if only one is detected or auto selected, this can be saved in answer file.
 
 And the other if you want to apply the setting now.
@@ -2393,7 +2393,7 @@ Or... maybe the other way around... first ask if you want to apply firewall sett
 "3","-1","1","Patch Set 12: Code-Review+2
 
 currently our enums reflect the super-set of the devices which are supported. yeah - we are not allow flexibility at this stage."
-"2","-1","1","Patch Set 1:
+"1","-1","0","Patch Set 1:
 
 I would like Shireesh to approve this as well."
 "2","-2","-1","indeed!
@@ -2424,7 +2424,7 @@ output = engine-setup_2013_04_04_14_15_27.log"
 "2","-2","-1","you can assign:
  fileExists = os.path.exists(enabledFile) and os.path.exists(disabledFile)
 and then use fileExists as boolean, False means one not exists, True means both exists."
-"2","-2","-1","Patch Set 2:
+"2","-4","-1","Patch Set 2:
 
 Liron, so lets think:
 Reconstruct flow:
@@ -2434,7 +2434,7 @@ Go through all vds connect and after that refresh, no need for exception handlin
 especially additional refresh.
 No need for additional method that u introduced.
 Where it is 99% percent common. You already introduced a method that at some flow should return only true and complicated a very simple code. ""right now there is no need to copy the method in my opinion - 99%"" - your change at connectAndRefreshAllUpHosts in order to solve bug at reconstruct flow caused to regression in recovery flow. I don't think that these means 99% common."
-"2","-2","-1","Patch Set 1:
+"2","-4","-1","Patch Set 1:
 
 Alon,
 
@@ -2442,7 +2442,7 @@ Regardless of discussion we have in the bug #996021
 calling .disconnect() when sdk instance is no longer
 needed is a good change, i think it can confidently
 go in."
-"2","-2","-1","Patch Set 2: I would prefer that you didn't submit this
+"2","-4","-1","Patch Set 2: I would prefer that you didn't submit this
 
 This bug is a duplicate 841534 of and will be handled in http://gerrit.ovirt.org/#/c/6593.
 
@@ -2451,17 +2451,17 @@ Please abandon it.
 
 
 Sorry for the hassle."
-"2","-2","-1","I understand that right not only root is supported by engine, but I prefer that the API layer will pass to the engine all the information that the user provided. Engine may choose to ignore, for now, all users aside for 'root'. 
+"2","-4","-1","I understand that right not only root is supported by engine, but I prefer that the API layer will pass to the engine all the information that the user provided. Engine may choose to ignore, for now, all users aside for 'root'. 
 
 The way it's written here, is just a bug waiting to happen - tomorrow engine will support other users, and suddenly we will have a bug in the API: some users are not passed on to the engine, for some reason."
 "1","-3","-1","this enabled should be only after no errors at all..."
 "2","-3","-1","Patch Set 4: I would prefer that you didn't submit this
 
 Please fix the indent pep8 errors in gluster_cli_tests.py at least."
-"2","-3","-1","Patch Set 20:
+"1","-3","-1","Patch Set 20:
 
 Same compilation errors in SshSoftFencingCommand and VdsStaticDAODbFacadeImpl as I wrote about in PS19 comments"
-"2","-3","-1","Patch Set 1:
+"1","-3","-1","Patch Set 1:
 
 michael, it is a flag to protect against accidental deletion.
 i.e., engine will fail a request to delete a VM/template which has this flag.
@@ -2476,7 +2476,7 @@ well - we seem to have a race where we fail to connect to socket after migration
 also, why we call for unregister socket 3 times on migration scenario ?"
 "1","-3","-1","this will clearly fail - you must to initialize jobProperties first...."
 "1","-4","-1","You handle the failure once"
-"2","-4","-1","Patch Set 2:
+"1","-4","-1","Patch Set 2:
 
 The Jenkins failure is an unrelated foobar."
 "1","-5","-1","This does not really explain what the issue was.
@@ -2500,7 +2500,7 @@ SD creation status is now checked before proceeding."
     WantedBy=multi-user.target
 
 And it is useful to have the logging go the the supervdsm one."
-"2","-3","-1","Patch Set 13: Fails
+"1","-3","-1","Patch Set 13: Fails
 
 well, looks much better, you fixed the alerts, but in iscsi, block master domain, i get attribute error on missing (dom):
 
@@ -2560,7 +2560,7 @@ Yours Steffen"
 "4","-1","1","Patch Set 1: I would prefer that you didn't submit this
 
 I agree with the first reviewer, turning the condition around will make it better readable. Besides that, great idea and solution!"
-"2","-1","1","Patch Set 6:
+"1","-1","0","Patch Set 6:
 
 Except for my spaces nitpicking, yes ;-)"
 "2","-1","1","Patch Set 2:
@@ -2617,13 +2617,13 @@ Please tell me the exact error that happens, otherwise I can not reproduce the r
 What about a second argument in ""getNode()"" that allows to even fetch hidden/protected nodes?"
 "2","-2","-1","maybe add TRUE as the third argument for using strict comparisons?"
 "2","-2","-1","I read it as alternatives to TRUE are ... so all upper case would still be the default. But, actually, I would not mention the alternatives at all."
-"2","-2","-1","Patch Set 1: Abandoned
+"2","-4","-1","Patch Set 1: Abandoned
 
 TYPO3 4.6 branch is at the end of bug fixing period. Only priority changes will be considered (compatibility fixes and security fixes) until end of April 2013."
-"2","-2","-1","Patch Set 4:
+"2","-4","-1","Patch Set 4:
 
 The indexer usage was not changed, it just fixes the bug and it works. :) Adapting to the new indexer is yet another task, of course."
-"1","-2","-1","I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done..."
+"1","-4","-1","I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done..."
 "3","-3","-1","Patch Set 3:
 
 I have a separate TYPO3 installation running in an alias on the main site - that is in /home/. So domain.com is one TYPO3 installation and /home/ is a separate one using alias in Apache.
@@ -2655,7 +2655,7 @@ That change also reactivated a number of tests, of which three still fail in thi
 "2","-3","-1","Patch Set 2: Fails
 
 unit tests fail for me, please hold on (investigating)"
-"2","-4","-1","Patch Set 4:
+"1","-4","-1","Patch Set 4:
 
 The failure has to do with the locales available on my system. de_DE.UTF-8 is not available, but when I change it to en_US.UTF-8 the test is ok."
 "2","-4","-1","Patch Set 5: Verified by team member; Looks good to me, approved
@@ -2668,13 +2668,13 @@ Submitting with prior approval."
 Looks good to me.
 
 I consider the possibility of a fatal failure in (core) development context no big problem, as a core developer should know how the caching works."
-"2","-3","-1","Patch Set 2:
+"1","-3","-1","Patch Set 2:
 
 Build Failed 
 
 http://ci.typo3.robertlemke.net/job/TYPO3-Neos-Review/2721/ : Build failed"
 "2","-3","-1","Would be nice to have some errors thrown here if property setting failed. I just tried to set templateRootPathPattern instead of templateRootPath, which failed silently because there is no pubic setter for the *pattern property."
-"2","-3","-1","Patch Set 1:
+"1","-3","-1","Patch Set 1:
 
 Build Failed 
 
@@ -2698,7 +2698,7 @@ Thanks for your support!
 Steffen
 
 P.S: The reason, why Jenkins fails is probably, because of the parent commit is very old and the patch has to be rebased. Will try to get this done now (if network connection allows)"
-"2","-3","-1","Patch Set 4:
+"1","-3","-1","Patch Set 4:
 
 I uploaded a patch set 4 which uses a VariableFrontend for TCA caching.
 

@@ -144,7 +144,7 @@ atrophy	-2	General Inquirer Feb 2010
 attachment*	1	
 attack*	-3	
 attract*	2	
-audit	-3	FDA Comp. Terms
+audit	-1	FDA Comp. Terms
 auster*	-2	General Inquirer Feb 2010 kev mod
 autocrat*	-2	General Inquirer Feb 2010
 autocratic	-3	General Inquirer Feb 2010
@@ -152,7 +152,7 @@ avaric*	-3	General Inquirer Feb 2010
 avenge*	-2	General Inquirer Feb 2010
 aversi*	-3	remvoed avoid*	-1	
 avert*	-2	General Inquirer Feb 2010
-avoid*	-2	General Inquirer Feb 2010
+avoid*	-1	General Inquirer Feb 2010
 award*	1	
 awesome*	3	kev add star
 awful*	-4	
@@ -180,7 +180,6 @@ barbari*	-3	General Inquirer Feb 2010
 barf*	-2	Feb-11
 barren	-2	General Inquirer Feb 2010
 barrier*	-2	General Inquirer Feb 2010
-baseline	2	FDA Comp. Terms
 bashful*	-3	
 bastard*	-3	removed battl*	-2	
 battle*	-2	General Inquirer Feb 2010
@@ -256,13 +255,11 @@ bondage	-2	General Inquirer Feb 2010
 bonehead*	-2	Feb-11
 bonny	2	Hannes GI add
 bonus*	1	
-bootstrap	1	FDA Comp. Terms
 bore*	-2	29 July 2009 - changed from -3
 boring*	-2	
 bother*	-2	
 bountiful	2	Hannes GI add
 brag*	-2	General Inquirer Feb 2010
-branch	2	FDA Comp. Terms
 brandish*	-2	General Inquirer Feb 2010
 brat	-2	General Inquirer Feb 2010
 bravado	-2	General Inquirer Feb 2010
@@ -285,7 +282,7 @@ brute	-2	General Inquirer Feb 2010
 brutish	-2	General Inquirer Feb 2010
 buckled	-2	General Inquirer Feb 2010
 buffoon*	-2	Feb-11
-bug	-2	General Inquirer Feb 2010
+bug	-4	General Inquirer Feb 2010
 bullet*	-2	General Inquirer Feb 2010
 bullshit*	-3	Feb-11
 bum	-2	
@@ -1164,6 +1161,7 @@ hoping	2
 horde	-2	General Inquirer Feb 2010
 horr*	-4	
 hostil*	-3	
+hotfix	3
 hug	3	
 hugg*	3	
 hugs	3	
@@ -1647,7 +1645,7 @@ pained	-2
 painf*	-4	
 paining	-4	
 painl*	2	
-pains	-4	
+pains	-3	
 palatabl*	2	
 paltry	-2	General Inquirer Feb 2010
 pambering	3	kev add
@@ -1669,7 +1667,7 @@ party*	1
 passe	-2	General Inquirer Feb 2010
 passion*	3	
 pathetic*	-3	
-patch	2	FDA Comp. Terms
+patch	1	FDA Comp. Terms
 peace*	1	
 peculiar*	-1	
 perfect*	2	
@@ -1734,7 +1732,7 @@ precipitate*	-2	General Inquirer Feb 2010
 predicament*	-2	General Inquirer Feb 2010
 prejudic*	-3	
 preposterous*	-2	General Inquirer Feb 2010
-pressur*	-2	
+pressur*	-3	
 presumptuous*	-3	General Inquirer Feb 2010
 pretend	-2	General Inquirer Feb 2010
 pretense	-2	General Inquirer Feb 2010
@@ -1771,7 +1769,6 @@ provocation*	-2	General Inquirer Feb 2010
 provoke	-2	General Inquirer Feb 2010
 prowl*	-2	General Inquirer Feb 2010
 pry*	-2	General Inquirer Feb 2010
-psuedo	1	FDA Comp. Terms
 puk*	-3	
 puka	3	kev add
 pukka	3	kev add

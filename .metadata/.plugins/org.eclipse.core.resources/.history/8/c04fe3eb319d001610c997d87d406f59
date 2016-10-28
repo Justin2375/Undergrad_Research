@@ -43,10 +43,10 @@ public class SentimentTest {
 	}
 	
 	/**
-	 * Takes in the positive, negative, and comment
+	 * Takes in the possitive, negative, and comment
 	 * body to be put into the individual results file.
 	 * This will be handy when optimizing SentiStrength.
-	 * @param posSentiment Positive sentiment score given to the comment
+	 * @param posSentiment Possitive sentiment score given to the comment
 	 * @param negSentiment Negative sentiment score given to the comment 
 	 * @param comBody Body of the comment that was analyzed
 	 * @param writer Writer will be responsible for writing the string to the .csv file
@@ -59,7 +59,7 @@ public class SentimentTest {
 	
 	/**
 	 * Constructor for the SentiStrength runner program.
-	 * This will take in a .csv file containing the human coded
+	 * This will take in a .csv file containing the human codedd
 	 * values, comments, and the comment number to be processed by
 	 * SentiStrength.
 	 * @param oracleFile  .csv file that will be read like a DB table containing comments, comment number, 
@@ -87,9 +87,9 @@ public class SentimentTest {
 				if(comment.getRating()==rating)
 					numCorrect++;								
 			}
-			// Close the writer after all individual results have been written to the file
+			// Close the writer after all individual results have been writen to the file
 			writer.close();
-			// Compute the accuracy of SentiStrength by taking the given result divided by the human coded result
+			// Compute the acurracy of SentiStrength by taking the given result divided by the human coded result
 			float accuracy = ((float)numCorrect/(float)numComment) * 100;
 			// Output the accuracy to the console
 			System.out.println("Total comment "+ numComment+ ", Got accurate: "+numCorrect);
@@ -111,7 +111,7 @@ public class SentimentTest {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// Create a new test object and run SentiStrength
-		SentimentTest test = new SentimentTest("Sentiment-comments.csv");
+		SentimentTest test=new SentimentTest("Sentiment-comments.csv");
 	}
 
 }

@@ -87,7 +87,7 @@ public class SentimentTest {
 				if(comment.getRating()==rating)
 					numCorrect++;								
 			}
-			// Close the writer after all individual results have been written to the file
+			// Close the writer after all individual results have been writen to the file
 			writer.close();
 			// Compute the accuracy of SentiStrength by taking the given result divided by the human coded result
 			float accuracy = ((float)numCorrect/(float)numComment) * 100;
