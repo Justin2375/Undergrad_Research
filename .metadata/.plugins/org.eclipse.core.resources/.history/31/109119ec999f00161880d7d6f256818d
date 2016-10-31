@@ -53,7 +53,7 @@ public class SentimentTest {
 	 * @throws IOException  Thrown when there is an issue reading or finding the file
 	 */
 	public void writeToCSV(String posSentiment, String negSentiment, String comBody, CSVWriter writer) throws IOException{
-		String[] individualResult = {posSentiment, negSentiment, comBody};
+		String[] individualResult = {posSentiment, negSentiment, totalScore, comBody};
 		writer.writeNext(individualResult);
 	}
 	
@@ -79,7 +79,7 @@ public class SentimentTest {
 			for(RatedComment comment : commentOracle ) {
 				numComment++;
 				String[] sentiResult = sentiStrength.computeSentimentScores(comment.getComments()).split("\\s+");
-				writeToCSV(sentiResult[0], sentiResult[1], comment.getComments(), writer);
+				writeToCSV(sentiResult[0], sentiResult[1], sentiResult[2], comment.getComments(), writer);
 				// System.out.println(Arrays.toString(sentiResult) + comment.getComments()); DEBUGGING
 				// Parse the human coded rating from the .csv file
 				int rating = Integer.parseInt(sentiResult[2]);

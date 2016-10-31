@@ -529,7 +529,7 @@ dearth	-2	General Inquirer Feb 2010
 death*	-3	Feb-11
 debatable	-2	General Inquirer Feb 2010
 debtor*	-2	General Inquirer Feb 2010
-debugging	-1	FDA Comp Terms
+debug*	-1	FDA Comp Terms
 decadence	-2	General Inquirer Feb 2010
 decadent*	-2	General Inquirer Feb 2010
 decay*	-2	Feb-11
@@ -588,7 +588,7 @@ deplore*	-2	General Inquirer Feb 2010
 depose*	-2	General Inquirer Feb 2010
 deprav*	-4	General Inquirer Feb 2010
 depreciate*	-2	General Inquirer Feb 2010
-depreciation	-2	General Inquirer Feb 2010
+depreciation	-1	General Inquirer Feb 2010
 depress*	-4	
 depriv*	-2	
 deride	-2	General Inquirer Feb 2010
@@ -876,7 +876,7 @@ fatal*	-3
 fathead*	-3	Feb-11
 fatigu*	-3	
 fatty	-2	Feb-11
-fault*	-4	
+fault*	-3	
 favor*	2	
 favoritism*	-2	kev add
 favour*	2	
@@ -1746,7 +1746,7 @@ pride	2
 prison*	-2	Feb-11
 privileg*	2	
 prize*	3	
-problem*	-2	
+problem*	-3	
 procrastinat*	-2	General Inquirer Feb 2010
 prod	-2	General Inquirer Feb 2010
 profit*	2	kev mod
