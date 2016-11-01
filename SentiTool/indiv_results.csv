@@ -431,18 +431,18 @@ but does the go project really care?)"
 1	-1	"FWIW:
 
 After the first Mod, a >= 0. b is already > 0 by definition. So the rest of this code is all done using natural numbers and thus could probably be (slightly) more efficient by using nat's directly. Perhaps next CL."
-3	-1	"say: the Go Playground is really useful.
+2	-1	"say: the Go Playground is really useful.
 (I use it every day.)"
-1	-1	I agree this can be discovered without the text. Deleted the comment. Same in OpenKey.
+2	-1	I agree this can be discovered without the text. Deleted the comment. Same in OpenKey.
 1	-1	"debug/ogle/debug is a lot of debug path components.
 
 Time to think about rearranging?"
-2	-2	"I'm not sure I understand your point here. Do you mean I should talk about things like field alignment and so on?
+1	-2	"I'm not sure I understand your point here. Do you mean I should talk about things like field alignment and so on?
 
 I think that mentioning Java would make this more confusing."
-1	-2	"This should probably be moved above the goos==""openbsd"" check so that unknown options on OpenBSD also force cgo lookups."
-1	-2	"Ah, the perils of copy-paste. Updated to ""ECDHE-RSA-AES256-GCM-SHA384""."
-2	-1	http://godoc.org/golang.org/x/tools/cmd/benchcmp will help make the benchmark comparison more readable.
+1	-1	"This should probably be moved above the goos==""openbsd"" check so that unknown options on OpenBSD also force cgo lookups."
+1	-1	"Ah, the perils of copy-paste. Updated to ""ECDHE-RSA-AES256-GCM-SHA384""."
+1	-1	http://godoc.org/golang.org/x/tools/cmd/benchcmp will help make the benchmark comparison more readable.
 1	-1	// use Russian Peasant algorithm, adapted for exponentiation
 1	-1	"{""abbrev"", ""info"", ""line"", ""str""}
 would be consistent with the dwarf.New arg order.
@@ -450,8 +450,8 @@ would be consistent with the dwarf.New arg order.
 Ditto in pe/file.go."
 2	-1	"""easy"" is marketing; let the code speak for itself. :)"
 2	-1	I feel like these explanatory comments belong in the code, not just the code review.
-2	-1	another introductory sentence please. when do i use this?
-2	-1	"I don't know how this is guaranteed if i/j/k is constant.
+1	-1	another introductory sentence please. when do i use this?
+1	-1	"I don't know how this is guaranteed if i/j/k is constant.
 
 For example, on both arm/386, cgen_slice is called with:
 
@@ -473,62 +473,62 @@ var si []int = make([]int, 10)
 func main() {
         _ = si[0:ci64]
 }"
-1	-1	I now believe that all paths have already done a finishsweep by this point so removing this as you did is correct.
-2	-1	Maybe s/propvalues/proppatchProps/. Not sure if it's an improvement. WDYT?
-1	-3	"Done.
+3	-2	I now believe that all paths have already done a finishsweep by this point so removing this as you did is correct.
+1	-1	Maybe s/propvalues/proppatchProps/. Not sure if it's an improvement. WDYT?
+2	-2	"Done.
 
 Note the modified tests. I don't think it matters that they fail differently now. It's probably better, actually."
-2	-1	Because it's racy. It should be guarded optimally with a lock that is not so global, but then you're talking about improvements that are in the nanosec granularity.
-1	-2	I wouldn't bother with bufio.NewReader, just read 100 bytes or something rather than bothering with ReadString.
+2	-3	Because it's racy. It should be guarded optimally with a lock that is not so global, but then you're talking about improvements that are in the nanosec granularity.
+2	-1	I wouldn't bother with bufio.NewReader, just read 100 bytes or something rather than bothering with ReadString.
 1	-1	The uint isn't necessary any more. And while you're here, I'd change the first + to |. The two are equivalent, since you're shifting by 4 then add/or-ing 0x0a, but I still feel that | is more appropriate for bit-whacking.
-1	-1	"s/logical//
+1	-2	"s/logical//
 
 (logical as opposed to what? it's all logical in software... - leave away)
 
 how about:
 
 Loading is controlled by this dependency graph."
-1	-4	"I have added cmd.Process.Kill() to kill broken process (after small pause). The broken process gets killed. But ""Dr Watson"" process that displays WER dialogue still remains opened (with dialogue and all). I don't see how we can kill that.
+2	-2	"I have added cmd.Process.Kill() to kill broken process (after small pause). The broken process gets killed. But ""Dr Watson"" process that displays WER dialogue still remains opened (with dialogue and all). I don't see how we can kill that.
 
 I don't think it is important anyway. This test is unlikely to break without someone noticing. And once we notice that we'll fix and clean up."
-1	-2	This will always be nil, right? As above, I think you can remove this argument.
+2	-2	This will always be nil, right? As above, I think you can remove this argument.
 1	-1	"Should this just be
 func Run() { etc }
 and have callers explicitly call Register beforehand?"
-2	-1	I image you already modified c2go.cfg to account for this? If so, can you please update c2go? Thanks.
-1	-1	"this doesn't make sense to me.
+1	-1	I image you already modified c2go.cfg to account for this? If so, can you please update c2go? Thanks.
+2	-3	"this doesn't make sense to me.
 
 Why can we distinguish it? What depends on what happening before what?"
 2	-2	"It's in the debug code below, but I'd add a comment here saying something like
 
     // n = (p - base) / s.elemsize, using division by modular multiplication"
-2	-1	Please put code snippets into double back ticks in order to highlight them in the changelog (``computeChangeSets()``, ``persistAll()``, ``hasUnpersistedChanges()``)
+1	-1	Please put code snippets into double back ticks in order to highlight them in the changelog (``computeChangeSets()``, ``persistAll()``, ``hasUnpersistedChanges()``)
 2	-2	I suggest to add a wrapper class like F3FLOW3PersistenceObjectStorage and keep the API attach() and detach() stable.
 1	-1	"You can simply use here $GLOBALS['TYPO3_LOADED_EXT']
 It is initialized in the bootstrap. Basically this global does not need initialization. And extension could still use it in ext_tables and ext_localconf."
 1	-1	"In what way? I wanted to express that this all belongs below there ""where"", so I indented it another level."
 1	-1	Same question on side-effects as on the previous file
-2	-1	no hsc in exceptions please. the exception handler does take care of proper encoding
-2	-1	"ERROR: TRUE, FALSE and NULL must be uppercase; expected ""FALSE"" but found ""false"""
-3	-1	it would be nice to use a DTO for the options. this would make it possible to extend it later (which I am pretty sure we will do) without breaking extensions using the interface
+2	-2	no hsc in exceptions please. the exception handler does take care of proper encoding
+2	-3	"ERROR: TRUE, FALSE and NULL must be uppercase; expected ""FALSE"" but found ""false"""
+2	-1	it would be nice to use a DTO for the options. this would make it possible to extend it later (which I am pretty sure we will do) without breaking extensions using the interface
 1	-1	"It is not really a service, rather a ""strategy"", what about calling it as such?"
-1	-1	are you sure about this loop, which does not run ;-)
+1	-2	are you sure about this loop, which does not run ;-)
 1	-1	"Use existing $GLOBALS['LANG']->sL('LLL:EXT:lang/locallang_core.xml:show_item.php.uid') 
 with ""Uid:"" ?"
 1	-1	"This backup is not needed. 
 $item['indexing_configuration'] = $indexingConfigurationCurrent; is enough."
 1	-1	see it's actually added below neos-application, will remove it ;)
 1	-1	valign is still spread a lot across the core - this will be a seperate task to clean this up. this makes it only more easy to find.
-2	-2	"Stefan, I'm just mostly replicating the what is done when including CSS styled content's TS using the include static select. To me your questions show you did not look at the issue. Can we please get this through?
+1	-2	"Stefan, I'm just mostly replicating the what is done when including CSS styled content's TS using the include static select. To me your questions show you did not look at the issue. Can we please get this through?
 
 Apart from the above, no there is not a filename, and yes there needs to be a slash."
-1	-1	Enable the deprecation log here is not finally discussed. I'm 60/40 for not logging, because the deprecation log will get extremely flooded. When enabling, only the first setting (and not all three) should be logged to minimize the flood. The logging could be enabled in the next version, and till then it should be documented very well.
+2	-3	Enable the deprecation log here is not finally discussed. I'm 60/40 for not logging, because the deprecation log will get extremely flooded. When enabling, only the first setting (and not all three) should be logged to minimize the flood. The logging could be enabled in the next version, and till then it should be documented very well.
 1	-1	Is the model about logs (as the class name suggests) or about log rows (as the parameter name suggests)? At least one of them needs to be changed.
 1	-1	add a whitespace before/after = when assigning $row
 1	-1	functional changes?? I just flipped the ifs. But I just see that there's still the skipSystemDependencyCheck stuff in it.
-2	-4	I actually fear that PHP accepts this due to some easteregg or so :)
-2	-2	Sorry but I didn't get why we need 199 here - to trigger some update to 200 afterwards? What if we just fix the update for afterwards then?!?
-2	-4	"why do we json_encode() $scopeData here? We do not do this in the base class. Furthermore it is already serialized.
+2	-1	I actually fear that PHP accepts this due to some easteregg or so :)
+1	-2	Sorry but I didn't get why we need 199 here - to trigger some update to 200 afterwards? What if we just fix the update for afterwards then?!?
+2	-3	"why do we json_encode() $scopeData here? We do not do this in the base class. Furthermore it is already serialized.
 
 The only difference in this method compared to the one in the base class is now the Tree.thisScript stuff. The question therefore is: Is this a bug in the baseclass that Tree.thisScript is not set, or is it superfluous here?
 If neither applies, then still the question remains, if there's a nicer way of adding this code snippet without overriding (and copyiing) the complete method from the base class?"
@@ -537,20 +537,20 @@ same for CMS8"
 1	-1	Me neither, i am just writing functional tests for this ... gimme a sec.
 1	-1	The new/better URL would be http://tracker.phpbb.com/browse/PHPBB3-3832
 1	-1	You are free to decide, preference is usage of use keyword. IDEs do this on their own.
-2	-1	"did you want to save the three characters ""urn""? not worth it IMO ;)"
-1	-1	"+1
+1	-2	"did you want to save the three characters ""urn""? not worth it IMO ;)"
+1	-2	"+1
 Also this method shows a lot of errors/hints in the code inspector (unused variables etc.) but I find it hard to refactor this atm"
 2	-1	I'd say yes. I mean, why not have hex for your file sizes internally? :)
 1	-1	"should we mention the full classname here?
 TYPO3FlowPersistenceDoctrineService"
 1	-1	divider/spacer not needed any more - spaces should be created by t3skin itself
-1	-3	Since BE was IE10 (as of the member var above) I think changing the member to edge is not a problem, but I would keep the IE8 default here, which does not hurt us, and will also not hurt third party stuff then.
+1	-1	Since BE was IE10 (as of the member var above) I think changing the member to edge is not a problem, but I would keep the IE8 default here, which does not hurt us, and will also not hurt third party stuff then.
 1	-1	Maybe some info about the purpose (selecting node position?)
 1	-1	I think we use spaces instead of tabs after variable name (all  @foo above).
 1	-1	"Suggestion:
 
 Your account or email address does not exist."
-2	-1	"please use a better var name, Panels says nothing :)
+2	-2	"please use a better var name, Panels says nothing :)
 
 eg: TYPO3.Viewport.ContentCards"
 2	-1	"I wouldn't recommend to use a percentage here.. With ""This change is backwards-compatible most of the time"" or ""This does not change the public API..."" we should be on the safe side"
