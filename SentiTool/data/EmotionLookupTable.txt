@@ -1,4 +1,4 @@
-abandon*	-2
+abandon*	1
 abate	-2
 abdicate*	-2
 abhor*	-4
@@ -16,7 +16,7 @@ abuse*	-4
 abusi*	-4
 abyss	-2
 access	1
-accident*	-2
+accident*	1
 accomplish*	2
 accost*	-2
 accuracy	2
@@ -47,9 +47,9 @@ affectation*	-2
 affection*	3
 afflict*	-3
 afraid	-4
-against	-2
+against	1
 aggravat*	-3
-aggress*	-3
+aggress*	1
 aggrieve*	-2
 aghast	-2
 agitat*	-2
@@ -99,7 +99,7 @@ anguish*	-4
 animosity	-2
 annihilate*	-3
 annihilation	-4
-annoy*	-3
+annoy*	1
 anomalous	-2
 anomaly	-3
 antagoni*	-2
@@ -205,7 +205,7 @@ berserk	-2
 beseech	-2
 beset	-2
 besiege*	-2
-best	2
+best	1
 betray*	-3
 betroth	3
 betrothal	3
@@ -271,7 +271,7 @@ breakdown*	-2
 bribe*	-2
 brillian*	2
 bristle*	-2
-broke*	-2
+broke*	1
 broken-hearted*	-5
 brokenhearted*	-5
 brood*	-2
@@ -289,7 +289,7 @@ bum	-2
 bumhole*	-2
 bungle*	-2
 bunkum	-2
-burden*	-2
+burden*	1
 burgl*	-2
 buried	-3
 burn*	-2
@@ -327,7 +327,7 @@ challenge*	-2
 chaos	-2
 chaotic*	-2
 charge*	-2
-charm*	2
+charm*	1
 chase*	-2
 chastise*	-3
 cheap*	-2
@@ -384,14 +384,14 @@ compel	-2
 compilation	1
 complain*	-2
 complexity	1
-complicate*	-2
+complicate*	1
 complication*	-2
 complicity	-2
 compliment*	2
 compulsion	-2
 conceal*	-2
 conceit*	-2
-concern*	-2
+concern*	1
 condemn*	-2
 condemnation	-2
 condescen*	-3
@@ -399,8 +399,8 @@ condol*	-3
 confes*	-2
 confidence	2
 confidences	1
-confident	2
-confidently	2
+confident	1
+confidently	1
 confine	-2
 confinement	-2
 confiscate*	-2
@@ -461,7 +461,7 @@ cramp*	-2
 cranky	-2
 crap	-3
 crappy	-3
-crash	-4
+crash	1
 crass	-2
 crave*	-2
 crawl*	1
@@ -497,7 +497,7 @@ crying	-4
 cuddl*	3
 culpable	-2
 culprit	-2
-cumbersome	-2
+cumbersome	1
 cunt*	-4
 curse*	-2
 cursory	-2
@@ -508,7 +508,7 @@ cutie*	2
 cynic*	-2
 damag*	1
 damn*	-2
-danger*	-2
+danger*	1
 daring	1
 dark	1
 darken	1
@@ -622,7 +622,7 @@ detract*	-2
 detrimental	-2
 devastat*	-5
 devastate	-3
-developer	2
+developer	1
 deviate	-2
 deviation	-2
 devil*	-2
@@ -632,14 +632,14 @@ devot*	3
 diabolic*	-2
 diagnostic	1
 dickhead*	-2
-dictate	-2
+dictate	1
 dictatorial	-2
 differ	-2
 difficult*	-2
 digni*	2
 dignitar*	1
 dilemma	-2
-dim	-2
+dim	1
 dimwit*	-2
 din	-2
 dipshit*	-2
@@ -649,7 +649,7 @@ dirty	-2
 disable*	1
 disadvantage*	-2
 disagre*	-2
-disagree*	-2
+disagree*	1
 disappoint*	-2
 disapprov*	-2
 disarm	-2
@@ -664,7 +664,7 @@ disconcerted	-2
 discontent*	-2
 discord	-2
 discordant	-2
-discourag*	-2
+discourag*	1
 discredit*	-2
 discrepant	-2
 discriminate*	-2
@@ -684,7 +684,7 @@ dislike*	-3
 disliking	-3
 dismal	-2
 dismay*	-3
-dismiss*	-2
+dismiss*	1
 disobedience	-2
 disobedient*	-2
 disorder*	-2
@@ -705,7 +705,7 @@ dispute	-2
 disregard*	-2
 disrupt*	-2
 dissatisf*	-2
-dissent*	-2
+dissent*	1
 dissolution	-2
 distort*	-2
 distract*	-2
@@ -715,11 +715,11 @@ distrust*	-2
 disturb*	-2
 divert	1
 divin*	2
-division	-2
+division	1
 divorce*	-2
 dizziness	-2
 dizzy	-2
-documentation	2
+documentation	1
 doldrums	-2
 dolt	-2
 dominate*	-2
@@ -747,7 +747,7 @@ drunk*	-2
 dubious*	-2
 dull*	-2
 dumb*	-2
-dump*	-2
+dump*	1
 dumpcart*	1
 dumper*	1
 dumpling*	1
@@ -758,7 +758,7 @@ duty	-2
 dwell*	1
 dwindle*	-2
 dying	-2
-dynamic*	2
+dynamic*	1
 dynamism	2
 eager*	1
 ease*	1
@@ -818,10 +818,10 @@ estranged	-2
 evade*	-2
 evasion*	-2
 evict*	-3
-evil*	-3
+evil*	1
 exaggerat*	-2
 exasperat*	-2
-excel*	3
+excel*	1
 excellence	4
 excellent	4
 excess	-2
@@ -877,7 +877,7 @@ fathead*	-3
 fatigu*	-3
 fatty	-2
 fault*	-3
-favor*	2
+favor*	1
 favoritism*	-2
 favour*	2
 favouritism*	-2
@@ -908,7 +908,7 @@ file	1
 filth	-4
 filthy	-2
 fine	1
-fired	-3
+fired	1
 fist	-2
 flagrant*	-2
 flame	-3
@@ -1037,7 +1037,7 @@ grati*	2
 gratuitous	-2
 grave*	-3
 gravel*	1
-great*	2
+great*	1
 greed*	-3
 grief	-4
 griev*	-4
@@ -1065,8 +1065,8 @@ gullible	-2
 gun*	-2
 gunmen	-2
 h8	-4
-ha	2
-hack	-2
+ha	1
+hack	1
 hag	-2
 haggard	-2
 haha*	2
@@ -1078,7 +1078,7 @@ hangover*	-3
 haphazard*	-2
 hapless*	-2
 happi*	3
-happy	2
+happy	1
 harass*	-3
 hardship*	-2
 hardware	1
@@ -1093,8 +1093,8 @@ harmonies	1
 harmonisation	1
 harmonization	1
 harms	-3
-harsh	-2
-hassle*	-2
+harsh	1
+hassle*	1
 hate	-4
 hated	-4
 hateful*	-4
@@ -1158,7 +1158,7 @@ hopeless*	-4
 hopes	2
 hoping	2
 horde	-2
-horr*	-4
+horr*	-2
 hostil*	-3
 hotfix	3
 hug	3
@@ -1222,7 +1222,7 @@ impress*	2
 impression*	1
 imprison*	-2
 improp*	-2
-improve*	2
+improve*	1
 improving	2
 impulsive	-2
 impure	-2
@@ -1296,7 +1296,7 @@ intellect	1
 intelligent*	2
 intelligib*	1
 interactive	3
-interest*	2
+interest*	1
 interfer*	-2
 interrup*	-2
 intimidat*	-4
@@ -1307,7 +1307,7 @@ intrud*	-2
 intrusion*	-2
 inundate*	-2
 invade*	-2
-invalid*	-3
+invalid*	1
 invigor*	2
 invisible	-2
 involuntary	-2
@@ -1342,7 +1342,7 @@ joystick	1
 jumpy	-2
 junk	-2
 keen*	1
-kick*	-2
+kick*	1
 kidding	1
 kidnap	-2
 kill	-2
@@ -1350,12 +1350,12 @@ killed	-4
 killer	-2
 killing	-2
 killjoy	-2
-kind	2
-kindly	2
+kind	1
+kindly	1
 kindn*	2
 kiss*	3
 knife	-2
-lack	-2
+lack	1
 laidback	2
 lame*	-3
 lament*	-2
@@ -1383,7 +1383,7 @@ lifeless	-2
 like	1
 likeab*	3
 liked	3
-likes	3
+likes	1
 liking	3
 limitation	-2
 limp	-2
@@ -1402,7 +1402,7 @@ lose	-2
 loser*	-3
 loses	-2
 losing	-3
-loss*	-3
+loss*	1
 lost	1
 lous*	-3
 love	3
@@ -1423,7 +1423,7 @@ lucked	3
 lucki*	3
 luckless*	-3
 lucks	3
-lucky	2
+lucky	1
 ludicrous*	-3
 lull	-2
 lunatic	-2
@@ -1487,15 +1487,15 @@ misinform*	-2
 mislead	-2
 misrepresent*	-2
 miss	-2
-missed	-2
+missed	1
 misses	-3
-mistak*	-2
+mistak*	1
 mistrust*	-2
 misunderst*	-2
 misuse	-2
 moan	-2
 mock	1
-mocked	-3
+mocked	1
 mocker*	-3
 mocking	-3
 mockingbird	1
@@ -1531,7 +1531,7 @@ mutter	-2
 nag*	-2
 naga*	1
 naive*	-2
-nast*	-3
+nast*	1
 nasturtium	1
 naughty	-2
 nazi*	-2
@@ -1643,7 +1643,7 @@ pain	-4
 pained	-2
 painf*	-4
 paining	-4
-painl*	2
+painl*	1
 pains	-3
 palatabl*	2
 paltry	-2
@@ -1654,7 +1654,7 @@ pampers	1
 pandemonium	-2
 panic*	-3
 paradise	4
-parallel	3
+parallel	1
 paralysis	-2
 paralyzed	-2
 paranoi*	-3
@@ -1716,7 +1716,7 @@ poppycock	-2
 popularis*	1
 popularity	2
 populariz*	1
-positiv*	3
+positiv*	1
 positivi*	1
 pout*	-2
 poverty	-2
@@ -1744,7 +1744,7 @@ prick*	-3
 prickle	1
 pride	2
 prison*	-2
-privileg*	2
+privileg*	1
 prize*	3
 problem*	1
 procrastinat*	-2
@@ -1754,7 +1754,7 @@ profiteer*	-2
 profitless*	-2
 program	1
 prohibit*	-2
-promis*	2
+promis*	1
 promiscu*	-2
 promissory	1
 propaganda	-2
@@ -1824,7 +1824,7 @@ reek*	-3
 refrain*	-2
 refugee*	-2
 refusal*	-2
-refuse*	-2
+refuse*	1
 regardless	1
 regress*	1
 regret*	-2
@@ -1909,11 +1909,11 @@ rupture*	-2
 rusty	-2
 ruthless*	-3
 sabotage*	-2
-sad	-4
+sad	1
 sadde*	-4
 sadly	-2
 sadness	-4
-safe*	2
+safe*	1
 sag*	-2
 sank	-2
 sap	-2
@@ -1993,7 +1993,7 @@ shiver*	-2
 shock*	-3
 shoddy	-2
 shook	-2
-shoot*	-2
+shoot*	1
 shortage*	-2
 shortcoming*	-2
 shortsighted*	-2
@@ -2030,7 +2030,7 @@ skulk*	-2
 slam*	-2
 slander*	-2
 slap*	-2
-slash*	-2
+slash*	1
 slaughter*	-2
 slayer	-2
 sleaz*	-3
@@ -2071,7 +2071,7 @@ somber*	-2
 sore	-2
 soreness	-2
 sorrow*	-3
-sorry	-2
+sorry	1
 soulmate*	4
 sour*	1
 spam*	-2
@@ -2079,7 +2079,7 @@ spank	-2
 spastic*	-2
 spaz	-2
 spear	-2
-special*	2
+special*	1
 spew*	-2
 spill*	-2
 spinster*	-2
@@ -2092,7 +2092,7 @@ sprightly	2
 sputter*	-2
 squander*	-2
 squirm*	-3
-stab*	-2
+stab*	1
 stagnant	-2
 stain*	-2
 stale	-2
@@ -2133,7 +2133,7 @@ stray	-2
 strength*	1
 stress*	-2
 stricken	-2
-strict*	-2
+strict*	1
 strife	-2
 strike	-2
 stringen*	-2
@@ -2158,7 +2158,7 @@ substitution	1
 subtract*	-2
 subversion	-2
 subvert	-2
-succeed*	3
+succeed*	1
 success*	3
 successiv*	1
 successor*	1
@@ -2184,16 +2184,16 @@ sunniest	2
 sunny	2
 sunshin*	2
 sup	2
-super	3
+super	1
 superficial*	-2
-superfluous*	-2
+superfluous*	1
 superior*	3
 superiority*	1
 superiors	1
 superlative	4
 superstit*	-2
 support	1
-supported	2
+supported	1
 supporter*	2
 supporting	2
 supportive*	2
@@ -2260,7 +2260,7 @@ terrifyi*	-4
 terror	-2
 terror*	-3
 terrori*	-3
-thank	2
+thank	1
 thanked	1
 thankf*	2
 thanks	1
@@ -2321,7 +2321,7 @@ trespass*	-2
 trick*	1
 trite*	-3
 triumph*	3
-trivi*	-2
+trivi*	1
 trivium*	1
 troubl*	-2
 troubleshoot*	1
@@ -2387,7 +2387,7 @@ unfavorable	-2
 unfeeling*	-2
 unfit	-2
 unforeseen	-2
-unfortunate*	-2
+unfortunate*	1
 unfriendly	-3
 ungrateful*	-3
 unguarded*	-2
@@ -2404,7 +2404,7 @@ unlov*	-3
 unlucky	-2
 unmoved	-2
 unnatural*	-2
-unnecessar*	-2
+unnecessar*	1
 unnerve	-2
 unnoticed	-2
 unobserved	-2
@@ -2449,13 +2449,13 @@ uproot	-2
 upset*	-3
 uptight*	-3
 useful*	1
-useless*	-3
+useless*	1
 usurp*	-2
 vagabond*	-2
 vagrant*	-2
 vague*	-2
 vain	-3
-valuabl*	2
+valuabl*	1
 value	1
 valued	2
 values	1
@@ -2468,7 +2468,7 @@ venerate	2
 vengeance	-3
 venom	-4
 venomous*	-4
-veto	-2
+veto	1
 vex*	-3
 vice	-2
 vicious*	-4
@@ -2479,7 +2479,7 @@ vigour*	1
 vile*	-4
 villain*	-3
 violat*	-4
-violate*	-3
+violate*	1
 violation*	-2
 violence	-4
 violent*	-3
@@ -2526,7 +2526,7 @@ wee	-2
 weed	-2
 weep*	-3
 weird*	-2
-welcom*	2
+welcom*	1
 well	1
 well*	2
 wellies	1
@@ -2562,7 +2562,7 @@ woe*	-3
 won	1
 wonderf*	3
 worn	-2
-worr*	-4
+worr*	1
 worse*	-3
 worship*	2
 worshipper*	1
