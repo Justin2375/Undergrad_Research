@@ -170,16 +170,16 @@ We could remove this unless we define ABI to use argument registers like ""a(s0)
 2	-2	get rid of temporary memory allocation, okay to inline the code for getQuaternionFromVector here.
 1	-1	"I think he's looking for the exact string ""h"", the 2 is to count the terminating 0 at the end."
 1	-1	"Element. This one stuck out. I think the only ones to try to capitalize are ""Allocation, Type, Element"", since that trio is the dominant set of APIs for interacting with any sort of data from Java."
-2	-1	How about making MapAnonymous return null so that we only need the single check that table_mem_map_.get() != nullptr.
-1	-3	ditto. Never observed, not found anywhere => removed. DCHECK inside HUseListNode::Remove will fail if this occurs.
-1	-3	"Just call Assert.fail
+2	-2	How about making MapAnonymous return null so that we only need the single check that table_mem_map_.get() != nullptr.
+2	-2	ditto. Never observed, not found anywhere => removed. DCHECK inside HUseListNode::Remove will fail if this occurs.
+2	-2	"Just call Assert.fail
 
 (Extra credit for static import)"
 1	-1	If this need to be public, can we have a short doc comment?
 1	-1	"Hmm, I take it back.
 in_egroup_p(AID_NET_RAW) only checks the groups,
 but capable(CAP_NET_RAW) also checks the real capability."
-2	-2	"That's not what I was saying. Just like
+2	-3	"That's not what I was saying. Just like
 public static float getMdpiScaleFactor(Density density) {
  if (density == Density.ANYDPI) {
    density = Density.XXHIGH.getDpiValue();
@@ -191,37 +191,37 @@ But whatever, it's not a big deal."
 1	-1	"What's the correct thing for things exec'd from init?
 
 I assume we can use logwrapper if we need to."
-2	-1	Currently the array is always allocated with new if own_arrays_ is true. Also delete nullptr is defined to be a NOP.
-2	-1	we might want to support Z here, since that's coming in a day or two
+1	-1	Currently the array is always allocated with new if own_arrays_ is true. Also delete nullptr is defined to be a NOP.
+1	-1	we might want to support Z here, since that's coming in a day or two
 3	-2	"That is great - it also means you can move that line outside of the if/else.
 
 You also need another in6_addr: you have to have both dest and gateway (though for default and host you only use one or the other).  Same is needed in the v4 case."
-1	-1	"Just curious, how come you use a RandomAccessFile here? It might be simpler to just Guava (which lint already depends on):
+1	-2	"Just curious, how come you use a RandomAccessFile here? It might be simpler to just Guava (which lint already depends on):
 String firstLine = Files.readFirstLine(file, Charsets.US_ASCII);
 (that's com.google.common.io.Files)"
 1	-1	Templatizing this would make the change smaller, as you don't need to make it a member function.
-1	-1	"Agree displayable is not ideal. Looking for something that means ""not internal"". How about getNonInternalFieldModifiers()?
+2	-1	"Agree displayable is not ideal. Looking for something that means ""not internal"". How about getNonInternalFieldModifiers()?
 
 Given they're hidden APIs / internal comments I suggest not wasting any time on this: my point is the comment is not as clear to me as I think it could be.
 
 Feel free to act on the suggestion or ignore. The later draft is clearer."
-2	-1	"How about:
+1	-1	"How about:
 while (next != null && next->asPhi()->GetRegNumber() == reg_number) {
   if (next->GetType() == GetType()) return next;
   next = next->GetNext();
 }
 return nullptr;"
-3	-1	No, but its impact is pretty minimal so I wouldn't worry about it.
-2	-1	"This won't work in multlib build.
+1	-2	No, but its impact is pretty minimal so I wouldn't worry about it.
+1	-2	"This won't work in multlib build.
 You need to turn it into a target-specific variable (like the PRIVATE_TARGET_LIBATOMIC). Or can we merge PRIVATE_TARGET_LIBATOMIC, PRIVATE_TARGET_LIBGCOV and PRIVATE_TARGET_LIBGCC to a single PRIVATE_ variable?"
 2	-3	i think we're better off just taking the auto-generated stub like we did in the original patch. it doesn't hurt anyone that there's dead code at the end because the syscall never returns, and it's arguably more confusing to be insisting on supplying our own stub.
 1	-1	You will have to show me how to edit the commit message.
 1	-1	any reason why not using a inner class of the PackageApplication class to keep things co-located ?
-1	-1	This doesn't do any correctness tests of the file, while a start that they exist, I could just be touch'ing files.
-1	-2	We can go back and change this to the char* version if it gets too difficult to figure out what's going on.
+1	-2	This doesn't do any correctness tests of the file, while a start that they exist, I could just be touch'ing files.
+1	-1	We can go back and change this to the char* version if it gets too difficult to figure out what's going on.
 1	-1	If you are currently on 0.10,+ you won't see the message. This only appears only when coming from 0.8 or earlier.
-2	-1	why? we removed prelinking for a very specific reason (security), and I don't think we want to put it back in the platform.
-2	-2	"s/exit/continue/
+1	-2	why? we removed prelinking for a very specific reason (security), and I don't think we want to put it back in the platform.
+2	-3	"s/exit/continue/
 
 Exiting the loop doesn't do a final update of v. The write to conflict with this read must happen during the setup for a subsequent iteration. 
 
@@ -238,28 +238,28 @@ optionsTuple, optionsTupleValue, and optionsTupleEmptyValue (I believe I needed 
 1	-1	"s/Test/test/
 
 keep all lowercase (or make it a real sentence and end in period)."
-1	-2	"Yeah, I used that in other places. You're right it doesn't make much of a difference: no difference for norm and about 20% or 20k for the language tables.
+2	-1	"Yeah, I used that in other places. You're right it doesn't make much of a difference: no difference for norm and about 20% or 20k for the language tables.
 I've simplified the code and also now use NewFormattedFileWriter in all the other places where I'm used go/format before. See the diff of language/table.go to see how it is affected (will first do the IANA update separately).
 
 Unfortunately, this increases the diff a lot. Again in language/tables.go. But you can verify the data itself didn't change by looking at the checksum at the bottom."
-2	-3	No. I did find it useful to fail a test case from a fake server implementation when the client in the main goroutine does an invalid request but since this is not desired behavior, I abandoned the change.
+2	-2	No. I did find it useful to fail a test case from a fake server implementation when the client in the main goroutine does an invalid request but since this is not desired behavior, I abandoned the change.
 1	-2	Omit the err at the end.  Its the result of the last possible test making it probably meaningless and possibly misleading.
 2	-2	The idea was that if we are in the _GCmark phase and a goroutine is no longer _Grunning then do the scan now instead of waiting and doing it in the STW _GCmarktermination phase. Upon reflection I now have concerns about slowing down the preemption. I'm deleting this until we see a valuable use case.
-1	-2	"Sorry, wasn't paying enough attention to the context (clearly the param is moved to the heap) and instead assumed that if esc was not EscHeap, that therefore it was not ""heap""."
+2	-1	"Sorry, wasn't paying enough attention to the context (clearly the param is moved to the heap) and instead assumed that if esc was not EscHeap, that therefore it was not ""heap""."
 1	-1	you should implement a new (private) type here which implements UnmarshalJSON and check for a string or int (not a float64) in your unmarshal func, returning an error if it's unexpected (e.g. a JSON Object or a bool, which you don't handle below)
 1	-1	"s/importsSet/pkgSet/
 
 should explain that this set is only needed so we can create an duplicate free pkgList"
-1	-2	Isn't the Config callback sufficient? It sounds tricky that a returned Config is valid only until the Config callback is called. If possible I prefer limiting the Config's life inside the Config callback and letting users maintain a copy of some info based on need.
-2	-1	"the previous event may not be traceEvGoCreate, like this scenario:
+1	-1	Isn't the Config callback sufficient? It sounds tricky that a returned Config is valid only until the Config callback is called. If possible I prefer limiting the Config's life inside the Config callback and letting users maintain a copy of some info based on need.
+1	-1	"the previous event may not be traceEvGoCreate, like this scenario:
 when trace start goroute is in syscall and then exitsyscall and finally goStart.
 For this case, we can't access the stack information because the previous event is traceEvGoSysExit which doesn't contain the stack.
 I just think out a solution:
 when we receive a traceEvGoSysExit, we reserve the gocreate event by link it and access it here. But I don't know if there are any other cases or any side effect, any idea?"
-1	-1	Yep, I've merged the two into |supportedSignatureAlgorithms|.
-1	-2	I still think this needs a comment explaining the out-of-order argument set up.
-2	-2	You can open as many issue tickets as you like. But we would still have to add all these tests in here, and find solution that fit them. Why delay?
-3	-1	"> The flag package is ideally only imported in main.
+2	-1	Yep, I've merged the two into |supportedSignatureAlgorithms|.
+1	-1	I still think this needs a comment explaining the out-of-order argument set up.
+2	-3	You can open as many issue tickets as you like. But we would still have to add all these tests in here, and find solution that fit them. Why delay?
+2	-3	"> The flag package is ideally only imported in main.
 
 Where did this notion of ""ideal"" come from?  The advice I usually hear (and give) is: don't register flags except from the main package, because you're mutating a global variable.
 
@@ -274,7 +274,7 @@ The main reason to use sort, though, is to give a consistent return value (itera
 
 Should I drop the sort altogether?"
 1	-1	I think the bytes.Buffer version was more readable.
-2	-3	"This || breaks -e. If you need this information you need to reimplement -e yourself.
+2	-2	"This || breaks -e. If you need this information you need to reimplement -e yourself.
 
 if ! go build -a std; then
     failed=true
@@ -282,7 +282,7 @@ if ! go build -a std; then
         exit 1
     fi
 fi"
-2	-2	"Is this the right API? An alternative is:
+1	-2	"Is this the right API? An alternative is:
 
 func If(s RuneSet, tTrue, tFalse Transformer) Transformer
 
@@ -298,21 +298,21 @@ But I'm not sure if we even want a Ranges or If. The point of the Transformer in
 
 I wonder what Rob thinks. Can you start a separate e-mail thread just for API design?"
 1	-1	"In code this will read ""mgr.Mgr"". If move to svc package, it would read ""svc.Mgr"". Also, Let's just name in Manager so: ""svc.Manager""."
-3	-1	Because total bytes of addrs should be greater than size.
-2	-2	Does this really work for floating point too? I believe the * -1 was there to make sure that things like 0 becoming negative 0 worked. Please check.
+1	-1	Because total bytes of addrs should be greater than size.
+1	-1	Does this really work for floating point too? I believe the * -1 was there to make sure that things like 0 becoming negative 0 worked. Please check.
 1	-1	"We only have islibrary available right now, set by the linker when linked with '-shared'.
 
 Or are you making a subtler point that we shouldn't forward for shared libraries as well?"
-3	-2	"Add a test case for a package whose base name is not a valid identifier, e.g.,
+2	-2	"Add a test case for a package whose base name is not a valid identifier, e.g.,
 
 ""foo/bar-v2.0""
 
 since people do actually do this.
 It's fine to reject it for now, so long as the error is clear."
-2	-1	"How about to change above line like below?
+1	-1	"How about to change above line like below?
 
 trun(t, gt.client, ""git"", ""checkout"", ""-b"", ""newbranch"", ""origin/master"")"
-2	-1	"Since you are rewriting the entire file anyway, please try to put callers before callees, in general, so that reading the file top to bottom you usually know what a function is for when you see it. So:
+1	-1	"Since you are rewriting the entire file anyway, please try to put callers before callees, in general, so that reading the file top to bottom you usually know what a function is for when you see it. So:
 
 gen
 casebody
@@ -355,9 +355,9 @@ Even nss-mdns discourages using the file (""Please note that usually mDNS is not
 This variable name (in docs) is more important than conflicting with internal variable names.
 
 ""data"" isn't much more descriptive than ""variable"", ""thing"" or ""stuff""."
-2	-4	This condition is always true. I assume the condition you meant was n != ptrSize. Though I see you removed this condition altogether in CL 9704 (rebase failure?).
+2	-2	This condition is always true. I assume the condition you meant was n != ptrSize. Though I see you removed this condition altogether in CL 9704 (rebase failure?).
 2	-3	This is problematic, because you know you have Go code passing a Go pointer into C.  Maybe you had that before and I didn't notice.  I don't think we should put code like that in our examples.
-1	-1	"No need for indirection here.
+1	-2	"No need for indirection here.
 Merge benchmarkTCPConcurrentReadWrite into this function, and use the addr ""127.0.0.1:0"" directly."
 1	-1	Why not newval == _Grunning?  That would be symmetric with casgstatus.
 1	-1	"Rephrased the description.
@@ -367,7 +367,7 @@ I am not sure if you question the necessity of skipping whitespace or if you don
 For the first: yes, xml.Decoder.Token will not filter out empty whitespace between XML elements, so it has to be handled.
 For the latter: Indeed, I could merge skipWS with propfind's UnmarshalXML but one would most probably need this functionality also for the parser of proppatch. Shall I merge it with propfind or keep it separate?"
 1	-1	"And here, end with a single ""},"", and the next line becomes ""}},""."
-1	-2	"frame := getcallersp(unsafe.Pointer(&siz))
+1	-1	"frame := getcallersp(unsafe.Pointer(&siz))
 Delete next three lines.
 
 Also, given that now it's just the callersp, s/frame/sp/ everywhere, including in the defer struct field name."
@@ -377,53 +377,53 @@ Also, given that now it's just the callersp, s/frame/sp/ everywhere, including i
 same below"
 1	-1	can you combine the declaration of ctstr above with this assignment ?
 1	-2	Fair enough. But still deleting registry entries is wrong - you won't be able to run that program again without them. You can disable service from inside your program too http://godoc.org/code.google.com/p/winsvc/mgr.
-1	-4	Consider merging these uncommon write barrier forms in to one function that takes flags.  I think there's a bug in the later atomic function fixes that this would help address.
+3	-3	Consider merging these uncommon write barrier forms in to one function that takes flags.  I think there's a bug in the later atomic function fixes that this would help address.
 1	-1	Compiles with go:nowritebarrier so I just did the assignment.
-2	-1	"we need to test both non-privileged ""udp4"" and privileged ""ip4"" sockets here."
+1	-1	"we need to test both non-privileged ""udp4"" and privileged ""ip4"" sockets here."
 1	-1	this isn't an endpoint. It's a string. And now it can be a const, not a var.
 1	-2	I've shortened to isIPv4, but I don't think preferIPv4 is correct.  first(preferIPv4) seems reasonable, but partition(preferIPv4) doesn't actually prefer IPv4.
-1	-4	"I think that's just a mistake in make.bash.  It's better to fail fast and minimize distractions to stderr when you know you've already lost.
+3	-3	"I think that's just a mistake in make.bash.  It's better to fail fast and minimize distractions to stderr when you know you've already lost.
 
 I'd say add an exit failure here and then submit. If you feel strongly about keeping it as-is, you can submit this too and we can fix them both later if we decide to."
-2	-1	If non-empty, go into reverse mode where the buildlet dials the coordinator instead of listening for connections. The value is a comma-separated list of modes, e.g. ....
+1	-1	If non-empty, go into reverse mode where the buildlet dials the coordinator instead of listening for connections. The value is a comma-separated list of modes, e.g. ....
 1	-1	"I'd delete the blank line.
 
 Ditto for the blank lines in peekUintStructField and peekIntStructField."
-1	-2	I made this timeout be 3600 instead, because 10 minutes was too slow with unaccelerated QEMU :(
-2	-2	Good point, I missed that.  Determinism is a key feature.  Fixed.
+2	-2	I made this timeout be 3600 instead, because 10 minutes was too slow with unaccelerated QEMU :(
+2	-1	Good point, I missed that.  Determinism is a key feature.  Fixed.
 1	-1	Note that this means envp is empty, while you fill in LD_LIBRARY_PATH, PATH, and TMPDIR in the gomobile code.  I'm not sure how to get the environment or if it's even necessary. (All the Go environment functions in runtime assume that Go has already been somewhat initialized.)
 1	-1	s/start/e/ would be consistent with the methods above.
 1	-1	"$(dirname $0)
 
 would mean you don't break if someone runs this from another dir."
 1	-1	// _g_.m is reachable via allgs, so WB can be eliminated.
-1	-2	"""Types"" is an overloaded term in programming. Is it an actual term in the source documents, or can we use a different term here? Is ""type"" the same as ""MIB""??"
-2	-1	It would be good to try to use the (*types.Package).Name() instead of assuming that it's the same as the last segment of the import path; the latter is only a convention, and it is not followed by users of the http://pkg.in service.
-1	-2	I'm not sure it does leak that, the litmus test in question is a PUT; so lock errors don't disclose existence, only that a lock exists on that path?
-3	-1	Object is not overloaded in Go.  Here it refers to any touchable object, so overloading is fine.  I'll change it to Widget if that's clearer.
-2	-2	Copied from sys_openbsd_386s.s and missed - fixed :)
-2	-1	"https://msdn.microsoft.com/en-us/library/windows/desktop/aa366058(v=vs.85).aspx#IfType
+1	-1	"""Types"" is an overloaded term in programming. Is it an actual term in the source documents, or can we use a different term here? Is ""type"" the same as ""MIB""??"
+2	-2	It would be good to try to use the (*types.Package).Name() instead of assuming that it's the same as the last segment of the import path; the latter is only a convention, and it is not followed by users of the http://pkg.in service.
+2	-2	I'm not sure it does leak that, the litmus test in question is a PUT; so lock errors don't disclose existence, only that a lock exists on that path?
+1	-1	Object is not overloaded in Go.  Here it refers to any touchable object, so overloading is fine.  I'll change it to Widget if that's clearer.
+3	-2	Copied from sys_openbsd_386s.s and missed - fixed :)
+1	-1	"https://msdn.microsoft.com/en-us/library/windows/desktop/aa366058(v=vs.85).aspx#IfType
 
 It's possible to check by IF_TYPE_SOFTWARE_LOOPBACK. But I don't know what the expected returns of Interfaces().
 
 Mikio, could you please describe to me the spec of Interfaces/InterfaceAddrs?"
-2	-1	I was mentioning the blank line. Please don't remove tk.WithExtra.
+2	-2	I was mentioning the blank line. Please don't remove tk.WithExtra.
 1	-1	"it doesn't leave them; it always removes them.
 ""use specified directory for temporary files"""
-1	-4	"It adds more things to go wrong than just downloading everything again to do a reinstall. I understand the desire, downloads are a pain, but downloading again is a much more predictable zero state than some set of possibly-correct archives on local disk checked against some possibly-correct set of hashes.
+2	-3	"It adds more things to go wrong than just downloading everything again to do a reinstall. I understand the desire, downloads are a pain, but downloading again is a much more predictable zero state than some set of possibly-correct archives on local disk checked against some possibly-correct set of hashes.
 
 All of which is a lot of extra moving parts to work around a problem (slow connections). Is it worth it? Maybe. But it is a lot more to go wrong."
 1	-1	"Same comment as above
 
   for shift := 0; shift < 8; shift += nibBitsWidth"
-1	-2	"I considered using ioutil.TempDir but had similar concerns as Minux. It is unclear to me whether any state in PPROF_TMPDIR is expected to persist between calls to pprof.
+2	-2	"I considered using ioutil.TempDir but had similar concerns as Minux. It is unclear to me whether any state in PPROF_TMPDIR is expected to persist between calls to pprof.
 
 Also, since there isn't a single test covering the pprof internal libraries, I opted for the smallest possible change.
 
 From cmd/pprof/README I get the impression that the code is frozen to a certain extent, so I didn't want to change too much either."
 1	-1	put a comment before this test, explaining what it's trying to test?
 1	-1	take remoteAddr as variable at once and put on below's env table.
-3	-1	"Done (gerrit tells me off if the commit subject is too long:
+1	-1	"Done (gerrit tells me off if the commit subject is too long:
 
 (W) 873ed2c: commit subject >65 characters; use shorter first paragraph
 
