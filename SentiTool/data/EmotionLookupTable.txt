@@ -1,4 +1,4 @@
-abandon*	-2	liwc uness specified otherwise
+abandon*	-1	liwc uness specified otherwise
 abate	-2	General Inquirer Feb 2010
 abdicate*	-2	General Inquirer Feb 2010
 abhor*	-4	General Inquirer Feb 2010
@@ -28,6 +28,7 @@ acheson	1	kev
 acheta	1	kev
 aching	-2	removed active*	2	
 acrimon*	-2	General Inquirer Feb 2010
+add*	1
 addict*	-2	General Inquirer Feb 2010
 admir*	3	
 admiral*	1	kev
@@ -54,7 +55,9 @@ agitat*	-2
 agonis*	-4	kev
 agoniz*	-4	
 agony	-4	removed agree	2	
+agree	2
 agreeab*	1	removed agreed	2	agreeing	2	agreement*	2	agrees	2	
+ah	1
 ail	-2	General Inquirer Feb 2010
 ailing	-3	kev add
 ailment*	-2	General Inquirer Feb 2010
@@ -113,11 +116,11 @@ applause	2	Hannes GI add
 appreciat*	2	
 apprehens*	-3	
 apprehens*	-3	General Inquirer Feb 2010
+approve*	2
 arbitrary	-2	General Inquirer Feb 2010
 ardent	3	Hannes GI add
 arduous*	-2	General Inquirer Feb 2010
 argh*	-2	
-argu*	-2	
 arrogan*	-3	
 arsehole*	-3	
 artificial	-1	General Inquirer Feb 2010
@@ -143,7 +146,7 @@ avaric*	-3	General Inquirer Feb 2010
 avenge*	-2	General Inquirer Feb 2010
 aversi*	-3	remvoed avoid*	-1	
 avert*	-2	General Inquirer Feb 2010
-avoid*	-2	General Inquirer Feb 2010
+avoid*	-1	General Inquirer Feb 2010
 award*	1	
 awesome*	3	kev add star
 awful*	-4	
@@ -152,7 +155,7 @@ babble*	-2	General Inquirer Feb 2010
 babies	2	27 July 2009 (assumes positive context -e.g. hey baby)
 baby	2	27 July 2009 (assumes positive context -e.g. hey baby)
 backwardness	-2	General Inquirer Feb 2010
-bad	-2	
+bad	-1	
 badly	-2	General Inquirer Feb 2010
 badmouth*	-3	kev
 badness	-3	kev
@@ -256,6 +259,7 @@ brave*	3	removed bright*	2
 brawl*	-2	General Inquirer Feb 2010
 brazen	-2	General Inquirer Feb 2010
 breach*	-2	General Inquirer Feb 2010
+break*	-1
 breakdown*	-2	General Inquirer Feb 2010
 bribe*	-2	General Inquirer Feb 2010
 brillian*	2	
@@ -284,6 +288,7 @@ buried	-3	General Inquirer Feb 2010
 burn*	-2	General Inquirer Feb 2010
 bury	-3	General Inquirer Feb 2010
 busybody	-2	General Inquirer Feb 2010
+but	-1
 butchery	-2	General Inquirer Feb 2010
 calamit*	-4	General Inquirer Feb 2010
 callous*	-4	General Inquirer Feb 2010
@@ -313,6 +318,7 @@ censor*	-2	General Inquirer Feb 2010
 censure*	-2	General Inquirer Feb 2010
 chafe	-2	General Inquirer Feb 2010
 challenge*	-2	General Inquirer Feb 2010
+change*	-1
 chaos	-2	General Inquirer Feb 2010
 chaotic*	-2	General Inquirer Feb 2010
 charge*	-2	General Inquirer Feb 2010
@@ -321,6 +327,7 @@ chase*	-2	General Inquirer Feb 2010
 chastise*	-3	General Inquirer Feb 2010
 cheap*	-2	General Inquirer Feb 2010
 cheat*	-3	
+check	1
 cheer*	2	
 cheerful*	3	kev
 cheeri*	3	kev cheeriness
@@ -338,6 +345,7 @@ clamor*	-1	General Inquirer Feb 2010
 claptrap	-2	Feb-11
 clash	-2	General Inquirer Feb 2010
 clatter	-2	General Inquirer Feb 2010
+clean*	1	
 clever*	1	
 clique	-2	General Inquirer Feb 2010
 clog	-2	General Inquirer Feb 2010
@@ -420,6 +428,7 @@ cool	2
 coolest	3	ur da coolest mom ever!!
 coolly	-2	kev
 coolness	-2	kev
+correct	1
 corrode	-2	General Inquirer Feb 2010
 corrosion	-2	General Inquirer Feb 2010
 corrosive*	-2	General Inquirer Feb 2010
@@ -446,6 +455,7 @@ cranky	-2	General Inquirer Feb 2010
 crap	-3	
 crappy	-3	
 crass	-2	General Inquirer Feb 2010
+crash	-2
 crave*	-2	General Inquirer Feb 2010
 crawl*	-1	General Inquirer Feb 2010
 craz*	-1	removed create*	2	creati*	2	credit*	2	
@@ -453,6 +463,7 @@ craze	-2	General Inquirer Feb 2010
 craziness	-2	General Inquirer Feb 2010
 crazy	-2	General Inquirer Feb 2010
 credulous	-2	General Inquirer Feb 2010
+credibility	1
 cried	-4	
 cries	-3	
 crime*	-2	Feb-11
@@ -545,6 +556,7 @@ degrad*	-3	kev mod
 dejected*	-2	General Inquirer Feb 2010
 delay	-2	General Inquirer Feb 2010
 delectabl*	3	removed	delicate*	2
+delete	-1
 delicious*	3	
 deligh*	3	
 delinquency	-2	General Inquirer Feb 2010
@@ -614,6 +626,7 @@ dickhead*	-2	Feb-11
 dictate	-2	General Inquirer Feb 2010
 dictatorial	-2	General Inquirer Feb 2010
 differ	-2	General Inquirer Feb 2010
+different	-1
 difficult*	-2	
 digni*	2	removed	disadvantage*	-2
 dignitar*	1	kev mod
@@ -702,6 +715,8 @@ doldrums	-2	General Inquirer Feb 2010
 dolt	-2	Feb-11
 dominate*	-2	General Inquirer Feb 2010
 domination	-2	General Inquirer Feb 2010
+done	-1
+don't	-1
 doom*	-2	
 dope	-2	General Inquirer Feb 2010
 dork*	-3	
@@ -788,11 +803,12 @@ erode*	-2	General Inquirer Feb 2010
 erosion	-2	General Inquirer Feb 2010
 err	-2	General Inquirer Feb 2010
 erroneous*	-2	General Inquirer Feb 2010
-error*	-2	General Inquirer Feb 2010
+error*	-1	General Inquirer Feb 2010
 esoteric	-2	General Inquirer Feb 2010
 estranged	-2	General Inquirer Feb 2010
 evade*	-2	General Inquirer Feb 2010
 evasion*	-2	General Inquirer Feb 2010
+even	1
 evict*	-3	General Inquirer Feb 2010
 evil*	-3	
 exaggerat*	-2	General Inquirer Feb 2010
@@ -800,6 +816,7 @@ exasperat*	-2	General Inquirer Feb 2010
 excel*	3	Jul-11
 excellence	4	Hannes GI add
 excellent	4	Jul-11
+exception	-2
 excess	-2	General Inquirer Feb 2010
 excessive*	-2	General Inquirer Feb 2010
 excit*	3	
@@ -808,7 +825,6 @@ exclusion*	-2	General Inquirer Feb 2010
 excommunicat*	-2	General Inquirer Feb 2010
 excrement	-4	Feb-11
 excruciat*	-5	
-execute*	-2	General Inquirer Feb 2010
 exempt*	-2	General Inquirer Feb 2010
 exhaust*	-2	
 exile*	-2	General Inquirer Feb 2010
@@ -830,8 +846,9 @@ fab	3
 fabricat*	-2	General Inquirer Feb 2010
 fabulous*	3	
 faggot	-2	Feb-11
-fail*	-3	
+fail*	-1	
 faint	-2	General Inquirer Feb 2010
+fair	2
 faith*	2	
 faithless*	-3	kev add
 fake*	-2	
@@ -884,6 +901,7 @@ filthy	-2	General Inquirer Feb 2010
 fine	3	auto check 4 aug 2009
 fired	-3	removed	flatter*	1
 fist	-2	General Inquirer Feb 2010
+fixed	1
 flagrant*	-2	General Inquirer Feb 2010
 flame	-3	
 flamed	-3	
@@ -894,6 +912,7 @@ flee*	-2	General Inquirer Feb 2010
 fleeting	-2	General Inquirer Feb 2010
 flexib*	1	
 flimsy	-2	General Inquirer Feb 2010
+flipping	-2
 flirt*	2	
 flounder*	-2	General Inquirer Feb 2010
 flunk*	-3	
@@ -992,7 +1011,7 @@ glory	2
 glum*	-3	General Inquirer Feb 2010 kev mod
 gmbo	3	giggling my butt off
 goddam*	-3	
-good	2	Could also be 1?
+good	1	Could also be 1?
 goodness	3	
 gorgeous*	3	
 gossip*	-1	
@@ -1258,6 +1277,7 @@ insolent	-2	General Inquirer Feb 2010
 inspir*	3	
 instability	-2	General Inquirer Feb 2010
 instable	-2	General Inquirer Feb 2010
+instead	-1
 insufficien*	-2	General Inquirer Feb 2010
 insult*	-3	
 intellect	1	kev add
@@ -1286,6 +1306,7 @@ irregular*	-2	General Inquirer Feb 2010
 irresponsib*	-2	General Inquirer Feb 2010
 irrita*	-3	
 isolat*	-2	
+issue	-1
 jackass*	-2	Feb-11
 jaded	-3	
 jail*	-2	Feb-11
@@ -1360,6 +1381,7 @@ litter*	-2	General Inquirer Feb 2010
 livel*	2	
 livelihood	1	kev add
 lmao	3	
+lock*	-2
 lol	2	27 July 2009 (from 3)
 lolol*	2	27-Jul-09
 lone*	-2	
@@ -1457,6 +1479,7 @@ missed	-2
 misses	-3	
 mistak*	-2	
 mistrust*	-2	General Inquirer Feb 2010
+missing	-1
 misunderst*	-2	General Inquirer Feb 2010
 misuse	-2	General Inquirer Feb 2010
 moan	-2	General Inquirer Feb 2010
@@ -1477,6 +1500,7 @@ monstrous*	-3	General Inquirer Feb 2010
 mooch*	-2	
 moodi*	-3	
 moody	-3	
+more	1
 moron*	-3	
 mortif*	-3	General Inquirer Feb 2010
 motherfucker	-4	Feb-11
@@ -1484,6 +1508,7 @@ motionless	-2	General Inquirer Feb 2010
 motley	-2	General Inquirer Feb 2010
 mourn*	-3	
 muah	3	auto check 4 aug 2009
+much	1
 muddle*	-2	General Inquirer Feb 2010
 muddy	-2	General Inquirer Feb 2010
 mumble*	-2	General Inquirer Feb 2010
@@ -1501,6 +1526,7 @@ naughty	-2	General Inquirer Feb 2010
 nazi*	-2	Feb-11
 neat*	1	
 nebulous*	-2	General Inquirer Feb 2010
+need	-1
 needy	-2	
 negativ*	-2	General Inquirer Feb 2010
 neglect*	-1	
@@ -1515,10 +1541,12 @@ nimble	2	Hannes GI add
 nincompoop	-2	Feb-11
 ninny	-2	Feb-11
 nix	-2	General Inquirer Feb 2010
+no	-1
 noise	-1	General Inquirer Feb 2010
 nonchalant	-1	General Inquirer Feb 2010
 nonsens*	-2	Feb-11
 nosey	-2	General Inquirer Feb 2010
+not	-1
 notorious*	-2	General Inquirer Feb 2010
 novice	-2	General Inquirer Feb 2010
 noxious*	-3	kev add
@@ -1547,6 +1575,7 @@ obstruct*	-2	General Inquirer Feb 2010
 obstruction*	-2	General Inquirer Feb 2010
 odd	-1	General Inquirer Feb 2010
 oddity	-2	General Inquirer Feb 2010
+off	2
 offence*	-2	
 offend*	-3	
 offender	-2	kev add
@@ -1621,8 +1650,10 @@ parasit*	-3	General Inquirer Feb 2010
 partie*	1	
 partition*	-2	General Inquirer Feb 2010
 party*	1	
+passed	1
 passe	-2	General Inquirer Feb 2010
-passion*	3	
+passion*	3
+patch	1
 pathetic*	-3	
 peace*	1	
 peculiar*	-1	
@@ -1701,7 +1732,7 @@ pride	2
 prison*	-2	Feb-11
 privileg*	2	
 prize*	3	
-problem*	-2	
+problem*	-1	
 procrastinat*	-2	General Inquirer Feb 2010
 prod	-2	General Inquirer Feb 2010
 profit*	2	kev mod
@@ -1790,8 +1821,10 @@ reliev*	2
 reluctan*	-2	
 remorse*	-3	
 renounce*	-2	General Inquirer Feb 2010
+remove	-1
 renunciation*	-2	General Inquirer Feb 2010
 repeal*	-2	General Inquirer Feb 2010
+replac*	-1
 reprehensib*	-4	General Inquirer Feb 2010
 repress*	-2	
 reproach*	-2	General Inquirer Feb 2010
@@ -1828,6 +1861,7 @@ richness	2	Hannes GI add
 rid	-2	General Inquirer Feb 2010
 ridicul*	-3	
 rigid*	-2	
+right	1
 rigor	1	General Inquirer Feb 2010
 rigorous	1	General Inquirer Feb 2010
 rip	-2	General Inquirer Feb 2010
@@ -1948,6 +1982,7 @@ shortcoming*	-2	General Inquirer Feb 2010
 shortsighted*	-2	General Inquirer Feb 2010
 shot	-2	General Inquirer Feb 2010
 shove	-2	General Inquirer Feb 2010
+should	1
 shred*	-2	General Inquirer Feb 2010
 shrew	-2	General Inquirer Feb 2010
 shriek*	-2	General Inquirer Feb 2010
@@ -2101,6 +2136,7 @@ stutter*	-2
 subjection	-2	General Inquirer Feb 2010
 subjugat*	-2	General Inquirer Feb 2010
 submissive*	-2	
+submit	2
 subservien*	-2	General Inquirer Feb 2010
 subside	-2	General Inquirer Feb 2010
 substitution	1	General Inquirer Feb 2010
@@ -2209,7 +2245,7 @@ terrifyi*	-4
 terror	-2	General Inquirer Feb 2010
 terror*	-3	
 terrori*	-3	General Inquirer Feb 2010
-thank	2	27-Jul-09
+thank*	2	27-Jul-09
 thanked	1	
 thankf*	2	
 thanks	2	27-Jul-09
@@ -2316,6 +2352,7 @@ undependab*	-2	General Inquirer Feb 2010
 undermine*	-2	General Inquirer Feb 2010
 underworld*	-2	General Inquirer Feb 2010
 undesirabl*	-2	General Inquirer Feb 2010 kev mod
+understand	1
 undid	-1	General Inquirer Feb 2010
 undignified	-2	General Inquirer Feb 2010
 undo	-2	General Inquirer Feb 2010
@@ -2457,6 +2494,7 @@ warlike	-2	General Inquirer Feb 2010
 warm*	1	
 warmheart*	4	kev add
 warmly	2	kev add
+warn*	-1
 warp*	-2	General Inquirer Feb 2010
 warred	-3	
 warring	-3	
@@ -2476,7 +2514,7 @@ weed	-2	General Inquirer Feb 2010
 weep*	-3	
 weird*	-2	
 welcom*	2	
-well	1	interjection
+well	0	interjection
 well*	2	
 wellies	1	kev mod
 welling*	1	kev mod
@@ -2489,6 +2527,7 @@ whine*	-3
 whining	-3	
 whip	-2	General Inquirer Feb 2010
 whore*	-3	
+why	-1
 wicked*	3	27 July 2009 (was wicked* is -3)
 wickedn*	-3	
 wilt	-2	General Inquirer Feb 2010
