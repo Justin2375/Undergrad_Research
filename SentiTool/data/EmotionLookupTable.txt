@@ -707,7 +707,7 @@ distrust*	-2
 disturb*	-2
 divert	-1
 divin*	2
-division	1
+division	-1
 divorce*	-2
 dizziness	-2
 dizzy	-2
@@ -874,7 +874,7 @@ favor*	2
 favoritism*	-2
 favour*	2
 favouritism*	-2
-fear	1
+fear	-1
 feared	-3
 fearful*	-3
 fearing	-3
