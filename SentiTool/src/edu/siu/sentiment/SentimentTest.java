@@ -72,6 +72,13 @@ public class SentimentTest {
 		int numComment = 0;
 		int numCorrect = 0;
 		
+		int negCorrect=0;
+		int negIncorrect=0;
+		int negTotal=0;
+		int negRated=0;
+		
+		int targetRating=0;
+		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
 			CSVWriter writer = new CSVWriter(new FileWriter("indiv_results.csv", false),'\t','\0');
@@ -84,6 +91,21 @@ public class SentimentTest {
 				// Parse the human coded rating from the .csv file
 				int rating = Integer.parseInt(sentiResult[2]);
 				// Increment the number of correct answers if the human code value and sentiment value are equivalent 
+				
+			
+				
+				if(rating==targetRating)
+					negRated++;
+				
+				if(comment.getRating()==targetRating)
+				{
+					negTotal++;
+					
+					if(rating==targetRating)
+						negCorrect++;
+					else negIncorrect++;
+				}
+				
 				if(comment.getRating()==rating)
 					numCorrect++;								
 			}
@@ -92,8 +114,18 @@ public class SentimentTest {
 			// Compute the accuracy of SentiStrength by taking the given result divided by the human coded result
 			float accuracy = ((float)numCorrect/(float)numComment) * 100;
 			// Output the accuracy to the console
+			
+			System.out.println("Target rating: " + targetRating);
+			
 			System.out.println("Total comment "+ numComment+ ", Got accurate: "+numCorrect);
 			System.out.println("Accuracy: "+accuracy);
+			
+			System.out.println("Rated:"+negRated);
+			System.out.println("Correct:"+negCorrect);
+			System.out.println("Total:"+negTotal);
+			
+			System.out.println("Precision:"+ (float)negCorrect/negRated);
+			System.out.println("Recall: "+ (float)negCorrect/negTotal);
 			
 		} catch (IOException e) { // Catch any errors with reading the file
 			System.out.println("ERROR:  Unable to read the file!");
