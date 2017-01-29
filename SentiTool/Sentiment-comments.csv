@@ -2702,3 +2702,1990 @@ P.S: The reason, why Jenkins fails is probably, because of the parent commit is 
 I uploaded a patch set 4 which uses a VariableFrontend for TCA caching.
 
 But now the test ""loadBaseTcaCreatesCacheFileWithContentOfAnExtensionsConfigurationTcaPhpFile"" fails.",0
+1116,"This should read:
+
+This survey tests the local metadata performance using the echo_client to drive the MDD layer to perform operations.  It is run with multiple threads (to simulate MDT service threads) locally on the MDS node, and does not need Lustre clients in order to run.",0
+1117,(style) this should indent less so that it fits under 80 columns,0
+1118,(style)  Macros with complex values should be enclosed in parenthesis,0
+1119,(style)  code indent should use tabs where possible,0
+1120,(style)  code indent should use tabs where possible,0
+1121,"(style)  simple_strtoul is obsolete, use kstrtoul instead",0
+1122,(style)  code indent should use tabs where possible,0
+1123,don't confuse algorithm with implementation. env is not supposed to be used this way as it's touched from different places. it was said many times that using env to pass data between different codepaths is a bad idea.,-1
+1124,(style)  code indent should use tabs where possible,0
+1125,(style)  code indent should use tabs where possible,0
+1126,"yes, I know see you have fixed almost all places. thanks.",1
+1127,"Now we have a copy of fiemap and a pointer fiemap. Which one is the ""right"" one?",0
+1128,"Sorry, I don't understand why all of these arguments are ""const""?  Surely ""env"" is being modified by the callers, so it cannot be considered a constant?",0
+1129,"I don`t think that this could really happened. Because ptlrpc has single thread for rq_set, that means only one ptlrpc_check_set() could happened for a request. And ptl_send_rpc could not race with after_reply.",-1
+1130,warn: lnet_ping():check that 'tmpid' doesn't leak information (struct has a hole after 'pid'),0
+1131,"should another patchset be pushed, please change the leading blanks to tabs",0
+1132,"Trying to swap the layout when obj1 == obj2 should just ""return 0"" (i.e. be no-op).  There should also be a check that the two objects have the same uid and gid, and that the UID doing the swap is either owner or has mdd_capable(uc, CAP_FOWNER) since this would ensure the process isn't trying to steal data (i.e. the process doing this could read and overwrite the data if it wanted).",0
+1133,(improvement) It should be possible to test this with only 2 OSTs.  With a two-stripe file it would be missing stripe index 0.,0
+1134,this will cause the MKFSOPT to skip --mkfsoptions string if MKFSOPT is empty and MDSJOURNAL_SIZE=xxx,0
+1135,"(style)  code indent should use tabs where possible
+(style)  space prohibited between function name and open parenthesis '('",0
+1136,"It would be useful to make this ""10"" and the above ""0x3ff"" #defined constants in a header, so that it is clear where there are hard-coded constants in the recovery code.  Otherwise, it would be difficult in the future to figure out why recovery is always taking 10-20s even when there is only a single client without doing a detailed analysis of the code.
+
+ #define IR_TIMEOUT_MIN_SECONDS 10
+ #define IR_TIMEOUT_RAND_CENTISEC 0x3ff
+
+I'm a bit concerned about making this too long, since it means there may be e.g. 5s of idle time on the server when it could have been processing 5000 reconnections/second, instead of all the clients and server sitting idle.",0
+1137,"(style) could just use
+
+        c->flags.admin = !!admin_flag;
+
+to convert it to a boolean value",0
+1138,we can actually allocate a 4K buffer which would be bigger enough to store the message.,0
+1139,Presumably this is easily implemented for the object iterator virtual index?,0
+1140,I've started LU-2757 for that and have patches done. I placed it under lustre/dynlocks but it'd be easy enough to move anywhere else.,0
+1141,please explain what part of mdd_object_create() you need to reuse() (except mdo_create()),-1
+1142,"i'm very concerned that this is done at non-obvious place. it will be hard to observe that RPCs are found ""replied"" late in our context. we don't have any tests for this. if something is changed, then when we'll notice?",-1
+1143,"Comment is inaccurate (the code assumes stripe offset is set).
+
+ /* Make sure stripe offset is in OST list. */",-1
+1144,I don't know that this will actually do what you want.,-1
+1145,I don't get it. How are those unused locks got rid of?,-1
+1146,"I remember seeing error like ""Lproc: Attempting to register osc more than once"" when trying to mount lustre file system on server node. Looks like we have this logic to avoid re-creating osc proc entry in osp_mod_init but its counterpart is missing in osc_setup(). So if we have osp loaded before osc, we get the failure inserting osc module.
+
+The error now gets hidden with this patch because lprocfs_seq_register() only warns about it and creates duplicated entry in parent's subdir link. Then subsequent lookup only finds the newly created entry and it can cause random failures.",0
+1147,(style)  code indent should use tabs where possible,0
+1148,(style)  code indent should use tabs where possible,0
+1149,Release after main inode is what patchset 2 has done I think.,0
+1150,"this should be called with client list lock held, instead of osc lock.",0
+1151,"So we use ""key_size > sizeof(__u64)"" for the same purpose, right?",0
+1152,"(minor) I suspect these CLASSERT() lines were removed in an earlier version of the patch, but not restored when the padding was added back?
+
+Without these, it us likely that a defect will be added on big-endian machines when these fields are actually used.",-1
+1153,warn: ll_setattr_raw():we tested 'rc' before and it was 'false',0
+1154,(style)  code indent should use tabs where possible,0
+1155,error: mdt_ioepoch_close_reg():potentially dereferencing uninitialized 'msgdata'.,0
+1156,(style) convert in-between line to tabs.  Maybe consider converting the whole function to tabs?,0
+1157,(style)  code indent should use tabs where possible,0
+1158,(style)  printk() should include KERN_ facility level,0
+1159,return 1 means the caller needs to reset Default ACL,0
+1160,(style)  code indent should use tabs where possible,0
+1161,(style)  space prohibited between function name and open parenthesis '(',0
+1162,"(style)  space required after that ',' (ctx:VxV)
+(style)  space required after that ',' (ctx:VxV)
+(style)  space required after that ',' (ctx:VxV)
+(style)  space required after that ',' (ctx:VxV)
+(style)  space required after that ',' (ctx:VxV)",0
+1163,"(style) These ""in between"" lines should also be changed to tabs",0
+1164,what's the purpose of this change? do we really need this in the patch?,-1
+1165,(style)  trailing statements should be on next line,0
+1166,(style) this EXPORT_SYMBOL() should be after ext4_get_block(),0
+1167,"Actually, i don't even think that there are any problems to fix here. fsfilt_ext3_write_record() should get a block already initialized to 0 if this is a newly allocated one.",0
+1168,"(style) please add a comment here like:
+
+ #include <libgen.h> /* for dirname() */",0
+1169,"(minor) could use:
+
+                 list_move_tail(&com->lc_link, &lfsck->li_list_idle);
+
+Don't delete the list_del_init(), which is on a different list...",0
+1170,"(style) remove empty line in middle of variable declaration, and convert few lines after to tabs",0
+1171,"There are many times MDS start/stop, if the client does not umount, then there will recovery waiting every time the MDS start/stop, which is unnecessary for this test.",-1
+1172,Why not make ostid_build_res_name() to return the ldlm_res_id as osc_build_res_name() does? (MDC-MDT side resource build is the same),0
+1173,"It would be useful to add a short comment here with the kernel version in which this API changed, so that it is easier to clean up later.",1
+1174,"this GOTO is not needed, rc is always 0 here, so just EXIT; is enough to mark this path",0
+1175,it is in the einfo. do we really need it to explicitly add it in the parameters?,0
+1176,(style) I don't understand why this is in its own scope?  It just causes all of the code to be indented further for no particular benefit.,-1
+1177,(style)  try to replace assertions with error handling,0
+1178,This change allows us to specify IP addresses for NIDs on future systems. We also need to continue using the decimal NID values for current systems.,0
+1179,"Hmm, wouldn't it make sense to prefer to close READ file handles first?  Then, if the client is still writing it will have the correct handle.the client can read on a file opened for write, but not the reverse.",0
+1180,"I'd prefer create lost-found/MDTxxxx dir in the way client does, that is MDT0 alloc fid from MDTxxxx and create this dir like a normal mkdir. Though a sequence may be used only for this fid only, but this mechanism can be used in the future for similar case that MDT0 wants to create remote directory.",0
+1181,"this must be count > CFS_PAGE_SIZE - 1,
+otherwise the kbuf[count] = 0; would overflow into the next page is the write is eaxctly page-sized.",0
+1182,"yes, I forgot removing that assert when the implementation changed.",0
+1183,(style)  try to replace assertions with error handling,0
+1184,"I did not suggest that the acquire/release functions would be called globally for all NI.  I said ""each time an interface that needs the acceptor"".  If the interface doesn't use the acceptor don't call acquire at startup, and don't call release at shutdown.
+
+I don't much care about the length of the list or the time involved.  I am looking for code that is more easy to read and maintain.",-1
+1185,"This is device init path, is not it?
+So changing the od_track_declares after the fact would not retroactively enable this feature?
+
+We might as well change it to a module parameter then if this is the way we want to go?",-1
+1186,"Could we encapsulate the 64BITHASH functionality into the FULL20 flag? I believe there are only two minor issues that are currently handled under FULL20, and both would be easy to fix in the 1.8 branch as well if we want to add support for 64 hash values there.
+
+1) client must zero the o_gr field in all OST requests
+
+2) client must compute the early reply checksum on the full reply
+buffer size instead of a fixed size (88 bytes, IIRC)",0
+1187,"This seems confusing to me. It reads like ""If -ENOSYS is returned on the 1st iteration, then FMR is not supported"", which gave me the impression that ""-ENOSYS can be returned in later iterations too, in which case it does not indicate FMR is not supported"".
+
+Rather, please consider:
+if (rc == -ENOSYS) { /* device does not support FMR */
+      LASSERT(i == 0);
+      break;
+}",-1
+1188,"hmm, why this should be a problem? attr is a local (to this thread) storage, nobody else will see that?",-1
+1189,This should also be updated to match the actual latest kernel version as above.,0
+1190,"Sure, I will comment and revise this function. Sorry for the confusion.",1
+1191,"As you noticed in your former review, my patch originally allowed this by the presence of a MSG_IS_ERROR flag that was passed to the callback. John suggested we leave llapi_printf() alone.
+
+Next patchset implements your suggestion with two distinct callbacks, which I find clean & flexible.",1
+1192,"(style) this test almost completely duplicates test_10a, except using drop_bl_callback_once() instead of drop_bl_callback().  It would be better to have a helper routine do the majority of the work, and call that from both test_10a() and test_10b().",0
+1193,(style)  code indent should use tabs where possible,0
+1194,error: lustre_disconnect_lwp():'lwp' dereferencing possible ERR_PTR(),0
+1195,int or long (underlying ssize_t types) should be OK to return this?,0
+1196,warn: lov_unpackmd():variable dereferenced before check 'lmm' (see line 392),0
+1197,(style)  code indent should use tabs where possible,0
+1198,it's just not correct to skip ./.. in OSP because it doesn't know whether this is a stripe or just regular directory which we can access via OSP.,-1
+1199,(minor) Why out that in a comment instead of just using $((1024 * 2048)) below?,-1
+1200,(style)  unnecessary whitespace before a quoted newline,0
+1201,There have been complaints of late on the mailing lists about configure not auto-detecting whether servers should be built or not.  I wonder if this will be good enough to fix that issue also.  Might be worth seeing if there are open tickets about that and closing them when this lands (assuming it does fix those cases).,0
+1202,(style)  code indent should use tabs where possible,0
+1203,"(style)  code indent should use tabs where possible
+(style)  space prohibited between function name and open parenthesis '('",0
+1204,this is per loc_handle which is CHANGELOG_CATALOG handle. This should remain here and set per each MDT catalog but not per whole context.,0
+1205,(style)  Macros with complex values should be enclosed in parenthesis,0
+1206,"(style)  cfs_list_add is deprecated, use list_add instead",0
+1207,"This fallback code and ioctl is very old (around 1.5), and meant for handling the case where ""/proc/fs/lustre/devices"" doesn't exist (e.g. no lprocfs configured).
+
+This could be deleted along with jt_obd_list_ioctl() and the OBD_IOC_GETDEVICE ioctl I think.",0
+1208,"(style)  Do not use whitespace before Cc:
+(style)  Use a single space after Cc:
+(style)  Unrecognized email address: '$CC'",0
+1209,"is this equivalent to:
+
+lmm->lmm_pattern &= ~cpu_to_le32(LOV_PATTERN_F_HOLE)",0
+1210,"consider this as a sanity check. the important thing here is that directories (at least before DNE) can't be striped, so we should not try to use LOV EA as a striping information for destroy, etc.
+
+so, instead of checking in destroy and setattr for type, the trying to load striping, then check whether striping exists, just call the function and no striping will be created in memory for directories..",0
+1211,"Should we set ""io->ci_ignore_layout = 1"" under such case? then subsequent layout processing can be ignored.",0
+1212,"(style) why not format this normally, as is already done in functions below?
+
+        ptr = (char *)update + cfs_size_round(offsetof(struct update,
+                                                       u_bufs[0]));",-1
+1213,"[suggestion] Please use the following codes to do the operations in parallel:
+
+local list=$(comma_list $(osts_nodes))
+
+do_nodes $list $LCTL set_param -n obdfilter.*.read_cache_enable=1
+
+do_nodes $list $LCTL set_param -n obdfilter.*.writethrough_cache_enable=1",0
+1214,"Why does this need to use conf_param?  Since the JOBENV value is only useful on the client, it could be set directly on the client without adding the complexity of setting it on the MGS first and then waiting for the MGC to be updated:
+
+                $LCTL set_param $FSNAME.llite.jobid_var=$JOBENV",0
+1215,"declaration of ""tv"" can put in this block, but it's not kernel code so it's not a big deal.",0
+1216,"For coreboot, maybe you could insert:
+
+   assert(OpFlag == AccessWidth8);
+
+before the ""if"" to ensure that coreboot users aren't tripped up.  I'm the first guy to discourage unnecessary changes to vendorcode, but this code is broken and we should somehow warn users about it.  It would be even better if we could make the code fail by static analysis instead of a runtime assert.",1
+1217,Do we really need a separate header for two trivial definitions?,-1
+1218,I'd expect rules.h to help here as well. Even if the logic is a pain/messy it's better to put those constructs in a single file.,0
+1219,Can we get this from CPUID instead of hard coding it?,0
+1220,I assume this is not a memmap version of 16550/8250?,0
+1221,"If it's not set, there's no way to get FSP failure data out.  I agree that it's not an absolute requirement, but without it, if there's a failure, you're going to be pretty lost.
+
+We could move it from here and put this below, surrounding the #if statements and not actually fail, but my opinion was this was the best option...",1
+1222,This bootmode is allover the place in ACPI too. I was considering doing enum with follow-up later.,0
+1223,"The mode of both files was changed to 755, that means the executable bit was added.",0
+1224,"Agreed. Unfortunately board-specific modifications to agesawrapper.c files have leaked in, making this a long boring process..",1
+1225,"The value is having an ABI compatible way to pass the proper information to ramstage from romstage. There's no reason to allow something that can change to break in the future. Take for example the current different sizes of the previous space reserved in the cache_as_ram.inc files. Things that are brittle will break.
+
+What is the bare minimum amount of info that needs to be passed? Isn't it just a bar and a couple of endpoints?",-1
+1226,To clarify: what is so odd about that is we don't have any way to ensure or car_data section doesn't intrude on whatever region FSP may be using. i.e. I thought that was the point of the contract provided by what was passed back from FSP.,0
+1227,How come there is change for IO resources with config option of 64BIT_PREF_MEM ?,-1
+1228,I would expect a comment saying that we want to fall through whenever we fall through.,0
+1229,You may want to check for NULL because cbmem allocations can fail.,0
+1230,These \r characters at the end break our Git commit hooks checking for coding style issues lint-stable-003-whitespace.,0
+1231,"Why is this called a console util, when in fact it's a UART util?",0
+1232,"I think I'll cherry-pick, rebase and add the bootblock.elf and coreboot.ram fixes in #750.. makefile half-baked output.",0
+1233,"Why not just adjust the check upstairs to 
+(m->total_size?:2048) > (microcode_end - (u32)c)
+then you won't need this check if you assume that cbfs is correct and if you don't cbfs check belongs to cbfs functions, not here.",-1
+1234,Where do they live then? And then shouldn't we remove VBOOT_CFLAGS here?,0
+1235,Where do we handle the COMPILER_RT_rmodules_$(4) ? Is that just included in the objs ?,0
+1236,You assume here that size of phdr entry is sizeof (*phdr). You should use phentsize instead.,0
+1237,"Is this called from the outside? If not, it could be made static...",0
+1238,The ---?›ƒ?ª?? is not the coding style I think. Could we change that right now?,0
+1239,Is it possible to put this init function inside the nehalem romstage ? Or are there any problems,0
+1240,this could probably be determined dynamically at build time. but not in this patch.,0
+1241,"ewwww. Longer term, why are we not just using monotonic timers on x86? Still, this is known good, we can take it as an action item, as there might be a reason.",-1
+1242,"I have added the modulo because if int is actually 64 bits then the snprintf would mangle the string for values >= 2^32. OTOH it is quite unlikely that we ever see such high numbers(?), but you are right it is not really a good solution. I'll push a version that will work with 64 bits ints and the refined error message. Thanks a lot for taking the time to write the review!",1
+1243,Whitespace. It even replaced the proper tabs from before. Please fix the editor.,0
+1244,"It's left intentionally like that, so that a patch that actually enables one LFP looks cleaner.",0
+1245,It makes sense that this is for the IOMMU since family 15 model xxx are the only parts that support it.,0
+1246,"York, please use TAB in each line following the coreboot coding standard.",0
+1247,I don't like either style. Don't like c here. I can change it if it helps to get this pulled.,-1
+1248,"See my other patch http://review.coreboot.org/7856 (work in progress and doesn't contain cleanups for this particular file, but it deprecates print_debug alltogether except for the two new boards that can't do CAR)",0
+1249,"I will do this for all remaining get_top_of_ram() in one go, separate from this fam10 patch.",0
+1250,Having nightmares about empty lines kidnapping you in an alien ship and performing colonoscopy?,-1
+1251,"k. Just thought because I removed not supported stuff, tested it and improve code quality qulifies me. I'll remove it.",-1
+1252,"My point is that div_fsys1 is probably a fixed size as defined by the data sheet, and an unsigned int is not. So if it's a 32 bit value, as suggested by the fact that you're reading it with readl below, you should use uint32_t to ensure it's the right size. That struct might need to be fixed up too.",0
+1253,"Thanks Martin, I will do it. It will look much better.",1
+1254,"Please don't hijack other chipsets. i82801gx is ICH7, not NM10",-1
+1255,You called out the registers being 4 bytes wide but didn't mention each signal has 2 bits for its state.,0
+1256,"Usually unbuffered is limited to four ranks per channel, but most boards I have seen can take either unbuff'd or reg'd. From what you've been describing, I think devicetree.cb is a more optimal answer. (You'll hear me say that a lot. sorry)",0
+1257,"So those need to be enabled on as as-needed basis. Kconfig knows about SSE and its ilk. Noted, will take care of it.",0
+1258,And #include AGESA headers in a public coreboot header? Are you out of your mind?,-1
+1259,I see. I can probably help you with that. I would like to assert that if HAVE_USBDEBUG is available the chipset and/or mainboard does the setup in bootblock to get things at least halfway working. That or so early in romstage it is before console. I think that is a good goal to have.,1
+1260,"uint32_t as above.
+
+Also if you could format the comments with /* .. */ style would put ice on the cake.",0
+1261,"yeah, if it's fatal, we might as well just revert the serial patch.  The whole purpose of the serial (or ehci-debug) route is for platforms that don't support (for whatever reason) cbmem console log.  If it's fatal here, then the script won't run on those platforms, making it impossible to collect the logs with this script.
+I'm not going to fight it anymore though.",-1
+1262,Make sure the smbus code is compiled and linked in.,0
+1263,where do these section come from - the linker feeling clever?,-1
+1264,"There's a board name here, but not in the other qemu boards.",0
+1265,"They could probably be combined, but the speed would be the same.  We still need to write the address out first before we can auto-increment. Let's leave that to later when/if it gets moved to the southbridge wrapper",0
+1266,is there some missing code here that should go along with these Name objects?  Persimmon has some methods that go along with these.  Might be worth looking in to.,0
+1267,Can we not use CONFIG_MMCONF_BASE_ADDRESS for these constants?,0
+1268,The coding style puts spaces around the `<<`. Could you add these please?,0
+1269,"The net effect of this is to cast base to a u32, then a u16, then add 2 to it. Was that  the plan? 
+
+And if you ever embed these in something else the results will be odd.
+
+You need some more paranoia in your parens:
+((u16)((u32)base + 1))
+for example.",0
+1270,"m->total_size is untrusted input, whereas c and microcode end are trusted. There's no risk of overflow.",0
+1271,Separate patch and please use a tab for consistency. A separate patch could unify that too I guess.,0
+1272,"That was actually the original code. If dest <= src and you're only copying one byte at a time, if you start from the top you'll never overwrite the data you haven't copied yet. Otherwise, you have to start from the other end. *dest++ = *src memcpy;, but memcpy is not *dest++ = *src;.
+
+To quote from the pretty short man page:
+
+The memory areas must not overlap.
+
+That's the difference between memcpy and memmove. If there was no overlap at all (which we could check for) then you could use memcpy, and that would make the normal case work like it always has.
+
+But I'm working on a change to add optimized versions of memmove for x86 and ARM. In order to test them I'm going to implement them in the chromeos tree, and then to transfer them over I've put together a big series of patches to upstream so they should just apply.",0
+1273,Enum 8 will no longer be used one cmos_defaults loaded is killed,0
+1274,"This isn't C. Stop comparing it with C. What you are doing here with the brightness is just redefining the same thing. Both boards you touched have the same definitions for the brightness, \DSPC.BRTU and \DSPC.BRTD, so it makes limited sense to redefine them as something interim.",-1
+1275,"Please see here: http://review.coreboot.org/#/c/6192/11/src/northbridge/intel/i945/acpi.c 
+
+dev = dev_find_device(0x8086, 0x27a0, 0);
+        if (!dev)
+                dev = dev_find_device(0x8086, 0x2770, 0);
+        if (!dev)
+                return current;",0
+1276,I will add a general error value and use it in this case.,0
+1277,"I still can't decide whether this belongs here or in superio/winbond/w83627hf/w83627hf.h ...
+
+This applies to every romstage.c in this changeset.",0
+1278,"Shouldn't the caller be informed? If not, the whole crc check is for debugging only.",0
+1279,The general way to do this is $(TOP)/src/southbridge etc. etc.,0
+1280,All macros in southbridge.h are Vortex86EX PCI S/B config register offsets. They are all fixed for Vortex86EX CPU.,0
+1281,"How many sockets on this board? It's really best to stop using this setting, as it makes no sense. Coreboot will adapt if only one CPU is loaded. But why limit a given build for a board to one CPU? Any reason?",0
+1282,"I would like to see http://review.coreboot.org/#/c/6041/ fixed up and then these headers fixed up either as a dependency for this or as a patch on immediately on top of this.
+
+#include <superio/ite/common/ite.h>
+
+#include <superio/ite/it8772f/it8772f.h>",0
+1283,Same remark here. Please write here why this routine does it.,0
+1284,"The user might still want to disable it...
+
+Unlike the other options, this one does not need a pirq_table.c or mptable.c file be sitting around...
+
+Generally dropping these tables from the build is almost never worth it, since most OSes expect something there.",0
+1285,No. I must have missed it while removing things. I'll update the patch to nix this.,0
+1286,Only if using FSP is enabled. otherwise: build failure,0
+1287,"TableID is specified to be 8 characters. While the original version broke that by adding a space, I guess it's simply ignored. With this change, the final ""M"" would be dropped, too.
+
+(When you fix that, also cut OEMID to 4 characters, it's 32bit. ACPI5.0 19.5.28)",0
+1288,Can the selection of the common part be moved one level higher until a Fintek chip comes along which is different? No idea if that is possible in Kconfig.,0
+1289,"You have a potential problem here with MMCONF_SUPPORT. This option indicates hardware has PCI-e config register access in MMIO space in addition to the legacy 0xcf8/0xcfc IO registers.
+
+A second option MMCONF_SUPPORT_DEFAULT is not set, so by default you would use PCI IO config access. But since those are non-atomic, SMI handler in i82801ix explicitly uses MMIO and you have no MMCONF_BASE_ADDRESS set.",-1
+1290,This chipset needs to override the generic __smbus_read_byte().,0
+1291,"That comment came from U-Boot... I'm not sure what it implies. I guess we should leave it for the sake of consistency, at least for now?",0
+1292,"'*' next to struct name not type. Also, you don't need to use CamelCaseJustBecauseTheCodeWhereItSUsedUsesIt.
+
+ see_what_i_mean ? yes : no;",0
+1293,"follow up? hate all this stuff getting bikeshed for weeks for that sort of thing.
+
+can you also check out 6465, 6463.",-1
+1294,Please add the tab. It?›ƒ?ªƒ?›s sad that the latest clean up patches for the Butterfly were not adapted.,-1
+1295,"...except for the fact that get_initial_timestamp() doesn't exist for Fam10h, and implementation looks non-trivial.",-1
+1296,"What about abstracting this even further: instead of requiring a region_device to describe the location, we could just accept the name of an FMAP region and look up its offset and size.",0
+1297,"The problem I was referring to is that the name of the constants is quite long, and fitting them all on the same line, you risk breaking the 80 character line limit (we use that so we can fit several files side-by-side on the same screen). Though you can use tagged initialization, and break it up over several lines, as I've demonstrated above -- also makes things more readable, and reduces the chance of mixing up the order.",0
+1298,"Yes, sorry about missing the indirection. Here's the example.
+
+0xffc00000 -- 0xffe00000 cbfs in memory.
+0xffdffffc has 0xffdfffa0 in it which would then be passed back to map.",1
+1299,"Reading this again, I realize: nothing. We want the two most significant bits and get them either way.",0
+1300,Please don't declare symbols weak. Provide weak definitions.,0
+1301,"I don't always agree with Paul, but when I do, I'm either drunk or I have a very good reason.",-1
+1302,"s/the//
+
+?›ƒ?ª?? rebase the FSP with Intel?›ƒ?ªƒ?›s tool BCT.",0
+1303,"i assume that the reason that the  copyright is updated now is because the file was updated in 2011, but the copyright wasn't.",0
+1304,"So in the end, you don't even need the AGESA struct. You might think that casting to a struct makes the code more readable, but in this case, it also hides nasty bugs.",-1
+1305,"Does that really work for all architectures?
+
+    util/cbfstool/elf.h:typedef uint64_t Elf64_Addr;
+
+I thought some `PRIx64` was needed.
+
+See commit 8e4bb928 [1] for example.
+
+[1] http://review.coreboot.org/3301",0
+1306,"dev_find_slot() explicitly returns a 0 (yeah, it's the same as a NULL).  Maybe that should be changed to return a NULL, but at this point, I think checking for 0 is reasonable.
+
+yes, if it's 0, we still reach the code.  I've changed it to not dereference it before checking it though.",0
+1307,"The only advantage is doing it temporarily as its previous usage/intention was to be cached only during the boot process but not before the OS execution.
+
+As for always enabling WP on the ROM I don't feel very comfortable because I don't know the broader implications. Some flash devices have weird programming algos and leaving the caching type as WP may make one not be able to upgrade the firmware from the host CPU.",0
+1308,"Removing onboard devices instead of setting them to off can break the chipset configuration. This is the entire reason for this stuff to be in a devicetree.cb and to make the static.c to point to the correct setup functions. These devices are always on the board and the chip configuration will enable and disable (and hide) them based on the platform configuration and the device tree.  Without this, everything would be a normal pci device enumeration and coreboot would be much much simpler... 
+
+I also agree with Martin that, as a reference design, it is important to show the configuration as clearly as possible.",0
+1309,"Factor that out into a function(?) `print_fail_message` in a follow-up/preceding patch?
+
+    test ?›ƒ?ª?? && print_fail_message(path)
+
+as
+
+    test ?›ƒ?ª?? && print_fail_message(""${IASL_DIR}/source/compiler"")",0
+1310,"Ahh yes. OK. ROMCC and all that. I forgot about that jazz. On further thought w.r.t. the naming. It should really be pcidev_t, no? That would be typedef'd to unsigned int *and* used in struct pci_path? That name would be clearer. Or are we doing to try and encode all different types of devices into a simple_device_t?",1
+1311,"Ok, I found an abandoned change in Gerrit from Ky?Ÿ??sti [2], where Stefan commented this.
+
+???¯On ich7 / i945 pmbase is already set in romstage... Please drop #if 0 code...???®
+
+Guess that justifies a comment so it is clear when comparing `lpc.c` from different PCHs.
+
+[2] http://review.coreboot.org/#/c/302/8/src/southbridge/intel/i82801gx/lpc.c",0
+1312,"if that's a uintptr_t, then you again don't need this double cast.",-1
+1313,Are these redundant copies of those in arch-agnostic lib/romstage.ld ?,0
+1314,"But that isn't true now is it, because only
+
+ vendorcode/amd/pi/00730F01/Lib/amdlib.c
+
+and blob friends have:
+
+ __attribute__((optimize(""Os"")))",-1
+1315,"I'd prefer if sizeof(x) was used throughout, instead of sizeof(op_t). As a bonus, op_t would only occur once (in the variable declaration) and then the typedef could easily be removed.",0
+1316,"well, it's not really now... here... but that's okay",0
+1317,"Don't set the `idx_type` for now, as it may also contain internal errors (I would leave the code path in couchdb for dealing with it though, so that I can add it later.",-1
+1318,"what means ""error_expected"" = ""create"". It's means there are nor error? then it's better to use None by default for self.input.param(""error-expected"", None)
+
+and you set string in error_expected by default value is boolean. python allows it but it's not good to change the type of variable",-1
+1319,"What status is the best here? I cannot use status from the current response here,  also I don't know status of the other responses here.",-1
+1320,"Interesting. The ruby client have similar feature, but it  doesn't touch the packet (the user should explicitly specify which conversion he'd like to apply to value). I think your solution is good enough. Is it possible to generalize such flag so that I can mark the keys as 'marshalled'. But such generalization won't be portable between clients because all of them use different formats.
+
+Another good feature which is connected to value formats is flag which will says that the value is a valid document (json hash) because in this case the client could decide to map it to some high-level object",0
+1321,No!! More sleeps!! I think we're up to 22 seconds now!,-1
+1322,now the test doesn't install SG at all. it will fall on the first run if SG is already installed on vm.,-1
+1323,"Currently, bucket name cannot contain symbols from html. That is why I remove escaping.",0
+1324,Please add more functional/features tests on this conf file when you add the rest of the code.,0
+1325,"Just to be clear. The projector does not dictate the port number of the end point.  During handshake, the indexer or coordinator tells the projector the endpoint.",0
+1326,"Is it better that we add one line comment like ""if set failed, must return -1 ...""",0
+1327,"Okay, then we will keep them in an engine stats request.",0
+1328,I want the next item to be dequeued when the previously dequeued item has been consumed by the caller (as there is no facility to enqueue an item again). So I am using the unbuffered channel for this synchronization.,0
+1329,"You shouldn't need this - I have a patch in flight to our gtest - see https://github.com/daverigby/gtest/tree/clang_analyzer which will make the GTest asset macros ""understood"" by clang analyser.",0
+1330,"My point is that let's maintain our own configs even fi they are the same as the default ones, and change them soon by considering various factors including perf results.",0
+1331,change the error message to reflect that key size is big.,0
+1332,"hmm, I'm concerned about the lock contention in this function. As multiple threads will likely invoke this function, this can affect the CRUD performance. Can we simply use an atomic variable for each latency stat?",0
+1333,"If we agree to always treat a single number as JSON even if the client doesn't enable datatype support, then we can always set its datatype to JSON regardless of that.",0
+1334,"Why can't these just be run locally? I think it would be still quite useful to get net, iostat even if you're running on the local machine.",0
+1335,"You need to do error detection etc.. Perhaps its easier to just build up a single buffer, and then call a single function to write everything to disk so that you have a single place to add file IO error detection (and logging).",0
+1336,"Our convention here is to have URL like this:
+
+/node/controller/reloadCertificate",0
+1337,Just a suggestion: May be we can pass both channels as arguments ?,0
+1338,I think the per stream flow control won't be implemented. Please double check with Mike and remove this code in case it won't be implemented (and update/get the spec updated).,0
+1339,do you need to expose this at all operation base level? since just the mutations will ever have it.,0
+1340,(btw. this field will occupy 7 bytes for our 64 bit builds no matter what due to alignment for the next variable),0
+1341,every bucket needs to have its own gen to avoid sharing updates/deletes with other buckets.,0
+1342,"obviously. but in future patches.
+
+there is general convention regarding order of import statements:
+
+1. standard library imports
+
+2. related third party imports
+
+3. local application/library specific imports
+
+eventually we will follow this rule.",0
+1343,"I think it is probably cleaner to put CAS change in the caller rather than del() here.  The caller knows it is a normal deletion or delWithMeta(). The del() here is a generic function and should not take care of CAS issues. 
+
+Also, is it better to get a brand new CAS here? What is the point to increment the CAS for a normal deletion? CAS is a token, it is not meant to be incremented/decremented. We grab a new CAS for other operations, seems not quite consistent to me to increment it here.",0
+1344,"sounds good. will update once the dependence:
+http://review.couchbase.org/#/c/33453/ is merged.",1
+1345,"Agree, (it was not added as part of this patch, but I'll fix it). Hopefully we'll be able to completely get rid of these parameters...",1
+1346,"increment out is extra here, you can use num_rebalance everywhere",0
+1347,"I could directly call processBufferedMessages here, but I did it this way to avoid duplicate code (for the logging) here and in the instance below.",0
+1348,Sorry. I did not closely looked into log date part. Thanks for this patch,1
+1349,I think it is better to pass AccessScanner reference to the constructor instead of checking NULL here.,0
+1350,"If you look at the previous version of the code we returned true if the new one didn't contain ""engine""
+
+I just noticed that I need to nuke out the engine params from setting :D",1
+1351,"See my comment below. I think we should grab a lock at the beginning of this function, and don't need to use atomic variables inside scannBuffer and buffer instances.",0
+1352,This is not following the style for the other source files,-1
+1353,Non-standard ports (And other more exotic configs) now have their own section that I've added in this commit,0
+1354,"In my opinion this function is not required. ArrayIndexItems function can return one more array called counts (count for each entry).
+
+NewSecondaryIndexEntry() method can be added with one more arg count.
+During index inser,
+
+you just need to iterate through itms, counts := ArrayIndexItems() and encode as NewSecondaryIndexEntry(itm,count)",0
+1355,"started implementing the test with existing key, then acquiring relevant byte[ ], to be continued",0
+1356,"but, that is supposed to be there. I think it's confusing having some functions being vbucket_* and some others being lcbvb_* -- so that's why the comment is there, so I can fix this up at a later commit. Let me do that right now actually.. http://www.couchbase.com/issues/browse/CCBC-431",-1
+1357,"In this case, we only need to set it (item->old_offset) to zero, because _wal_flush_cmp() function compares 'item->offset' instead when 'it->old_offset' is zero. Thanks.",1
+1358,"We can address it in a separate commit, but I rather use only one approach for the compaction instead of having a sorted compaction as an option. Sorting will be expensive especially when we have a large number of items. If we don't have not much performance gain, I rather use an unsorted option.",0
+1359,"Most of the spring stuff looks like it can be found in the default m2 repo. Why do we need this? Also, milestone is wrong here.",-1
+1360,"Shouldn't the URL changed to couchbase.com as well.
+I see this in few other places as well.",0
+1361,"sizeof("""") includes the trailing '\0'. Couple more of this",0
+1362,"That bit can go as well, but it's copied from the commit message - the primary goal of the commit is to ensure that things don't crash, however there was an attempt at making the fix work with the least slowdown. Perhaps that bit can go out and just mention the stuff about re-entrancy :)",1
+1363,We also need to check the return value from wal_commit as well.,0
+1364,"I have tested it with this change everything works as expected. I have nothing to say in addition to your words. Give me one day, I will try to figure out tomorrow",1
+1365,SO_REUSEADDR is best used in conjunction with SO_LINGER,0
+1366,"fix for the following panic
+
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal 0xc0000005 code=0x1 addr=0x0 pc=0x6f42d7]
+
+goroutine 41 [running]:
+github.com/couchbase/goxdcr/pipeline_utils.GetSourceVBMapForReplication(0x393b10, 0xc08203c118, 0x393b60, 0xc08200bda0, 0x0, 0xc082027400, 0xc082a5dda0, 0x0, 0x0)
+        C:/Jenkins/workspace/sherlock-windows/couchbase/goproj/src/github.com/couchbase/goxdcr/pipeline_utils/pipeline_utils.go:37 +0x6a7
+github.com/couchbase/goxdcr/pipeline_svc.UpdateStats(0x393b10, 0xc08203c118, 0x393b60, 0xc08200bda0, 0x394238, 0xc0820d0280, 0xc082027400)
+        C:/Jenkins/workspace/sherlock-windows/couchbase/goproj/src/github.com/couchbase/goxdcr/pipeline_svc/statistics_manager.go:1137 +0x173
+github.com/couchbase/goxdcr/replication_manager.(*replicationManager).checkReplicationStatus(0xcc31e0, 0xc08211a690)",0
+1367,why can we remove these? has this issue been fixed by ep-engine?,0
+1368,"in the first if (if ok)  we are updating, so curSize does not change. 
+in the else, if we are cleaning one entry before inserting, curSize does not change (delete is guaranteed to remove one, insert will not error), otherwise if we are not cleaning up one entry, it's a straight add, and curSize is incremented at line 92.
+
+The removed atomic inc was mistakenly left over from when add didn't have an update",0
+1369,leave these errors be and do not check opaque since we are dropping connections instead of re-using connections.,0
+1370,mmm there are two __init__ functions here. Please check and re-upload the patch for review..,0
+1371,Don't invoke callback from within the entry point. IMO it's better to throw an exception here for now. Can you just schedule a callback via a timer so it doesn't fire immediately from this function?,0
+1372,"Okay, I understand what you're trying to do here. My concern is that we change the state from BACKFILL to IN_MEMORY even if there are backfill items in the queue or unAcked items in the ACK queue that we will implement soon. This will cause some confusions in debugging, showing stats in UI, etc. Let's add this to the to-do list and address it as a separate commit.",-1
+1373,"Might be better to move this test to right after the docio_read_doc_key_meta call, since it's doing the error handling for it. If there was an error, there's no point in populating 'doc' and '*doc_offset', right?",0
+1374,"The problem might be if you're running cmake outside ""git"" repository (dist package)?",0
+1375,"Style: Given totalCount is guaranteed to be zero here, just return zero - it's clearer to the reader what's being returned.",0
+1376,"These are wrapper functions, and will use in test cases directly.",0
+1377,Please add the comment to say that new_filename will be ignored in the auto compaction mode.,0
+1378,"planning to do that in a separate changelist for MB-14866:
+1. merge lock with seqno_list into the same structure
+2. maintain a vbMap instead of vbList in this service, so as to make vbno lookup/validation faster
+3. do vbno validation in all relevant places in the service
+
+you mentioned that we could use list of list instead of map of list to avoid issues with map. Feel that it makes the code harder to read. we may have to understandard the behavior with maps anyway. Plan to make the changes above and see if the issue in MB-14866 re-cur.",0
+1379,This is hack for rdoc. This comment forces to treat it as read-only attribute,0
+1380,"As of now, some caller assumes that the returned ref is not nil when the returned err is nil. When this assumption is not valid, as the original code shows, subsequent actions on the returned ref would cause NPE and lead to GOXDCR crashes, which caused the issue in MB-18266. 
+
+Returning a metadataNotFound err here is more correct conceptually, since this code is called from query APIs for remote cluster refs, and not being able to find the ref is an error condition. It will result in more consistent and predictable behavior -- the aforementioned issue will no longer occur.",0
+1381,"A similar comment should appear in the man pages for now, right?
+
+nitpick: It's better (more professional) to write these things in the 3rd person.  For instance ""It will be made smarter later"" rather than ""I'm not going to try to make it smarter"".",0
+1382,"why use -100? from the code below, it seems you meant -1 here.",0
+1383,I thought that handle->last_hdr_bid represents the last header that was written into the file. Is this incorrect?,0
+1384,"Yes, but it will change the output of EXPLAIN, so need to coordinate checkin with QE.",0
+1385,"can we avoid json_dump here , we are doing it few times in query generator. return the json format",0
+1386,"There is no need for a ""continue"" here, since it means the same as the normal program flow...",0
+1387,we will need to log the error since it is ignored by caller,0
+1388,if we assume that initCache() always succeeds - otherwise service constructor fails - we do not need to check for non-nil cache or return error for it anywhere,0
+1389,There may be a minor bug here in that there can be a TMPFAIL at authentication time.  This doesn't seem to handle that.,-1
+1390,"How is 'bbox' supposed to be encoded for transmission over http?  Currently its encoded as a Javascript array, which is probably why its not behaving as expected.",-1
+1391,"I believe you can only have one appender configured. The file based one is more useful to me, but maybe not to others.",0
+1392,"I'd expect that to autounbox.  Autounboxing *might* be less efficient, but it's more readable and won't matter much for a test.",0
+1393,this is confusing. I think this needs to be called PluggablePrefix or something of that nature. To call it Service is confusing to me.,-1
+1394,"Before the goto, you must update errcode. What happens now is that we fall to alloc_error label and then return a success status when actually an error happened and *dst was not populated.",0
+1395,"wouldn't this be subject to the same bug if the server answers something different for one of the keys, like 0x86 TEMP_FAIL?
+
+what about doing a response.Read while it's not returning -1 (socket.isAlive == false)?
+
+the NOOP already returns from the loop, but the case where correlationId doesn't map to a key should maybe also be a break from the loop, not a continue?",-1
+1396,"My change provides two options for clobber. So, the client can pass its own new rev id to couchdb or ask couchdb to generate a new rev id. This code path corresponds to the second case. So, the flag and expiration values here will be overwritten by couchdb, and you won't get them through your changes in mc_tap.",0
+1397,"this beforeTest block is used all over the place in the tests, we just try to get it to a clean state.. its slow but it works :/",-1
+1398,Empty space should be removed per previous comment.,0
+1399,if in some places function returns something then it should return always something,0
+1400,"You shouldn't check ""_doc.length.bodylen == 0 && (iterator->opt & FDB_ITR_NO_DELETES)"" again because we already checked it above.",0
+1401,Then shared_pointer is probably the way to go (if you're happy with the cost of refcounting them).,0
+1402,"We should not reset the current filter here, but still need to use it for incoming read operations, and then replace it with the new filter in an atomic way below.",0
+1403,"I personally hate this! commands should not go to a redirected file.
+I think your redirect options should be off, on, verbose - and only verbose should add commands",-1
+1404,"yeah.. that being said, the protocol explicitly state it to be two bytes ;-)",1
+1405,"skip_rebalance option is not needed here, it is always skipped unless nodes_init is provided
+why do you skip_cleanup?",0
+1406,This can't guarantee there won't be two pipeline running concurrently for one replication.,-1
+1407,You can actually remove this entirely - I needed it to work around a bug in lcb when connecting to a non-standard port (i.e. ./cluster_run running on port 9000 instead of 8091). For use in perfrunner with standard packages we probably want CCCP.,0
+1408,"Good idea. Although I could now just have a single stat and remove scrubber:status? If we have a stat called scrubber:runs we can infer the status.
+
+Is there a policy though of maintaining stats? any external tools reliant upon them that would be unhappy with removal of a stat?",1
+1409,"The error for the operation. If there is no error, this value will evaluate to `false`",0
+1410,"there should be
+
+  } else {
+    rv = get_env_plugin_info(pi);
+
+In this case the lcb_cntl user will get correct effective type",0
+1411,"I don't see where we append the rewinded header to the database file. Otherwise, when we open the db file next time, it will still give us the latest header that is not rollbacked.",-1
+1412,This isn't a very good function name.. (I assume that it doesn't initialize everything in memcached).. init_allocation_hooks() would probably be a better name..,-1
+1413,Please use uint64 or uint32 or uint16 if the size is known.,0
+1414,"Could you also update RELEASE_NOTES.markdown in the project root. You are adding interfaces, it would be great to document them there.",0
+1415,You should put it into memcached_defaults instead. That handles the upgrade scenario and will allow us to change the value easily in future.,0
+1416,"Instead of cast twice notifier to EObject, you could use a variable.",0
+1417,"Please add 2015 here:
+Copyright (c) 2007, 2015 IBM Corporation and others.",0
+1418,"s/should the callee read/should the callee expect me to read/, I mean.",0
+1419,"- Should be like below:
+textDirection = SWT.AUTO_TEXT_DIRECTION;",0
+1420,"Re: it does not look at nested repos if there is no one at root level
+
+And well it shouldn't. If the project is inside a git repo, that git repo will be found at import, and inner repositories will be found by the resource change event handling after the import. If the project is not inside a git repo, then we'll never pick up folders that happen to be in some git repository, but that's ok because the project will not be EGit-managed anyway. Or did you want to support git functionality in non-EGit-managed projects? Now that would be a vary major change.
+
+getContainer() just means ""get the IContainer this RepositoryMapping is attached to"". For inner repositories, this container will be an IFolder, and it will be at the root of the inner git repository's working directory. However, if the container is an IProject, it's not necessarily at the containing git repository's working directory _root_: it can be anywhere inside that working directory.",0
+1421,Its probably better to include this line in a {} block to avoid inadvertent errors while making any changes around this code block as well as to make the code clearer to understand.,0
+1422,"""Sort by Name"", ""Sort by ID"", ""Sort by Time""?
+
+Strange to test that as it has no effect on the time selection, and no effect on the tree if there is only one trace and only one thread.",0
+1423,"According to https://wiki.eclipse.org/Version_Numbering#Plug-ins_with_no_API, its bundle version should be evolved along with its host plug-in i.e. org.eclipse.jdt.ui, which will become 3.11.2 now. Hence, I updated the same for the test bundle. I will upload a new patch set with 3.10.101.",0
+1424,Please use org.eclipse.emf.compare.internal.utils.ComparisonUtil.isDeleteOrUnsetDiff(candidate) instead to also get the intended behavior for multi-valued attributes and unsets.,0
+1425,"Unfortunately, I don't think so, since it probably contains the version of the metamodel which varies over time...",-1
+1426,... we need to add a special check to make sure the last model bucket is counted in the last scaled index without going out of bounds.,0
+1427,"I started with standard ReentrantLocks here, but when adding the lookFor...() method, I realized that that is a read-only operation, so concurrent queries didn't need to block each other.",0
+1428,Shift + left click or drag to extend T1 of a current range always changes T1 to T2 (and T2 to T1),0
+1429,"I'm not enough of a regex guru, but there is probably a way to merge all these matchers into one regex, so that we don't have to check all the patterns one by one over the same string.",0
+1430,"if this was copied from another IT (?)
+and the GAV was not changed, it will conflict with the other IT when 'mvn install' installs it into the local repo.
+
+It's a good idea to make all GAVs used  in test projects specific to the IT that is being run to avoid unwanted crosstalk/side-effects between unrelated ITs, esp. when they are being run in parallel. (and I know some ITs we have are not good examples for this...)
+
+I.e. same comment applies to all pom.xmls used here for test projects.",0
+1431,"the method does not what the name says. It should just be named ""updateCommitButtons"" and take a boolean. So you can use this in another place too.",-1
+1432,Create static BugzillaRestCreateTaskSchema.getFieldNameFromAttributeName() and add an ImmutableMap,0
+1433,I think we should hardcode the status since the user can only subscribe.,0
+1434,"Adding to Megumi's nit: Consider initializing the value to true, and possibly collapsing these two methods down to one with an argument",0
+1435,"TTo be more complete, check for funcService != null first (or use an optional?)",0
+1436,"This method looks really strange, it seems to allow to get or create a view model context at the same time. The parameter set is confusing. It is not part of this review, but please add a BR to discuss this separatly",-1
+1437,Why do you set the value to true for the requiresAuthentication here since it is already set when you create the class !,-1
+1438,"Don't think this is really needed. See comments in PartialStateSystem.
+
+Also, protected fields, no no!",-1
+1439,"you handle all these exceptions in the same way so you can use multi-catch:
+
+ } catch (RevisionSyntaxException | AmbiguousObjectException | IncorrectObjectTypeException | IOException e) {",0
+1440,"I think the copyright is ""Eike Stepper (Berlin, Germany) and others.""",0
+1441,"The super.compareTo() below will do this null check, you don't need to repeat it.",0
+1442,"using ANY_DIFF has a huge impact on performance, typically there are many thousands of unchanged objects and only a few changed, with ANY_DIFF filter you will only traverse the changed objects otherwise all of them",0
+1443,"I'd add a guard to prevent surprises
+
+ if (db.isBare()) {
+     return null;
+ }",0
+1444,Yhis could be removed and use as parameter of the reset method.,0
+1445,"Yes, assuming the modelService works :)  This private method does not rely on other services.  Also, model service may have issues with elements that have the same ID.  In theory I could put the same element with the same id multiple times in a menu.  I don't know if modelService would be able to resolve that.  At least here we can count and validate if need be.
+
+I will make the other changes and await response on this.",1
+1446,"It was OK in my mind to not fix ResourcesViewTest but at least help ControlFlowViewTest and ControlFlowViewFiltering.
+
+But I try getExpandedElementCount instead.
+
+We can't check the exact count because it can change, see
+https://git.eclipse.org/r/#/c/65024/",0
+1447,"I can think about a lot of other tests. 
+E.g: ""[*]"", ""[2]"", [EXACT], [7..UPPER], [LOWER..54], [LOWER..*]
+Also bad cases: [*..*], [*..UPPER] which all are possible when we allow any literal at any of the places
+What about non-literal specs? can we at least ensure it does not fail for somethig like OpaqueExpression. 
+What if there are no valueSpec? What is shown for the MultiplicityElement without any setXXX, just after creation",0
+1448,"The cache element2ViewMap is no longer used in this solution. Have you measure the impact?
+
+The replace code is not exactly the same (this was not duplicated code), are you sure to do the same thing?",0
+1449,"It's a mistake, I have take release of org.eclipse.sirius.diagram.ui.tools.internal.outline package instead of org.eclipse.sirius.editor.tools.internal.outline one.",0
+1450,"These two variables were defined separately in the previous version. Now that you need them in every method, you could just declare them at the first utilization (applies to the other methods too).",0
+1451,Same question: Do you want me to declare the RevTree variables before?,-1
+1452,"Not a fan of createpopupmenu, it's huge and hard to read. 
+
+reset columns I will do. I can be convinced of using cpm too.",-1
+1453,not a big thing but sequence number should have been bumped,0
+1454,"it looks like createMergeConflictInfo() always shows the warning, then  adding the warning should be an implementation detail of createMergeConflictInfor() and the mergeResult needs to be passed to it as a parameter",0
+1455,"I think you miss the (complicated) case of a conflmict between a move in a branch vs a uncontrolling in another branch => In which case there is a deletion compared to origin on one side, and a rename on the other side.",-1
+1456,"We usually make file of constants an interface instead of a class (and prefix the name of an 'I').  You would also add in the javadoc of the interface the line
+
+ /** @noimplement This interface is not intended to be implemented by clients.*/
+
+to allow us to add more elements to the file without breaking an API.  Note that this package is internal, so we don't have to worry about API, but it is still good valid to put that javadoc entry.",0
+1457,"Hmm, after all it wouldn't fail the test, because this thread will still do the put(lastElement) below, which is the only thing that is checked. A bit flaky imo. But it should work in the meantime.",0
+1458,"Find a way to create the logger elsewhere, because we cannot specify in this configuration file a path where the user is allowed to write.
+By default, the file will be in the current eclipse install folder, but as Max pointed out, many users ahve eclipse installed in a folder where they're not allowed to write...",0
+1459,"Then maybe the loop can be inside this method, it would be more consistent with the fact that 'Starts' is plural...",0
+1460,"Is omitting other kinds of completion proposals on a specific purpose, or just a way to keep the patch small (and you currently don't need more)?
+This kinda contradicts the use of the general type Binding (rather than MethodBinding) - looks like you couldn't make up your mind ....",-1
+1461,"In my company, this is a rule to put the constant before a variable for comparison. This rule avoid also to forget a '=' in '==' operator and to create a bug. You can retrieve this rule in ESF project(TIPS-38, https://polarsys.org/wiki/ESF_coding_rules). We think that the same work could be interesting with Papyrus.",0
+1462,"The director wasn't being accessed here, but in getSubstitutionsPaths() which had such a check. I duplicated the check as it makes it more obvious.",0
+1463,"don't use hard coded type names:
+link.isOfType(CoreRelationTypes.Default_Hierarchical__Child)",-1
+1464,"to forget too..
+
+Specific code for containers 1 and 2 edit parts",0
+1465,"need to
+assumeTrue(cygProfile.exists());
+when the trace is not present",0
+1466,"Well, if your PATH is empty, I think the split by separator might end up passing null as the candidatePath.",0
+1467,strange parameter name ... I suppose it was late when you added it ;-),-1
+1468,This can probably be removed if the suggestions for performOk and performApply are implemented.,0
+1469,"Is this a typo? I think there is no underscore there:
+gdk_screen_get_monitor_workarea ()
+
+https://developer.gnome.org/gdk3/stable/GdkScreen.html#gdk-screen-get-monitor-workarea
+
+Also, for dynamic functions, you need to add an entry to os_custom.h
+
+Please see: http://leoufimtsev.github.io./org/swt-dev.html#sec-9-2",0
+1470,"False is the default, so I suggest we remove it.  I've never seen it used before and it just made me scratch my head as to what it was for.",-1
+1471,"From what I can gather, AsciiDoc should be camel-case http://en.wikipedia.org/wiki/AsciiDoc",0
+1472,I think somebody just chose to put the AllTests class in a separate package from the other test classes.  I don't know why.  But they aren't integration-style tests; they seem to be closer to unit-style.,-1
+1473,you missed to update the filterDowndown here to showDropdownFilter,0
+1474,"Sorry, I mean paintLine(createDisplayString(line), line, y, lineHeight, gc, display);",1
+1475,"Done
+According to the doc Repository#resolve(String) will throw a MissingObjectException.
+I decided to wrap it into a WrongGitFlowStateException because an empty repository is not something you would normally operate on with git flow.",0
+1476,"I like this test case because it is more realistic than the expression above. But then, I'd prefer that we remove the other one.",1
+1477,Is it possible that this is related to the Critical path view? Patrick said he saw a weird bug with time alignment being off because of the critical path.,0
+1478,Add spaces to relation name to match those in type definition,0
+1479,not sure whether this is needed but it's not harmful. We will get the NPE when (oldHeadId!=null && oldHeadLog==null). But if you look at line 724 this will not be the case. Anyhow: +1,0
+1480,"If we have a class hierarchy with one base class and many subclasses, in most cases it works well to have one base test classes and extended test classes, for each implementation. That way tests that apply to all implementations can go in the base class (and will be run for each sub-test).
+
+The ""state system tests"" in lttng2.kernel.tests are like this, and it works very well. Ideally these should be brought back in statesystem.core.tests. InMemoryBackendTest is a good start, but it should split the tests that are common to all backends in a base class.
+
+In any case, Backend tests would be great, but it would really be something separate from this patch.",0
+1481,I guess I don't need to understand why one is better than the other :),1
+1482,this should be done without open/close of the editor. Just by checking the mapping,0
+1483,The IDE feature does not provide any team dependent plug-ins any longer but it makes sense to keep the dependency. I didn't realize that team.ui contributed a bunch of functionality that doesn't necessarily require a Mylyn team extension.,0
+1484,"I had to read twice before to know what is affected in variable. Sometimes, make complete writing is simpler to understand than ternary operator.",0
+1485,why not resource.getType() == IResource.FOLDER as above for ROOT ?,0
+1486,"This file now has Windows line endings.
+
+@Jan: Could you verify that you have core.autocrlf=input configured in your Tycho repository clone?",0
+1487,"no, I'd like to keep the API of this class close to ObjectId",-1
+1488,"Replace with a constant or use String.format(""$0 $2"",icon.getLocaion(),e.getLocalizedMessage())",0
+1489,"Would it make it easier to override if we return a List?  That way if someone wants to add an adapter, they could simply add to the list instead of copying the array.
+
+This method is used in an enhanced for loop, so a list would work just as well as an Array",0
+1490,Those variables are used by everyone deriving from GerritCommand. It should be pushed up as well and the getter/setters,0
+1491,not if you want to compare from a raw byte array used to serialize object IDs,-1
+1492,"this rather looks like an IllegalArgumentException
+
+looks like we should check this earlier when setURI is called and already fail there if a URI is already set",0
+1493,"I think there is some test missing here: test the comments, the drafts, getOn behalf_on, hashcode, equals, tostring, ...",0
+1494,This doesn't work properly when the index is negative (e.g. time is before the offset).,-1
+1495,"Done
+Yes it does. This kind of test aimes at checking the resolution of existing namespaces. I actually did not think about nested namespaces with the same name might be a problem when creating new namespaces in the source. I've added a test for being sure.",0
+1496,"Why define this as a new function instead of replacing the one that expects a NamedElement? getFuncName is invoked on actions, but also on guards, and we need to apply the new naming on guards as well.
+
+If we replace the old getFuncName with this one, but keeping the NamedElement parameter, we can move the ""translator.getSource"" part here and be able to reuse the same function without modifying the ActionDeclarationGenerator or the GuardDeclarationGenerator.",-1
+1497,Removed the !commentPopupDialog.getEditable() check,0
+1498,Closing of the shell is probably the best time to save its size. Other settings can be saved at the same time too.,0
+1499,This is the simplest way to make it build. The complicated way would be to change doBeforeTest so it throws a Throwable instead of an Exception.,0
+1500,Addressed by a separate change through https://git.eclipse.org/r/#/c/44706,0
+1501,"question for me: every time, I ask me when we need to put [1.2.0,)
+why we do not use it?",0
+1502,"same here (you don't need to repeat this null check).
+
+In fact you can remove this @Override method completely, it will just call the default method.",0
+1503,"compareTo on strings! Need to use version comparator, I just added comment so it will get fixed",-1
+1504,Applied @NonNullByDefault everywhere it was possible,0
+1505,Call getResource() with false for the parameter loadOnDemand instead of true to be lazy ?,-1
+1506,"Should be ImagePath DataType
+Don't forget te regenerate the metamodel",0
+1507,"Please look at https://wiki.eclipse.org/EGit/Contributor_Guide#Checking_for_JGit_API_Changes_using_API_Baseline
+
+I suggest you setup API checks. They give a lot of warnings here about missing @since tags etc.",0
+1508,This is a refactoring from my side that sneaked in when I split the commit. I'll revert this asap since it adds nothing to this change.,0
+1509,"setting input to '-' isn't supported on Mac hence these tests fail with the error message ""sed: -: No such file or directory"". AFAIK if no input is given sed defaults to read the standard input on Mac and Linux
+
+more occurrences below",0
+1510,"do we need to take care all of this, if we decide not to put them in 2.0 ?",0
+1511,"Don't you have to clear expansions during a reload before you refill it. Imagine once the global attributes contained an attribute ""custom"". The file was changed and does not contain attribute custom anymore. Where do we remove ""custom"" from the expansions field? There should be a test which covers this.",0
+1512,"Oh I'm all for small tests ;)  But here we need data in the queue to flush it, and data to be present to take() it. So they kind of need to be done in sequence.",1
+1513,"There is no point in defining those private static variables, we could just use the string literal directly in the methods. It was like that originally because the original definitions were public static final's. We then switched to methods so that they could be overriden.",-1
+1514,"This code, RefreshLabelImageJob and PermissionAuthoritySessionManagerListener could be encapsulated in a single class whose responsability is to manage lock decorations update. And this class could be named LockDecorationUpdater, like that this class could be reused for potential others views.",0
+1515,"The same strange *.wdt.* package
+Should it be 'wst'?",0
+1516,What happen when you pass the same email and ask to delete it and set as preferred? Make it sense to check for this and reject this case as mutually exclusive options?,0
+1517,If I understand this right the buildr process is able to load Java classes dynamically and invoke them with reflection? That does it make it slightly easier to do some complex steps.,0
+1518,"I think that this class makes more sense than the Branch class because there are several places in Gerrit where refs strings are manipulated without using Branch objects.  Jgit does define some of those constants, but we cannot use jgit everywhere, particularly in GWT, which I suspect is why this class is here in the first place.  We need a good place in Gerrit for these constants, and the Branch object itself is a much higher level object than this simple class (it isn't only about refs, but rather refs and projects).  These constants feel  more appropriate here to me than in the Branch class.  I have some more changes, which I will push, which move them out of the Branch class completely.  I am willing to update the comment here if need be, but this class feels appropriate to me (based on its name and location) and I don't think that ""naive"" comment should get in the way of that.",0
+1519,This should be just 'Authentication required' to make the message consistent with other REST endpoints.,0
+1520,"Put all of this into a static helper method that returns a Map<String,String> already configured for the Sun JNDI names used below. Then we only need a map for connection pooling as an instance member.",0
+1521,"I'd rather do the logging fix separately, and not in 2.9.2
+
+To avoid the potential to miss any warnings, we can add a warning in the 2.9.2 release note to not run the upgrade in batch mode.",0
+1522,commit.hashCode() should be sufficient. A commit can only have one author.,0
+1523,The refreshing of the mergeable state is already implemented in MergeOp.verifyMergeability(Change). I would prefer to have the code only in one place.,0
+1524,Not applicable given the above but FYI: I would just use com.google.common.base.Predicate for this.,0
+1525,This should now depend on a python_library() that contains tools/gerrit/api.py.,0
+1526,"Seems like it doesn't need to be static, it only used in Schema_82 and is not static. I guess the answer is to be consistent with newStatement() below?",0
+1527,"After seeing this live on gerrit-review, I think this is noisy. Every change seems to have 10+ conflicting changes, which I think is just an artifact of there being lots of old, unlikely-to-merge but still open changes in the project.
+
+I would prefer something like including ""-age:30d"" and/or ""limit:5"" with a link to the full search without that restriction.",-1
+1528,"This doesn't exactly match what we generate for initially visible lines.  For those we specify the html directly and use
+ <tr valign=""top"">
+
+This will output slightly differently for the expanded lines
+ <tr style=""vertical-align: top; "">
+
+I don't believe there is a way to set the valign property with the gwt flextable.",0
+1529,"FYI this probably doesn't always work. Booleans are stored as CHAR(1) with value Y for true and N for false. Not every JDBC driver out is going to grok this as a boolean value. It would be safer to use ""Y"".equals(rs.getString()) in code such as this.
+
+Can't this statement also be written as an UPDATE:
+
+  UPDATE accounts SET reverse_patch_set_order = 'Y'
+  WHERE display_patch_sets_in_reverse_order = 'Y';
+
+  UPDATE accounts SET show_username_in_review_category = 'Y'
+  WHERE display_person_name_in_review_category = 'Y';
+
+This should be much faster to process, and every SQL server we support will grok those two small statements. And it avoids the problem with boolean conversion.",-1
+1530,"Resolved. I managed to drop this type altogether, so the name of the method is moot.",0
+1531,"The documentation here is pretty much the same, but the errors occur in different circumstances.",0
+1532,provide any output provided by a successful command.,0
+1533,"Nope, forgot to cherry-pick that one. Thanks for noticing, fixed.",1
+1534,"Is that a taste question? Or can we formulate when we prefer early exits and when to have multi indent ""{{{..."" blocks?",0
+1535,nit: I think this comment is sort of redundant with the code.,0
+1536,"Confusing? raw formatter, RawText helper class and raw var name? Rename var say to bytes?",0
+1537,"Please don't do that. We manipulate DateTimeUtils.setCurrentMillisProvider to achieve what you want. Check ChangeEditIT for example: [1], Methods annotated with @Before and @After.
+
+* [1] https://gerrit.googlesource.com/gerrit/+/master/gerrit-acceptance-tests/src/
+  test/java/com/google/gerrit/acceptance/edit/ChangeEditIT.java#116",-1
+1538,FindBugs is complaining about these parameters being null.,0
+1539,Unnecessary field if sshdAddress is used consistently.,-1
+1540,"I assumed you didn't care about modifying the caller's array because ""resources += srcs"" modifies resources in-place as well. Yay Python. So you should fix that below.
+
+Also typically in Python we strongly discourage mutable default arugments.",-1
+1541,We backed away from that. It is simply impractical. Too many tools and users use refs/for/ to remove support for it.,-1
+1542,You might want to use a constant ScriptRunner.NOP instead.,0
+1543,"according to [1] signature relevant files are 
+ META-INF/MANIFEST.MF
+ META-INF/*.SF
+ META-INF/*.DSA
+ META-INF/*.RSA
+ META-INF/SIG-*
+so depending on the signing algorithm used you may have to also exclude
+ META-INF/*.DSA
+ META-INF/SIG-*
+
+[1] http://docs.oracle.com/javase/7/docs/technotes/guides/jar/jar.html#Signed_JAR_File",0
+1544,"Change looks fine, but please fix up this bad rebase.",-1
+1545,"Use `'$site_path'/hooks` style here.  The rest of the documentation call is $site_path, not $sitepath, and the '' around $site_path will make it stand out from the /hooks part, while the `` overall will make it show up in a different type face.",0
+1546,"Sanitize non negative values? If someone missed time units, providing just 30 instead of 30s then the scheduler is going to be invoked every 30 ms.",0
+1547,"> So at very least you should only check/parse patch set part, if ref starts with REFS_CHANGES, if at all.
+
+It already does this, startIndex checks for the prefix.",0
+1548,I would have put all this in a separate config file like we do in the other plugins.,0
+1549,nit: seems like this should cause a 400 (not a 404). Are you able to differentiate valid syntax?,0
+1550,https://gerrit-review.googlesource.com/Documentation/dev-contributing.html#_tests,0
+1551,"My Nit Pref: eliminate if, just return the boolean evaluation.",0
+1552,"Either we have MetaDataUpdate that is batch-oriented or we don't. It doesn't make any sense to change the batch behavior for the same instance after it was created. Ever. So, drop that setter and add second assisted inject constructor that accepts BatchRefUpdate parameter instead (and make the batch field final as pointed out above).",-1
+1553,"It will change the style of link that gitweb creates when it outputs HTML to the client. If a site wants the non path-info style, leaving this enabled would defeat that setting.",0
+1554,"I see your point, there is place for improving my original suggestion. The problem with your current code and new suggestion is: you don't respect visibility during the whole loop. But the outcome of the loop is entirely useless when current change is say a draft or when the user doesn't have ACL to submit a change for a project.
+
+Example: if this code is merged as is or with your new suggestion, and you (you don't have +2 ACL on gerrit-review, right?) would open a change that belongs to a topic, that is shared by 1 million of changes, then you would iterate through all 1 mil. of changes, just to say visible = false, right?",-1
+1555,"Actually I've changed this so that empty string """" will remove dependencies. It felt most intuitive.",0
+1556,"I think this might be easier to read (despite the duplicate code) as:
+
+ if (isEditModeEnabled(info, rev)) {
+   editMode.setVisible(...);
+   addFile...
+   reviewMode...
+   editFileAction...
+ } else {
+   editMode.setVisible(false);
+   addFile...
+   reviewMode...
+ }
+
+But I don't feel strongly.",0
+1557,"I would love to do this. The problem is that all SSH information is only available inside of the SSH project and the server project which implements the REST endpoints doesn't have a dependency on it. Since we don't want this dependency I don't know how to implement it.
+
+On the other hand, if you have SSH enabled and you are interested in the SSH summary and connections you can retrieve this information via SSH. The REST endpoints are mainly important for installations where SSH is not available, but in this case there is also no SSH summary and no SSH connections. This is why I'm okay with the current solution of ignoring the SSH stuff in the REST endpoint.",1
+1558,"Put a comment, and explain two different use cases:
+
+* 1. Existing edit is deleted:
+
+  DELETE /changes/<id>/edit
+
+* 2. Path in non existing edit is deleted, IOW new edit is created by deleting a path in current patch set for a change:
+
+  DELETE /changes/<id>/edit/path%2fto%2ffile",0
+1559,"c.patchSetId isn't automatically populated.  You need to ensure its filled in yourself, unless you use the one that is already parsed and computed during validateChangeList() and stored inside of the commits map.",0
+1560,"I don't think config can be null.
+
+So now you can drop the method. :-)",1
+1561,"The CherryPick RESTApi acts on revisions (e.g. patchsets), not Changes. Just like the review RestApi does. Hence I don't think that it should go into ChangeApi. Look at the REST-url, and you will see it differs quite from the other RESTFul commands in ChangeApi. If you still want me to add it to ChangeApi, I can do that. But this is how I reasoned about where to put it.",-1
+1562,"Well, this is still a parameter, so you should probably leave the line.",0
+1563,"I don't think there is an easy way to do this, but it feels like these error messages should be shared with the ones from the WUI (ApprovalTable).",-1
+1564,"Maybe TestChanges? 
+
+*I prefer FooBar over BarForFoo
+*""Util"" is redundant with the package name
+*TestFoo says ""implementation (e.g. fake) of Foo for tests"" while TestFoos says ""static methods for dealing with Foos""
+
+It's not super compelling, but hey, at least it's shorter.",0
+1565,I will then await your next patch set before continuing review of this (and follow-up) changes.,0
+1566,Only the PatchSet.Id is required here. So cd.change(db).currentPatchSetId() is a better approach.,0
+1567,"On HTTP /abandon and /restore accept no body. This results in null being passed to the apply() method, which handles it gracefully by creating an empty input.
+
+I think its common to call /abandon and /restore with no input. Your tests are certainly showing that. Perhaps we should overload abandon() and restore() methods to also have a no-arg form that passes null to apply the same way the HTTP interface does when the client doesn't supply a body.",0
+1568,line wrap before throws so the line isn't over 80 columns,0
+1569,"Ah, I think this is from sometime before when I had it  actually raising an error...In fact I think in one of the later changes I changed my mind and went back to throwing, but I guess we'll get to that later.",0
+1570,Actually it seems to be line 21 that is indented wrong.  The newly added lines are correctly indented inside the <ui:style> tag.,0
+1571,This API method isn't covered by unit test. Add a test for it or add a TODO that unit test is still missing.,0
+1572,"Yes, because otherwise it is lost, as isBase64() creates a new instance of BinaryResult.",0
+1573,"[optionally] extend SSH based acceptance test too:
+
+ acceptance/ssh/GarbageCollectionIT.java",0
+1574,"> The bug that I reported was actually on the change screen; I had not observed the same issue on the project page.
+
+Yep, the original fix was to fix the project page. It'd be great if we could fix both in one go.",0
+1575,"I don't think it needs to be set, which means it doesn't need to be in the input.",-1
+1576,"I was speaking in a more general sense to explain myself here. You cannot have a variable 'foo-bar' in say java or C, because the language is defined to interpret that as 2 literals, one subtracted from the other (you usually put white spaces and surroundings like ""x = foo - bar;"".
+
+This is why I was abstaining from the ""-"" character in my own
+topic names for some time now as my unconsciousness tells me a topic in gerrit is similar to a variable name in a programming language. 
+
+Of course I do know ""-"" can be part of the topic in Gerrit, I am not just used to it.",0
+1577,"Add "": "" after ""successful"" otherwise the detail message will be appended directly onto it without any space.",0
+1578,Long line. Either break into multiple lines or add a static import.,0
+1579,"Entering an invalid object size limit results in displaying an 'Internal Server Error'. If possible it should display a proper error message, saying that the limit is invalid.",0
+1580,"Thanks. It's unclear how i missed it:
+
+ $ buck targets --show_output lib/gwt:codeserver
+ buck-out/gen/lib/gwt/codeserver/gwt-codeserver-2.6.1.jar
+
+Done.",1
+1581,"I'm not clear if ""${workspace_loc:gitiles-parent}"" mean ""$WORKSPACE/gitiles-parent"" or if it means ""Path to the project named ""gitiles-parent"".
+
+When I changed the on-disk location (via the rename above) of my gitiles checkout (under my /src/workspaces directory) to /src/workspaces/gitiles-parent then I got to the next error. :)",-1
+1582,"Why is this rounding necessary? Just a guess, clock skew?",-1
+1583,"Ok, I've changed the method name to 'validate'. Not sure though if it's worth the effort to change the already existing listeners.",-1
+1584,Because they need some more tweaking to supports booth modes: standalone and in tree?,0
+1585,Is this the same thing as CRAMTMP?  can we use that to make it more obvious it's a tmp directory?,0
+1586,Be consistent about inner class references. Here you use Metadata but above you use SecureStoreLoadUtil.Metadata. In this case I am OK with either form in the class but want them to be consistent within the ~60 lines of code you have.,0
+1587,Would it be worth putting `-ex` here to get the echoed output and exit status?,0
+1588,Docs in master are built from Buck. This Makefile should have been removed when the pom.xmls were removed.,0
+1589,Good call!  New code uses work_git.rev_parse('HEAD').  PTAL.,1
+1590,Don't use exceptions for control flow. Use Ints.tryParse instead.,-1
+1591,Change this to throw CompileException instead. Elsewhere on failure you throw IOException or CompileException.,0
+1592,"Maybe ""findSubClasses"" would be a better name for these methods?",0
+1593,Would it be worth to mention that the review notes are written by the review-notes plugin?,0
+1594,"Don't encode the value right away.  Instead we should lazily encode the value only when the serialization stream needs it.  Thus the constructor is just:
+
+  this.object = object;
+  this.codec = codec;
+  this.hash = object.hashCode();",-1
+1595,"I think they are trying to match with the access control section data, which uses local because it used to also have the inherited rules from parent projects, and the local rules were in their own collection so the UI could tell them apart.",0
+1596,"I will take my share of the blame here. We don't need equals or hashCode at all, they come for free from StringKey, and I added them for no reason way back in I5df6f0c5.
+
+And nothing personal, Sven, you know how it is when you've spent all afternoon debugging such a mysterious bug in production.",-1
+1597,"I'd have to dig a bit deeper into the blame history of this file to find out. As we can see at line 154 it's being deliberately kept open, rather than as an oversight.
+
+If it needs fixing it can be done in a follow-up change.",0
+1598,No it doesn't. We just have to parse repo-hooks childNodes after the project childNodes. Which you already do above. :-),1
+1599,"If you instead put this into the gerrit-server directory, you can then refactor the AdminSetParent SSHD command to also use this implementation.  That would reduce the amount of code needed to add this feature, since its mostly just extracting the existing code from AdminSetParent.",0
+1600,"From the stack trace you can see I put this on the wrong line, oops.",0
+1601,"Looking at all *Listener.java files in our source tree I see the following two cases:
+
+* a listener is just notified that an event happened but cannot do anything to prevent/block that event. In that case the listener doesn't throw any checked exception(s). Examples: GitReferenceUpdatedListener, HeadUpdatedListener, AuditListener, ...
+
+* a listener can block the event. In this case the listener throws a checked exception which is on the same level of abstraction as the listener interface. Examples: CommitValidationListener throws CommitValidationException, MergeValidationListener throws MergeValidationException, ...
+
+Since this listener is not intended to validate/block a group membership change(s) it belongs to the first category and shouldn't throw any exception.",0
+1602,"style-nit: I think spaces around ""+"" are preferred in Gerrit's code base.",0
+1603,"It shouldn't break, it just doesn't use the $site_path/tmp location until gerrit.sh is updated to a new version to supply GERRIT_TMP in the environment when launching the daemon.
+
+We already have schema upgrades between 2.4 and 2.5. I think most users will be running init anyway.",0
+1604,Thanks! Will translate this step-by-step guide into dev-gwt-super-dev-mode.txt or some such in the next patch set.,1
+1605,This and the preferences load below have a race condition. If the plugin load finishes first the user might see the existing account dashboard screen instead of their first My link if token = MINE.,0
+1606,Reuse the ChangeControl instance instead of loading the change again.,0
+1607,#NAME?,0
+1608,"Ah I see.  I wonder if we could improve the logic to only remove the expand all link when it is above a certain threshold, rather than any time it is above 30 lines with a huge file?
+
+So remove the isHugeFile parameter and just check line.getSize()?",0
+1609,Style-nit: Please don't reformat these comment blocks.,0
+1610,"Add here warning and link to the linking documentation of alternative OpenID provider and date: 05-20-2015, that Google shuts down OpenID service.",0
+1611,"You are missing
+
+  usage = ""List of SSH session ids to be closed""
+
+or some such.",-1
+1612,"You are mixing two different use cases. Use case 1:
+
+  beginTransaction()
+  commit()
+
+this works, because beginTransaction() set autoCommit=false and commit is successful even though nothing to commit.
+
+Use case 2:
+
+  open Connection with autoCommit=true
+  commit()
+
+Evidently, this doesn't work on all Jdbc dialects supported by Gerrit. E. g. this doesn't work on PostgreSQL for the same reason why rollback() doesn't work. To see the failure, remove this if-guard above and run PostgreSQL unit test:
+
+  testRollbackNoTransaction()
+
+it is failing with:
+
+  Cannot commit when autoCommit is enabled.
+
+or some such.",-1
+1613,I think this fits better as an overload in UnloggedFailure?,0
+1614,This should be rather initialized with an empty collection.,0
+1615,"In the follow-up change [1] this method is renamed to 'canEditChangeLabels' [2]. I would propose to name it already here 'canEditChangeLabels' so that it doesn't need to be renamed in the next change.
+
+[1] https://gerrit-review.googlesource.com/24661
+
+[2] https://gerrit-review.googlesource.com/#/c/24661/4/gerrit-server/src/main/java/com/google/gerrit/server/project/ChangeControl.java",0
+1616,"I have no idea what this means, but this is probably not the place to fix it!",-1
+1617,"Note that this isn't manual wrapping, just splitting the single string into multiple strings to follow the indentation (it should have been narrrower here, though).
+
+This way it will still be properly wrapped both for terminals and GUI cmake interfaces. The only bad choice is when we indent the strings _without_ using quotes on each line - then Cmake interprets it as manual line wrapping with extra spaces (at least on my host), which will look horrible if you are not using a terminal window.",0
+1618,"FIXME! As mentioned elsewhere, the polling wait is likely unnecessary in the  OpenCL implementation.",-1
+1619,Done (hopefully the text is also otherwise a bit clearer).,0
+1620,"magnus, to write something along the lines of this is the number of sets of the most frequently written output type per frame set. the best default will need some experimentation. ideally this would be a user-configurable option, but it is not clear whether a (hidden) command-line option would be best (or env var), and not clear whether anybody would really use it in practice. Disk is cheaper than user and/or compression time, for the most part. So we'll add a TODO to reconsider for 5.1(?) and not before.",0
+1621,That's impossible to say until somebody invests the time and effort to try lots of different function approximations on that architecture to see if they can come up with something better. For now it is the fastest approach.,0
+1622,That will unfortunately only work if there are no 4-core Intel Xeons that work in dual-socket configuration because we could confuse a workstation that has two such processors with an 8-core Xeon E5 in single-socket configuration.,-1
+1623,"Sounds like it should be disabled. It is reasonable to run a whole multi-sim workflow (em, equil phases, simulate) in the same set of multi-dirs, so being able to use
+
+ mdrun_mpi -multidir the-dirs* -deffnm equil-npt
+
+would be a nice thing. I haven't tried -multidir with a non-default equil-npt that I remember though.
+
+Should we be looking at doing the directory change for -multidir earlier than we do?",0
+1624,"No, because this file and this macro is also used from plain C code, which only accepts this form of casting. Adding #ifdefs just for this purpose does not seem useful.",-1
+1625,"Which tarball do you mean here? I don't see why installing the file would matter for the source tarball, which is the only thing we are currently interested in. I tested, and the INSTALL file ends up in the source tarball just fine even without this block (but with the other changes here).",-1
+1626,"Recent convention has changed to .mdp options containing hyphens rather than underscores, please (though both actually work).
+
+Suggest comment on line 2088 becomes a CCTYPE and the next line becomes a CTYPE. Check out a grompp -po and please do what seems best to you!",0
+1627,"I want to keep it for now - there might be new architectures/optimizations where we suddenly realize it would be useful. Having them in config.h.cmakein is a reasonable compromise to remember we can use them, although they aren't selectable directly in Cmake for the moment.",0
+1628,"We kept this in r46 to keep some minor behaviour consistent.
+
+By omitting this in r50, we are actually keeping the behaviour of rc and final consistent, modulo the bug fix - see this function in git diff 53fc9d0 -- src/gromacs/mdlib/coupling.c. Since the r50 tests are already generated with the new RNG, we should expect those tests to continue to pass.",0
+1629,"I don't understand the problem. Without the explicit assign, and copy operator, and without the AnalysisNeighborhoodSearch(const ImplPointer &) (not needed if the setMode is done easier), I don't see why it wouldn't just work by itself correctly with gmx_unique_ptr. Sorry if I'm miss something obvious.",-1
+1630,"Also guessing, but if multiple loops act on the same vector and that vector exceeds a cache level, then you can do slightly better by alternating the order of loop traversal, so that you do re-use what you do have in cache.",0
+1631,I mainly tried declaring all variables in the local-most scope.,0
+1632,Why is 1 the default? Why isn't the default to use all available cores? This is the default for mdrun and also the default behavior of OpenMP.,-1
+1633,"First, we'd need to fix grompp, since it wrote this file ;-)",1
+1634,"I thought the point of the platform file is to make it easier by requiring only one option. Of course the user can also simply use ""CC=icc CXX=icpc CFLAGS=-mmic CXXFLAGS=-mmic"". If I don't specify the compiler then what's the point of having a platform file at all? 
+
+I'm pretty sure gcc will never support the MIC vector instructions (compiling with gcc works but is of course useless without the vector instructions). And it seems also very unlikely that clang will ever support it.",-1
+1635,"The doxygen  documentation will also be a bit better if you add
+
+  \related ArrayRef
+
+to these functions (and similarly for the ConstArrayRef ones).",0
+1636,shouldn't that be exp(-beta_i u_i) / sum_k exp(beta_k u_k),0
+1637,"That could be changed, I imagine, but Jenkins will probably add ""helpful"" spacing too... :-(
+
+If there was a way to have Jenkins keep a per-build archive, then we could have it make available the corrected files?",-1
+1638,"The histograms themselves don't use multipoint storage. The input for them often would be, but in this case it isn't.",0
+1639,"This can't be here, since it only executes on the first CMake run, making LINEAR_ALGEBRA_LIBRARIES break on subsequent runs.",-1
+1640,"By definition, nothing is required when we have macros telling whether it is present or not. To avoid having to update this file every time something in one of the implementation files changes, I would move that documentation there. This file is simply about SIMD and defining SIMD properties, not about what SIMD instructions are used in different kernels. Specific comments about verlet kernels belong in the verlet kernel code, not here.",0
+1641,"The include won't become redundant as the macros will still be needed. Instead the replicated Check{C,CXX}CompilerFlag.cmake will become redundant.",0
+1642,"The logic to check for checkpoint restart was added in release-5-1, but in master we changed the name to startingFromCheckpoint",0
+1643,"I meant the NodeName of the element (so that the path would become, e.g., ArrayId/Real[2]). Can be postponed for later.",0
+1644,"I guess this specifies whether the file is an xvg file? Then I would suggest introducing an enumerated type instead, both because we might have more file types to test in the future, and because it's is much more explicit with FileType_Xvg than true as the last parameter in calls to this function.
+
+Alternatively, isn't it possible to decipher the filetype from the extension?",0
+1645,"Not sure what our own script has to do with the annotation. The export pragma could all be moved into the imp file if you prefer that. This would leave us with only the keep for where we misusing the preprocessor as template language (pme.c). I think we should replace this anynow. 
+
+Right now if one runs it on any of the c++ files, IWYU makes changes we don't want. See the issues in the commit message. But I don't see how that could be fixed by using a script to read the output. It seems it would be easier to patch IWYU than replicating the header-analysis in a post-processing script.",-1
+1646,Maybe include a warning if the assumption is not met?,0
+1647,Joseph Coffland requested this.  Apparently he was doing a non-CMake build where he just set GMX_THREAD_MPI.  I'm fine replying that he should set GMX_MPI as well.  Preferences?,0
+1648,"Seems like we can make use of the dependent option gear in cmake/gmxOptionUtilities.cmake, so that the default is ON for real windows and off otherwise?",0
+1649,"Removed. This was originally a From/To test, but then decided to split it and forgot to remove this part.",0
+1650,"It is the same argument, that we want positive constants for time constants.",0
+1651,Prefer angle brackets for headers not provided by us.,0
+1652,"Update: Tried to make the unary member operators, but apparently even gtest requires binary comparison operators to work on objects, so I'll have to abandon that.",0
+1653,"You probably meant that the comments should explain why, not how? But even that is missing here.",-1
+1654,"This conditional is always true, so it should be removed as confusing.",-1
+1655,"I guess this must be an unsigned integer because of the way we shift bits in the next file. However, in that case the width too is likely important, and I would suggest using gmx_uint32_t for clarity.",0
+1656,"No, this is here by purpose to document that this is a static method, as that is not otherwise evident without looking at the header.",-1
+1657,"I've uploaded an alternative in patch set 5, which you might dislike less :-)",1
+1658,We only move bonds to the same place or back. So bond j is always tested. In the extreme case there are no H-bonds and the loop is simply a copy from i to j=i. Also note that this code has been tested in the nbnxn_hybrid_acc branch.,0
+1659,"I would like to rewrite in C++, but that requires all the calling programs to be C++ too. Will do that in a separate patch.",0
+1660,It seems to me that we have a more serious issue here.,-1
+1661,The toolchain file should stop here. It should be about description and setting compilers. Period. See http://www.cmake.org/Wiki/CMake_Cross_Compiling. I figure the principle is that the toolchain files are somewhat transferable between projects.,0
+1662,"Indeed, thanks.
+
+I discovered this myself early last week, and addressed it in I82ff6602af3bf5 so that we use gcc 4.9.3 on slaves where that matters. Love these commercial-grade compilers!",1
+1663,Not having doxygen documentation for the defines will generate warnings when merged to master.,0
+1664,"You removed this line in I1c2a5a9c3da5 with a commit message that noted you wanted COM removal only in the second half of VV, but there was no related change to how that worked. How do we assess when you were right? :-D",-1
+1665,"I think !S_ISREG is too broad. If the filename is a symlink, then don't we want to be able to open it?
+
+The original code tested for S_ISDIR, which might well be best. I just wanted us to consider whether there were other things for which to test.",0
+1666,It's an excellent day when there's more documentation than the core developers can remember having!,1
+1667,"The above 7 lines repeats a bit, and could go and be a function.",0
+1668,nit: braces missing (as Teemu said: alternative: running uncrustify),0
+1669,"Fixed... I don't like having to open and close the namespace, but after some more work, all this stuff should move into the namespace, so no big deal.",0
+1670,"We should revisit the entire allocation after 5.1, but that could have unexpected side-effects, so it's not something we want to hack as a last-minute bugfix.",0
+1671,"gpu_info is still available when this gets called, so it can be safely passed to free_gpu().
+
+The only inconvenience is that if mdrun crashes or gets killed, the driver won't set the clocks back to the original values. I guess this could be an RFE - nvml could distinguish between admin and user access and tell the driver to set the clocks back after the application terminates.",0
+1672,"I'll add a comment. 
+I don't think #ifdef is a good idea. It makes bugs more likely because you have more code and that code is less tested (because only one version is only compiled and run on any one system).  But I will include the non-workaround version in the comment.",-1
+1673,"OK, moved back to shellfc.cpp.
+Implemented the std::array busines. Phew.",0
+1674,"I don't think this is the way we should do it. The routine execute_x86cpuid is obviously *x86*-specific, and that is why it is only defined on certain x86 platforms. For other platforms we should never call this routine, but then we should add proper #ifdefs around that call.
+
+We will gradually get more detection routines, so it does not make sense to have all routines available on all architectures, but usually non-functional.",-1
+1675,"mdrun -nstlist > 0 is not affected by this change, it will still change nstlist. Or do you mean to add a note even with nstlist=0? nstlist=0 is explained as guess and 1 with 1 seems ok to me.",0
+1676,"That this was removed is clearly wrong, and seems to be the cause for the test which hang. It doesn't always hang but sometimes. For more details: http://redmine.gromacs.org/boards/6/topics/261?r=266",-1
+1677,"That's a bit of a philosophical discussion. I thought about it earlier, but the reason for limiting the range is that we only use the single precision range in the SIMD parts of Gromacs - since all algorithms in particular need to work if the user has set the precision to single - we only use double to improve precision, not range.
+
+One _could_ of course add double precision range tests, but then the next obvious question is why we allow routines to provide incorrect results for NaN, +-infinity, negative zero, etc? And, of course, not to mention - why we allow more than 1 ulp error :-)
+
+For the error functions I actually experimented a bit with only providing accurate results in a smaller-than-double-precision-range, and this might still be a useful optimization strategy in the future. Thus, I like the idea of merely testing what we actually need, and if somebody comes up with a neat idea to improve that while only altering things we don't need, that should fundamentally be a good thing(TM)!",1
+1678,"Should this include also the LJ PME contribution, either summed our as a separate line? I know that this functionality may change in the future, but for now would be better to keep up-to-date.",0
+1679,with the suggested while loop this would become i =0,0
+1680,"whoops, this is not new code, but docs are always good!",1
+1681,"Not in the present version at least. Note that I have not yet had access to xlc with VSX, so that will have to wait until we get that!",0
+1682,"Not all build tools use -j. Thus the simpler approach of directly setting build_cmd=""make -j2""/""jom -j4"" might be better.",0
+1683,I could put the finalizeForCommandLine after processExceptionAtExit. Then it doesn't change anything for LIB_MPI and that wouldn't work anyhow as you point out.,0
+1684,I started replacing C0 with c[0] because I didn't see a significant advantage of having C0 available. But then I saw this and realized this AI naming is used in some other places. And it might be helpful to have the I..M index. I thought about creating an enum to define I to M (to use as a[I]) but of course I to M would be by itself bad names which conflict easily with other things. And I thought it would be nice to have C and A by consistent. So I also created CO..C2 not just AI..AM. I think consistency with the previous name is more important than consistency to the variable name. But it doesn't really matter to me.,0
+1685,"Isn't ""a system dependent pseudo random seed"" even more cryptic to the average user? How would you formulate it isn't unusual verbose compared to the other options and not cryptic to the average user? A section in the manual explaining how our random numbers work is (while a good idea) outside the scope of this change.",0
+1686,"OK, thanks.
+
+The approach here and in my patch work fine if the user controls everything they way they want. 
+
+When auto-detecting everything, this patch is better on non-AVX hardware that happens to have RDTSCP. Otherwise, they effectively work the same.
+
+When compiling on a new build host for old compute nodes, this patch will sometimes require the user to make two active settings to make a functional mdrun. That might mean they go hunting for docs twice, unless they find the new install guide section. At least we don't fail mysteriously any more!
+
+When compiling on an old build host for new compute nodes, both patches will sometimes make an mdrun that could be better in up to two ways. We could add a nag message for the double negation of the new code in gmx_detect_hardware.c ""You, too, could be using RDTSCP!"". AFAIK the proposition that using RDTSCP is good in user space is just educated guesswork, though.
+
+I was slightly concerned about one of the latter cases (build host is old, user knows they have AVX on the compute nodes, so they know to set SIMD and don't know RDTSCP exists / is relevant), but if we add the new nag then this case is solved well enough.
+
+So I'm happy to adopt this solution. Thanks! Shall I abandon my patch, send reviewers here, and one of us work on Erik's feedback and/or the new nag? If we add the nag, commit message needs updating.",1
+1687,No. Note that what I write is not real and reciprocal space. Below the cut-off we have both the real space and reciprocal space contribution.,-1
+1688,"Ja, if there were a clean way to have the old name mean a new -q version that'd be fine, but I think this is the best we can do.",0
+1689,"need to fix this to ""num"" not ""max""
+omp_get_num_threads",0
+1690,"OK will work on the object containing tolerances for both precisions, with the helper functions intended to be the main way to construct them.",0
+1691,Since all TNG constants in the header are prefixed with TNG I think it could be nice to just call this variable API_VERSION and then use TNG_API_VERSION in tng_io.cpp and switch the names in version.h.in.,0
+1692,I agree with Erik the message is an non-issue and can stay as is. I was just curious about the plan to merge the other two commits. But even that doesn't really matter.,0
+1693,It works pretty well and provides status information for impatient users. Note that nrms is a shared variable among the threads and that the line is overprint with the carriage return character in a fifo manner.,1
+1694,"This is a workaround for WDDM that does not belong here. IMO it would be best split out into a separate commit so that there is a clear record of it.
+
+Additionally, has this been tested thoroughly?",0
+1695,"Is ""how many times have *"", I updated the comment.
+Note that the nstglobalcomm removal is not directly related to this patch, but that was uncorrect, since nstglobalcomm counts in MD steps, whereas n_load_have counts DD partitionings.
+100 might be a bit high for short runs, but for any longer run DLB will still trigger within a very small fraction of the total runtime.",0
+1696,"No, this is not sufficient. You also need to call checkXvgFile() using this second data instance. And please create a separate scope for this, so that the previous TestReferenceData object is destructed before this one is created; otherwise, it's difficult to reason that things work as expected , since there is (a bit unfortunately) a lot of logic in the destructor.",-1
+1697,"I have the feeling that we should perhaps split the functionality here and use a separate enum for OpenCL which would indicate the forking point if a future OCL device needs different cluster size. Perhaps an overkill now, but it would not hurt.",0
+1698,"Doesn't much matter, either way. Let's omit __vectorcall from the list of tested attributes with all clang except on Windows.",0
+1699,"True. To be honest, initially I wanted to avoid passing a bunch of arguments so I thought it does not matter whether I count the unique GPU IDs or their indices and that's why I had ngpu = gpu_info->ncuda_dev_use (but PS 1 was messed up in other ways so I changed ngpu, and I indeed should have removed the branch. 
+
+Long story short: thanks.",1
+1700,"I thought that the full list of commands can be rather long, so it's best to print it only on explicit request. If there was a mechanism for printing only a subset of the commands, then that could be used here.
+
+But it may be better to wait until there are more modules ready before doing anything more complex. Having a ""commonly used"" subset here requires someone to define what those are, and also requires extra logic somewhere to communicate that subset to the help printing code. For now, I think it is best to keep things simple.",0
+1701,"Yeah, major documentation work in the next few weeks, so we can all use our time more efficiently when new or wasn't-paying-attention-then developers come on board. Today, only worried about completing the rc while not creating repeat work later! :-)",1
+1702,"This has to be restored to the initial code:
+#include ""thread_mpi/atomic.h""
+
+It is a remaining from an intermediate OpenCL development stage. In CUDA source files CUDA and non-CUDA data structures and headers are mixed together. This cannot happen with OpenCL, you cannot use C/C++ standard library headers or any other headers relying on those (see section 6.9 https://www.khronos.org/registry/cl/specs/opencl-1.2.pdf)",0
+1703,"This is the same as in the underlying OS calls, and this same construct is also used in the nbsearch pair loop, as it minimizes the amount of code the caller needs to write for correct looping (and is quite easy to implement, as there's only one function that returns something).",0
+1704,"Not currently. It's somewhat different from what the current reference data approach uses, as I guess that you would want to generate that state using some code that is not part of the test (since if you can generate the state with code that runs anywhere, you do not really benefit from serialization).
+
+Generic serialization is also a significant amount of code, even if straightforward (and with C++, it requires some careful thinking on what kind of constraints it enforces on the serializable types, unless you make the object itself responsible for the serialization).",0
+1705,Why replace the ip[] only here and not consistently_,0
+1706,OK. I agree there's a sense that the state of the machine is not const.,1
+1707,"Ok, this is a bit for my learning--apart from the weirdness, would it be better to do static const const char * here (consistent use of modifiers on the left)?  Still bending my mind around the subtleties of multiple const qualifiers in the same line...",0
+1708,"Why not use num_threads(gmx_omp_nthreads_get(emntNonBonded)) - and perhaps add an assert(gmx_omp_nthreads_get(emntNonBonded) == nnbl)?
+
+Additionally, there are three more loops over the lists, can some of them be merged into one parallel region with this?",0
+1709,"""system-provided version"" or ""version provided by the system""",0
+1710,Good point. I think it is related to the change as the new message is introduced here.,1
+1711,could this moved to config.h instead of having it on the command line?,0
+1712,"indeed.  I see why it's there...I don't suppose there's a clean way to make this better?  Looking at do_xdr(), nothing comes to mind immediately.",0
+1713,"I far prefer the load/store naming since anybody who has ever worked with SIMD will know exactly what we're doing. 
+
+The point is to maybe make the SIMD code slightly less cluttered, and _maybe_ make it possible to for some simple routines to be templated, not to design a new language.",0
+1714,"We should move this to some other module since it has very little to do with SIMD, and it was only a hack for a single architecture. However, that will require us to write a different hardware module, so for now I've added a define for GMX_SIMD when any of the SIMD architectures is enabled (which is good to have anyway).",0
+1715,It seems to me that the above helpers would be better suited in a different file to keep this file a purely generator one. Does that make sense? is there any good reason to keep it here?,0
+1716,"It is not too late to do one. But because this runs also on the client and I am not sure how compatible those are with the Java ones I decided to write it this way.
+
+But you can look at the one I wrote for the source level in Utility.versionPattern if you feel nostalgic.
+
+
+You made me learn GWT regexps and do it!!! and it is here for all to see with all the regexp beautiful simplicity.",0
+1717,Removed 'to' as the assertion is there for mostly documentation purposes.,0
+1718,"These are nice tests. Can we put them on AbstractHasData directly instead of the Table subclass?
+The one bit that you'd have to keep here would be the test with the alternative TableBuilder.",1
+1719,It is not obvious to me what this code snippet is doing; can you add a comment?,0
+1720,[info] Line matches the illegal pattern 'check that a space is left after a colon on an assembled error message'.,0
+1721,"Just cleaning, this regex remove  empty string concatenation:  + ("""")
+
+This can happen when we start a new group of concatenation (see appendConcatOperation()) and there is nothing to print afterwards. In this case the string ends with a concatenation of an empty string",0
+1722,I think we should also force the configuration property to not be multi valued.,0
+1723,"When you swap a KEY_RIGHT for a KEY_LEFT in RTL, that's because you're interested in the ""start of the line"" (which is on the left in LTR) rather than the left vs. right; so in the ""case KEY_LEFT"", the comment could say ""start of the line, no special RTL handling"".",0
+1724,Will take a look after we decide how to move forward.,0
+1725,"Any ideas why this might not have been public originally?  Obviously no immediate consequences to making it public, just wondering if we should try to discourage people from using it if there are alternatives.",0
+1726,"It seems clearer to return Future<?> here and let the caller set the variable.
+
+A better name would be something like startAddingEntryToCache since the postcondition is that when it returns, the task is scheduled. (Assuming the persistent unit cache is running at all.)",0
+1727,[error] Wrong order for 'java.io.ByteArrayOutputStream' import.,0
+1728,Maybe move this to getStringMethod and rename getStringMethod to getStringMethodOverload?,0
+1729,How about just moving it to RequestFactoryTestBase instead of a top-level class?,0
+1730,It seems better to throw UnableToCompleteException in this case; there's no need to print the stack trace.,0
+1731,[info] Unable to get class information for @throws tag 'UnableToCompleteException'.,0
+1732,"The main thing about ""Dev Mode Off"" is that it works even when the code server isn't running. Perhaps it's less useful with this change, but I don't want to remove it yet.",0
+1733,"Sure it's more readable, but how about:
+
+ HandlerRegistrationCollection hrc = new HandlerRegistrationCollection();
+ ?›ƒ?ª??
+ hrc.add(foo.addXxxHandler(?›ƒ?ª??));
+ ?›ƒ?ª??
+ hrc.add(bar.addYyyHandler(?›ƒ?ª??));
+
+or:
+
+ HandlerRegistrationCollection hrc = new HandlerRegistrationCollection();
+ ?›ƒ?ª??
+ HandlerRegistration hr1 = ?›ƒ?ª??
+ hrc.add(hr1);
+ ?›ƒ?ª??
+ HandlerRegistration hr2 = ?›ƒ?ª??
+ hrc.add(hr2);
+
+I.e. accumulate HandlerRegistration instances right into the HRC (which can be a field of your class) rather than into local variables that you then pass as a whole to the factory method.
+
+If you want varargs, you could add an addAll() method:
+
+ HandlerRegistrationCollection hrc = new HandlerRegistrationCollection();
+ hrc.addAll(hr1, hr2);
+
+or with a Collection or Iterable as argument:
+
+ HandlerRegistrationCollection hrc = new HandlerRegistrationCollection();
+ hrc.addAll(Arrays.asList(hr1, hr2));
+
+Note that Sencha has not felt the need to add such collection/varargs to their GroupingHandlerRegistration: http://docs.sencha.com/gxt/3/com/sencha/gxt/core/shared/event/GroupingHandlerRegistration.html
+
+Similar for GWT-P's registerHandler on their PresenterWidget base class: http://arcbees.github.io/GWTP/javadoc/apidocs/com/gwtplatform/mvp/client/HandlerContainerImpl.html#registerHandler(com.google.web.bindery.event.shared.HandlerRegistration)",0
+1734,This follows the common toXXX naming convention and implementation style used in Guava. I need fix the documentation.,0
+1735,The performance characteristics of ArrayList should be similar enough to use here instead of introducing JsObjectArray.,0
+1736,How about that one? Is it because you won't be able to automatically change call sites?,0
+1737,"This is a Maven project, and Maven's default build directory is ""target"" (see also the .classpath file generated by M2Eclipse)",0
+1738,"Here, we are making a bunch of datastore calls in a loop, which could fail (or time out) and drop half of the updates.
+
+Since this is derived data and an async update is probably okay, a more robust approach would be to put tasks on the App Engine task queue to refresh each graph. Failed tasks automatically get retried.
+
+The most robust way to do the update: given a graph id, regenerate the graph from a query of all its dependencies, sort of like a makefile. Then, since it's idempotent, it doesn't matter if it fails sometimes, and we can ignore concurrency as well since multiple writes don't matter.
+
+(Incremental updates would be more efficient but trickier to get right, so I typically put that off until it seems necessary.)",0
+1739,I agree if the file exist we should skip the conversion and print a information message,1
+1740,"I think either all the modification are propagated ""live"" or they are all buffered, having a mix of both seems to be a gate for inconsistency.",0
+1741,"Using ArrayList is bad for several reasons:
+
+Performance:
+Due to changes in the hidden class it runs slower. It also does range checks which we definitely do not want. I am working to improve this, but at this point they do not perform in the same class.
+
+Assuming Array == JsArray:
+A lot of GWT code assumes this and that is a bad thing because there are a couple of things that we can not do to optimize array because of that (e.g. putting fields on an array makes FF opt out of some optimizations).
+I am thinking that we might want to model arrays as an object with a field for the array and other fields for GWT stuff (type info) and let the compiler inline all access to the array at the right places. This might make ArrayList as fast as JsArray.",0
+1742,"Is this only relevant for new Js interop or was it also a bug with regular JSOs?
+
+If it was a bug with JSOs, we should add the relevant regression test.",0
+1743,i did some refactoring and missed changing this name. thanks for catching it,1
+1744,[info] Line matches the illegal pattern 'more than one blank line'.,0
+1745,Done. Wonder why checkstyle did not complain here this time.,0
+1746,I think I was playing too safe here. We can probably just bound it to stackMode == native regardless of SDM.,0
+1747,"I think you're right that this seems only natural. I will leave the code for this commented out by a flag for now, and figure out a way to add a 'lint' mode to JSORestrictionsChecker later to warn when turned on.",1
+1748,"If the string is boxed (ie. if the string is created in javascript new String(""..."")), it is no longer acts like java.lang.String in GWT lang. For example (aBoxedJsString instanceof String) will return false.",0
+1749,Changed to check ahead and simply log the fact that we will not overwrite files.,0
+1750,[info] Line matches the illegal pattern 'check that a space is left after a colon on an assembled error message'.,0
+1751,please add a comment explaining why leaving a try statement in the AST (with no catch blocks and no finally block) would leave the AST in an unsafe state,0
+1752,"That means we'll have to add an extra boolean field to every member. It'll make serialization size bigger as well as resident AST memory go up. 
+
+I'm happy to change it, but it seems like it trades off memory for readability.
+
+You'd still have to handle """", because that's the way Java annotations work, you cannot have a default value of 'null'",0
+1753,"I think we should make it very clear that this is an asynchronous process:
+
+""Enqueues a clean up of old cache files...""",0
+1754,[info] Line matches the illegal pattern 'check that a space is left after a colon on an assembled error message'.,0
+1755,"The problem is, at the opensource side, if this breaks the app, people will try to debug it by themselves or worse they will just give up and do not update to the latest GWT version - I don't want that to happen, especially for this release.
+
+On the other hand if somebody hits the problem, it is easy to point them to the workaround. This is not ideal situation but that is what I prefer right now.",0
+1756,"Other parts rely on non-null values, perhaps this should be critical.
+Anyway, let's not expand preconditions beyond JRE for now and submit the patchset that I already +2'd.",0
+1757,"The main points are hat we avoid to repeat the code block below twice (or three when merging the JRE task), and reading each task is easier to know exactly what the diferences ares",0
+1758,[info] Line matches the illegal pattern 'more than one blank line'.,0
+1759,renamed to __initPropertyProviders in this scope to indicate that we consider it private in this scope otherwise initPropertyProviders,0
+1760,"But then there's no need to re-define the gwt-maven-plugin's dependencies. So either we use ${gwtVersion} as the gwt-maven-plugin version and we remove the plugin dependencies, or we keep it that way, with identical but ""unrelated"" versions for GWT and the gwt-maven-plugin.
+
+I'd happily go with the former (which would simplify the POM and aligns with what people should write unless they really need different versions of GWT and the plugin ?›ƒ?ªƒ?? e.g. they use a patched GWT, or a patched plugin, or the plugin hasn't yet been released for the version of GWT they want to use, or the plugin has had a bugfix release), but it makes it a bit harder to test the WebAppCreator with a GWT RC (not yet pushed to Central), where the plugin hasn't yet been released (because it cannot update its GWT dependencies yet).
+
+WDYT?",0
+1761,[info] Line matches the illegal pattern 'more than one blank line'.,0
+1762,"Although the class is public, it is not practical to refer to it because it is only used in two places; a private field inside ClassSourceFileComposerFactory and the package protected ClassSourceFileComposer; both are hidden from outside.
+
+So only possible breakage scenario is, if someone extends the class and use it for the purposes outside of this package which is very unlikely. (Probably we should also change the visibility to package visible).
+
+So I think we can just take the shortcut here and not wait for an extra release to get rid of the code.",0
+1763,I'm not sure we need a fallback? The server should have set the version correctly.,0
+1764,"I agree with Thomas.  We should benchmark if it doesn't make a measurable difference, we should get rid of the customization if that's the only reason for us to have this file.
+
+I expect by now more time has been spent optimizing the JDK's HashMap than has been spent on com.google.gwt.dev.util.collect.HashMap. :)",1
+1765,That is intended. We are already making sure that multiple events are okay for us (see onHashChanged). So I think this is the most practical way.,0
+1766,"i thought i was already using the guava Files class in the same file. but i guess that was only true in the test file.
+
+done",0
+1767,"It is pretty inconsitent. Some have very short descriptions (like this one) others only point to the jdk doc (which is what I will do).
+
+Big TODO update all url pointers.",-1
+1768,[info] Line matches the illegal pattern 'more than one blank line'.,0
+1769,I remember 'Url' was the suggested one but URL class itself was all upper case so I was in between. I'm changing it to fromUrl.,0
+1770,"Does this change apply to all uses of this rule?
+
+I suggest making this plural form optional so people can transition to using it over time rather than flooding them with warnings.",0
+1771,"Perhaps we can collapse setMonth and setYear and call it setDate. Currently both method changes behavior depending on isMonthDdVisible and isYearDdVisible and it is hard to track the flow.
+
+We can still keep the method simple by extracting the code that re-populates ""yearSelect"" into a method.",0
+1772,[info] Line matches the illegal pattern 'more than one blank line'.,0
+1773,"I'm not sure we would ever remove this. When running the Super Dev Mode from a static html page instead of a server, people link directly to .nocache.js, so it should always exist.",-1
+1774,you'll need someone with some maven experience to review this,0
+1775,"You don't need to put this xml or a new test class.
+
+That means in a previous test case you can just do following:
+
+@WithProperties({
+    @Property(name = ""webApiUsage"", value = ""resistance"")
+  })
+public void testAnimationImpInResistanceMode() {
+  // your test code here
+}",0
+1776,Actually this is to make sure at that at the end the streams are flushed. Maybe it is completely unnecessary.,0
+1777,"I actually misguided you here. typeName was already fully qualified and looks enough to figure out what the message was saying and find culprits. (for some reason I thought this was the member name and not qualified).
+Anyway sorry about that.
+You may consider reverting the related change to keep it consistent and make the code slightly simpler by getting rid of maps.
+Anyway I will leave it up to you how to proceed.",-1
+1778,[error] Wrong order for 'com.google.gwt.dev.javac.asmbridge.EmptyVisitor' import.,0
+1779,"Maybe this comment:
+// The old CSS resource has no support for many at-rules, like animations. There is no way for us to parse them using the old CSS parser, so we will just output them as a string to the GSS stylesheet and hope that the GSS parser is okay with the rule",0
+1780,please also mention that it builds the overriding/overridden method lists inside the JMethod instances,0
+1781,What do you think about my last paragraph? Do you think it's really needed to have a parseDevMode and parseProdMode methods?,0
+1782,[info] Line matches the illegal pattern 'more than one blank line'.,0
+1783,[info] Line matches the illegal pattern 'more than one blank line'.,0
+1784,"so before this patch, this m() method dispatch would have come out wrong in an incremental recompile?",0
+1785,(I think you could indent this line another four spaces if you want.),0
+1786,[info] Line matches the illegal pattern 'more than one blank line'.,0
+1787,"It is a matter not related with this commit, but shouldn't be an optimization if we replace '\n"" with "";"" instead of ""\\n"" so as we save some bytes in final JS?
+
+We should consider edge cases like  ',\n' in js objects, etc, though",0
+1788,"You only need assertTrue(Object.class instanceof Type);
+
+The rest will break GWT test for the cases where there is no metadata available.",0
+1789,Yes. I am preserving current semantics in this patch.,0
+1790,"I think this is because JTypeOracle.isInstantiatedType(JReferenceType) returns true for any JsType.
+
+Roberto has a comment in there to remove this hack when CFA is more precise. By removing the JInstanceOf rescue, you now can no longer remove this hack.",0
+1791,"I already have another use case. If an app needs per package log configuration (as in JDK), this is good way to support that. So I prefer to keep it as it doesn't complicate the code.",0
+1792,[error] Type Javadoc comment is missing an @param <T> tag.,0
+1793,[info] Line matches the illegal pattern 'check that a space is left after a colon on an assembled error message'.,0
+1794,"flan
+
+I don't think we used such rules for comments though. Maybe NOTE(flan) or XXX(flan) ?",-1
+1795,[error] Unused import - java.lang.ClassCastException.,0
+1796,fragmentDescriptors probably the most appropriate name here.,0
+1797,Should I fix this? or change it to a non-javadoc comment?,0
+1798,This was not possible updated to use the proper state variable...,-1
+1799,"ServiceImpl? (To match the interface.)
+
+Or else rename all of them:
+DashboardServiceImpl, DashboardService, DashboardServiceAsync",0
+1800,"It seems like calling Window.Location.replace() would reload the page? If it doesn't in this case, is that portable?",0
+1801,"I think it should be optimizerCtx.getLastStepFor(NAME)+1, since the methods which are last modified by DeadCodeElimination are deadcode-free.
+
+Another concern is that when it is called by MethodInliner, actually we want to traverse the methods that modified by MethodInliner, not all the modified methods since last DeadCodeElimination. The result would be the same, but it may do unnecessary work in MethodInliner.",0
+1802,rename to: initPropertyProviders? (and also in recompile_lib.),0
+1803,"i think it's more common in Java to treat abbreviations as words when in an identifier name, so ""BenchmarkResultJson""
+
+please apply throughout",0
+1804,[error] // comments must be followed by a space and be on their own line,0
+1805,A side effect of the refactoring I used to create the hasWholeWorldKnowledge method. Fixed,0
+1806,just keep a Date or JsDate object? Maintaining these extra variables doesn't look worthwhile.,0
+1807,"Yes, it's only been moved from the beginning of the file to the end.
+
+I think ideally we'd update to a newer version but I don't know Objectify and whether 3.x is compatible with 4.x or 5.x.
+GAE 1.7.1 is a bit old too.",0
+1808,"[error] Got an exception - expecting EOF, found '}'",0
+1809,Is there any practical reason to skip class literals in JsInterface chains other than code size? Please add an explanation here.,0
+1810,[error] 'static' modifier out of order with the JLS suggestions.,0
+1811,[info] Line matches the illegal pattern 'check that a space is left after a colon on an assembled error message'.,0
+1812,"So, is it safe to use it in production? Or should we add a warning that it should be disabled before putting your app in prod?
+
+If it's safe to use it in production, how about enabling it by default? Or do we push it to GWT 3.0?",0
+1813,"Playing around with jsperf it seems that the best check is 
+
+typeof(plain_string) == ""string"" || (plain_string.constructor && plain_string.constructor.prototype == String.prototype)
+
+This one is basically the fastest in FF all around and the fastest in Chrome except for the case of Boxed Strings (in which case is only 35% slower)
+
+It is up to 4 times faster than the original check!
+
+Havent tried safari nor IE though.
+
+http://jsperf.com/isastring-plainjsstring
+
+http://jsperf.com/isastring-boxedstring
+
+http://jsperf.com/isastring-notastring",0
+1814,"[error] Got an exception - expecting EOF, found 'registered'",0
+1815,Can you wrap arguments like this (containing search pattern) in double quotes please? Fish shell (and probably zsh and alike) fails to execute it without it.,0
+1816,Value stored to 'offset' is never read (Clang Analyzer),0
+1817,"Why this special case? It did not exist before and all it callers seem to take it from a tvb (except for a hard-coded 2000 in EnhancedAlarmMessage, which seems wrong too as the length is not checked there?)",-1
+1818,"Because it is used below in g_list_foreach, where gpointer is mandated.",0
+1819,There is more information https://code.google.com/p/address-sanitizer/wiki/AddressSanitizer#ulimit_-v about alternative,0
+1820,"unused parameter 'p_info' [-Werror=unused-parameter]
+
+
+(p_info ? -> pinfo ?)",0
+1821,can you move on top of the file (like other dissector file),0
+1822,C++ style comments and I guess includ pcap.h *should* be garded with #ifdef HAVE_LIBPCAP,0
+1823,You ca use directly val_to_str on HF VALS(xip_serval_proto_vals...),0
+1824,"In the latest patch, you switched from glib memory to wmem memory. So you do not want to call g_free but you still want to destroy the hash table itself, otherwise you are leaking memory. So switch to g_hash_table_new instead of g_hash_table_new_full and put back the call to g_hash_table_destroy.",0
+1825,"In my opinion a distinction needs to be drawn between IPv6 header bogus length and extension header bogus length. Whether all the different extension header should use the same expert_field or not for length is another issue, it's debatable but my current opinion is that they should be separate, i.e, ei_ipv6_routing_invalid_length, ei_ipv6_dstopts_invalid_length, etc. but if someone thinks differently please share.",0
+1826,unused parameter 'pinfo' [-Werror=unused-parameter],0
+1827,"Feedback from Michael (Pergament) (Author of this code) :
+
+It should be && according to https://tools.ietf.org/html/rfc7432 (7, 7.4). If it is smaller than neither IPv4 not IPv6 address is provided.",0
+1828,"I think the expert info should point to the end_marker field itself (replace ""message_tree"" with ""tiem"").",0
+1829,"This should be safe because this string isn't really used in the GUI - it's used as one of the arguments in a later format string, so it's copied. In fact I could (and probably should) just use NULL instead of packet_scope().",0
+1830,"Should each sensor have it's own filterable field?  I think that's what I was trying to determine (and came up with ""yes"").  I believe some are ""common"" (and share evtype_rvals), but I thought others have difference enumerations.  Don't necessarily want to share a field name just because the enumeration is shared.",0
+1831,"They're not, and can't be. Same as with proto fields that this code is a copy of... and quite a few other pre-existing Lua code spots too for that matter.",-1
+1832,"What about:
+""Get the original length of the packet (may be larger than the captured length if the snaplen (dumpcap -s) is in effect)""
+
+(or something that clarifies the relation)",0
+1833,"Does time_sec_to_str ""format"" the field better than an FT_UINT16?  Or does it just add an ""s"" to the value (which you may want to keep for consistency).",0
+1834,"unused parameter 'p_info' [-Werror=unused-parameter]
+
+
+(p_info ? -> pinfo ?)",0
+1835,You should use a different filter name as you cannot mix FT_UINT64 (hf_glusterfs_size64) and FT_UINT32 (hf_glusterfs_size). See doc/README.dissector chapter 1.5.1.,0
+1836,"Why sizeof(guint8), shouldn't that be length again?",0
+1837,This hides preference and makes it unavailable. I think that fetching it (if exists) and appending to a new preference is better.,0
+1838,Instead of malloc() maybe you can use stack: gchar tmpname[41]; 41 is enough? Cannot be greater?,0
+1839,"You probably need to check for divide-by-zero here, since addr_len comes from compr, which is based on packet data.",0
+1840,"This second key is not needed, this array contains a list of regex group names pointing to a (pre-)master key.",0
+1841,"I think this switch statement is getting big enough that this dissector should create a dissector table and have these dissectors register with it, not the other way around.",0
+1842,"Move up with other ""just set reserved = 7"" case statements?",0
+1843,I don't think most of these are necessary.  The dissector is (and should be) organized to just define functions before they are used.,-1
+1844,"I think there should be a maximum size, and scrolling should start from there. with 53 options, there would be a good case for implementing a tab-structure in the dialog.",0
+1845,same comment as above: use wmem_map_new() with file scope memory,0
+1846,"No need for the above...
+
+The commit log & diff & etc provides info about the change.",0
+1847,"Alternative? The ret pointer will be free'd outside of this function, therefore I need to return a pointer here. and *ret is assigned NULL above (instead of the g_new as before).
+
+If I'd return just NULL, it would add complexity to code outside.",-1
+1848,"I have been told in the past some compilers don't initialize all elements to 0 with 'foo[n]={0};' - I've never found such a compiler, so maybe it's an urban legend. :)
+
+memset() yup shoulda done that. Ironically I looked for a memset equivalent in glib, so I don't know why I didn't use it.",1
+1849,"Now that I'm really looking at the code, would not the right fix be to change toknext to be signed instead of unsigned (so that the for loop stops immediately), or to check that it is > 0?
+if tokens = NULL, then parser->toknext will always be set to 0.
+
+That said, your change is somehow equivalent so we could keep it as-is.",0
+1850,I prefer the Alcatel-lucent.xylan (i will update the dicto after...),0
+1851,In theory (per the comments) a retransmission should be caught in the code block above. This is not the case?,0
+1852,"Cosmetic: According to last changes related to tvb_captured_length and tvb_reported_length it is good point to start thinking about ""reported"" case (btsnoop format provide both frame length). In ""reported"" case we can have only part of frame: for example first 2 bytes. This dissector will fail at this line, so nothing will be dissected, but if you move lines 131-140,(169)171-181 directly before place when it will be use then we can dissect some fields. ""context"" can be filled somewhere about line current 202, ""rf_channel"" can be put between lines 144-145, ""aa_offenses"" can be fetch after 170 or where ""context"" is filled, the problem is ""flags"", but after moved it after line 147 you are able to decode ""btle_rf_channel"" field etc.",0
+1853,Not needed (in this case) since a 'set' is being done immediately following,0
+1854,You can add bitmasks to the hf_ item and still use proto_tree_add_item to get your desired effect.,0
+1855,tabs instead of whitespaces as in the rest of the file,0
+1856,"Mostly to save typing and avoid wrapping.  There are so many of these that have almost exactly the same parameters and would need to be wrapped if written out plainly.  I thought it made it cleaner and clearer.
+
+If you prefer I can write out the whole thing.",0
+1857,unused parameter 'pinfo' [-Werror=unused-parameter],0
+1858,This comment doesn't sound right.  This if statement should be removed as lapd_handle should already be populated.,-1
+1859,What about setting tv->arg = arg and remove g_free(arg)?,0
+1860,"Seems like I messed up the alignment in my patch by one space off.
+
+But other than that I think it is still useful for readability, even though you are right that it is not perfectly consistent for every array entry.
+
+Is it ok if I just fix the alignment for the array entries relevant to this patch instead?",0
+1861,Yes remove alignement (because there is no real alignement... if you look other hf),0
+1862,"Oops, I guess I forgot to type 'make' after fixing that.
+
+Anyway, I finished my commits review in the meantime too.",1
+1863,find_or_create_conversation() cannot return a NULL pointer by design. It makes dissect_payload label useless.,0
+1864,Yes this API has recently changed.  No longer handled through packet_info.  See gssapi_encrypt_info_t in packet-gssapi.h,0
+1865,"should be 10 and not 8, there are 2 extra bytes used for padding in these versions of Tomcat",0
+1866,Do people really type all that junk? ;-) Anyway I added it together with how to avoid typing all that junk. :-),1
+1867,"I don't believe so.
+
+I was using it, but because we have messages that can be one byte long (such as a keepalive) and some messages that require as much as 32 bytes to determine others I needed something more flexible.",-1
+1868,Please use gboolean (here and for the return value and etc) since that appears to be how this is actually used.,0
+1869,"with proto_tree_add_item, last argument is encoding no value",0
+1870,We probably want tvb_reported_length_remaining() here,0
+1871,We probably want tvb_reported_length_remaining() here,0
+1872,The flag indicates the presence of a session and thus a session number optional header. Don't know if it makes sense renaming it?›ƒ?ª??,0
+1873,"Done, makes sense, so I added it to the latest patchset iteration.",0
+1874,"Ah, ok. Let me explain a bit: The USBIP server/client is split into two parts. On the server side, there's an userspace daemon (usbipd) and a kernel module usbip-host.ko. The client has a userspace tool (usbip) and a virtual usb hcd vhci-hcd.ko. 
+
+So, get_usbip_message_len is split in the same manner.
+
+The Device List, Import, .... Request/Response stuff (which has a protocl version 0x111) is the user space portion. The usbip-host.ko and vhci-hcd.ko part (aka URBs handling, version = 0x0000) is part of the kernel. You are right, I'll add comment which explains why the function got so convoluted.",1
+1875,"Yes, I reviewed the whole file and only identified this one.",0
+1876,"This two without prefix? ""Normally"" --capture does not work without --extcap-interface (or tool can be implemented with default interface... [and fifo to stdout])",0
+1877,The proto_item_set_text is not needed in this context.  Removed,0
+1878,"Field length expected here is 2, but field below is FT_INT32.
+Is this an unsigned short (FT_UINT16) ?",0
+1879,"I think this can be refactored (with the RTU ""duplication"") into the Modbus dissector.",0
+1880,:-/ no really there is a mix on indent (and it is tab by majority (i will fix rest of file) and add modelines...,-1
+1881,"Git ? ;-)
+
+But i think we can remove this section...",0
+1882,You can remove these functions now and use logcat_text_dump_open in dump routines in file_access.c,0
+1883,"Consider using expert_add_info and use the proto_item* returned from proto_tree_add_item(ath_tree, hf_ath_hlen, ...) so that the hlen field that is bad is highlighted)",0
+1884,"I can do that in an extra commit, here I only wanted to add the possibility to access the created proto_item. But if you want me to, I can add the change to this commit also.",0
+1885,ip6_addr.bytes is no more initialized with this change.,0
+1886,"strdup_printf with just a %s can be replaced with just strdup :)
+
+This copy is necessary though, since the string coming into the function might be packet-scope",1
+1887,"session_args_t structure is in packet scope. Is this normal to allocate in file scope? And no need to set it to 0, you are assigning it the line below.",0
+1888,"No need to include wtap.h. ou can instead test pinfo->fd->cap_len and pinfo->fd->pkt_len.
+But it might be btter to compare tvb_captured_length() and tvb_reported_length().
+Moreover I do not see why setting it here would be useful (I might have missed something) as this function seems related to RPC over UDP.",0
+1889,possibly add a commented out example of packet-foo.src,0
+1890,Function is returning a guint. What's the intent of value -1? Are there cases where we cannot find the DNP header immediately?,0
+1891,"packet-s7comm.c:2550:23: error: unused parameter 'data' [-Werror,-Wunused-parameter]
+                void *data)
+
+(use _U_ to set unused parameter)",0
+1892,"need to guard this with a static bool so it's only executed once, assuming the above ""her_dissector_delete()"" is removed.",0
+1893,"I think that this should be removed, and phdr->len and phdr->caplen needs to be incremented by 1 + 16 instead (see other comments below).",0
+1894,"Please rename this to extcap-capture-filter or similar. The convention here is, that the extcap arguments exist together with non-extcap arguments in a binary. --capture and --fifo are the only exceptions, because they start the process and fifo is a generic argument.",0
+1895,"Add expert info if there is pad high and no pad low ?
+and also a generated hf with the padding length ?",0
+1896,"It's one less file to update for anyone adding an extcap executable. I was hoping to migrate the Windows buildbots to CMake this week, which would make this less critical.",0
+1897,"No need to check for NULL because g_strdup will do this.
+And if value == NULL then tv->value will be uninitialised.",0
+1898,?? use _U_ on declaration function ? (to avoid unused parameter warning),0
+1899,"As remember filtering name can be related to expert information - this give you more filtering options. For example ""btle.crc.incorrect"" and ""Incorrect CRC""",0
+1900,Use tvb_ip_to_str.  That should eliminate the need for arpa/inet.h,0
+1901,"We need to enter in this IF block only in case of unknown protocol, so when dissector_try_heuristic() return value is 0.",0
+1902,"heuristics should check tvb_captured_length first to make sure there is enough data to run the heuristic, otherwise it might throw an exception just checking, and prevent subsequent heuristics from claiming the packet appropriately",0
+1903,"Use spaces, rather than tabs, here, for consistency.",0
+1904,"leave it defined here, just declare it extern in the header, otherwise each file that includes packet-usb.h will get its own copy",0
+1905,"Please change it to
+ 
+    ws_info_t *ws_info = NULL;",0
+1906,"Same WERROR_COMMON_FLAGS note, guard by if(WERROR_COMMON_FLAGS)?",0
+1907,Here (and several other places) you use the result of tvb_captured_length() where I would think tvb_reported_length() would be more appropriate? The amount of data on the wire is reported_length; captured_length takes into account snapshotting which you probably don't want to do.,0
+1908,Maybe we could copy information about filters and statistics to the result pcap file. I have tested this and it seems to works fine at least in my cases,0
+1909,Wouldn't it be simpler to just retrieve the bytes using tvb_get_ntoh* functions which will both fetch the bytes and do the necessary swapping in one step?,0
+1910,I can do that. Easier for me. Up to you (the reviewers). Should I go ahead and change it?,0
+1911,"It is possible to kept alcatel-lucent.xylan (and remove the other)
+
+Xylan has buy by Alcatel in 1999... (if i remember..)",0
+1912,"As every callback is only interested at the part starting at the token, what about using frame + offset here and dropping the p - frame in the callbacks?",0
+1913,"personally, i prefer to have only with space after comma",0
+1914,"You could eventually create 1 hf entry per size. For sizes <=32 bits, you can use the same filter name. But for those above 32 bits, you need another filter name (as seen in README.dissector chapter 1.5.1)",0
+1915,I have some reservations about making this a user facing option. Each option should be easily understandable and widely applicable IMO. This is an internal debug aid.,0
+1916,"Hi Nigel,
+
+Is it better to use ""nbsp;"" instead of "".""?
+
+In case other screens want to use this in the future - it's more generic.
+
+But, it's up to you.  
+
+It actually works quite well the way it is.
+
+Thanks,
+Ghada",1
+1917,"This doesn't seem to be listed as things being fixed for this patch. Also it doesn't seem to work in Raw theme. 
+As the hook 'local_header_top_content()' can be used by anyone it should show the menu for any theme. 
+
+Currently the menu is hidden behind other things.",0
+1918,Done. While writing the function I've also unpacked it from the current one-line version into a lengthier but more easily read equivalent using if-else.,0
+1919,"Hmm, I still don't like these ternery operators used as statements, I would prefer using an if statement",-1
+1920,"Make this something like
+
+'You have no posts tagged %s';
+
+and put in the changed in the tpl file",0
+1921,"Hi Robert,
+
+$lang is undefined at this point.
+
+Ghada",0
+1922,"i would add a new variable with the tag name, this will make it so you can show which tags don't have any results",0
+1923,"Ah good point - I hadn't noticed that patch get merged.
+
+Have removed the field_exists and table_exists checks",1
+1924,"this is escapable, p['title'] could be something like '""><script>dodgycode</script><a href=""'",0
+1925,"There are still several rows for the distinct blocks and up to one separate row with no related block element, so we still need the gorup by clause",0
+1926,"Hi Gregor,
+
+Continuing on from the mandatory system fields, the below code will save the socialprofile data:
+
+    elseif ($field == 'socialprofile') {
+        // For new social profiles.
+        $classname = generate_artefact_class_name($field);
+        $profile = new $classname(0, array('owner' => $userid));
+        $profile->set('title',       $value['socialprofile_profileurl']);
+        $profile->set('description', $value['socialprofile_service']);
+        $profile->set('note',        $value['socialprofile_profiletype']);
+        $profile->commit();
+    }
+
+Thanks,
+Ghada",0
+1927,We don't need to drop the function as it will be dropped in the function db_create_trigger(),0
+1928,"(to answer your question from the other patchset) yes, i think we should avoid duplicating this copyright info. there's not really any point in maintaining it in two places.
+
+Also, this is a minor point, but ""onwards"" is not a meaningful thing to add. You can't claim copyright on future years. You can add years later, but technically, you have your copyright for a set period from the ""publication"" date.",0
+1929,"whose bugfix? what is the bug number? the comment is as helpful as it could be :)
+
+if there is a fix for this but not enough time to test best to let future programmer know where to look",1
+1930,"similar comments to the other one, you should use pieforms or a template for the form here, and adding to info_msg is probably not the most ideal way",0
+1931,"Just a pre-emptive note, I put these TODO's in the code, because they are separate refactoring issues, which would be better handled in a separate bug.",0
+1932,"Hi Nigel,
+
+To expand on what Tobias said, when you change the content of a language string you also need to change its name. Otherwise the Launchpad translation site isn't smart enough to tell translators that they need to update it. See https://wiki.mahara.org/index.php/Developer_Area/Language_strings#Let_translators_know_when_lang_strings_change
+
+So please change the string name to ""editaccesspagedescription4"". You'll also need to change the name of the string in the PHP files and templates where it is used.
+
+Sorry about that!
+
+Cheers,
+Aaron",1
+1933,"I think there's a function for doing this. Maybe display_name()? I think you pass it a whole ""usr"" record and viewer and it figures out how to display it.",0
+1934,"it will be ""group 01"" according to the group created earlier but also there is a problem in the fact that the string we are looking for has quotes in it as well. Maybe use a single quote for wrapping the string",0
+1935,"Only Firefox currently supports default parameters, so this causes a syntax error on Chrome ... I dread to think what IE would do. I think it would work just to remove the ""=false"" since parameters default to ""undefined"" anyway",0
+1936,"My bad, I did add one but then removed it again and forgot to change that line back",1
+1937,"I know the description field is just as bad, but let's try to make the new code more readable. This would be a lot clearer as ""if"" statements instead of nested ternary operators.",0
+1938,"nitpick: if you move this line below, then you don't have to comment out the line below...",0
+1939,"Sorry Son, but when I do as you recommend, it creates the trigger as:
+
+CREATE TRIGGER search_elasticsearch_artefact_insert
+AFTER INSERT ON artefact FOR EACH ROW
+CALL ""search_elasticsearch_queue_artefact_trigger""('""artefact""', 'insert', null, null, NEW.id, NEW.artefacttype)
+
+Upon running the trigger, it inserts the type as ""artefact"" with the double quotes. The single quotes wrapping the variable disrupts the neatness of the curly brackets.
+
+I've tried:
+
+1. '{{$type}}'
+2. '{"" . $type . ""}'
+
+to no avail. I've spent several days on this already and can't get it to work unless I specifically include the dbprefix.
+
+Do you have any suggestions how to go about this?",0
+1940,"I see you are calling the same $user->get('institutions') twice.
+
+It looks like this can be simplified to:
+ 
+  $institutions = $user->get('institutions');
+  if ( !$USER->get('admin') ) { // for institution admins
+      $admin_institutions = array_filter($institutions, ""is_institute_admin"");",0
+1941,"Hi Tobias,
+
+You've got a typo (lenght -> length):
+
+i.e.
+if (firstChildSel.length < 1) {
+
+Thanks,
+Ghada",0
+1942,What happen if groups were imported to an institution different from 'mahara'?,0
+1943,"Hi Nigel,
+
+If you're going to change the lang string, please don't forge to change it here too.
+
+Thanks,
+Ghada",0
+1944,"Again, no new abstract functions in the API classes, please.",0
+1945,"Because I am using EXISTS and NOT EXISTS to return rows - and they don't seem to play nice with  DISTINCT. If I add ""DISTINCT a.id"" to the sql query it still returns duplicate rows. So that is why I have to filter them after returning the sql results.",0
+1946,"While we're changing the names of these triggers, let's fix the spelling of the word ""exceed"" as well. I think ""unmark_quota_exceed_upd_set"" should still be short enough.",0
+1947,"How do you get to the info below when the code above returns an array straight away?
+
+some of this code is not needed",0
+1948,"The correct one is according to JamesF ""wiki"" instead of ""index.php"". He's fixing it up on the server.",0
+1949,"Should be $table = new XMLDBTable('usr_watchlist_artefact'), right?",0
+1950,Is this character class needed? Is there a reason why we can't use ([^<]+) ?,0
+1951,"Hi Robert,
+
+Don't really need these global variables here.  They're not used within the function.
+
+Thanks,
+Ghada",0
+1952,"Yeah, $rawerror is a poor choice.
+
+I've updated it and switch things around so now we have $isescaped which is the bool to check to see if we want to escape the error string or not. Set to true by default.",0
+1953,"As things like Twitter, Facebook, LinkedIn are very popular right now I think we should have them in the list so that their proper icons are used.
+
+Maybe we could have an Admin -> Extensions -> configuration form for this so an admin can add new options when needed that records the name that will appear in the dropdown and where to find it's related icon.
+
+But maybe this will be a patch for a later time",0
+1954,"Do you mean ""will be removed from the group""? If so, I'd add the ""From the group"" to avoid confusion. Some might think that the user is going to be removed from the system, i.e. deleted.
+
+There are a couple of minor white spaces here (shown in red).",0
+1955,"Hi Tobias,
+
+Can you please put the XML close tag '>' at the beginning of the next line?
+
+All the install.xml files in Mahara have that convention.
+
+Thanks,
+Ghada",0
+1956,"Ok, changed it here and in the function above so as to make it more clear as to what is going on.",0
+1957,"shouldn't this function be called:  rewrite_blockinstance_config
+
+note the 'c' in blockinstance
+
+so this would need the misisng 'c' and the calls to it",0
+1958,"I had a further thought about this, because the kind of people who use old school css are the kind of people who could get stung by this. How about we add individual .gitignore files to each theme that has a gulpfile (including subthemestarter) and I can add something to the theming docs for using normal CSS to say 'delete the gitignore file'?",0
+1959,"Can do, will have to swap the mechanisms of how it works (from false to true), and set the default to true (ie device detection enabled)",0
+1960,I disagree. I don't think that would shorten the code by much.,-1
+1961,"Hi Tobias,
+
+Can you please fix the spaces here?
+
+i.e. for ($i = 0; $i < count($record->userids); $i++) {
+
+Thanks,
+Ghada",0
+1962,"This TODO will have to wait for a later bug fix, because it's used when users belong to multiple institutions (the progress bar gives them a menu to determine which institution to show, and that relies on the param).
+
+It's not a *huge* security issue having this. It just allows users to see what the completion goals are for other institutions they're not members of.",0
+1963,"Hi Bob,
+
+I think the setting of screen resolution is not important as it makes no different when I changed it to smaller or larger size therefore I chose the medium size (1024x768).
+
+It's hard to figure out what date of rendering the map and it does not really affect to the embed code I will remove it from the code.",0
+1964,"There does not appear to be a file called ""site-logo-white.png"" in the master HEAD. Rather, each theme defines its own logo under htdocs/theme/{themename}/static/images/site-logo.png . This file may be dark or light depending on the color of the theme.
+
+Hm... the skins patch added the site-logo-small-white.png file to the ""raw"" theme for this specific purpose. BUT, depending on the theme used on the page, the corresponding site-logo-small.png will not necessarily have dark text. On a dark-background theme, site-logo-small.png and site-logo.png will themselves have light text.
+
+Unfortunately, it looks like what we need is a total of six files:
+
+1. site-logo.png: Used in normal page headers
+
+2. site-logo-light.png: Used on skinned Pages with ""light text logo""
+
+3. site-logo-dark.png: Used on skinned Pages with ""dark text logo""
+
+4. site-logo-small.png: Used in microheaders pages
+
+5. site-logo-small-light.png: skinned, light text, micro-header pages 
+
+6. site-logo-small-dark.png: skinned, dark text, micro-header pages
+
+In most cases site-logo.png will be a copy of site-logo-light.png or site-logo-dark.png; likewise for site-logo-small.png.",0
+1965,"Hi Gregor,
+
+Need to make this accessible by adding ""class='accessible-hidden'"" with relevant details to labels; also add spans for hidden text; anchors with spans; buttons need to have ""alt"" text; etc.
+
+Please refer to: https://wiki.mahara.org/index.php/Accessibility 
+for more details.
+
+Thanks,
+Ghada",0
+1966,"nitpick: ""$reset = $cfglang = $CFG->lang = null;"" would have been even clearer here",0
+1967,"This will add an new <input name=""ajax""> everytime I change the switch.
+Please add the code to make sure only one is appended.",0
+1968,"Yep, I've added the latter db insert/delete bits in a transaction
+
+I've kept out the 'update the item with start process time' bit because we want that to happen on success and failure",0
+1969,"Does this has any effect? If the method is null, the field in the return set is NULL both ways, joined or not, or am I mistaken?",0
+1970,The above code from 2008101602 is present in the 1.1.0RC2_RELEASE so therefore existed before the 1.1.0_RELEASE so needs to be removed.,0
+1971,"These variables are only used in the next call, I'd remove them",0
+1972,No it's not - leaving the dob blank means you just choose not to fill it in as the field itself is not compulsory.,-1
+1973,"Hi Son,
+
+Same as above. MySql doesn't like table aliases.
+
+Thanks,
+Ghada",1
+1974,"you don't need the &amp; & will do fine, just like in your previous href",0
+1975,"needs to be space around the => 
+eg 
+ $postid => $post",0
+1976,"If your users often link their books or publications to one online catalogue, then you can set the URL prefix here, and they will only have to paste the book or publication ID at the end of the URL. You must make sure that your URL ends with a ""/"".
+
+For example: If your users need to link to publications in WorldCat frequently, set the URL prefix to <pre>http://www.worldcat.org/oclc/</pre>, the the users only need to enter the publication ID at the end of the URL.",0
+1977,The 'all' link is a link that is js controlled - is 'follow' the right word to use here?,0
+1978,"nitpick: add a space between ""if"" and its opening pare",0
+1979,"Just put ""Sync groups in these contexts only"" as field text. And put the rest in a note beneath the text field:
+
+""Note: Leaving this field blank, the user authentication contexts will be used.""
+
+Help needed to let admins know how they need to enter the context.",0
+1980,Is there a way to edit the commenteditabletime? I haven't spotted one.,0
+1981,"never mind. found it in ""notification_internal_activity"" :) will see what I can do",1
+1982,"Hi Tobias,
+
+ 1. Please include the file comment at the top:
+
+/**
+ *
+ * @package    mahara
+ * @subpackage artefact-multirecipientnotification
+ * @author     David Ballhausen, Tobias Zeuch
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL version 3 or later
+ * @copyright  For copyright information on Mahara, please see the README file distributed with this software.
+ *
+ */
+
+ 2. Also, please include:
+
+defined('INTERNAL') || die();
+
+Thanks,
+Ghada",0
+1983,"Hi Nigel,
+
+Not sure if they need to know that it's a 'javascript link'.  Maybe just 'link'?
+
+Thanks,
+Ghada",0
+1984,"Again, removing this change will make your change smaller by taking this file out.",0
+1985,"Instead of having ""%s"" of ""%s"" 
+I'm thinking it should be ""%s"" belonging to ""%s""
+
+I feel that both ""Page 1 belonging to Group 1"" and ""Page A belonging to Robert Lyon"" make more sense than ""Page 1 of Group 1"" and ""Page A of Robert Lyon""",0
+1986,"We should rename this method to ""artefact_title_for_view_and_block()"". Because what it really does is tell you if the artefact has an alternate title when viewed in a specific View & Block.",0
+1987,Are you suggesting to remove the @copyright line? These are all over Mahara,0
+1988,The 'dirty flags'  look to be already handled by formchangechecker.js (and in a better way too).,0
+1989,"Seem to of lost one upgrade path for the passwords, has this been rebased ontop of master? I notice that the last commit was, but not this",0
+1990,"I would replace this line by 
+
+$noteids = array_keys($data);
+
+as $data is associate array with key = 'id'",0
+1991,"This should be:
+
+'fields' => array('socialprofile'),
+
+since everything (the old messaging system info and the new social profile websites) is now 'socialprofile'.
+We differentiate among these with 'note' field.",0
+1992,"no ?
+
+And would it actually be ""Process nested group objects""?
+
+Help needed",-1
+1993,"What happens if a leap2a import's $entry->summary doesn't have any children at the path div->div?
+
+Should we check to see if the $entry->summary->div->div->children() exist and fall back to $entry->summary if they don't?",0
+1994,as you suggested (in person) that probably should go into a template,0
+1995,"How bad is it if the page already exists?
+
+I'm thinking if a user needed to rerun the upgrade script for some reason, (ie they set the version number in db back down) it would be better not to have it die here but rather issue an info/warning message that page already exists.
+ 
+The admin can always edit the template view to suit their needs if the page already exists for some reason.
+
+Or maybe have it so the get_field db call checks to see if there is a portfolio page with owner = 0 but the title/description do not equal the default ones we set below - that way we would avoid the re-run of upgrade problem but still die on an unexpected page existing.",0
+1996,"Already sitting in $configdata, so no need to repeat this.",0
+1997,Problem is the floating image in license stops the bottom margin working. I've added in a cb div and added some margin top to the feedback box,0
+1998,Minor code style thing: please remove the extraneous parentheses around (empty($USER->accountprefs) && empty($i->theme)).,0
+1999,This should be alright to change as if it wasn't updated in the last install this one will run. Both work as upgrade paths as it tests with no salt set if nessecary,0
+2000,"I keep finding myself wanting to click on the link that says ""Click image to edit"". Can we make that part of the link?",0
+2001,"This is more obvious in this file than the other. You should be escaping the periods in your regular expressions. I know that it will match the period in the URL anyway, but we want it to *only* match the period.
+
+Also, you should use specific matches for scid, height and width, rather than the period (match anything). Assuming that you're just matching numbers, '[0-9]+', or tentatively '\d+' would be better here.
+
+One more thing, if these sites provide copy-and-paste embed tags, these matches will need to be able to deal with those too - currently they look like they will just modify the URL in-place, and this is definitely not what we want.",-1
+2002,"I think this $userid parameter is unnecessary, because having a User object instance implies that you're checking things for that one particular user account.
+
+Plus it doesn't really seem to be used.",-1
+2003,Using the . seems to be the preferred way of doing this and orca screenreader does not read out the fullstop so that is good,1
+2004,"Please note that according to http://www.w3schools.com, the values ""table"", ""table-row"", and ""table-cell"" are not supported in IE7 and earlier. IE8 requires a !DOCTYPE.
+
+http://www.w3schools.com/cssref/pr_class_display.asp",0
+2005,No it was extra text copied from function above - but not needed so removed.,0
+2006,Will the servicename have other characters at this point?,0
+2007,"Just delete this line, have one empty line in between the background and the scenario.",0
+2008,Are you intending to add more artefact plugin settings?,0
+2009,"I still think you also need to check that the $bi->get('blocktype') is allowed for $artefacttype->name.
+
+For example if I alter an internal media block to have the artefactid point to an image artefact I get this match:
+
+$artefacttype->name = image
+$a->get('artefacttype') = image
+$artefacttype->plugin = file
+$blocktype->artefactplugin = file
+
+So they are not seen as mismatched, but
+
+$bi->get('blocktype') = internalmedia
+
+so they should be mismatched as an internalmedia block can't have an image  as its artefact.
+
+So we need to check not just if the plugin is correct (eg = 'file') but that the artefacttype is of the correct subset for the block (eg 'audio, video') for the block instance (eg 'internalmedia')",0
+2010,"The column names shouldn't be in curly brackets, because that adds the dbprefix, and we only want that on the table names.",0
+2011,"Looks like the null should be dropped. Previously it was null for the attributes, then Evonne added {'class': 'title'}",0
+2012,"Change to:
+
+$string['pendingsince'] = 'pending since %s';",0
+2013,"Hi Robert,
+
+I think this should be $newviewid not $viewid (as it's not defined at this point).
+
+Thanks,
+Ghada",0
+2014,"limit the results as well as
+
+-> the ""wel"" needs to get a second ""l"" ;-)",1
+2015,"Is there a function for this query already? or should we make one for future?
+
+It is just that this is quite a big block of code, and would be more readable factored out",0
+2016,"Possibly replace this stat with find $logdir -type f in the ""for"" line(135). We will save a stat call.",0
+2017,I would request you to revisit the changes. glusterd_bitdsvc_manager would now invoke glusterd_bitdsvc_init conditionally. init function will not be exposed now.,0
+2018,ctr is not something that we would want to call out in UI as users may not understand what it is about. Please use the expanded form in all cases.,-1
+2019,"syncop_fsetattr failures at line 1276 can still result in failure of migration of file. Only after 1276, it is guaranteed that src will be unlinked. So, we need to set this to false after line 1276. Infact it is even possible that unlink itself might fail. So, its better to set this at line number 1359 (where ret is set to 0).",0
+2020,"here we are changing the default to 0666 but in open it is 0777, we should have only one. I think 0777 was chosen based on what python os module does, but could be wrong...",0
+2021,Sounds good to me. I shall handle these changes in the separate patch. Thanks!,1
+2022,"There's no actual need to have this routine similar to how it's done in bit-rot-scrub.c since there just one (1) option to reconfigure.
+
+Keep it simple and just do a GF_OPTION_{INIT,RECONF} in the appropriate function.",0
+2023,"features.quota-deem-statfs should be allowed to reset
+When resetting features.quota-deem-statfs, it should be cleared when quota is disabled. It should be set to on when quota is enabled",0
+2024,why are you going to manager function if glusterd_svc_check_volfile_identical function will failed ???  you should simply return error.,-1
+2025,"is this an optional call or clients should always call it at the end? when is it a good idea to call unmount?
+Can we add this info to some form of documentation?",0
+2026,"And We dont have all functions available in cluster.rc (volinfo_filed, get_quotad_count, ... so on",0
+2027,"Can't we club these two cases something like :
+
+case GF_SNAP_OPTION_TYPE_ACTIVATE:
+        GF_SNAP_OPTION_TYPE_DEACTIVATE:",0
+2028,This is nearly true. glusterd's connection management and NLM (gluster-nfs) uses @name different than THIS->name. I am removing @ctx from the argument list.,0
+2029,"We do realize that the given glfd pointer, could now have been reallocated and hence pass all these checks still and crash, right? just checking :)
+
+Ideally if we want to validate that this is a good pointer, which we sort of cannot unless we have  a table of valid pointers and check against that etc. or hand out numbers and map that into a table.",1
+2030,"I have tested this race using gdb (as result I commented below code), here we are just stopping new threads, we are not destroying rpc structure/any resource.
+
+There might be already running threads which may be try to request rpc/uds calls(submit and reply) after rpc and uds stop, in this scenario i was getting error from rpc layer. I dint see any seg fault.
+
+I will try to do some more tests in this race condition.",0
+2031,quotad count already there. please remove this from your code.,0
+2032,"Given that this is a basic snapshot feature test, we would like to keep the deactivate and activate snapshots to see that it doesn't bring things down, and can happen in parallel. The code that was removed was more of glusterd handshaking than volume snapshot feature.",0
+2033,"This `head ...` can't be right. The configuration file can have comments. When a sysadmin makes a change to a configuration file, they would normally leave a comment with a note who/when/what changed.
+
+Please use a similar eval/echo/grep as on line 50.",0
+2034,"Sorry, I've just seen it... here we should set ret = -1 and call GF_REF_PUT() to avoid program crashes and memory leaks. Or set ret = -1 and move 'out' label to line 169.",0
+2035,What is the diff between this scenario and the above DID_REACH_LIMIT check? The messages are the same.,0
+2036,"Remove strerror(errno) part of this log, as gf_msg will do it when errno is passed",0
+2037,Why not do dict_get_str and use the ptr to find the index. That will avoid more book keeping,0
+2038,All the msgs above have significance that they are trying to modify PGFID. Create one message id say 'P_MSG_PGFID_OP' and log errors there.,0
+2039,"Just a quick question, if we are not creating the volfile, what's the outcome?",0
+2040,need to check for values <0 and use 1 (second) in that case.,0
+2041,The list of maintainers seems to be organized alphabetically by translator name. I guess tiering should be listed after quota.,0
+2042,Even here LG_MSG_INVALID_ARG ? Just to maintain the uniformity,0
+2043,This is a special and important message. May be use something like P_MSG_STALE_HANDLE_REMOVE_FAILED here?,0
+2044,"Fine, we need to watch out for the other patch when it gets merged, in terms of gf_log* interface creeps.",0
+2045,It would help to have a DHT_MSG_DISK_LAYOUT_MISSING msgid here,0
+2046,wouldn't BRB_MSG_FD_CREATE_FAILED a more appropriate message identifier.,0
+2047,"The error check is implicit in checking tmpfp below. If mkstemp has an error, tmpfd would be -1 and tmpfp would be NULL. Should I perhaps throw in a gf_log() line with the message ""could not create temp file""? This seems slightly redundant given that setting ret = -1 triggers another log message in the out section.",0
+2048,"This is more like an invalid option, not out of memory.",-1
+2049,Wondering if this message could be more descriptive in terms of specifying WHAT remote operation failed?,0
+2050,"Intentionally made this INFO, as restore being a not so common operation this log wouldn't be quite frequent, and also it's good to know why and who stopped bricks in these cases for debugging later, coz most customer setups don't run in debug mode",0
+2051,use macro VKEY_FEATURES_INODE_QUOTA and VKEY_FEATURES_QUOTA,0
+2052,Should we not loc_wipe parent at some point in time?,0
+2053,I think I have addressed this in the updated version too.,0
+2054,I think there is no issue with daemons which  are using  svc-mgnt framework. (./xlators/mgmt/glusterd/src/glusterd-svc-mgmt.c +105 ).,0
+2055,how are we guaranteeing that when we invoke this clean up there are no threads consuming these RPCs?,0
+2056,Wondering whether ret needs to be initialised to -ENOMEM here because its caller is expecting it to contain -errno.,0
+2057,"Done
+
+P.S: I was confused between EBADF and EBADFD. Then I tried to be consistent as I see libgfapi returning EBADFD in several other glfs_* methods when glfs_resolve_fd() fails.",0
+2058,Can you add a comment on how you can end up with a linkto file on cached-subvol and why lookup-everywhere is  needed?,0
+2059,"Couldn't this be simplified inline to rebalance_completed () ?
+Please note rebalance_completed has a bug, you should only check for 'completed' status instead of inversing for 'in progress'.",-1
+2060,"please add tests for fopen, we should test the different modes",0
+2061,We certainly can use the errno here as we are invoking'fork',0
+2062,why are you going to manager function if glusterd_svc_check_volfile_identical function will failed ??? you should simply return error. same comments apply for all reconfigure function if you have done same things.,-1
+2063,"This should be in *_manager() function. glusterd will crash
+if *_svc.manager() is called before this function.
+ 
+Ex :we  get crash if bitd manager function is invoked before this glusterd_svcs_manager() function invoked.",0
+2064,"ec_combine_statfs is updates the avail size to max, with this we are not getting the correct value. In the below output, avail size should be 99.7G.
+
+root@rh1:~/workspace/git/glusterfs # df -h /mnt
+Filesystem      Size  Used Avail Use% Mounted on
+rh1:/vol1       100G  290M  100G   1% /mnt",0
+2065,"pass errno as the third param and remove the ""errno=%d"" component.",0
+2066,"""check-pointed"" message may confuse users.
+
+Session %s with volume %s updated.",0
+2067,"xport entries are added to the conf->xprt_list under the ""conf->mutex"",  but not client entries.
+
+""xprt"" entries are added to the list during handshake I suppose in server_rpc_notify(). Post that , in ""server_setvolume()"", we create client entry and assign it to transport object ""xprt"". So there could be scenarios where in we have an entry in xprt_list without client associated.",0
+2068,Doesn't seem like we need a loop here. We can use local->pending[rb_index][idx] = hton32(1);,-1
+2069,"ah! I had changed this routine to start from one less than the value passed but forgot to change br_init_children(). If you check fini(), it correctly passes priv->child_count.
+
+I'll fix this although it's OK not to change this as this routine is executed when the process in tearing down. So, it's probably doesn't matter much.",1
+2070,Are we sure the the same set of changes are not required for other daemons as well?,-1
+2071,"Should have caught this earlier, ret would be reset to 0 here on succesful cleanup of source, but actual migration may want to signal a failure with ret as -1, so we would need to use a different variable or reset ret to its original.",0
+2072,s / GD_MSG_VOLINFO_SET_FAIL /GD_MSG_VOLINFO_STORE_FAIL,0
+2073,"This should also be converted GF_VALIDATE_OR_GOTO, take this as global comment",0
+2074,I've already explained the reason in one of your earlier comment.,0
+2075,Don't you need to unlink all the socket files as well?,-1
+2076,i would suggest LG_MSG_INVALID_ARG instead in all the places,0
+2077,"Could you find a smaller yet meaningful name for this function?
+
+Suggestion:
+  void glusterd_defrag_info_set (glusterd_volinfo_t *v,
+                                 dict_t *ctx, int cmd, int status, int op);
+
+In this naming scheme, the context is not clear from the name of the function, but the values being passed provides additional context viz. unique to the call site. Does that make sense?",0
+2078,I don't think we need to have these messages in our repository of messages for GSS analysis.,-1
+2079,"If this place is fixed to contain fd->flags, should the other places(anon fd) also be fixed to use fd->flags?",0
+2080,"The size here is now just the size of the struct, hence the names (old/new) will not be a part of the dict.
+
+Further, dict_set_bin, takes in a pointer, that it strores in the xattr/dict and later is freed when this dict is destroyed. In the case of passing a pointer which is a structure containing another pointer, the dict routines cannot encode this into the dict.
+
+Overall, as info is passed to be stored as a dict, the above mechanism of allocating a pointer within info and passing this would fail to send these values across and also leak memory for the allocated info->buffer.",0
+2081,Too generic - write_failed would be more informative.,0
+2082,"You can pass in -ret as errno to gf_msg.
+Also, this can be a new msgid : DHT_MSG_OPEN_FD_ON_DST_FAILED",0
+2083,Your memory is too smalll. Consider buying a RAM. :D,1
+2084,dict_ref (src->ctx) would ensure that ctx is not destroyed with the destruction of the @src event.,0
+2085,"as discussed, change it to 
+if (ret && !mismatch)
+         break;",0
+2086,"with --xml, return code will be zero for both success and failures. This may fail for invalid Volume name.",0
+2087,"Message could be a bit more clear. What is out of memory here? which process, disk etc?",0
+2088,"This xdata is the response dict, I think you need to use xdata which is received in marker_rename",0
+2089,"It better to have a log here rather than having GF_VALIDATE_OR_GOTO.
+The log can be gf_msg (this->name, GF_LOG_ERROR, 0, Q_QUOTA_INODE_MISSING, ""Missing inode, can't adjust for quota"");
+
+Just add a enum with appropriate number associated to it, there is no diagnosis for this.",0
+2090,"Passing a whole volfile path this way seems a bit fragile.  Would it be possible to pass the flag and a *relative* path, so that the receiver constructs the final path instead of the sender?",-1
+2091,Warned about same in doc string. It'd be more safe to remove this method altogether.,0
+2092,I am sorry. I just missed it before. errno should already be set to ENOENT if resolve/lookup fails. We shouldn't map any other genuine errors to ENOENT.,1
+2093,Why have the diagnoses strings been removed from this file?,0
+2094,we are doing cleanup during every test case start . I think it is not required again here.,0
+2095,"I do not like (long) very much, but that is something in the inode_ctx API :-/
+
+Maybe I find the courage one day to make it a (void*) instead.",-1
+2096,Can you please update the same in cli-cmd-snapshot.c,0
+2097,"you wouldn't need to do this, you can still use svc's volfile while checking for whether the volfile/topologies are identical or not.",0
+2098,"We need refresh freq_demote = defrag->tier_demote_frequency; here, otherwise we won't be able to change the frequency from the CLI.",0
+2099,this will never be true if it's of type unsigned int.,-1
+2100,Isn't this a dict_get failed rather than a dict_set?,-1
+2101,syncop_ functions return -errno as ret. This can be passed to the gf_msg function.,0
+2102,"DHT_MSG_INODE_LK_ERROR sounds similar. Can that be used instead?
+
+If you add a new msgid, GLFS_DHT_NUM_MESSAGES needs to be updated.",0
+2103,Logging on allocation failures is discouraged. So remove this.,-1
+2104,You might even want to change (de)allocations in this source to use gf_*() routines (as a part of this patch or separately).,0
+2105,"Better to rephrase:
+If inode table limit has been reached, then better to increase the limit of ....",0
+2106,LG_MSG_INSERT_FAILED => LG_MSG_RBTHASH_INSERT_FAILED,0
+2107,Please explain on why it is been taken out from the switch case below.,0
+2108,"cbk->mask will only contain bricks where the request has been sent. A read will never have a bit corresponding to a brick being healed on cbk->mask set, so the & is not needed. However, for writes (that also send the requests to bricks being healed), doing the & will cause that bricks that were unhealthy at the start of the operation will be marked again as bad after completing the operation, even if the operation succeeded. I think this is not correct.",-1
+2109,"I understand you do this so that GF_FREE() under the out: label does not free the acl_xattr. The dict_unref() will call GF_FREE() already.
+
+Is there a need for GF_FREE() in out: at all? I think that only is useful for the error case when dict_set_bin() failed. It would be cleaner, and easier to understand if you do the GF_FREE(acl_xattr) above in the 'if (ret)' statements. There is no need for this 'acl_xattr = NULL' then anymore.
+
+If you do not like that approach (or if I missed something that makes it impractical), this 'acl_xattr = NULL' stetment desperately needs a comment.",-1
+2110,"u mentioned that is ""good to have"". i will try to convert tests for distribute volume.",0
+2111,"We should have a log for non-connect events as well, probably at trace or debug levels.",0
+2112,This will cause a double free. The previous GF_REF_PUT() will already call auth_cache_entry_free() (where entry is free'd) if auth_cache_add() has failed.,0
+2113,Even here LG_MSG_INVALID_ARG ? Just to maintain the uniformity,0
+2114,"As I said in previous comment, explicit lookups coming from above layers are never avoided. Its only during the cases where readdirp is followed by a fop, a lookup is triggered by gfapi/fuse.
+  
+Self-heal is an example of lookup dependent operation. There might be other xlators which might do some house keeping activities in lookup which are necessary before a fop is performed. In this case, if a readdirp is followed directly by a fop, then those house keeping activities wont be performed. So to let those activities happen before performing the first fop on a newly linked inode (via readdirp) an explicit lookup is triggered by gfapi/fuse. 
+
+Once lookup is done, then we need not repeat it for further fops. So the flag is unset after lookup.",0
+2115,The only reason I put it in here and not the missed snap function was that the new_volinfo was available to this one.,0
