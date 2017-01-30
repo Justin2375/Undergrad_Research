@@ -93,6 +93,8 @@ public class SentimentTest {
 				int rating = Integer.parseInt(sentiResult[2]);
 				// Increment the number of correct answers if the human code value and sentiment value are equivalent 
 				
+			
+				
 				if(rating==targetRating)
 					negRated++;
 				

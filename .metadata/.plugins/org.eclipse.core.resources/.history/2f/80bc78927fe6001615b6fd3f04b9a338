@@ -77,7 +77,6 @@ public class SentimentTest {
 		int negTotal=0;
 		int negRated=0;
 		
-		// Rating to check accuracy of.
 		int targetRating=1;
 		
 		try {
@@ -92,6 +91,8 @@ public class SentimentTest {
 				// Parse the human coded rating from the .csv file
 				int rating = Integer.parseInt(sentiResult[2]);
 				// Increment the number of correct answers if the human code value and sentiment value are equivalent 
+				
+			
 				
 				if(rating==targetRating)
 					negRated++;
