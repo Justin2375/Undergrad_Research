@@ -77,7 +77,7 @@ public class SentimentTest {
 		int negTotal=0;
 		int negRated=0;
 		
-		int targetRating=0;
+		int targetRating=1;
 		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);
