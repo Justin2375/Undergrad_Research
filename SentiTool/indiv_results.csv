@@ -2,7 +2,7 @@ Possitve Sentiment	Negative Sentiment	Comment Body
 1	1	GSM isn't in the original list which is why it isn't in the enum.
 2	1	Since we are not really using any methods from Collections, and only iterating through elements, having String arrays is good enough.
 1	2	We very much prefer to not record that information in the source tree, the change history contains that information.
-1	2	Yeah, we can file a bug against android or just fix it and submit a patch.
+1	3	Yeah, we can file a bug against android or just fix it and submit a patch.
 3	2	when i was suggesting flipping the boolean, i did also wonder whether we wouldn't be better off just passing in the length. if it's <= 0, interpret that as ""don't know""? that would then move 8192 down out of the callers too.
 
 or... i really like the way you went for readFully rather than implementing the missing read()s, which is what i'd actually imagined. how about we go one further and just have a static fromFile or similar? then it could do the stat, and have everything it needs. you could even use Libcore.os open/fstat/read/close to avoid the RandomAccessFile without increasing the overall amount of code.
@@ -32,7 +32,7 @@ and then embed MayBe... into ClassLinker as IsCompiledImageMethod. It'd be nice 
 if(icmp->type != ICMP_ECHO && icmp->type != ICMP_ECHOREPLY) {
 
 Can you make the two consistent?
-2	2	Added tests for other resource type.
+2	3	Added tests for other resource type.
 
 I feel there should be a test that ensure the issue in the bug is resolved.  It also verifies that the generated.xml can at least run through aapt.
 2	3	Doing this will trigger mOnDateChangedListener to be fired twice. Please put a guard to avoid that (see the listener above on mDayPicker.)
@@ -73,7 +73,7 @@ pass_manager_options->SetDisablePassList(""GVN,DCE"") in jit_compiler.cc, there 
 i.e., now that we do this, we shouldn't have to modify other projects, only this project since all others should already be in sync.
 
 The fishy part here is just that choosing something in a project import dialog affects other projects which doesn't make sense. If you want that experience, then the dialog should be more of a global IDE preference.
-2	2	Yes, it is a bug in adb, no ambiguity here, but it's really subtle, so it'd be nice to have a better description of the problem, it's not really Python specific as you mention, i.e. something like:
+2	3	Yes, it is a bug in adb, no ambiguity here, but it's really subtle, so it'd be nice to have a better description of the problem, it's not really Python specific as you mention, i.e. something like:
 
 """"""
 Some programs want to launch an adb command and collect its output by calling CreateProcess with inheritable stdout/stderr handles, then using read() to get its output. When this happens, the stdout/stderr handles passed to the adb client process will also be inheritable.
@@ -139,10 +139,10 @@ Couldn't you just remember the first sequence number your RILD connection receiv
 1	2	Actually, I realized late last night that it probably didn't make sense to specify the damage using frects, since the damage is defined on pixel boundaries (I was originally thinking frect because sourceCrop is a frect, but that's not exactly analagous).
 
 I think this should be hwc_rect_t. That probably implies that we should use hwc_region_t, except that size_t is way overkill and will eat another 8 bytes in 64-bit relative to this (since we're currently getting the uint32_t for free because of padding).
-1	2	That's just the thing; I don't have a bug report. Somebody complained on Google+ that setting this attribute has the undesirable side effect of killing onClick attributes; when I asked Roman if he knew anything about this (we had discussed textIsSelectable before, in the context of adding them to the default templates) he mentioned he had also seen some weirdness around these, but didn't have details.
+1	3	That's just the thing; I don't have a bug report. Somebody complained on Google+ that setting this attribute has the undesirable side effect of killing onClick attributes; when I asked Roman if he knew anything about this (we had discussed textIsSelectable before, in the context of adding them to the default templates) he mentioned he had also seen some weirdness around these, but didn't have details.
 
 I should dig deeper, but since I'm swamped with some other work I figured it was better to just disable this check until I know more. (It's actively suggesting users set an attribute that apparently isn't always the right thing.)
-1	2	It seems to me to be the case. There is a bug:
+1	3	It seems to me to be the case. There is a bug:
 https://b.corp.google.com/issues/17586779
 shertz probably knows more about it.
 2	1	Technically missing spaces before/after the parentheses. Would be good to fix in a future upload, if there's a chance. See also the while() a few lines below.
@@ -193,7 +193,7 @@ But whatever, it's not a big deal.
 I assume we can use logwrapper if we need to.
 2	1	Currently the array is always allocated with new if own_arrays_ is true. Also delete nullptr is defined to be a NOP.
 2	1	we might want to support Z here, since that's coming in a day or two
-3	2	That is great - it also means you can move that line outside of the if/else.
+1	2	That is great - it also means you can move that line outside of the if/else.
 
 You also need another in6_addr: you have to have both dest and gateway (though for default and host you only use one or the other).  Same is needed in the v4 case.
 1	1	Just curious, how come you use a RandomAccessFile here? It might be simpler to just Guava (which lint already depends on):
@@ -298,7 +298,7 @@ But I'm not sure if we even want a Ranges or If. The point of the Transformer in
 
 I wonder what Rob thinks. Can you start a separate e-mail thread just for API design?
 1	1	In code this will read ""mgr.Mgr"". If move to svc package, it would read ""svc.Mgr"". Also, Let's just name in Manager so: ""svc.Manager"".
-3	1	Because total bytes of addrs should be greater than size.
+1	1	Because total bytes of addrs should be greater than size.
 2	2	Does this really work for floating point too? I believe the * -1 was there to make sure that things like 0 becoming negative 0 worked. Please check.
 1	1	We only have islibrary available right now, set by the linker when linked with '-shared'.
 
@@ -377,7 +377,7 @@ Also, given that now it's just the callersp, s/frame/sp/ everywhere, including i
 same below
 1	1	can you combine the declaration of ctstr above with this assignment ?
 1	2	Fair enough. But still deleting registry entries is wrong - you won't be able to run that program again without them. You can disable service from inside your program too http://godoc.org/code.google.com/p/winsvc/mgr.
-1	2	Consider merging these uncommon write barrier forms in to one function that takes flags.  I think there's a bug in the later atomic function fixes that this would help address.
+1	3	Consider merging these uncommon write barrier forms in to one function that takes flags.  I think there's a bug in the later atomic function fixes that this would help address.
 1	1	Compiles with go:nowritebarrier so I just did the assignment.
 2	1	we need to test both non-privileged ""udp4"" and privileged ""ip4"" sockets here.
 1	1	this isn't an endpoint. It's a string. And now it can be a const, not a var.
@@ -528,7 +528,7 @@ Apart from the above, no there is not a filename, and yes there needs to be a sl
 1	1	functional changes?? I just flipped the ifs. But I just see that there's still the skipSystemDependencyCheck stuff in it.
 2	4	I actually fear that PHP accepts this due to some easteregg or so :)
 2	2	Sorry but I didn't get why we need 199 here - to trigger some update to 200 afterwards? What if we just fix the update for afterwards then?!?
-2	2	why do we json_encode() $scopeData here? We do not do this in the base class. Furthermore it is already serialized.
+2	3	why do we json_encode() $scopeData here? We do not do this in the base class. Furthermore it is already serialized.
 
 The only difference in this method compared to the one in the base class is now the Tree.thisScript stuff. The question therefore is: Is this a bug in the baseclass that Tree.thisScript is not set, or is it superfluous here?
 If neither applies, then still the question remains, if there's a nicer way of adding this code snippet without overriding (and copyiing) the complete method from the base class?
@@ -941,7 +941,7 @@ For section titles, it is best to use the gerund (ing) because it is a task. ""U
 1	1	This displays the opening curly brace, but not the closing one. Is that intentional?
 1	1	does that make sense? why not just leave the reservation?
 1	1	I think it might be worth a comment up here what this class is intended to do and how it does it.
-1	2	no need to be redundant ""described in the report"".
+1	3	no need to be redundant ""described in the report"".
 
 but this is bogus anyway - commit message are expected to be self-contained, and the bug links are merely ""for more info, see ..."" style.
 1	1	Right. Ok, then let's fix this in dev only and ignore the test coverage in 5.5. Can you make yourself a note to fix the blacklist in dev once the merges are through?
@@ -1067,7 +1067,7 @@ Note that namedtuple(verbose=True) shows that it uses __slot__=() by default, so
 2	1	where size is not the issue, and performance is not a big deal like in test, please use range() to mainatain future compat with python3
 2	1	Omer, I am not quite understand ""polling will not start for these hosts"", would you give me more backgroud information?
 as to save the status in the db, you mean save host's status, 'nonoperational' in this place in db?
-1	2	this is the cause of the bug - you should remove it instead the other one if you want to keep the removal as part of supervdsmServer
+1	3	this is the cause of the bug - you should remove it instead the other one if you want to keep the removal as part of supervdsmServer
 1	1	What are the meanings of D and C here? D for ""data"" and C for ""collection"". Could use longer names or comments.
 1	1	what about this case? if user selected sysprep/cloud init in run once (then we get here) but also have payload configured?
 1	1	consider using 0.0 instead of another variable called zero.
@@ -1075,7 +1075,7 @@ as to save the status in the db, you mean save host's status, 'nonoperational' i
 wrapper, that can be used to export any reports in future.Like this class doesn't dictate any specific layout and provides methods to create the layout elements of choice although, it currently provides only a small number of layout elements like list,table.
 1	1	split to chunks was added, no vms/templates in memory during vds operation.
 1	1	i think you can use here getAndSetVdsStatic() to get the vds name, so we will have it in the log, i think it is called anyway for the logging infrastructure (""FINISH"")
-2	2	When you move a host to maintenance then that calls disconnectStorageServer which should remove this definition so in general this shouldn't affect anything negatively.  The case where this would remain is in case of an error flow where for some reason it wasn't disconnected properly or something.  Even if that happens, it's not that interesting as a few leftover connections shouldn't affect the host negatively (think about FC where the host is always connected).
+2	3	When you move a host to maintenance then that calls disconnectStorageServer which should remove this definition so in general this shouldn't affect anything negatively.  The case where this would remain is in case of an error flow where for some reason it wasn't disconnected properly or something.  Even if that happens, it's not that interesting as a few leftover connections shouldn't affect the host negatively (think about FC where the host is always connected).
 The advantage is that most of the time (since hosts don't move between DCs very often) the host would automatically reconnect whenever it reboots (e.g. due to sanlock fencing) and it would be available to engine almost immediately reducing recovery time.  Imo that is more important.
 See oVirt Bug 881941 - After a reboot of both engine and vdsm domains take a long time (15 minutes) to recover
 1	1	For consistency, this could be named ""storeInHttpSession"".
@@ -1101,7 +1101,7 @@ it's better to create a separate function, in case we will need to add a new ""l
 About "">= 0.6"": I monkeypatched the methods that are used by old websockify to use logger.
 
 (What I'm worried about is the fact I see duplicate lines in syslog - one line comes from ""journal"", the other one from ""ovirt-websocket-proxy"" and they are identical. I need to investigate this further.)
-1	2	This is a bug
+1	3	This is a bug
 
 if the disk is shareable then the disk will be updated with the last VM in the for loop.
 1	1	indent.
@@ -1256,13 +1256,13 @@ So I would hide them originally, say by extending the createNewLineModel() metho
 1	1	""""""create a vdsm.config.config clone, modified by tunables
 
 tunables is a list of (section, key, val) tuples""""""
-2	2	Doing a blind re.replace on an XML is a bug waiting to happen. The XML has structure and it is safer to use it. Please parse the XML and replace only the element you expect. Unless, of course, you have a particular intention here.
+2	3	Doing a blind re.replace on an XML is a bug waiting to happen. The XML has structure and it is safer to use it. Please parse the XML and replace only the element you expect. Unless, of course, you have a particular intention here.
 1	1	I would remove the setter, and have a public getter you could always spy.
 1	1	I guess this change (New) will be handled in a separate patch...
 2	1	Please remove this log, it's a part of the if below
 1	1	The logic in this method is quite heavy for each selection... Instead, I'd prefer to see it in a popup invoked from the General sub-tab. But I guess it's a UX decision.
 1	1	perhaps replace the whole thing with platform.linux_distribution() ?
-2	2	I see no problem in breaking the line with parentheses. But the issue is too minor to keep discussing.
+2	3	I see no problem in breaking the line with parentheses. But the issue is too minor to keep discussing.
 
 Please tick Verified+1 if this patch solves the bug.
 1	3	any reason for not using constants from the enum? if you'll ever change the enum,
@@ -1363,7 +1363,7 @@ As for the examples and definition, I think that could live in a devref guide li
 2	1	please move command to system.py so this can be reduced to ""cmd_node_init"".
 2	3	We kind of discussed this last time - and thought that we didn't want to fail any calls if the operators were not recognised..
 1	1	this file is a legacy code and not used, but I can live with that change
-1	2	There are no such method as ""assert_called_once"". See: https://bugs.launchpad.net/manila/+bug/1330391
+1	3	There are no such method as ""assert_called_once"". See: https://bugs.launchpad.net/manila/+bug/1330391
 1	1	I saw you added a comment at https://review.openstack.org/#/c/138310/1/specs/kilo/store-capabilities.rst , I think you probably already know the reason of this, right?
 2	2	This is better, but the registered variable is unnecessary:
 
@@ -1494,7 +1494,7 @@ self.NETWORK_INTERFACES
 1	1	http://en.wikipedia.beta.wmflabs.org/wiki/Hurricane_Celeste_(1972)
 1	1	Err, actually that won't hurt anything, and if anyone ever changes the canonical form to be this, then the entry would get used.
 1	1	It would be would to expand into '... main stats view in rt server' or similar.
-1	2	We ironed out the issues on bug 49965, a few patches are linked from it.
+1	3	We ironed out the issues on bug 49965, a few patches are linked from it.
 1	1	This class is too generic...
 
 It's likely better to take all configuration and wrap it in a class named ""misc::reportcard"".
@@ -2015,7 +2015,7 @@ I see how it might be annoying to have to redo a change if you used the wrong br
 
  sorry I try every corner and cannot find the difference after adding this line.
 2	1	--add will add a value on top of another/others. The above line will replace any previous value with this one. Not sure which effect the author is looking for, but I personally don't understand why you'd want to have several download.scheme variables?
-1	2	This does not correspond to an issue on the gerrit issue tracker [1].
+1	3	This does not correspond to an issue on the gerrit issue tracker [1].
 
 Issues should be listed in the change footer in the form:
 
@@ -2153,7 +2153,7 @@ java.lang.IllegalStateException: Committed
   at com.google.gerrit.httpd.AllRequestFilter$FilterProxy.doFilter(AllRequestFilter.java:57)
   at com.google.gerrit.httpd.RequestContextFilter.doFilter(RequestContextFilter.java:75)
 1	2	Wasn't the trailing slash already removed when the GitHub URL was read from the config?
-2	2	Hi Edwin
+2	3	Hi Edwin
 
  thank you to have a look.
  I removed them, because current version of ProjectsTable already has these 2 lines content .
@@ -2193,7 +2193,7 @@ However, if that's the case, I'm not sure just switching this to only happen wit
 1	3	This works for the example I provided in the review of the patch set 4 but it still fails to render """"r"""" in a little bit different case.
 For example change this file content:
 
-2	2	Since there is a Gerrit issue [1] for this bug, can you please add a reference to this bug as footer?
+2	3	Since there is a Gerrit issue [1] for this bug, can you please add a reference to this bug as footer?
 
   Bug: issue 871
 
@@ -2228,7 +2228,7 @@ Looks fine though agree with Chris's comment that exported strings should be def
 (2 inline comments)
 
 LGTM with a couple of small optional suggestions.  I agree that using more realistic sites to consume memory would be nice, but I think getting something up and running soon would be valuable as well.
-2	2	The variable you should probably use here is U_BOOT_FDT_USE, defined in make.conf.
+2	1	The variable you should probably use here is U_BOOT_FDT_USE, defined in make.conf.
 
 I agree the name is not great - we can change it if you like. But the intention is that this variable tells you which fdt to use, so there should be no need for this sort of logic in ebuilds.
 2	1	Patch Set 1: Looks good to me, approved
@@ -2250,7 +2250,7 @@ My understanding is that Chrome on win32 does (C) (i.e. the windows/msvc linker 
 3	2	machine_emergency_restart is a good place for the cache flush in the sense that it is already machine-specific.
 
 But yes it's fine to take this approach. LGTM
-2	2	Patch Set 5:
+2	3	Patch Set 5:
 
 > David - it used to be that you needed to land both the 
 > stable and the 9999 cros workon ebuild at the same time.  
@@ -2282,7 +2282,7 @@ Independent of whether splitting things up is a good idea, if Mike (who knows ba
 
 I concur with jrbarnette@.  It sounds like we can do a separate issue/CL for removing the pragma.  To that end, I think a TODO() referring to that issue could be useful if added to this CL.
 2	2	NIT: a docstring of this Exception would be useful. Including the error above this.
-2	2	1. This seems like a hack to work around a bug -- why are we reading from the pty after it is closed?
+2	3	1. This seems like a hack to work around a bug -- why are we reading from the pty after it is closed?
 2. This hack also looks too broad -- if any error occurs we close the pipe and stop reading, while squelching the error. This seems bad.
 
 Same comments below.
@@ -2304,15 +2304,15 @@ Also, the hard-coded timeouts here need names, and some
 justification for their length.
 2	1	Is it always true for all CrOS devices that if eth1 exists it is an LTE system, and that we should use eth1 for communication in this test? I am guessing this would print out 'LTE system' on a CrOS device with on board Ethernet.
 4	1	Wow! Is this really true for any of the targets?
-1	2	Patch Set 4: Verified
+1	3	Patch Set 4: Verified
 
 PTAL now.  See referenced bug for scope traces.
-1	2	Patch Set 1: I would prefer that you didn't submit this
+1	3	Patch Set 1: I would prefer that you didn't submit this
 
 (1 inline comment)
 
 LGTM after a small bug fix.
-1	2	Make sure to remove the bug description as well, it might confuse things when parsed.
+1	3	Make sure to remove the bug description as well, it might confuse things when parsed.
 1	2	nit: use die, not echo, same for all errors below
 2	2	The best way to keep someone from doing this is to raise NotImplemented errors instead of pass
 1	2	Patch Set 2:
@@ -2424,7 +2424,7 @@ output = engine-setup_2013_04_04_14_15_27.log
 2	2	you can assign:
  fileExists = os.path.exists(enabledFile) and os.path.exists(disabledFile)
 and then use fileExists as boolean, False means one not exists, True means both exists.
-2	2	Patch Set 2:
+2	3	Patch Set 2:
 
 Liron, so lets think:
 Reconstruct flow:
@@ -2434,7 +2434,7 @@ Go through all vds connect and after that refresh, no need for exception handlin
 especially additional refresh.
 No need for additional method that u introduced.
 Where it is 99% percent common. You already introduced a method that at some flow should return only true and complicated a very simple code. ""right now there is no need to copy the method in my opinion - 99%"" - your change at connectAndRefreshAllUpHosts in order to solve bug at reconstruct flow caused to regression in recovery flow. I don't think that these means 99% common.
-2	2	Patch Set 1:
+2	3	Patch Set 1:
 
 Alon,
 
@@ -2442,7 +2442,7 @@ Regardless of discussion we have in the bug #996021
 calling .disconnect() when sdk instance is no longer
 needed is a good change, i think it can confidently
 go in.
-2	2	Patch Set 2: I would prefer that you didn't submit this
+2	3	Patch Set 2: I would prefer that you didn't submit this
 
 This bug is a duplicate 841534 of and will be handled in http://gerrit.ovirt.org/#/c/6593.
 
@@ -2451,7 +2451,7 @@ Please abandon it.
 
 
 Sorry for the hassle.
-2	2	I understand that right not only root is supported by engine, but I prefer that the API layer will pass to the engine all the information that the user provided. Engine may choose to ignore, for now, all users aside for 'root'. 
+2	3	I understand that right not only root is supported by engine, but I prefer that the API layer will pass to the engine all the information that the user provided. Engine may choose to ignore, for now, all users aside for 'root'. 
 
 The way it's written here, is just a bug waiting to happen - tomorrow engine will support other users, and suddenly we will have a bug in the API: some users are not passed on to the engine, for some reason.
 1	2	this enabled should be only after no errors at all...
@@ -2557,7 +2557,7 @@ If you need to have empty closing tags replaced by q dedicated closing tag for a
 Thanks for your understanding.
 
 Yours Steffen
-4	1	Patch Set 1: I would prefer that you didn't submit this
+2	1	Patch Set 1: I would prefer that you didn't submit this
 
 I agree with the first reviewer, turning the condition around will make it better readable. Besides that, great idea and solution!
 1	1	Patch Set 6:
@@ -2617,13 +2617,13 @@ Please tell me the exact error that happens, otherwise I can not reproduce the r
 What about a second argument in ""getNode()"" that allows to even fetch hidden/protected nodes?
 2	2	maybe add TRUE as the third argument for using strict comparisons?
 2	2	I read it as alternatives to TRUE are ... so all upper case would still be the default. But, actually, I would not mention the alternatives at all.
-2	2	Patch Set 1: Abandoned
+2	3	Patch Set 1: Abandoned
 
 TYPO3 4.6 branch is at the end of bug fixing period. Only priority changes will be considered (compatibility fixes and security fixes) until end of April 2013.
-2	2	Patch Set 4:
+2	3	Patch Set 4:
 
 The indexer usage was not changed, it just fixes the bug and it works. :) Adapting to the new indexer is yet another task, of course.
-1	2	I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done...
+1	3	I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done...
 3	2	Patch Set 3:
 
 I have a separate TYPO3 installation running in an alias on the main site - that is in /home/. So domain.com is one TYPO3 installation and /home/ is a separate one using alias in Apache.
@@ -3180,7 +3180,7 @@ nitpick: It's better (more professional) to write these things in the 3rd person
 1	1	There is no need for a ""continue"" here, since it means the same as the normal program flow...
 1	2	we will need to log the error since it is ignored by caller
 3	3	if we assume that initCache() always succeeds - otherwise service constructor fails - we do not need to check for non-nil cache or return error for it anywhere
-1	2	There may be a minor bug here in that there can be a TMPFAIL at authentication time.  This doesn't seem to handle that.
+1	3	There may be a minor bug here in that there can be a TMPFAIL at authentication time.  This doesn't seem to handle that.
 1	1	How is 'bbox' supposed to be encoded for transmission over http?  Currently its encoded as a Javascript array, which is probably why its not behaving as expected.
 2	1	I believe you can only have one appender configured. The file based one is more useful to me, but maybe not to others.
 1	1	I'd expect that to autounbox.  Autounboxing *might* be less efficient, but it's more readable and won't matter much for a test.
@@ -3204,7 +3204,7 @@ I think your redirect options should be off, on, verbose - and only verbose shou
 1	1	skip_rebalance option is not needed here, it is always skipped unless nodes_init is provided
 why do you skip_cleanup?
 1	1	This can't guarantee there won't be two pipeline running concurrently for one replication.
-1	2	You can actually remove this entirely - I needed it to work around a bug in lcb when connecting to a non-standard port (i.e. ./cluster_run running on port 9000 instead of 8091). For use in perfrunner with standard packages we probably want CCCP.
+1	3	You can actually remove this entirely - I needed it to work around a bug in lcb when connecting to a non-standard port (i.e. ./cluster_run running on port 9000 instead of 8091). For use in perfrunner with standard packages we probably want CCCP.
 2	3	Good idea. Although I could now just have a single stat and remove scrubber:status? If we have a stat called scrubber:runs we can infer the status.
 
 Is there a policy though of maintaining stats? any external tools reliant upon them that would be unhappy with removal of a stat?
@@ -3218,7 +3218,7 @@ In this case the lcb_cntl user will get correct effective type
 1	1	I don't see where we append the rewinded header to the database file. Otherwise, when we open the db file next time, it will still give us the latest header that is not rollbacked.
 3	1	This isn't a very good function name.. (I assume that it doesn't initialize everything in memcached).. init_allocation_hooks() would probably be a better name..
 2	1	Please use uint64 or uint32 or uint16 if the size is known.
-3	1	Could you also update RELEASE_NOTES.markdown in the project root. You are adding interfaces, it would be great to document them there.
+1	1	Could you also update RELEASE_NOTES.markdown in the project root. You are adding interfaces, it would be great to document them there.
 2	1	You should put it into memcached_defaults instead. That handles the upgrade scenario and will allow us to change the value easily in future.
 1	1	Instead of cast twice notifier to EObject, you could use a variable.
 2	1	Please add 2015 here:
@@ -3307,7 +3307,7 @@ By default, the file will be in the current eclipse install folder, but as Max p
 1	1	Then maybe the loop can be inside this method, it would be more consistent with the fact that 'Starts' is plural...
 2	2	Is omitting other kinds of completion proposals on a specific purpose, or just a way to keep the patch small (and you currently don't need more)?
 This kinda contradicts the use of the general type Binding (rather than MethodBinding) - looks like you couldn't make up your mind ....
-2	2	In my company, this is a rule to put the constant before a variable for comparison. This rule avoid also to forget a '=' in '==' operator and to create a bug. You can retrieve this rule in ESF project(TIPS-38, https://polarsys.org/wiki/ESF_coding_rules). We think that the same work could be interesting with Papyrus.
+2	3	In my company, this is a rule to put the constant before a variable for comparison. This rule avoid also to forget a '=' in '==' operator and to create a bug. You can retrieve this rule in ESF project(TIPS-38, https://polarsys.org/wiki/ESF_coding_rules). We think that the same work could be interesting with Papyrus.
 1	1	The director wasn't being accessed here, but in getSubstitutionsPaths() which had such a check. I duplicated the check as it makes it more obvious.
 1	2	don't use hard coded type names:
 link.isOfType(CoreRelationTypes.Default_Hierarchical__Child)
@@ -3337,10 +3337,10 @@ Please see: http://leoufimtsev.github.io./org/swt-dev.html#sec-9-2
 According to the doc Repository#resolve(String) will throw a MissingObjectException.
 I decided to wrap it into a WrongGitFlowStateException because an empty repository is not something you would normally operate on with git flow.
 2	1	I like this test case because it is more realistic than the expression above. But then, I'd prefer that we remove the other one.
-1	2	Is it possible that this is related to the Critical path view? Patrick said he saw a weird bug with time alignment being off because of the critical path.
+1	3	Is it possible that this is related to the Critical path view? Patrick said he saw a weird bug with time alignment being off because of the critical path.
 1	1	Add spaces to relation name to match those in type definition
 2	1	not sure whether this is needed but it's not harmful. We will get the NPE when (oldHeadId!=null && oldHeadLog==null). But if you look at line 724 this will not be the case. Anyhow: +1
-3	1	If we have a class hierarchy with one base class and many subclasses, in most cases it works well to have one base test classes and extended test classes, for each implementation. That way tests that apply to all implementations can go in the base class (and will be run for each sub-test).
+2	1	If we have a class hierarchy with one base class and many subclasses, in most cases it works well to have one base test classes and extended test classes, for each implementation. That way tests that apply to all implementations can go in the base class (and will be run for each sub-test).
 
 The ""state system tests"" in lttng2.kernel.tests are like this, and it works very well. Ideally these should be brought back in statesystem.core.tests. InMemoryBackendTest is a good start, but it should split the tests that are common to all backends in a base class.
 
@@ -3530,7 +3530,7 @@ I think its common to call /abandon and /restore with no input. Your tests are c
 1	1	[optionally] extend SSH based acceptance test too:
 
  acceptance/ssh/GarbageCollectionIT.java
-3	2	> The bug that I reported was actually on the change screen; I had not observed the same issue on the project page.
+1	3	> The bug that I reported was actually on the change screen; I had not observed the same issue on the project page.
 
 Yep, the original fix was to fix the project page. It'd be great if we could fix both in one go.
 1	1	I don't think it needs to be set, which means it doesn't need to be in the input.
@@ -3570,7 +3570,7 @@ When I changed the on-disk location (via the rename above) of my gitiles checkou
   this.codec = codec;
   this.hash = object.hashCode();
 1	1	I think they are trying to match with the access control section data, which uses local because it used to also have the inherited rules from parent projects, and the local rules were in their own collection so the UI could tell them apart.
-1	2	I will take my share of the blame here. We don't need equals or hashCode at all, they come for free from StringKey, and I added them for no reason way back in I5df6f0c5.
+1	3	I will take my share of the blame here. We don't need equals or hashCode at all, they come for free from StringKey, and I added them for no reason way back in I5df6f0c5.
 
 And nothing personal, Sven, you know how it is when you've spent all afternoon debugging such a mysterious bug in production.
 1	2	I'd have to dig a bit deeper into the blame history of this file to find out. As we can see at line 154 it's being deliberately kept open, rather than as an oversight.
@@ -3654,7 +3654,7 @@ Should we be looking at doing the directory change for -multidir earlier than we
 
 Suggest comment on line 2088 becomes a CCTYPE and the next line becomes a CTYPE. Check out a grompp -po and please do what seems best to you!
 2	1	I want to keep it for now - there might be new architectures/optimizations where we suddenly realize it would be useful. Having them in config.h.cmakein is a reasonable compromise to remember we can use them, although they aren't selectable directly in Cmake for the moment.
-1	2	We kept this in r46 to keep some minor behaviour consistent.
+1	3	We kept this in r46 to keep some minor behaviour consistent.
 
 By omitting this in r50, we are actually keeping the behaviour of rc and final consistent, modulo the bug fix - see this function in git diff 53fc9d0 -- src/gromacs/mdlib/coupling.c. Since the r50 tests are already generated with the new RNG, we should expect those tests to continue to pass.
 2	2	I don't understand the problem. Without the explicit assign, and copy operator, and without the AnalysisNeighborhoodSearch(const ImplPointer &) (not needed if the setMode is done easier), I don't see why it wouldn't just work by itself correctly with gmx_unique_ptr. Sorry if I'm miss something obvious.
@@ -3881,7 +3881,7 @@ Due to changes in the hidden class it runs slower. It also does range checks whi
 Assuming Array == JsArray:
 A lot of GWT code assumes this and that is a bad thing because there are a couple of things that we can not do to optimize array because of that (e.g. putting fields on an array makes FF opt out of some optimizations).
 I am thinking that we might want to model arrays as an object with a field for the array and other fields for GWT stuff (type info) and let the compiler inline all access to the array at the right places. This might make ArrayList as fast as JsArray.
-1	2	Is this only relevant for new Js interop or was it also a bug with regular JSOs?
+1	3	Is this only relevant for new Js interop or was it also a bug with regular JSOs?
 
 If it was a bug with JSOs, we should add the relevant regression test.
 2	2	i did some refactoring and missed changing this name. thanks for catching it
@@ -4064,7 +4064,7 @@ It should be && according to https://tools.ietf.org/html/rfc7432 (7, 7.4). If it
 1	1	You should use a different filter name as you cannot mix FT_UINT64 (hf_glusterfs_size64) and FT_UINT32 (hf_glusterfs_size). See doc/README.dissector chapter 1.5.1.
 1	1	Why sizeof(guint8), shouldn't that be length again?
 1	1	This hides preference and makes it unavailable. I think that fetching it (if exists) and appending to a new preference is better.
-3	1	Instead of malloc() maybe you can use stack: gchar tmpname[41]; 41 is enough? Cannot be greater?
+1	1	Instead of malloc() maybe you can use stack: gchar tmpname[41]; 41 is enough? Cannot be greater?
 1	1	You probably need to check for divide-by-zero here, since addr_len comes from compr, which is based on packet data.
 1	1	This second key is not needed, this array contains a list of regex group names pointing to a (pre-)master key.
 1	1	I think this switch statement is getting big enough that this dissector should create a dissector table and have these dissectors register with it, not the other way around.
@@ -4235,11 +4235,11 @@ Ghada
 1	1	(to answer your question from the other patchset) yes, i think we should avoid duplicating this copyright info. there's not really any point in maintaining it in two places.
 
 Also, this is a minor point, but ""onwards"" is not a meaningful thing to add. You can't claim copyright on future years. You can add years later, but technically, you have your copyright for a set period from the ""publication"" date.
-2	2	whose bugfix? what is the bug number? the comment is as helpful as it could be :)
+2	3	whose bugfix? what is the bug number? the comment is as helpful as it could be :)
 
 if there is a fix for this but not enough time to test best to let future programmer know where to look
 1	1	similar comments to the other one, you should use pieforms or a template for the form here, and adding to info_msg is probably not the most ideal way
-1	2	Just a pre-emptive note, I put these TODO's in the code, because they are separate refactoring issues, which would be better handled in a separate bug.
+1	3	Just a pre-emptive note, I put these TODO's in the code, because they are separate refactoring issues, which would be better handled in a separate bug.
 2	3	Hi Nigel,
 
 To expand on what Tobias said, when you change the content of a language string you also need to change its name. Otherwise the Launchpad translation site isn't smart enough to tell translators that they need to update it. See https://wiki.mahara.org/index.php/Developer_Area/Language_strings#Let_translators_know_when_lang_strings_change
@@ -4346,7 +4346,7 @@ i.e. for ($i = 0; $i < count($record->userids); $i++) {
 
 Thanks,
 Ghada
-2	2	This TODO will have to wait for a later bug fix, because it's used when users belong to multiple institutions (the progress bar gives them a menu to determine which institution to show, and that relies on the param).
+2	3	This TODO will have to wait for a later bug fix, because it's used when users belong to multiple institutions (the progress bar gives them a menu to determine which institution to show, and that relies on the param).
 
 It's not a *huge* security issue having this. It just allows users to see what the completion goals are for other institutions they're not members of.
 1	1	Hi Bob,
@@ -4590,7 +4590,7 @@ Please use a similar eval/echo/grep as on line 50.
 
 P.S: I was confused between EBADF and EBADFD. Then I tried to be consistent as I see libgfapi returning EBADFD in several other glfs_* methods when glfs_resolve_fd() fails.
 1	1	Can you add a comment on how you can end up with a linkto file on cached-subvol and why lookup-everywhere is  needed?
-2	2	Couldn't this be simplified inline to rebalance_completed () ?
+2	3	Couldn't this be simplified inline to rebalance_completed () ?
 Please note rebalance_completed has a bug, you should only check for 'completed' status instead of inversing for 'in progress'.
 2	1	please add tests for fopen, we should test the different modes
 1	1	We certainly can use the errno here as we are invoking'fork'
