@@ -393,7 +393,7 @@ confiscation	-2	General Inquirer Feb 2010
 conflict*	-2	General Inquirer Feb 2010
 confound*	-2	General Inquirer Feb 2010
 confront*	-3	
-confus*	-2	
+confus*	-3	
 congested*	-2	General Inquirer Feb 2010
 congestion	-2	General Inquirer Feb 2010
 congratulate*	2	Hannes GI add
@@ -994,7 +994,7 @@ glory	2
 glum*	-3	General Inquirer Feb 2010 kev mod
 gmbo	3	giggling my butt off
 goddam*	-3	
-good	3	Could also be 1?
+good	4	Could also be 1?
 goodness	3	
 gorgeous*	3	
 gossip*	-1	
@@ -1276,7 +1276,7 @@ intrud*	-2	General Inquirer Feb 2010
 intrusion*	-2	General Inquirer Feb 2010
 inundate*	-2	General Inquirer Feb 2010
 invade*	-2	General Inquirer Feb 2010
-invalid*	-2	General Inquirer Feb 2010
+invalid*	-3	General Inquirer Feb 2010
 invigor*	2	
 invisible	-2	General Inquirer Feb 2010
 involuntary	-2	General Inquirer Feb 2010
