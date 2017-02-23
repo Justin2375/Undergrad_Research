@@ -78,7 +78,7 @@ public class SentimentTest {
 		int negRated=0;
 		
 		// Rating to check accuracy of.
-		int targetRating=1;
+		int targetRating=0;
 		
 		try {
 			ArrayList<RatedComment> commentOracle=readCSVFile(oracleFile);

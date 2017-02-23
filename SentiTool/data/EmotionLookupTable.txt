@@ -420,6 +420,7 @@ cool	2
 coolest	3	ur da coolest mom ever!!
 coolly	-2	kev
 coolness	-2	kev
+correct	2
 corrode	-2	General Inquirer Feb 2010
 corrosion	-2	General Inquirer Feb 2010
 corrosive*	-2	General Inquirer Feb 2010
@@ -830,7 +831,7 @@ fab	3
 fabricat*	-2	General Inquirer Feb 2010
 fabulous*	3	
 faggot	-2	Feb-11
-fail*	-3	
+fail*	-2	
 faint	-2	General Inquirer Feb 2010
 faith*	2	
 faithless*	-3	kev add

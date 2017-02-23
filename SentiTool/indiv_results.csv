@@ -51,7 +51,7 @@ I feel there should be a test that ensure the issue in the bug is resolved.  It 
 
 Well, your version is more easy to understand. I'll replace comment in ammended commit.
 1	2	Yes, I uncommented the code for diagnostics and discovered that it depended on an import of IssueRegistry. So I just added it as a FQN here so I won't need to reimport it next time I uncomment this block.
-2	3	Also explain in this file why the compiler was failing, and dx's smart/dumb behavior.
+2	2	Also explain in this file why the compiler was failing, and dx's smart/dumb behavior.
 1	2	We tried to avoid include the large block in #if ... #else... #endif. :).
 
 And does this change break MIPS? Our change will not impact MIPS.
@@ -158,7 +158,7 @@ Now the argument registers would be ""a(s0), b(s2/s3=d1), c(s1)"".
 
 We could remove this unless we define ABI to use argument registers like ""a(s0), b(s2/s3=d1), c(s4)""
 1	1	Yes, according to 3GPP TS 31.102, the alpha identifier is optional for ADN and SDN as well as FDN.
-2	3	that's always going to say ""Out of memory"", which is definitely an improvement, but how about something like:
+2	2	that's always going to say ""Out of memory"", which is definitely an improvement, but how about something like:
 
   ""new failed to allocate %zu bytes"", size
   ""new[] failed to allocate %zu bytes"", size
@@ -171,8 +171,8 @@ We could remove this unless we define ABI to use argument registers like ""a(s0)
 1	1	I think he's looking for the exact string ""h"", the 2 is to count the terminating 0 at the end.
 1	1	Element. This one stuck out. I think the only ones to try to capitalize are ""Allocation, Type, Element"", since that trio is the dominant set of APIs for interacting with any sort of data from Java.
 2	1	How about making MapAnonymous return null so that we only need the single check that table_mem_map_.get() != nullptr.
-1	3	ditto. Never observed, not found anywhere => removed. DCHECK inside HUseListNode::Remove will fail if this occurs.
-1	3	Just call Assert.fail
+1	2	ditto. Never observed, not found anywhere => removed. DCHECK inside HUseListNode::Remove will fail if this occurs.
+1	2	Just call Assert.fail
 
 (Extra credit for static import)
 1	1	If this need to be public, can we have a short doc comment?
@@ -188,7 +188,7 @@ public static float getMdpiScaleFactor(Density density) {
 }
 
 But whatever, it's not a big deal.
-1	1	What's the correct thing for things exec'd from init?
+2	1	What's the correct thing for things exec'd from init?
 
 I assume we can use logwrapper if we need to.
 2	1	Currently the array is always allocated with new if own_arrays_ is true. Also delete nullptr is defined to be a NOP.
@@ -242,7 +242,7 @@ keep all lowercase (or make it a real sentence and end in period).
 I've simplified the code and also now use NewFormattedFileWriter in all the other places where I'm used go/format before. See the diff of language/table.go to see how it is affected (will first do the IANA update separately).
 
 Unfortunately, this increases the diff a lot. Again in language/tables.go. But you can verify the data itself didn't change by looking at the checksum at the bottom.
-2	3	No. I did find it useful to fail a test case from a fake server implementation when the client in the main goroutine does an invalid request but since this is not desired behavior, I abandoned the change.
+2	2	No. I did find it useful to fail a test case from a fake server implementation when the client in the main goroutine does an invalid request but since this is not desired behavior, I abandoned the change.
 1	2	Omit the err at the end.  Its the result of the last possible test making it probably meaningless and possibly misleading.
 2	2	The idea was that if we are in the _GCmark phase and a goroutine is no longer _Grunning then do the scan now instead of waiting and doing it in the STW _GCmarktermination phase. Upon reflection I now have concerns about slowing down the preemption. I'm deleting this until we see a valuable use case.
 1	2	Sorry, wasn't paying enough attention to the context (clearly the param is moved to the heap) and instead assumed that if esc was not EscHeap, that therefore it was not ""heap"".
@@ -274,7 +274,7 @@ The main reason to use sort, though, is to give a consistent return value (itera
 
 Should I drop the sort altogether?
 1	1	I think the bytes.Buffer version was more readable.
-2	3	This || breaks -e. If you need this information you need to reimplement -e yourself.
+2	2	This || breaks -e. If you need this information you need to reimplement -e yourself.
 
 if ! go build -a std; then
     failed=true
@@ -355,7 +355,7 @@ Even nss-mdns discourages using the file (""Please note that usually mDNS is not
 This variable name (in docs) is more important than conflicting with internal variable names.
 
 ""data"" isn't much more descriptive than ""variable"", ""thing"" or ""stuff"".
-2	3	This condition is always true. I assume the condition you meant was n != ptrSize. Though I see you removed this condition altogether in CL 9704 (rebase failure?).
+2	2	This condition is always true. I assume the condition you meant was n != ptrSize. Though I see you removed this condition altogether in CL 9704 (rebase failure?).
 2	2	This is problematic, because you know you have Go code passing a Go pointer into C.  Maybe you had that before and I didn't notice.  I don't think we should put code like that in our examples.
 1	1	No need for indirection here.
 Merge benchmarkTCPConcurrentReadWrite into this function, and use the addr ""127.0.0.1:0"" directly.
@@ -381,7 +381,7 @@ same below
 1	1	Compiles with go:nowritebarrier so I just did the assignment.
 2	1	we need to test both non-privileged ""udp4"" and privileged ""ip4"" sockets here.
 1	1	this isn't an endpoint. It's a string. And now it can be a const, not a var.
-1	2	I've shortened to isIPv4, but I don't think preferIPv4 is correct.  first(preferIPv4) seems reasonable, but partition(preferIPv4) doesn't actually prefer IPv4.
+2	2	I've shortened to isIPv4, but I don't think preferIPv4 is correct.  first(preferIPv4) seems reasonable, but partition(preferIPv4) doesn't actually prefer IPv4.
 1	3	I think that's just a mistake in make.bash.  It's better to fail fast and minimize distractions to stderr when you know you've already lost.
 
 I'd say add an exit failure here and then submit. If you feel strongly about keeping it as-is, you can submit this too and we can fix them both later if we decide to.
@@ -410,7 +410,7 @@ Mikio, could you please describe to me the spec of Interfaces/InterfaceAddrs?
 2	1	I was mentioning the blank line. Please don't remove tk.WithExtra.
 1	1	it doesn't leave them; it always removes them.
 ""use specified directory for temporary files""
-1	4	It adds more things to go wrong than just downloading everything again to do a reinstall. I understand the desire, downloads are a pain, but downloading again is a much more predictable zero state than some set of possibly-correct archives on local disk checked against some possibly-correct set of hashes.
+2	4	It adds more things to go wrong than just downloading everything again to do a reinstall. I understand the desire, downloads are a pain, but downloading again is a much more predictable zero state than some set of possibly-correct archives on local disk checked against some possibly-correct set of hashes.
 
 All of which is a lot of extra moving parts to work around a problem (slow connections). Is it worth it? Maybe. But it is a lot more to go wrong.
 1	1	Same comment as above
@@ -473,9 +473,9 @@ var si []int = make([]int, 10)
 func main() {
         _ = si[0:ci64]
 }
-1	1	I now believe that all paths have already done a finishsweep by this point so removing this as you did is correct.
+2	1	I now believe that all paths have already done a finishsweep by this point so removing this as you did is correct.
 2	1	Maybe s/propvalues/proppatchProps/. Not sure if it's an improvement. WDYT?
-1	3	Done.
+1	2	Done.
 
 Note the modified tests. I don't think it matters that they fail differently now. It's probably better, actually.
 2	1	Because it's racy. It should be guarded optimally with a lock that is not so global, but then you're talking about improvements that are in the nanosec granularity.
@@ -591,7 +591,7 @@ I mean I usually like private stuff, but it's uncommon in TYPO3 CMS ;-)
 1	1	The phpdoc states that an array is returned. Would it be better to return an array() instead of NULL?
 1	2	what about Jigal's comment ""Copying an array for the sake of a variable name is a waste of resources IMO."" ?
 3	1	There should be a more reliable way to check if an extension contains a ""cacheConfiguration"" definition. But I must admit I don't have a good idea yet...
-2	1	It is a logical change, but it is correct!
+3	1	It is a logical change, but it is correct!
 
 $configuration['vendorName'] !== NULL
 
@@ -669,7 +669,7 @@ for ( unsigned int i=0; ....
 }
 }
 1	1	This should probably be ignore.  It is not part of the explicit ITK style specification.
-1	2	This needs to have been initialized to the correct size here.
+2	2	This needs to have been initialized to the correct size here.
 
 JacobianType jacobian( dim, 
                            transform->NumberParameters())
@@ -790,7 +790,7 @@ return this-> ...()? 1 : 0;
 
 Fix bracket indentations.
 1	1	These methods should also probably go in the anonymous namespace.
-2	3	I agree that we should follow master for this and projects like CTK, but it is better explicitly update sha with commits.  Otherwise, upstream can update at any point and builds or tests will mysteriously start failing.  Also, when checking out branches or tags, we will get the versions of CTK, etc that are known to work with that branch/tag of TubeTK.
+2	2	I agree that we should follow master for this and projects like CTK, but it is better explicitly update sha with commits.  Otherwise, upstream can update at any point and builds or tests will mysteriously start failing.  Also, when checking out branches or tags, we will get the versions of CTK, etc that are known to work with that branch/tag of TubeTK.
 2	1	itkGetInputMacro and itkSetInputMacro are ITK wrappers for this->ProcessObject::GetInput(#name) and this->ProcessObject::SetInput(#name)
 
 I'm not sure what you think is wrong here, please elaborate.
@@ -998,7 +998,7 @@ Should probably go as a separate commit.
 The first part cannot have any whitespaces after the escaped newline - after hitting newline we're definitely on the next line (if you go back and put spaces at the end of this line you won't escape the newline anymore but the whitespace instead).
 1	1	but cd() returns bool
 I don't think absolutePath() is a valid method call on bool
-1	2	Why don't you emit sdkPathChanged from within the checkSdkPath once the path is valid? this will avoid to check the path twice (in checkSdkPath and isComplete() on the wizzardPage) and the BlackBerrySetupWizardNdkPage::changedCompleted will be then emitted only if the path is correct (even though you still need to re-check the path in isComplete() method...)
+2	2	Why don't you emit sdkPathChanged from within the checkSdkPath once the path is valid? this will avoid to check the path twice (in checkSdkPath and isComplete() on the wizzardPage) and the BlackBerrySetupWizardNdkPage::changedCompleted will be then emitted only if the path is correct (even though you still need to re-check the path in isComplete() method...)
 2	1	If you dig into the code, at some point you will reach a very strange statement (a couple of calls from setCacheSize), qMax(qMin(.....), 25).
 The size reported by that might differ from the size specified by the caller, in which case the caller should be informed of that. If you query cacheSize() you will get the value of the variable, not the value that was adjusted after the qMax(qMin...) calls.
 1	1	What's the error message? and is that with the latest transform change?
@@ -1127,7 +1127,7 @@ Looking at the horrible Python code we are using , I think this should be deferr
 1	1	as noted in patch set 2, message should be:
 CANNOT REMOVE STORAGE POOL WITH NON MASTER DOMAINS
 or something.
-1	3	You cannot design an API for logging. We should take out the ""command"" argument and have generic errors. It's easy looking at vdsm.log to discover what was the command executed before this failure.
+1	2	You cannot design an API for logging. We should take out the ""command"" argument and have generic errors. It's easy looking at vdsm.log to discover what was the command executed before this failure.
 2	1	For a collection to be searchable, there has to be explicit Backend support (it's not generic, you don't get it 'for free'). So unless *you* implemented search for Gluster Volumes in the Backend, the user will not be able to search. So, unless you did indeed implement this in Backend - please remove this url parameter
 1	1	It probably is, but what happens when somebody upgrades the libvirt? Do we require vdsm restart as well? Or will it suddenly start working?
 1	1	I think this needs to stay here?
@@ -1139,7 +1139,7 @@ So it cant ba validates inside smtp?
 2	2	The convention is to have all mappers static in order to reduce their instantiations as they have no state. 
 
 Please extract it into a private static class.
-1	3	I'll remove it here, but so you know - there's a problem - if someone sets it to null (for example from REST), it fails with NPE in StorageComandBase. but that can be fixed in a different patch.
+1	2	I'll remove it here, but so you know - there's a problem - if someone sets it to null (for example from REST), it fails with NPE in StorageComandBase. but that can be fixed in a different patch.
 3	1	if you put editable, no need for editableOnTemplate, its good for both
 2	2	this method only load data from the db
 i think that it's confusing to set this info to the disk within this scope, hard to debug and to track. please move it from here and preferably use the vm device instead of setting it to the disks.
@@ -1147,7 +1147,7 @@ i think that it's confusing to set this info to the disk within this scope, hard
 Having those properties in the disks are only because of the lack of UI support for vm device..there's no need to persist the use of them - IMO, just use VmDevice.
 2	1	Please don't. See my comment in utils.py. Configure the logger with proper formatter instead.
 3	1	later extract a method for getting VdsDynamicDao, like for other DAOs (used for testing reasons - there's no test so it's fine for now).
-3	3	when there is a sufficent contructor in the class the entire execution should fail, it shouldn't be catched here and obviously that the code shouldn't handle such cases.
+3	2	when there is a sufficent contructor in the class the entire execution should fail, it shouldn't be catched here and obviously that the code shouldn't handle such cases.
 
 
 there's no need for the boolean as the execution of the register disk logs wether it succeeded or failed, you can log it if you want for case of failure, but i don't see any real need for that.
@@ -1205,11 +1205,11 @@ This is why I do not understand why we need any common application downstream sp
 1	2	I must I disagree, but it's a matter of style.
 Consider though documenting the fact that the other method's days are numbered.
 1	1	why this is not in getEntity()? it would solve this in generic way...
-1	3	Yes, findbugs also says so, you can see it in the failed job and click on the new warning:
+1	2	Yes, findbugs also says so, you can see it in the failed job and click on the new warning:
 http://jenkins.ovirt.org/job/ovirt-engine_master_find-bugs_gerrit/19530/findbugsResult/new/
 1	1	There is a bit more information provided by _getExitedVmStats. Do we want to have it as part of an event?
 1	1	These two methods are business logic, so they don't belong in the API, they should be part of the AddVm command, so that the same logic is used when using the API or the GUI.
-1	3	this is redundant I think. you can use "	ACTION_TYPE_FAILED_VM_CANNOT_IMPORT_VM_ARCHITECTURE_NOT_SUPPORTED_BY_CLUSTER
+1	2	this is redundant I think. you can use "	ACTION_TYPE_FAILED_VM_CANNOT_IMPORT_VM_ARCHITECTURE_NOT_SUPPORTED_BY_CLUSTER
 
 but change its name to be more general
 2	1	Please use logs instead of System.out.
@@ -1361,7 +1361,7 @@ I just chose Hosts here because I wanted an extension that problem wasn't ever g
 As for the examples and definition, I think that could live in a devref guide like you pointed out (separate documentation).  I always forget about devref but it's a good place to document the more detailed feature information rather than the config file, although the config file description might be as far as anyone gets when looking to use an option...
 2	1	With auto-generated CRUD methods you don't need to define these methods manually. Please check this patch https://review.openstack.org/#/c/62865/
 2	1	please move command to system.py so this can be reduced to ""cmd_node_init"".
-2	3	We kind of discussed this last time - and thought that we didn't want to fail any calls if the operators were not recognised..
+2	2	We kind of discussed this last time - and thought that we didn't want to fail any calls if the operators were not recognised..
 1	1	this file is a legacy code and not used, but I can live with that change
 1	2	There are no such method as ""assert_called_once"". See: https://bugs.launchpad.net/manila/+bug/1330391
 1	1	I saw you added a comment at https://review.openstack.org/#/c/138310/1/specs/kilo/store-capabilities.rst , I think you probably already know the reason of this, right?
@@ -1429,7 +1429,7 @@ s/then/other than/ ?
 1	1	we must make sure the paste file is in absolute path mode:
 config_path = os.path.abspath(config_path)
 ?
-1	3	what happens if this fails? You have already deleted at the backend...
+1	2	what happens if this fails? You have already deleted at the backend...
 1	2	IMHO, we should explicitely add coverage for the method you're adding so we could isolate any problem later on
 1	2	if ignore_extra_args is set to false, we don't care about 'kw'. The return statement will never be executed because the UnknownArgument exception will be thrown before that.
 3	2	These are good, but I think we need another test which exercises the untested path in fault.py. Otherwise, if it is in fact unreachable, we need to eliminate that code path.
@@ -1641,7 +1641,7 @@ Also this data is not encrypted thus searches are visible to anyone if stored th
 
 How is en:meatball:Foo an invalid link? I've added that to the link tests and it's fine. And en:meatball:en:Foo doesn't work as the meatball wiki appears to have no interwiki map.
 2	1	I wonder if there's a point in using Revision::newFromId( $revid, Revision::READ_LATEST ) when $revid !== null. Or maybe doing it on-demand from the callback below.
-1	3	No, /index.php/Foo is an Apache-mod_php-ism, not a guaranteed feature. Standard PHP anywhere else does not include that handling.
+1	2	No, /index.php/Foo is an Apache-mod_php-ism, not a guaranteed feature. Standard PHP anywhere else does not include that handling.
 
 You're going to have to explain how you expect 'redirected from' from a HTTP redirect would be handled. Because so far everyone who's attempted to turn redirect pages into HTTP redirects while preserving 'redirected from' properly has failed.
 1	1	Hm, alright, fair enough. Most of the code I've seen uses mw.msg(), though.
@@ -1703,7 +1703,7 @@ I have mentioned the relevant comments for this impacted UT in the commit messag
  {..., 4, 6, V, { VR }, ...}
 
 compare with ""BETADIST"" and ""BETAINV"".
-1	3	shouldn't it free the allocated memory here and return null if mkstemp() fails?
+1	2	shouldn't it free the allocated memory here and return null if mkstemp() fails?
 1	1	If this line is removed the rDescription parameter name (and only the name) needs to be commented out because otherwise in an --enable-werror build the build breaks with ""unused variable"".
 1	1	same as above, aStr += m_sFormula.copy(nFml, nStt-nFml)
 1	1	here the indentation is wrong ;-)
@@ -1776,7 +1776,7 @@ searching for a candidate for a regression in 200+ commits
 2	1	The change here reminds me that also some of the new oc..._MS opcodes may need an entry here. Could you take care of those in a follow-up patch?
 1	1	the old code only replaced one instance not all but the string shouldn't contain more than one anyways...
 1	2	By the way, why are you adding patches for specific platform w/o $(if $(filter blah?
-2	1	Yes, this is correct! The error was introduced by bbc94edb9a91b27910d43610db9994df10dd99e1
+3	1	Yes, this is correct! The error was introduced by bbc94edb9a91b27910d43610db9994df10dd99e1
 2	2	How is determined which of the opcodes is actually taken during import of _xlfn.CEILING.MATH ? I think that's missing.
 
 Note that now that we use RID_STRLIST_FUNCTION_NAMES_ENGLISH_OOXML with the formula compiler, the tables in sc/source/filter/oox/formulabase.cxx are only provided for API support (of which we actually don't know if anyone is using it at all). Our internal OOXML import/export doesn't use them anymore, so any ""only for import / only for export"" usage needs to be implemented differently.
@@ -2043,7 +2043,7 @@ Not in this change, though.
 1	1	If a user term isn't returned I believe you'll get NPEs when displaying lists of changes. That's why I wrote https://gerrit-review.googlesource.com/35201 so that this error is discovered early and is properly reported. I was a while since I looked at it, and the code might've changed since then, so don't take my word for it.
 1	2	It feels wrong to be doing this sort of checking in this class, it is huge already.  I suspect that passing in the appropriate merge strategy via the factory would be cleaner.
 2	2	Is this necessary though?  Would anything bad happen if we encode to utf-8?  Also, it looks like this exists to make sure that we aren't using utf-16 or something else, in which case we would definitely want to keep this even in python3.
-1	1	Correct, I mentioned in the commit message that it's undocumented.
+2	1	Correct, I mentioned in the commit message that it's undocumented.
 2	1	We probably should ensure the project is clean before doing this, otherwise a user might lose uncommitted changes they care about:
 
   project = Project(
@@ -2123,7 +2123,7 @@ more occurrences below
 2	2	This was a mistake. If JGit doesn't support concurrent branch deletion we should do it sequentially :)
 1	1	Must have been something in formatOne at some point. Not sure why Eclipse didn't warn me. Done.
 2	1	refs/users/ is sufficient prefix. No need for refs/meta. We should be plural like changes heads and tags.
-2	3	There is no putComment method. Shorten this and just put it on one line:
+2	2	There is no putComment method. Shorten this and just put it on one line:
 
   checkState(psId != null, ""setPatchSetId must be called first"");
 
@@ -2190,7 +2190,7 @@ However, if that's the case, I'm not sure just switching this to only happen wit
 1	1	This method now only sends email; I would change the name to reflect this fact.
 1	1	I think this should say Alias for 'gerrit remove plugin' (see line 150)?
 1	1	The previous one says ""server assigned"".  Is the difference intentional?
-1	3	This works for the example I provided in the review of the patch set 4 but it still fails to render """"r"""" in a little bit different case.
+1	2	This works for the example I provided in the review of the patch set 4 but it still fails to render """"r"""" in a little bit different case.
 For example change this file content:
 
 2	2	Since there is a Gerrit issue [1] for this bug, can you please add a reference to this bug as footer?
@@ -2320,17 +2320,17 @@ LGTM after a small bug fix.
 This patch fixed the style errors and separated the DDR3 config change to anther commit.
 
 Some issues Simon pointed out still need Samsung people to fix.
-1	3	what does this mean? there's a scan result we currently fail to parse?
-1	3	Patch Set 4: Fails
+1	2	what does this mean? there's a scan result we currently fail to parse?
+1	2	Patch Set 4: Fails
 
 Unit tests fail for chromeos-ec so no changes can be committed until this is fixed :(
-1	3	EAPI is not required to be numeric, so this will fail when it is a string
-1	3	Patch Set 3: No score
+1	2	EAPI is not required to be numeric, so this will fail when it is a string
+1	2	Patch Set 3: No score
 
 Removing fails since I tracked down the failure to the previous CL.
-1	3	Is snd_pcm_close() the same as snd_output_close()?
+1	2	Is snd_pcm_close() the same as snd_output_close()?
 I expect to see ""snd_output_close()"" called before this return. My preference would be to see use of ""goto error_out"" or something similar in all the ""if"" failure cases.
-3	3	OK here are my thoughts:
+3	2	OK here are my thoughts:
 
 The error handling is fine, but the message doesn't mention bootstage so it isn't clear where the failure is. I think you should fix that.
 
@@ -2339,17 +2339,17 @@ set_bootstage_prop is called twice with the same path. In both cases it calls fd
 Then you set_bootstage_prop can be passed a node. In fact this function just has a call to fdt_setprop() so why have it at all? Just call fdt_setprop_cell or fdt_setprop_string instead, which are better suited to your requirements anyway
 
 Re working_fdt, I do prefer a single reference to a global rather than multiple spread throughout the file, but if you remove the function then this is not an issue anyway, I think that the whole of this for() loop should be in a separate function called from bootstage_report() if working_fdt is not 0. It should be passed working_fdt as a parameter,
-2	3	Patch Set 5: Fails
+2	2	Patch Set 5: Fails
 
 This already failed the unit tests once. Please do not submit any CLs until the unit tests are fixed.
-1	3	Patch Set 1: Fails
+1	2	Patch Set 1: Fails
 
 here is the error which failed your powertop bump:
 
  powertop-2.2-r2: ./csstoh "".""/powertop.css css.h
  powertop-2.2-r2: /bin/sh: ./csstoh: cannot execute binary file
  powertop-2.2-r2: make[2]: *** [css.h] Error 126
-2	3	Patch Set 1: Fails
+2	2	Patch Set 1: Fails
 
 this CL is breaking the CQ.  please try running it against a 32bit x86 board (like x86-alex or x86-generic) before re-submitting.
 
@@ -2360,8 +2360,8 @@ this CL is breaking the CQ.  please try running it against a 32bit x86 board (li
  make: *** [qemu_install] Error 1
   * ERROR: chromeos-base/vboot_reference-1.0-r811 failed (test phase):
 1	4	What happens if this fails? How do we ensure ssh is killed? Maybe a trap would be more supportable?
-1	3	I think this should remain in cleanup() or else it will not be called if the above fails.
-1	3	Patch Set 1: Fails
+1	2	I think this should remain in cleanup() or else it will not be called if the above fails.
+1	2	Patch Set 1: Fails
 
 (1 inline comment)
 
@@ -2374,7 +2374,7 @@ May be all the virDomainMigrateFlags too.
 1	2	IMHO this two functions are unnecessary.
 There are only validates (oh my...)
 Better if will be done in the level using the parameters.
-1	1	Hi,
+2	1	Hi,
 Correct me if i'm wrong - but, we have 2 instances of commands in the flow you described. This means they do not share state. The change done by Arik adds messages on the canDoActionMessages() collection of each one of the commands. Not sure how you're going to have this mix.
 2	1	Patch Set 2:
 
@@ -2408,7 +2408,7 @@ The specific reason the vm cannot run. ?
 or:
 The specific error that is preventing the vm from running. ?
 2	1	Please introduce new value in VdcBllErrors for VDSM error related to this command, and also add handling for it in AbstractGlusterBrokerCommand
-2	3	Patch Set 2: Fails
+2	2	Patch Set 2: Fails
 
 Configuring Firewall...                                 [ DONE ]
 
@@ -2461,7 +2461,7 @@ Please fix the indent pep8 errors in gluster_cli_tests.py at least.
 1	1	Patch Set 20:
 
 Same compilation errors in SshSoftFencingCommand and VdsStaticDAODbFacadeImpl as I wrote about in PS19 comments
-1	3	Patch Set 1:
+1	2	Patch Set 1:
 
 michael, it is a flag to protect against accidental deletion.
 i.e., engine will fail a request to delete a VM/template which has this flag.
@@ -2470,21 +2470,21 @@ this would be similar to amazon 'termination protection'[1]
 in ovirt, terminate == delete
 
 [1] http://aws.typepad.com/aws/2011/02/new-console-features-forced-detach-termination-protection.html
-2	3	Patch Set 7: Fails
+2	2	Patch Set 7: Fails
 
 well - we seem to have a race where we fail to connect to socket after migration, and guest information is not reported, adding logs on one host seem to 'resolve' the issue.
 also, why we call for unregister socket 3 times on migration scenario ?
-1	3	this will clearly fail - you must to initialize jobProperties first....
-1	3	You handle the failure once
-1	3	Patch Set 2:
+1	2	this will clearly fail - you must to initialize jobProperties first....
+1	2	You handle the failure once
+1	2	Patch Set 2:
 
 The Jenkins failure is an unrelated foobar.
-1	4	This does not really explain what the issue was.
+1	2	This does not really explain what the issue was.
 
 When new SD creation failed, failure status was not checked and flow continued to try and attach the SD to a pool which obviously failed and returned a storage domain not found error instead of the creation failure.
 SD creation status is now checked before proceeding.
-2	3	does getVds() return anything here? i can't see it is initialized so looks like NPE here. anyway the host which failed to connect should be returned from ConnectAllHostsToLun command, as the connection to all of the pool hosts is done inside it.
-2	3	Because this script is called as well from
+2	2	does getVds() return anything here? i can't see it is initialized so looks like NPE here. anyway the host which failed to connect should be returned from ConnectAllHostsToLun command, as the connection to all of the pool hosts is done inside it.
+2	2	Because this script is called as well from
     [root@f19_1]~# cat /usr/lib/systemd/system/vdsm-restore-net-config.service 
     [Unit]
     Description=Restore failed Vdsm network configuration on boot
@@ -2500,7 +2500,7 @@ SD creation status is now checked before proceeding.
     WantedBy=multi-user.target
 
 And it is useful to have the logging go the the supervdsm one.
-1	3	Patch Set 13: Fails
+1	2	Patch Set 13: Fails
 
 well, looks much better, you fixed the alerts, but in iscsi, block master domain, i get attribute error on missing (dom):
 
@@ -2509,13 +2509,13 @@ Traceback (most recent call last):
   File ""/usr/share/vdsm/storage/hsm.py"", line 2576, in prepareForShutdown
     self.pools[spUUID].stopRepoStats(dom)
 AttributeError: 'setMaxHostID' object has no attribute 'stopRepoStats'
-2	3	Will we miss adding the server if the status change command failed on it? I guess we should add it if it fails with ""already enabled"" error. Not sure what we should do if there is some other error though. Maybe we should let the sync job handle such cases.
-2	3	Patch Set 2: Verified
+2	2	Will we miss adding the server if the status change command failed on it? I guess we should add it if it fails with ""already enabled"" error. Not sure what we should do if there is some other error though. Maybe we should let the sync job handle such cases.
+2	2	Patch Set 2: Verified
 
 verified behavior.
 There is a problem when selecting a key and value remains empty: Validation isn't being performed on the client side and it fails on validation on the engine-core instead (i.e. CanDoAction).
 Can be fixed later in a separate patch.
-2	3	Patch Set 2: Fails
+2	2	Patch Set 2: Fails
 
 Configuring Firewall...                                 [ DONE ]
 
@@ -2623,7 +2623,7 @@ TYPO3 4.6 branch is at the end of bug fixing period. Only priority changes will 
 2	2	Patch Set 4:
 
 The indexer usage was not changed, it just fixes the bug and it works. :) Adapting to the new indexer is yet another task, of course.
-1	2	I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done...
+2	2	I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done...
 3	2	Patch Set 3:
 
 I have a separate TYPO3 installation running in an alias on the main site - that is in /home/. So domain.com is one TYPO3 installation and /home/ is a separate one using alias in Apache.
@@ -2641,50 +2641,50 @@ Just fix those three whitespace errors in the test class.
 3	1	Patch Set 2: Verified by team member; Looks good to me, approved
 
 I could not reproduce the errors - however the changes look straight-forward.
-1	3	Will fail with: ""uid , pid , crdate"".
+1	2	Will fail with: ""uid , pid , crdate"".
 
 I think the following would be better:
 /(^s*|,s*)uid(s*,|s*$)/
 
 I added space checks on both sides because TS objects can be also created programmatically, so spaces are not necessarily trimmed.
-3	3	Patch Set 6: Fails; Looks good to me, but someone else must approve
+3	2	Patch Set 6: Fails; Looks good to me, but someone else must approve
 
 Rebased on master. The changes introduced come from I076a02096fb62bb1b8a51d888287d68c6ca26965, which was merged after the ""security"" topic was rebased, reviewed and verified by Robert.
 
 That change also reactivated a number of tests, of which three still fail in this state of the codebase.
-2	3	Patch Set 2: Fails
+2	2	Patch Set 2: Fails
 
 unit tests fail for me, please hold on (investigating)
-1	3	Patch Set 4:
+1	2	Patch Set 4:
 
 The failure has to do with the locales available on my system. de_DE.UTF-8 is not available, but when I change it to en_US.UTF-8 the test is ok.
-3	3	Patch Set 5: Verified by team member; Looks good to me, approved
+3	2	Patch Set 5: Verified by team member; Looks good to me, approved
 
 The last patch set adds an @outputBuffering to the test Bastian added to avoid failure when running PHPUnit in strict mode.
 
 Submitting with prior approval.
-3	4	Patch Set 2: Looks good to me, but someone else must approve
+3	3	Patch Set 2: Looks good to me, but someone else must approve
 
 Looks good to me.
 
 I consider the possibility of a fatal failure in (core) development context no big problem, as a core developer should know how the caching works.
-1	3	Patch Set 2:
+1	2	Patch Set 2:
 
 Build Failed 
 
 http://ci.typo3.robertlemke.net/job/TYPO3-Neos-Review/2721/ : Build failed
-2	3	Would be nice to have some errors thrown here if property setting failed. I just tried to set templateRootPathPattern instead of templateRootPath, which failed silently because there is no pubic setter for the *pattern property.
-1	3	Patch Set 1:
+2	2	Would be nice to have some errors thrown here if property setting failed. I just tried to set templateRootPathPattern instead of templateRootPath, which failed silently because there is no pubic setter for the *pattern property.
+1	2	Patch Set 1:
 
 Build Failed 
 
 http://ci.typo3.robertlemke.net/job/TYPO3-Neos-Review/2722/ : Build failed
-3	3	Patch Set 1: Fails
+3	2	Patch Set 1: Fails
 
 @Aske, really nice UI changes and the image GUI has improved a lot.
 
 One thins thou when trying to hide and element on a page which not has been published. An exception is thrown, maybe something that should be handled inside the PHP code instead.
-3	3	Patch Set 1:
+3	2	Patch Set 1:
 
 Thanks for your reviews.
 
@@ -2698,7 +2698,7 @@ Thanks for your support!
 Steffen
 
 P.S: The reason, why Jenkins fails is probably, because of the parent commit is very old and the patch has to be rebased. Will try to get this done now (if network connection allows)
-1	3	Patch Set 4:
+1	2	Patch Set 4:
 
 I uploaded a patch set 4 which uses a VariableFrontend for TCA caching.
 
@@ -2747,7 +2747,7 @@ to convert it to a boolean value
  /* Make sure stripe offset is in OST list. */
 1	1	I don't know that this will actually do what you want.
 1	2	I don't get it. How are those unused locks got rid of?
-2	3	I remember seeing error like ""Lproc: Attempting to register osc more than once"" when trying to mount lustre file system on server node. Looks like we have this logic to avoid re-creating osc proc entry in osp_mod_init but its counterpart is missing in osc_setup(). So if we have osp loaded before osc, we get the failure inserting osc module.
+2	2	I remember seeing error like ""Lproc: Attempting to register osc more than once"" when trying to mount lustre file system on server node. Looks like we have this logic to avoid re-creating osc proc entry in osp_mod_init but its counterpart is missing in osc_setup(). So if we have osp loaded before osc, we get the failure inserting osc module.
 
 The error now gets hidden with this patch because lprocfs_seq_register() only warns about it and creates duplicated entry in parent's subdir link. Then subsequent lookup only finds the newly created entry and it can cause random failures.
 1	1	(style)  code indent should use tabs where possible
@@ -2794,7 +2794,7 @@ Don't delete the list_del_init(), which is on a different list...
 1	1	(style) I don't understand why this is in its own scope?  It just causes all of the code to be indented further for no particular benefit.
 1	1	(style)  try to replace assertions with error handling
 2	1	This change allows us to specify IP addresses for NIDs on future systems. We also need to continue using the decimal NID values for current systems.
-1	1	Hmm, wouldn't it make sense to prefer to close READ file handles first?  Then, if the client is still writing it will have the correct handle.the client can read on a file opened for write, but not the reverse.
+2	1	Hmm, wouldn't it make sense to prefer to close READ file handles first?  Then, if the client is still writing it will have the correct handle.the client can read on a file opened for write, but not the reverse.
 2	1	I'd prefer create lost-found/MDTxxxx dir in the way client does, that is MDT0 alloc fid from MDTxxxx and create this dir like a normal mkdir. Though a sequence may be used only for this fid only, but this mechanism can be used in the future for similar case that MDT0 wants to create remote directory.
 1	1	this must be count > CFS_PAGE_SIZE - 1,
 otherwise the kbuf[count] = 0; would overflow into the next page is the write is eaxctly page-sized.
@@ -2870,7 +2870,7 @@ do_nodes $list $LCTL set_param -n obdfilter.*.writethrough_cache_enable=1
 
                 $LCTL set_param $FSNAME.llite.jobid_var=$JOBENV
 1	2	declaration of ""tv"" can put in this block, but it's not kernel code so it's not a big deal.
-1	3	For coreboot, maybe you could insert:
+1	2	For coreboot, maybe you could insert:
 
    assert(OpFlag == AccessWidth8);
 
@@ -2879,7 +2879,7 @@ before the ""if"" to ensure that coreboot users aren't tripped up.  I'm the firs
 1	4	I'd expect rules.h to help here as well. Even if the logic is a pain/messy it's better to put those constructs in a single file.
 1	1	Can we get this from CPUID instead of hard coding it?
 1	1	I assume this is not a memmap version of 16550/8250?
-3	3	If it's not set, there's no way to get FSP failure data out.  I agree that it's not an absolute requirement, but without it, if there's a failure, you're going to be pretty lost.
+3	2	If it's not set, there's no way to get FSP failure data out.  I agree that it's not an absolute requirement, but without it, if there's a failure, you're going to be pretty lost.
 
 We could move it from here and put this below, surrounding the #if statements and not actually fail, but my opinion was this was the best option...
 1	1	This bootmode is allover the place in ACPI too. I was considering doing enum with follow-up later.
@@ -2891,11 +2891,11 @@ What is the bare minimum amount of info that needs to be passed? Isn't it just a
 1	2	To clarify: what is so odd about that is we don't have any way to ensure or car_data section doesn't intrude on whatever region FSP may be using. i.e. I thought that was the point of the contract provided by what was passed back from FSP.
 1	1	How come there is change for IO resources with config option of 64BIT_PREF_MEM ?
 1	1	I would expect a comment saying that we want to fall through whenever we fall through.
-1	3	You may want to check for NULL because cbmem allocations can fail.
+1	2	You may want to check for NULL because cbmem allocations can fail.
 1	2	These r characters at the end break our Git commit hooks checking for coding style issues lint-stable-003-whitespace.
 1	1	Why is this called a console util, when in fact it's a UART util?
 1	1	I think I'll cherry-pick, rebase and add the bootblock.elf and coreboot.ram fixes in #750.. makefile half-baked output.
-1	1	Why not just adjust the check upstairs to 
+2	1	Why not just adjust the check upstairs to 
 (m->total_size?:2048) > (microcode_end - (u32)c)
 then you won't need this check if you assume that cbfs is correct and if you don't cbfs check belongs to cbfs functions, not here.
 1	1	Where do they live then? And then shouldn't we remove VBOOT_CFLAGS here?
@@ -2983,7 +2983,7 @@ Unlike the other options, this one does not need a pirq_table.c or mptable.c fil
 
 Generally dropping these tables from the build is almost never worth it, since most OSes expect something there.
 1	2	No. I must have missed it while removing things. I'll update the patch to nix this.
-1	3	Only if using FSP is enabled. otherwise: build failure
+1	2	Only if using FSP is enabled. otherwise: build failure
 1	3	TableID is specified to be 8 characters. While the original version broke that by adding a space, I guess it's simply ignored. With this change, the final ""M"" would be dropped, too.
 
 (When you fix that, also cut OEMID to 4 characters, it's 32bit. ACPI5.0 19.5.28)
@@ -3030,10 +3030,10 @@ yes, if it's 0, we still reach the code.  I've changed it to not dereference it 
 3	2	The only advantage is doing it temporarily as its previous usage/intention was to be cached only during the boot process but not before the OS execution.
 
 As for always enabling WP on the ROM I don't feel very comfortable because I don't know the broader implications. Some flash devices have weird programming algos and leaving the caching type as WP may make one not be able to upgrade the firmware from the host CPU.
-1	2	Removing onboard devices instead of setting them to off can break the chipset configuration. This is the entire reason for this stuff to be in a devicetree.cb and to make the static.c to point to the correct setup functions. These devices are always on the board and the chip configuration will enable and disable (and hide) them based on the platform configuration and the device tree.  Without this, everything would be a normal pci device enumeration and coreboot would be much much simpler... 
+2	2	Removing onboard devices instead of setting them to off can break the chipset configuration. This is the entire reason for this stuff to be in a devicetree.cb and to make the static.c to point to the correct setup functions. These devices are always on the board and the chip configuration will enable and disable (and hide) them based on the platform configuration and the device tree.  Without this, everything would be a normal pci device enumeration and coreboot would be much much simpler... 
 
 I also agree with Martin that, as a reference design, it is important to show the configuration as clearly as possible.
-1	3	Factor that out into a function(?) `print_fail_message` in a follow-up/preceding patch?
+1	2	Factor that out into a function(?) `print_fail_message` in a follow-up/preceding patch?
 
     test ?��?�?? && print_fail_message(path)
 
@@ -3072,7 +3072,7 @@ Another good feature which is connected to value formats is flag which will says
 1	1	Currently, bucket name cannot contain symbols from html. That is why I remove escaping.
 2	1	Please add more functional/features tests on this conf file when you add the rest of the code.
 1	1	Just to be clear. The projector does not dictate the port number of the end point.  During handshake, the indexer or coordinator tells the projector the endpoint.
-2	3	Is it better that we add one line comment like ""if set failed, must return -1 ...""
+2	2	Is it better that we add one line comment like ""if set failed, must return -1 ...""
 1	1	Okay, then we will keep them in an engine stats request.
 1	1	I want the next item to be dequeued when the previously dequeued item has been consumed by the caller (as there is no facility to enqueue an item again). So I am using the unbuffered channel for this synchronization.
 1	1	You shouldn't need this - I have a patch in flight to our gtest - see https://github.com/daverigby/gtest/tree/clang_analyzer which will make the GTest asset macros ""understood"" by clang analyser.
@@ -3167,7 +3167,7 @@ The removed atomic inc was mistakenly left over from when add didn't have an upd
 
 you mentioned that we could use list of list instead of map of list to avoid issues with map. Feel that it makes the code harder to read. we may have to understandard the behavior with maps anyway. Plan to make the changes above and see if the issue in MB-14866 re-cur.
 2	2	This is hack for rdoc. This comment forces to treat it as read-only attribute
-1	1	As of now, some caller assumes that the returned ref is not nil when the returned err is nil. When this assumption is not valid, as the original code shows, subsequent actions on the returned ref would cause NPE and lead to GOXDCR crashes, which caused the issue in MB-18266. 
+2	1	As of now, some caller assumes that the returned ref is not nil when the returned err is nil. When this assumption is not valid, as the original code shows, subsequent actions on the returned ref would cause NPE and lead to GOXDCR crashes, which caused the issue in MB-18266. 
 
 Returning a metadataNotFound err here is more correct conceptually, since this code is called from query APIs for remote cluster refs, and not being able to find the ref is an error condition. It will result in more consistent and predictable behavior -- the aforementioned issue will no longer occur.
 2	1	A similar comment should appear in the man pages for now, right?
@@ -3179,14 +3179,14 @@ nitpick: It's better (more professional) to write these things in the 3rd person
 1	2	can we avoid json_dump here , we are doing it few times in query generator. return the json format
 1	1	There is no need for a ""continue"" here, since it means the same as the normal program flow...
 1	1	we will need to log the error since it is ignored by caller
-3	3	if we assume that initCache() always succeeds - otherwise service constructor fails - we do not need to check for non-nil cache or return error for it anywhere
+3	2	if we assume that initCache() always succeeds - otherwise service constructor fails - we do not need to check for non-nil cache or return error for it anywhere
 1	2	There may be a minor bug here in that there can be a TMPFAIL at authentication time.  This doesn't seem to handle that.
 1	1	How is 'bbox' supposed to be encoded for transmission over http?  Currently its encoded as a Javascript array, which is probably why its not behaving as expected.
 2	1	I believe you can only have one appender configured. The file based one is more useful to me, but maybe not to others.
 1	1	I'd expect that to autounbox.  Autounboxing *might* be less efficient, but it's more readable and won't matter much for a test.
 1	2	this is confusing. I think this needs to be called PluggablePrefix or something of that nature. To call it Service is confusing to me.
 3	1	Before the goto, you must update errcode. What happens now is that we fall to alloc_error label and then return a success status when actually an error happened and *dst was not populated.
-2	3	wouldn't this be subject to the same bug if the server answers something different for one of the keys, like 0x86 TEMP_FAIL?
+2	2	wouldn't this be subject to the same bug if the server answers something different for one of the keys, like 0x86 TEMP_FAIL?
 
 what about doing a response.Read while it's not returning -1 (socket.isAlive == false)?
 
@@ -3209,7 +3209,7 @@ why do you skip_cleanup?
 
 Is there a policy though of maintaining stats? any external tools reliant upon them that would be unhappy with removal of a stat?
 2	1	The error for the operation. If there is no error, this value will evaluate to `false`
-1	1	there should be
+2	1	there should be
 
   } else {
     rv = get_env_plugin_info(pi);
@@ -3360,7 +3360,7 @@ In any case, Backend tests would be great, but it would really be something sepa
 This method is used in an enhanced for loop, so a list would work just as well as an Array
 1	1	Those variables are used by everyone deriving from GerritCommand. It should be pushed up as well and the getter/setters
 1	1	not if you want to compare from a raw byte array used to serialize object IDs
-2	3	this rather looks like an IllegalArgumentException
+2	2	this rather looks like an IllegalArgumentException
 
 looks like we should check this earlier when setURI is called and already fail there if a URI is already set
 1	1	I think there is some test missing here: test the comments, the drafts, getOn behalf_on, hashcode, equals, tostring, ...
@@ -3388,7 +3388,7 @@ Don't forget te regenerate the metamodel
 
 I suggest you setup API checks. They give a lot of warnings here about missing @since tags etc.
 1	2	This is a refactoring from my side that sneaked in when I split the commit. I'll revert this asap since it adds nothing to this change.
-1	3	setting input to '-' isn't supported on Mac hence these tests fail with the error message ""sed: -: No such file or directory"". AFAIK if no input is given sed defaults to read the standard input on Mac and Linux
+1	2	setting input to '-' isn't supported on Mac hence these tests fail with the error message ""sed: -: No such file or directory"". AFAIK if no input is given sed defaults to read the standard input on Mac and Linux
 
 more occurrences below
 2	1	do we need to take care all of this, if we decide not to put them in 2.0 ?
@@ -3561,7 +3561,7 @@ When I changed the on-disk location (via the rename above) of my gitiles checkou
 1	1	Docs in master are built from Buck. This Makefile should have been removed when the pom.xmls were removed.
 4	1	Good call!  New code uses work_git.rev_parse('HEAD').  PTAL.
 1	1	Don't use exceptions for control flow. Use Ints.tryParse instead.
-1	3	Change this to throw CompileException instead. Elsewhere on failure you throw IOException or CompileException.
+1	2	Change this to throw CompileException instead. Elsewhere on failure you throw IOException or CompileException.
 1	1	Maybe ""findSubClasses"" would be a better name for these methods?
 1	1	Would it be worth to mention that the review notes are written by the review-notes plugin?
 2	1	Don't encode the value right away.  Instead we should lazily encode the value only when the serialization stream needs it.  Thus the constructor is just:
@@ -3604,7 +3604,7 @@ So remove the isHugeFile parameter and just check line.getSize()?
   usage = ""List of SSH session ids to be closed""
 
 or some such.
-3	3	You are mixing two different use cases. Use case 1:
+3	2	You are mixing two different use cases. Use case 1:
 
   beginTransaction()
   commit()
@@ -3781,7 +3781,7 @@ But it may be better to wait until there are more modules ready before doing any
 #include ""thread_mpi/atomic.h""
 
 It is a remaining from an intermediate OpenCL development stage. In CUDA source files CUDA and non-CUDA data structures and headers are mixed together. This cannot happen with OpenCL, you cannot use C/C++ standard library headers or any other headers relying on those (see section 6.9 https://www.khronos.org/registry/cl/specs/opencl-1.2.pdf)
-1	1	This is the same as in the underlying OS calls, and this same construct is also used in the nbsearch pair loop, as it minimizes the amount of code the caller needs to write for correct looping (and is quite easy to implement, as there's only one function that returns something).
+2	1	This is the same as in the underlying OS calls, and this same construct is also used in the nbsearch pair loop, as it minimizes the amount of code the caller needs to write for correct looping (and is quite easy to implement, as there's only one function that returns something).
 2	2	Not currently. It's somewhat different from what the current reference data approach uses, as I guess that you would want to generate that state using some code that is not part of the test (since if you can generate the state with code that runs anywhere, you do not really benefit from serialization).
 
 Generic serialization is also a significant amount of code, even if straightforward (and with C++, it requires some careful thinking on what kind of constraints it enforces on the serializable types, unless you make the object itself responsible for the serialization).
@@ -3864,7 +3864,7 @@ Similar for GWT-P's registerHandler on their PresenterWidget base class: http://
 1	1	The performance characteristics of ArrayList should be similar enough to use here instead of introducing JsObjectArray.
 1	1	How about that one? Is it because you won't be able to automatically change call sites?
 1	2	This is a Maven project, and Maven's default build directory is ""target"" (see also the .classpath file generated by M2Eclipse)
-2	3	Here, we are making a bunch of datastore calls in a loop, which could fail (or time out) and drop half of the updates.
+2	2	Here, we are making a bunch of datastore calls in a loop, which could fail (or time out) and drop half of the updates.
 
 Since this is derived data and an async update is probably okay, a more robust approach would be to put tasks on the App Engine task queue to refresh each graph. Failed tasks automatically get retried.
 
@@ -4030,7 +4030,7 @@ http://jsperf.com/isastring-boxedstring
 
 http://jsperf.com/isastring-notastring
 1	1	[error] Got an exception - expecting EOF, found 'registered'
-2	3	Can you wrap arguments like this (containing search pattern) in double quotes please? Fish shell (and probably zsh and alike) fails to execute it without it.
+2	2	Can you wrap arguments like this (containing search pattern) in double quotes please? Fish shell (and probably zsh and alike) fails to execute it without it.
 2	1	Value stored to 'offset' is never read (Clang Analyzer)
 2	1	Why this special case? It did not exist before and all it callers seem to take it from a tvb (except for a hard-coded 2000 in EnhancedAlarmMessage, which seems wrong too as the length is not checked there?)
 1	1	Because it is used below in g_list_foreach, where gpointer is mandated.
@@ -4301,7 +4301,7 @@ Ghada
 1	1	How do you get to the info below when the code above returns an array straight away?
 
 some of this code is not needed
-1	1	The correct one is according to JamesF ""wiki"" instead of ""index.php"". He's fixing it up on the server.
+2	1	The correct one is according to JamesF ""wiki"" instead of ""index.php"". He's fixing it up on the server.
 1	1	Should be $table = new XMLDBTable('usr_watchlist_artefact'), right?
 1	1	Is this character class needed? Is there a reason why we can't use ([^<]+) ?
 2	1	Hi Robert,
@@ -4385,7 +4385,7 @@ Ghada
 1	1	nitpick: ""$reset = $cfglang = $CFG->lang = null;"" would have been even clearer here
 2	1	This will add an new <input name=""ajax""> everytime I change the switch.
 Please add the code to make sure only one is appended.
-3	3	Yep, I've added the latter db insert/delete bits in a transaction
+3	2	Yep, I've added the latter db insert/delete bits in a transaction
 
 I've kept out the 'update the item with start process time' bit because we want that to happen on success and failure
 1	2	Does this has any effect? If the method is null, the field in the return set is NULL both ways, joined or not, or am I mistaken?
@@ -4497,7 +4497,7 @@ http://www.w3schools.com/cssref/pr_class_display.asp
 1	1	Will the servicename have other characters at this point?
 1	1	Just delete this line, have one empty line in between the background and the scenario.
 1	1	Are you intending to add more artefact plugin settings?
-1	2	I still think you also need to check that the $bi->get('blocktype') is allowed for $artefacttype->name.
+2	2	I still think you also need to check that the $bi->get('blocktype') is allowed for $artefacttype->name.
 
 For example if I alter an internal media block to have the artefactid point to an image artefact I get this match:
 
@@ -4533,7 +4533,7 @@ It is just that this is quite a big block of code, and would be more readable fa
 2	1	Possibly replace this stat with find $logdir -type f in the ""for"" line(135). We will save a stat call.
 1	2	I would request you to revisit the changes. glusterd_bitdsvc_manager would now invoke glusterd_bitdsvc_init conditionally. init function will not be exposed now.
 2	1	ctr is not something that we would want to call out in UI as users may not understand what it is about. Please use the expanded form in all cases.
-1	3	syncop_fsetattr failures at line 1276 can still result in failure of migration of file. Only after 1276, it is guaranteed that src will be unlinked. So, we need to set this to false after line 1276. Infact it is even possible that unlink itself might fail. So, its better to set this at line number 1359 (where ret is set to 0).
+1	2	syncop_fsetattr failures at line 1276 can still result in failure of migration of file. Only after 1276, it is guaranteed that src will be unlinked. So, we need to set this to false after line 1276. Infact it is even possible that unlink itself might fail. So, its better to set this at line number 1359 (where ret is set to 0).
 1	2	here we are changing the default to 0666 but in open it is 0777, we should have only one. I think 0777 was chosen based on what python os module does, but could be wrong...
 3	1	Sounds good to me. I shall handle these changes in the separate patch. Thanks!
 1	2	There's no actual need to have this routine similar to how it's done in bit-rot-scrub.c since there just one (1) option to reconfigure.
@@ -4541,7 +4541,7 @@ It is just that this is quite a big block of code, and would be more readable fa
 Keep it simple and just do a GF_OPTION_{INIT,RECONF} in the appropriate function.
 1	2	features.quota-deem-statfs should be allowed to reset
 When resetting features.quota-deem-statfs, it should be cleared when quota is disabled. It should be set to on when quota is enabled
-1	3	why are you going to manager function if glusterd_svc_check_volfile_identical function will failed ???  you should simply return error.
+1	2	why are you going to manager function if glusterd_svc_check_volfile_identical function will failed ???  you should simply return error.
 3	1	is this an optional call or clients should always call it at the end? when is it a good idea to call unmount?
 Can we add this info to some form of documentation?
 1	1	And We dont have all functions available in cluster.rc (volinfo_filed, get_quotad_count, ... so on
@@ -4572,13 +4572,13 @@ Please use a similar eval/echo/grep as on line 50.
 2	1	need to check for values <0 and use 1 (second) in that case.
 1	1	The list of maintainers seems to be organized alphabetically by translator name. I guess tiering should be listed after quota.
 1	2	Even here LG_MSG_INVALID_ARG ? Just to maintain the uniformity
-2	3	This is a special and important message. May be use something like P_MSG_STALE_HANDLE_REMOVE_FAILED here?
+2	2	This is a special and important message. May be use something like P_MSG_STALE_HANDLE_REMOVE_FAILED here?
 3	1	Fine, we need to watch out for the other patch when it gets merged, in terms of gf_log* interface creeps.
 1	1	It would help to have a DHT_MSG_DISK_LAYOUT_MISSING msgid here
-1	3	wouldn't BRB_MSG_FD_CREATE_FAILED a more appropriate message identifier.
+1	2	wouldn't BRB_MSG_FD_CREATE_FAILED a more appropriate message identifier.
 1	1	The error check is implicit in checking tmpfp below. If mkstemp has an error, tmpfd would be -1 and tmpfp would be NULL. Should I perhaps throw in a gf_log() line with the message ""could not create temp file""? This seems slightly redundant given that setting ret = -1 triggers another log message in the out section.
 2	2	This is more like an invalid option, not out of memory.
-1	3	Wondering if this message could be more descriptive in terms of specifying WHAT remote operation failed?
+1	2	Wondering if this message could be more descriptive in terms of specifying WHAT remote operation failed?
 3	1	Intentionally made this INFO, as restore being a not so common operation this log wouldn't be quite frequent, and also it's good to know why and who stopped bricks in these cases for debugging later, coz most customer setups don't run in debug mode
 1	1	use macro VKEY_FEATURES_INODE_QUOTA and VKEY_FEATURES_QUOTA
 1	1	Should we not loc_wipe parent at some point in time?
@@ -4586,7 +4586,7 @@ Please use a similar eval/echo/grep as on line 50.
 1	1	I think there is no issue with daemons which  are using  svc-mgnt framework. (./xlators/mgmt/glusterd/src/glusterd-svc-mgmt.c +105 ).
 1	1	how are we guaranteeing that when we invoke this clean up there are no threads consuming these RPCs?
 1	1	Wondering whether ret needs to be initialised to -ENOMEM here because its caller is expecting it to contain -errno.
-2	3	Done
+2	2	Done
 
 P.S: I was confused between EBADF and EBADFD. Then I tried to be consistent as I see libgfapi returning EBADFD in several other glfs_* methods when glfs_resolve_fd() fails.
 1	1	Can you add a comment on how you can end up with a linkto file on cached-subvol and why lookup-everywhere is  needed?
@@ -4594,7 +4594,7 @@ P.S: I was confused between EBADF and EBADFD. Then I tried to be consistent as I
 Please note rebalance_completed has a bug, you should only check for 'completed' status instead of inversing for 'in progress'.
 2	1	please add tests for fopen, we should test the different modes
 1	1	We certainly can use the errno here as we are invoking'fork'
-1	3	why are you going to manager function if glusterd_svc_check_volfile_identical function will failed ??? you should simply return error. same comments apply for all reconfigure function if you have done same things.
+1	2	why are you going to manager function if glusterd_svc_check_volfile_identical function will failed ??? you should simply return error. same comments apply for all reconfigure function if you have done same things.
 1	1	This should be in *_manager() function. glusterd will crash
 if *_svc.manager() is called before this function.
  
@@ -4616,8 +4616,8 @@ Session %s with volume %s updated.
 
 I'll fix this although it's OK not to change this as this routine is executed when the process in tearing down. So, it's probably doesn't matter much.
 1	1	Are we sure the the same set of changes are not required for other daemons as well?
-1	3	Should have caught this earlier, ret would be reset to 0 here on succesful cleanup of source, but actual migration may want to signal a failure with ret as -1, so we would need to use a different variable or reset ret to its original.
-1	3	s / GD_MSG_VOLINFO_SET_FAIL /GD_MSG_VOLINFO_STORE_FAIL
+1	2	Should have caught this earlier, ret would be reset to 0 here on succesful cleanup of source, but actual migration may want to signal a failure with ret as -1, so we would need to use a different variable or reset ret to its original.
+1	2	s / GD_MSG_VOLINFO_SET_FAIL /GD_MSG_VOLINFO_STORE_FAIL
 1	1	This should also be converted GF_VALIDATE_OR_GOTO, take this as global comment
 1	1	I've already explained the reason in one of your earlier comment.
 1	1	Don't you need to unlink all the socket files as well?
@@ -4636,15 +4636,15 @@ In this naming scheme, the context is not clear from the name of the function, b
 Further, dict_set_bin, takes in a pointer, that it strores in the xattr/dict and later is freed when this dict is destroyed. In the case of passing a pointer which is a structure containing another pointer, the dict routines cannot encode this into the dict.
 
 Overall, as info is passed to be stored as a dict, the above mechanism of allocating a pointer within info and passing this would fail to send these values across and also leak memory for the allocated info->buffer.
-1	3	Too generic - write_failed would be more informative.
-1	3	You can pass in -ret as errno to gf_msg.
+1	2	Too generic - write_failed would be more informative.
+1	2	You can pass in -ret as errno to gf_msg.
 Also, this can be a new msgid : DHT_MSG_OPEN_FD_ON_DST_FAILED
 2	1	Your memory is too smalll. Consider buying a RAM. :D
 1	2	dict_ref (src->ctx) would ensure that ctx is not destroyed with the destruction of the @src event.
 2	1	as discussed, change it to 
 if (ret && !mismatch)
          break;
-3	3	with --xml, return code will be zero for both success and failures. This may fail for invalid Volume name.
+3	2	with --xml, return code will be zero for both success and failures. This may fail for invalid Volume name.
 1	1	Message could be a bit more clear. What is out of memory here? which process, disk etc?
 1	1	This xdata is the response dict, I think you need to use xdata which is received in marker_rename
 1	1	It better to have a log here rather than having GF_VALIDATE_OR_GOTO.
@@ -4653,7 +4653,7 @@ The log can be gf_msg (this->name, GF_LOG_ERROR, 0, Q_QUOTA_INODE_MISSING, ""Mis
 Just add a enum with appropriate number associated to it, there is no diagnosis for this.
 1	2	Passing a whole volfile path this way seems a bit fragile.  Would it be possible to pass the flag and a *relative* path, so that the receiver constructs the final path instead of the sender?
 2	1	Warned about same in doc string. It'd be more safe to remove this method altogether.
-2	3	I am sorry. I just missed it before. errno should already be set to ENOENT if resolve/lookup fails. We shouldn't map any other genuine errors to ENOENT.
+2	2	I am sorry. I just missed it before. errno should already be set to ENOENT if resolve/lookup fails. We shouldn't map any other genuine errors to ENOENT.
 1	1	Why have the diagnoses strings been removed from this file?
 1	1	we are doing cleanup during every test case start . I think it is not required again here.
 2	2	I do not like (long) very much, but that is something in the inode_ctx API :-/
@@ -4663,16 +4663,16 @@ Maybe I find the courage one day to make it a (void*) instead.
 1	1	you wouldn't need to do this, you can still use svc's volfile while checking for whether the volfile/topologies are identical or not.
 1	1	We need refresh freq_demote = defrag->tier_demote_frequency; here, otherwise we won't be able to change the frequency from the CLI.
 2	1	this will never be true if it's of type unsigned int.
-1	3	Isn't this a dict_get failed rather than a dict_set?
+1	2	Isn't this a dict_get failed rather than a dict_set?
 1	1	syncop_ functions return -errno as ret. This can be passed to the gf_msg function.
 1	1	DHT_MSG_INODE_LK_ERROR sounds similar. Can that be used instead?
 
 If you add a new msgid, GLFS_DHT_NUM_MESSAGES needs to be updated.
-1	3	Logging on allocation failures is discouraged. So remove this.
+1	2	Logging on allocation failures is discouraged. So remove this.
 1	2	You might even want to change (de)allocations in this source to use gf_*() routines (as a part of this patch or separately).
 1	1	Better to rephrase:
 If inode table limit has been reached, then better to increase the limit of ....
-1	3	LG_MSG_INSERT_FAILED => LG_MSG_RBTHASH_INSERT_FAILED
+1	2	LG_MSG_INSERT_FAILED => LG_MSG_RBTHASH_INSERT_FAILED
 2	1	Please explain on why it is been taken out from the switch case below.
 3	2	cbk->mask will only contain bricks where the request has been sent. A read will never have a bit corresponding to a brick being healed on cbk->mask set, so the & is not needed. However, for writes (that also send the requests to bricks being healed), doing the & will cause that bricks that were unhealthy at the start of the operation will be marked again as bad after completing the operation, even if the operation succeeded. I think this is not correct.
 2	3	I understand you do this so that GF_FREE() under the out: label does not free the acl_xattr. The dict_unref() will call GF_FREE() already.
@@ -4682,7 +4682,7 @@ Is there a need for GF_FREE() in out: at all? I think that only is useful for th
 If you do not like that approach (or if I missed something that makes it impractical), this 'acl_xattr = NULL' stetment desperately needs a comment.
 3	1	u mentioned that is ""good to have"". i will try to convert tests for distribute volume.
 1	1	We should have a log for non-connect events as well, probably at trace or debug levels.
-1	3	This will cause a double free. The previous GF_REF_PUT() will already call auth_cache_entry_free() (where entry is free'd) if auth_cache_add() has failed.
+1	2	This will cause a double free. The previous GF_REF_PUT() will already call auth_cache_entry_free() (where entry is free'd) if auth_cache_add() has failed.
 1	2	Even here LG_MSG_INVALID_ARG ? Just to maintain the uniformity
 1	2	As I said in previous comment, explicit lookups coming from above layers are never avoided. Its only during the cases where readdirp is followed by a fop, a lookup is triggered by gfapi/fuse.
   
