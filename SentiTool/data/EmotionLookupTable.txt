@@ -788,7 +788,7 @@ erode*	-2	General Inquirer Feb 2010
 erosion	-2	General Inquirer Feb 2010
 err	-2	General Inquirer Feb 2010
 erroneous*	-2	General Inquirer Feb 2010
-error*	-2	General Inquirer Feb 2010
+error*	-1	General Inquirer Feb 2010
 esoteric	-2	General Inquirer Feb 2010
 estranged	-2	General Inquirer Feb 2010
 evade*	-2	General Inquirer Feb 2010
@@ -2338,7 +2338,7 @@ unfavorable	-2	General Inquirer Feb 2010
 unfeeling*	-2	General Inquirer Feb 2010
 unfit	-2	General Inquirer Feb 2010
 unforeseen	-2	General Inquirer Feb 2010
-unfortunate*	-2	
+unfortunate*	-1	
 unfriendly	-3	
 ungrateful*	-3	
 unguarded*	-2	General Inquirer Feb 2010
