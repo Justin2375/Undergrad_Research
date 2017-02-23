@@ -884,6 +884,7 @@ filthy	-2	General Inquirer Feb 2010
 fine	3	auto check 4 aug 2009
 fired	-3	removed	flatter*	1
 fist	-2	General Inquirer Feb 2010
+fix	-3
 flagrant*	-2	General Inquirer Feb 2010
 flame	-3	
 flamed	-3	
