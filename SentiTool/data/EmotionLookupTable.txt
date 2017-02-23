@@ -271,7 +271,7 @@ brute	-2	General Inquirer Feb 2010
 brutish	-2	General Inquirer Feb 2010
 buckled	-2	General Inquirer Feb 2010
 buffoon*	-2	Feb-11
-bug	-2	General Inquirer Feb 2010
+bug	-3	General Inquirer Feb 2010
 bullet*	-2	General Inquirer Feb 2010
 bullshit*	-3	Feb-11
 bum	-2	
@@ -1011,7 +1011,7 @@ grati*	2
 gratuitous	-2	General Inquirer Feb 2010
 grave*	-3	
 gravel*	1	kev mod
-great*	3	auto check 4 aug 2009
+great*	1	auto check 4 aug 2009
 greed*	-3	
 grief	-4	
 griev*	-4	
