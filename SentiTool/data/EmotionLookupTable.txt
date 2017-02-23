@@ -2211,6 +2211,7 @@ terror	-2	General Inquirer Feb 2010
 terror*	-3	
 terrori*	-3	General Inquirer Feb 2010
 thank	2	27-Jul-09
+thank*	2	Added by Jacob Reed - 2/22/17
 thanked	1	
 thankf*	2	
 thanks	2	27-Jul-09
@@ -2527,7 +2528,7 @@ wrestle	-2	General Inquirer Feb 2010
 wretch*	-3	General Inquirer Feb 2010
 wrinkle	-2	General Inquirer Feb 2010
 writhe	-2	General Inquirer Feb 2010
-wrong	-2	
+wrong	-1	
 wrong*	-3	kev mod
 wrought	-1	General Inquirer Feb 2010
 wtf	-3	what the fuck?

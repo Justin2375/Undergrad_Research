@@ -629,7 +629,7 @@ I know that we violate this already in Flow with CsrfProtection and Uri pattern,
 1	1	... the right path in *TYPO3:*FLOW3:package:git:gitBinary
 1	2	Sounds reasonable. Maybe mul_ZZ could (should?) even be the default locale used in Settings etc.
 4	1	oh, good catch! funny this slipped in ... btw: ArrayUtility from extbase should be reviewed and at first glance it seems most of it could be merged to core ArrayUtility.
-1	2	thus we should not add a check here but investigate what is going wrong in ->tmpl->getFileName
+1	1	thus we should not add a check here but investigate what is going wrong in ->tmpl->getFileName
 1	1	Yes it must be a type. http://phpdoc.org/docs/latest/references/phpdoc/tags/return.html
 
 But you can describe that in the comment that always false is returned if no filehandle is available.
@@ -791,7 +791,7 @@ return this-> ...()? 1 : 0;
 Fix bracket indentations.
 1	1	These methods should also probably go in the anonymous namespace.
 2	3	I agree that we should follow master for this and projects like CTK, but it is better explicitly update sha with commits.  Otherwise, upstream can update at any point and builds or tests will mysteriously start failing.  Also, when checking out branches or tags, we will get the versions of CTK, etc that are known to work with that branch/tag of TubeTK.
-2	2	itkGetInputMacro and itkSetInputMacro are ITK wrappers for this->ProcessObject::GetInput(#name) and this->ProcessObject::SetInput(#name)
+2	1	itkGetInputMacro and itkSetInputMacro are ITK wrappers for this->ProcessObject::GetInput(#name) and this->ProcessObject::SetInput(#name)
 
 I'm not sure what you think is wrong here, please elaborate.
 2	2	bad define.
@@ -884,7 +884,7 @@ the implementations which can be supported using a virtual file system (i.e. med
 3) A generated default value based on QStandardPaths, org name, app name, binary name, etc.
 
 There was a +1 to this suggestion and no dissent.
-1	2	preferably remove this empty line. you apparently have the wrong commit-msg hook. how and when precisely did you obtain it?
+1	1	preferably remove this empty line. you apparently have the wrong commit-msg hook. how and when precisely did you obtain it?
 1	1	I'm removing those checks in the other modules too. This is the new way.
 2	1	Be prepared that these logs won't show up. At least they don't on my Windows machine.
 
@@ -1706,13 +1706,13 @@ compare with ""BETADIST"" and ""BETAINV"".
 1	3	shouldn't it free the allocated memory here and return null if mkstemp() fails?
 1	1	If this line is removed the rDescription parameter name (and only the name) needs to be commented out because otherwise in an --enable-werror build the build breaks with ""unused variable"".
 1	1	same as above, aStr += m_sFormula.copy(nFml, nStt-nFml)
-1	2	here the indentation is wrong ;-)
+1	1	here the indentation is wrong ;-)
 
 However, the main question is if the assignments should be aligned in a line or if a single space would be enough indentation...
 1	1	These nOpCode have of course to be eFacOpCode then.
 2	1	Please don't mix whitespace and function changes in the same patch, just avoid this additional newline.
 2	1	Hmm, what is this misterious newly to be created LangID value? I've put 452 but I'm not sure...
-2	2	I believe you just need to convert directly.
+2	1	I believe you just need to convert directly.
 
 Look at sal/inc/sal/log.hxx, it seems to verify if the test is true(in this case if these strings are equals) and show the message
 
@@ -1805,7 +1805,7 @@ but the old code called operator<<(ONDXPagePtr&) which does something different 
 2	1	please remove ""border"" and blank line between class definition and comment and consequently reduce it to a single line
 1	1	what ""ActiveX"" thing do you want to remove and what does it have to do with NPAPI?
 1	2	might as well drop the conditional and just assign it
-1	2	i thinks that's the wrong one, the one that should be FROM is the ""pl"" library
+1	1	i thinks that's the wrong one, the one that should be FROM is the ""pl"" library
 2	1	the condition !pProfile->m_bIsValid must always be true here, so rather use SAL_WARN
 1	2	Sorry, this is still unacceptable. ImplEESdrWriter::ImplWriteShape() is used by both the binary export and the OOXML filter, you need to set the OOXML flag in the OOXML filter. Jut put a breakpoint on this line in the debugger, see its backtrace, and set the flag in the first method that is already OOXML-specific, and pass the bool around till this line.
 1	1	Better would be to have
@@ -2005,7 +2005,7 @@ I see how it might be annoying to have to redo a change if you used the wrong br
 1	2	What happens if match is missing or empty? Does it do something sensible when trying to match against an empty pattern, or should such commentlink rules be skipped (e.g., with a 'continue;' statement here)?
 1	3	No need for Provider here, inject FlushCashe directly. Both PostCaches & FlushCache are singletons. So the Provider hurts more than it helps here. E. g. on line 105 it get called in a loop and returns allways the same singleton instance.
 3	1	I checked, and git does not clear the environment to run hooks. I also can't find subversion's reasoning around clearing it, so barring finding out that there's a good reason to, I think I'll just remove this line.
-1	2	This just feels wrong. The test setup code should not be writing to the notedb separately; there should be a method in PatchLineCommentsUtil that writes to the appropriate storage(s) based on the config.
+1	1	This just feels wrong. The test setup code should not be writing to the notedb separately; there should be a method in PatchLineCommentsUtil that writes to the appropriate storage(s) based on the config.
 1	1	* Bumping the schema number forces a reindex to pick up the new file format.
 * LuceneChangeIndex has:
 
@@ -2201,7 +2201,7 @@ For example change this file content:
 1	1	This causes a warning about missing UID in Eclipse.  Fixed with:
 
 https://gerrit-review.googlesource.com/#/c/59929/
-1	2	Doh wait, I said what I thought it was and what it was in the previous patchset.  It seems wrong now?  This will insert an empty paragraph?
+1	1	Doh wait, I said what I thought it was and what it was in the previous patchset.  It seems wrong now?  This will insert an empty paragraph?
 1	1	You should wrap the following code into a try/finally and close the pdb when you are done with it.
 1	2	Sorry, this was not fully tested.  I wrote it on the train and just wanted to get it pushed before I lost network connectivity.
 2	1	Hrm, I'm not sure how best to handle this.  StackOverflow has a 'Display Name' attribute, does anything similar exist for LDAP & OpenID?
@@ -2374,7 +2374,7 @@ May be all the virDomainMigrateFlags too.
 1	2	IMHO this two functions are unnecessary.
 There are only validates (oh my...)
 Better if will be done in the level using the parameters.
-1	2	Hi,
+1	1	Hi,
 Correct me if i'm wrong - but, we have 2 instances of commands in the flow you described. This means they do not share state. The change done by Arik adds messages on the canDoActionMessages() collection of each one of the commands. Not sure how you're going to have this mix.
 2	1	Patch Set 2:
 
@@ -3524,7 +3524,7 @@ It's not super compelling, but hey, at least it's shorter.
 I think its common to call /abandon and /restore with no input. Your tests are certainly showing that. Perhaps we should overload abandon() and restore() methods to also have a no-arg form that passes null to apply the same way the HTTP interface does when the client doesn't supply a body.
 1	1	line wrap before throws so the line isn't over 80 columns
 1	2	Ah, I think this is from sometime before when I had it  actually raising an error...In fact I think in one of the later changes I changed my mind and went back to throwing, but I guess we'll get to that later.
-1	2	Actually it seems to be line 21 that is indented wrong.  The newly added lines are correctly indented inside the <ui:style> tag.
+1	1	Actually it seems to be line 21 that is indented wrong.  The newly added lines are correctly indented inside the <ui:style> tag.
 1	1	This API method isn't covered by unit test. Add a test for it or add a TODO that unit test is still missing.
 1	1	Yes, because otherwise it is lost, as isBase64() creates a new instance of BinaryResult.
 1	1	[optionally] extend SSH based acceptance test too:
@@ -3578,7 +3578,7 @@ And nothing personal, Sven, you know how it is when you've spent all afternoon d
 If it needs fixing it can be done in a follow-up change.
 2	1	No it doesn't. We just have to parse repo-hooks childNodes after the project childNodes. Which you already do above. :-)
 1	1	If you instead put this into the gerrit-server directory, you can then refactor the AdminSetParent SSHD command to also use this implementation.  That would reduce the amount of code needed to add this feature, since its mostly just extracting the existing code from AdminSetParent.
-1	2	From the stack trace you can see I put this on the wrong line, oops.
+1	1	From the stack trace you can see I put this on the wrong line, oops.
 1	2	Looking at all *Listener.java files in our source tree I see the following two cases:
 
 * a listener is just notified that an event happened but cannot do anything to prevent/block that event. In that case the listener doesn't throw any checked exception(s). Examples: GitReferenceUpdatedListener, HeadUpdatedListener, AuditListener, ...
@@ -3965,7 +3965,7 @@ Anyway I will leave it up to you how to proceed.
 1	1	What do you think about my last paragraph? Do you think it's really needed to have a parseDevMode and parseProdMode methods?
 1	2	[info] Line matches the illegal pattern 'more than one blank line'.
 1	2	[info] Line matches the illegal pattern 'more than one blank line'.
-1	2	so before this patch, this m() method dispatch would have come out wrong in an incremental recompile?
+1	1	so before this patch, this m() method dispatch would have come out wrong in an incremental recompile?
 1	1	(I think you could indent this line another four spaces if you want.)
 1	2	[info] Line matches the illegal pattern 'more than one blank line'.
 2	1	It is a matter not related with this commit, but shouldn't be an optimization if we replace 'n"" with "";"" instead of ""\n"" so as we save some bytes in final JS?
@@ -4032,7 +4032,7 @@ http://jsperf.com/isastring-notastring
 1	2	[error] Got an exception - expecting EOF, found 'registered'
 2	3	Can you wrap arguments like this (containing search pattern) in double quotes please? Fish shell (and probably zsh and alike) fails to execute it without it.
 2	1	Value stored to 'offset' is never read (Clang Analyzer)
-2	2	Why this special case? It did not exist before and all it callers seem to take it from a tvb (except for a hard-coded 2000 in EnhancedAlarmMessage, which seems wrong too as the length is not checked there?)
+2	1	Why this special case? It did not exist before and all it callers seem to take it from a tvb (except for a hard-coded 2000 in EnhancedAlarmMessage, which seems wrong too as the length is not checked there?)
 1	1	Because it is used below in g_list_foreach, where gpointer is mandated.
 1	1	There is more information https://code.google.com/p/address-sanitizer/wiki/AddressSanitizer#ulimit_-v about alternative
 1	1	unused parameter 'p_info' [-Werror=unused-parameter]
