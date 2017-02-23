@@ -992,7 +992,7 @@ glory	2
 glum*	-3	General Inquirer Feb 2010 kev mod
 gmbo	3	giggling my butt off
 goddam*	-3	
-good	2	Could also be 1?
+good	3	Could also be 1?
 goodness	3	
 gorgeous*	3	
 gossip*	-1	
