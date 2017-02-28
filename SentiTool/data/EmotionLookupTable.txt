@@ -832,7 +832,7 @@ fab	3
 fabricat*	-2	General Inquirer Feb 2010
 fabulous*	3	
 faggot	-2	Feb-11
-fail*	-2	
+fail*	-1	
 faint	-2	General Inquirer Feb 2010
 faith*	2	
 faithless*	-3	kev add
@@ -1530,6 +1530,7 @@ novice	-2	General Inquirer Feb 2010
 noxious*	-3	kev add
 nucklehead*	-2	Feb-11
 nuisance	-2	General Inquirer Feb 2010
+null	-1
 nullification*	-2	General Inquirer Feb 2010
 nullify	-2	General Inquirer Feb 2010
 numb*	-2	
@@ -2360,7 +2361,7 @@ unlov*	-3
 unlucky	-2	General Inquirer Feb 2010
 unmoved	-2	General Inquirer Feb 2010
 unnatural*	-2	General Inquirer Feb 2010
-unnecessar*	-2	General Inquirer Feb 2010
+unnecessar*	-1	General Inquirer Feb 2010
 unnerve	-2	General Inquirer Feb 2010
 unnoticed	-2	General Inquirer Feb 2010
 unobserved	-2	General Inquirer Feb 2010
@@ -2533,7 +2534,7 @@ wrestle	-2	General Inquirer Feb 2010
 wretch*	-3	General Inquirer Feb 2010
 wrinkle	-2	General Inquirer Feb 2010
 writhe	-2	General Inquirer Feb 2010
-wrong	-1	
+wrong	-2	
 wrong*	-3	kev mod
 wrought	-1	General Inquirer Feb 2010
 wtf	-3	what the fuck?
