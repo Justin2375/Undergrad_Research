@@ -271,7 +271,7 @@ brute	-2	General Inquirer Feb 2010
 brutish	-2	General Inquirer Feb 2010
 buckled	-2	General Inquirer Feb 2010
 buffoon*	-2	Feb-11
-bug	-2	General Inquirer Feb 2010
+bug	-1	General Inquirer Feb 2010
 bullet*	-2	General Inquirer Feb 2010
 bullshit*	-3	Feb-11
 bum	-2	
@@ -285,6 +285,7 @@ burn*	-2	General Inquirer Feb 2010
 bury	-3	General Inquirer Feb 2010
 busybody	-2	General Inquirer Feb 2010
 butchery	-2	General Inquirer Feb 2010
+but	-1
 calamit*	-4	General Inquirer Feb 2010
 callous*	-4	General Inquirer Feb 2010
 calm*	2	
@@ -742,7 +743,7 @@ dynamism	2	kev mod
 eager*	1	
 ease*	1	
 easie*	1	
-easily	1	
+easily	2	
 easiness	1	
 easing	1	
 easy*	1	
@@ -994,7 +995,7 @@ glory	2
 glum*	-3	General Inquirer Feb 2010 kev mod
 gmbo	3	giggling my butt off
 goddam*	-3	
-good	4	Could also be 1?
+good	3	Could also be 1?
 goodness	3	
 gorgeous*	3	
 gossip*	-1	
@@ -1041,6 +1042,7 @@ gullible	-2	General Inquirer Feb 2010
 gun*	-2	General Inquirer Feb 2010
 gunmen	-2	General Inquirer Feb 2010
 h8	-4	hate
+hate	-2
 ha	2	
 hack	-2	
 hag	-2	General Inquirer Feb 2010
@@ -1212,7 +1214,7 @@ incompatib*	-3	General Inquirer Feb 2010
 incompeten*	-3	Feb-11
 inconsisten*	-2	General Inquirer Feb 2010
 inconvenien*	-2	General Inquirer Feb 2010
-incorrect	-2	General Inquirer Feb 2010
+incorrect	-3	General Inquirer Feb 2010
 incredible	1	General Inquirer Feb 2010
 incurable	-2	General Inquirer Feb 2010
 indecen*	-3	General Inquirer Feb 2010
@@ -1260,6 +1262,7 @@ insolent	-2	General Inquirer Feb 2010
 inspir*	3	
 instability	-2	General Inquirer Feb 2010
 instable	-2	General Inquirer Feb 2010
+instead	0
 insufficien*	-2	General Inquirer Feb 2010
 insult*	-3	
 intellect	1	kev add
@@ -1521,6 +1524,7 @@ noise	-1	General Inquirer Feb 2010
 nonchalant	-1	General Inquirer Feb 2010
 nonsens*	-2	Feb-11
 nosey	-2	General Inquirer Feb 2010
+not	-1
 notorious*	-2	General Inquirer Feb 2010
 novice	-2	General Inquirer Feb 2010
 noxious*	-3	kev add

@@ -1,6 +1,6 @@
 Possitve Sentiment	Negative Sentiment	Comment Body
 1	1	GSM isn't in the original list which is why it isn't in the enum.
-4	1	Since we are not really using any methods from Collections, and only iterating through elements, having String arrays is good enough.
+3	1	Since we are not really using any methods from Collections, and only iterating through elements, having String arrays is good enough.
 1	2	We very much prefer to not record that information in the source tree, the change history contains that information.
 1	2	Yeah, we can file a bug against android or just fix it and submit a patch.
 3	2	when i was suggesting flipping the boolean, i did also wonder whether we wouldn't be better off just passing in the length. if it's <= 0, interpret that as ""don't know""? that would then move 8192 down out of the callers too.
@@ -32,7 +32,7 @@ and then embed MayBe... into ClassLinker as IsCompiledImageMethod. It'd be nice 
 if(icmp->type != ICMP_ECHO && icmp->type != ICMP_ECHOREPLY) {
 
 Can you make the two consistent?
-2	2	Added tests for other resource type.
+2	1	Added tests for other resource type.
 
 I feel there should be a test that ensure the issue in the bug is resolved.  It also verifies that the generated.xml can at least run through aapt.
 2	3	Doing this will trigger mOnDateChangedListener to be fired twice. Please put a guard to avoid that (see the listener above on mDayPicker.)
@@ -97,7 +97,7 @@ The 32-bit process would be calling in to a different BufferQueue, right?
 1	1	i don't think this is ever defined on Android. it's a BSD thing.
 1	2	Maybe pick a different name to avoid a collision with the field of the same name in Main?
 1	1	Could you factor the whole function out into reboot_service_impl so we don't need to gotos?
-4	1	a table of function pointers sounds good right about now...
+3	1	a table of function pointers sounds good right about now...
 2	2	You're right. The issue is that the onSampleSelected() callback uses the Combo index to fetch the sample from mSamplePath, so the way you have it they don't match (if you try, selecting a sample will load a different one). The trivial solution is to sort mSamplePaths alphabetically like it should have been done in the first place anyway (my fault for forgetting that).
 1	1	Changed from heap to stack based allocation, will now only allocate enough to hold idmap header.
 2	2	performTransaltion has different purpose. If scale is less than equal to 1 we will not perform transaltion. 
@@ -142,10 +142,10 @@ I think this should be hwc_rect_t. That probably implies that we should use hwc_
 1	2	That's just the thing; I don't have a bug report. Somebody complained on Google+ that setting this attribute has the undesirable side effect of killing onClick attributes; when I asked Roman if he knew anything about this (we had discussed textIsSelectable before, in the context of adding them to the default templates) he mentioned he had also seen some weirdness around these, but didn't have details.
 
 I should dig deeper, but since I'm swamped with some other work I figured it was better to just disable this check until I know more. (It's actively suggesting users set an attribute that apparently isn't always the right thing.)
-1	2	It seems to me to be the case. There is a bug:
+1	1	It seems to me to be the case. There is a bug:
 https://b.corp.google.com/issues/17586779
 shertz probably knows more about it.
-4	3	Technically missing spaces before/after the parentheses. Would be good to fix in a future upload, if there's a chance. See also the while() a few lines below.
+3	3	Technically missing spaces before/after the parentheses. Would be good to fix in a future upload, if there's a chance. See also the while() a few lines below.
 1	2	No. The exception is needed so it is rethrown if the user decides to cancel. User can only see exception stack trace in the log.
 1	1	If this is considered a development tool and not a production tool, it should have LOCAL_MODULE_TAGS := eng
 2	1	Please place functions in <code></code> tags throughout.
@@ -390,7 +390,7 @@ I'd say add an exit failure here and then submit. If you feel strongly about kee
 
 Ditto for the blank lines in peekUintStructField and peekIntStructField.
 1	2	I made this timeout be 3600 instead, because 10 minutes was too slow with unaccelerated QEMU :(
-4	2	Good point, I missed that.  Determinism is a key feature.  Fixed.
+3	2	Good point, I missed that.  Determinism is a key feature.  Fixed.
 1	1	Note that this means envp is empty, while you fill in LD_LIBRARY_PATH, PATH, and TMPDIR in the gomobile code.  I'm not sure how to get the environment or if it's even necessary. (All the Go environment functions in runtime assume that Go has already been somewhat initialized.)
 1	1	s/start/e/ would be consistent with the methods above.
 1	1	$(dirname $0)
@@ -398,7 +398,7 @@ Ditto for the blank lines in peekUintStructField and peekIntStructField.
 would mean you don't break if someone runs this from another dir.
 1	1	// _g_.m is reachable via allgs, so WB can be eliminated.
 1	2	""Types"" is an overloaded term in programming. Is it an actual term in the source documents, or can we use a different term here? Is ""type"" the same as ""MIB""??
-4	1	It would be good to try to use the (*types.Package).Name() instead of assuming that it's the same as the last segment of the import path; the latter is only a convention, and it is not followed by users of the http://pkg.in service.
+3	1	It would be good to try to use the (*types.Package).Name() instead of assuming that it's the same as the last segment of the import path; the latter is only a convention, and it is not followed by users of the http://pkg.in service.
 1	2	I'm not sure it does leak that, the litmus test in question is a PUT; so lock errors don't disclose existence, only that a lock exists on that path?
 3	1	Object is not overloaded in Go.  Here it refers to any touchable object, so overloading is fine.  I'll change it to Widget if that's clearer.
 2	2	Copied from sys_openbsd_386s.s and missed - fixed :)
@@ -564,7 +564,7 @@ This can be written into the function comment, so if we may change $GLOBALS['EXE
 1	1	I checked other __construct comments and there where no such annotation.
 1	1	Shouldn't @throws annotations be after @param and @return?
 1	1	For readability I prefer an inverted condition as guard clause.
-4	2	Good catch, my bad (it differs in master, see Iadfa1fb78e101e67ed47a6f3b5ea88ff12c90ca6)
+3	2	Good catch, my bad (it differs in master, see Iadfa1fb78e101e67ed47a6f3b5ea88ff12c90ca6)
 1	1	Do we any chance to detect whether the call was made from outside the TYPO3 Namespace? Otherwise we'll get lots of deprecations if we call a public method from another class in Core, which is public but not part of the API.
 1	1	It appears the requisite form is ""elseif,"" so I left this one as-is.  
 
@@ -590,7 +590,7 @@ I mean I usually like private stuff, but it's uncommon in TYPO3 CMS ;-)
 1	1	I don't line inline styles, can this be done in CSS?
 1	1	The phpdoc states that an array is returned. Would it be better to return an array() instead of NULL?
 1	2	what about Jigal's comment ""Copying an array for the sake of a variable name is a waste of resources IMO."" ?
-4	1	There should be a more reliable way to check if an extension contains a ""cacheConfiguration"" definition. But I must admit I don't have a good idea yet...
+3	1	There should be a more reliable way to check if an extension contains a ""cacheConfiguration"" definition. But I must admit I don't have a good idea yet...
 3	1	It is a logical change, but it is correct!
 
 $configuration['vendorName'] !== NULL
@@ -622,13 +622,13 @@ Just have to remove $colPos = '' a few lines before.
 2	1	Comment should have a space and uppercase the first letter like in the other comments.
 1	1	I removed this in patch set 2 - my use case should be handled in the (abstract) controller
 2	1	This check is improved in https://review.typo3.org/#/c/32645/1
-4	3	<cgl>It should be ""HostPattern"" according to our CGL.
+3	3	<cgl>It should be ""HostPattern"" according to our CGL.
 I know that we violate this already in Flow with CsrfProtection and Uri pattern, but this would be a good chance to fix this (I can take care of this if we agreed on the other issues)</cgl>
 1	1	I would prefer to move any calls to TYPO3_DB into a repository. This should not be the work of a controller.
 1	2	static properties need to be set via self:: (or static::), not via $this::.
 1	1	... the right path in *TYPO3:*FLOW3:package:git:gitBinary
 1	2	Sounds reasonable. Maybe mul_ZZ could (should?) even be the default locale used in Settings etc.
-5	1	oh, good catch! funny this slipped in ... btw: ArrayUtility from extbase should be reviewed and at first glance it seems most of it could be merged to core ArrayUtility.
+4	1	oh, good catch! funny this slipped in ... btw: ArrayUtility from extbase should be reviewed and at first glance it seems most of it could be merged to core ArrayUtility.
 1	1	thus we should not add a check here but investigate what is going wrong in ->tmpl->getFileName
 1	1	Yes it must be a type. http://phpdoc.org/docs/latest/references/phpdoc/tags/return.html
 
@@ -742,7 +742,7 @@ Move body to .hxx
 
 use  this->m_NumberOfNeighbors
 1	1	This should only be added if the RGBZ view plugin is going to be built. Maybe the proper place to add this test is in that plugin.
-4	1	I did not make comments on all of these before because it was the same comment every time. Unless there is a good documented reason, these should all be set to ignore.
+3	1	I did not make comments on all of these before because it was the same comment every time. Unless there is a good documented reason, these should all be set to ignore.
 1	1	Add newline.
 
 #-----------------------------------------------------------------------------
@@ -802,7 +802,7 @@ Please run KWStyle.
 1	2	I do have KWStyle but somehow I think it only complains if I have end-of-line whitespace. I'll remove the tabs.
 1	1	These misaligned typedefs should be causing KWstyle errors. Are you not getting any?
 1	1	Not sure about this method. It seems to make sense to me the way Dan explained it but I'm not comfortable giving this change a +2 since I didn't write any of the original code and may not be aware of all of the issues.
-4	1	Good catch.  Debugging needs to be removed.  Will remove in next patch set.
+3	1	Good catch.  Debugging needs to be removed.  Will remove in next patch set.
 1	1	Line 240 in cxx file cannot accept const reference:
 
 this->m_Metric->SetParameters( this->GetInitialPosition() );
@@ -815,11 +815,11 @@ This makes the number of input & output values explicit.   Also, my preference i
 1	2	I will remove all of the debug and most of the other messages after the VectorImage is working.  Main reason to use the Logger is to print interleaved messages from multiple threads legibly.  Other reason I'm avoiding debugMacro until VectorImage is working is so that I can continue to see debug messages even when compiled in Release mode for speed.
 1	1	No need for indentation on the last line, or even the preceding newline for that matter.
 1	1	line length. You can also use qPrintable(m_keyPressBuffer) here.
-4	2	Good point.  I'll move to the other block of ITKDeprecatedTestDriver.
+3	2	Good point.  I'll move to the other block of ITKDeprecatedTestDriver.
 1	2	template< unsigned int TDimension, class T >
 
 Prefer a more descriptive name for the second template argument.
-4	1	This variable will never be set. We are linking to Qt so we should be good.
+3	1	This variable will never be set. We are linking to Qt so we should be good.
 2	1	Please remove the word Magic from this file too...
 
     - edit the file
@@ -945,7 +945,7 @@ For section titles, it is best to use the gerund (ing) because it is a task. ""U
 
 but this is bogus anyway - commit message are expected to be self-contained, and the bug links are merely ""for more info, see ..."" style.
 1	3	Right. Ok, then let's fix this in dev only and ignore the test coverage in 5.5. Can you make yourself a note to fix the blacklist in dev once the merges are through?
-1	2	Hint: Possible incorrect use of Apple-related terminology
+1	3	Hint: Possible incorrect use of Apple-related terminology
 2	1	Then I would offer to remove ""; otherwise returns -1."" ... :)
 1	2	... quite contrary to cases where the string is only compared (or appended to non-empty), in which case QLatin1String is more efficient ...
 1	1	You might have to explain this one, this doesn't seem specific to aura in the header and cpp files that use it.
@@ -991,8 +991,8 @@ There *are* also people using boost build and other non-qmake, non-cmake buildsy
 1	1	It was intended to be Modes from the start, but could not be fixed before without braking BC.
 
 Should probably go as a separate commit.
-4	1	Good to know, I'd specify this in the doc -- i.e. don't touch *any* QObject
-4	2	Next few paragraphs look more like they should be code comments than change description. If there isn't a good place to put them in the code, maybe we should start an engine-internals.qdoc file (which is one big /*! internal */ block)
+3	1	Good to know, I'd specify this in the doc -- i.e. don't touch *any* QObject
+3	2	Next few paragraphs look more like they should be code comments than change description. If there isn't a good place to put them in the code, maybe we should start an engine-internals.qdoc file (which is one big /*! internal */ block)
 2	2	Yes, it is. The first part of the string ( origStr[:index] ) is everything of the given string until the escaped newline - the second part ist everything after the escaped newline - which normally holds an indentation followed by the string data. We don't want the indentation (this would falsify the results - but we don't know how much indentation there would be - so, lstrip() would be obviously the best way to get rid of the indentation.
 
 The first part cannot have any whitespaces after the escaped newline - after hitting newline we're definitely on the next line (if you go back and put spaces at the end of this line you won't escape the newline anymore but the whitespace instead).
@@ -1067,7 +1067,7 @@ Note that namedtuple(verbose=True) shows that it uses __slot__=() by default, so
 2	1	where size is not the issue, and performance is not a big deal like in test, please use range() to mainatain future compat with python3
 2	1	Omer, I am not quite understand ""polling will not start for these hosts"", would you give me more backgroud information?
 as to save the status in the db, you mean save host's status, 'nonoperational' in this place in db?
-1	2	this is the cause of the bug - you should remove it instead the other one if you want to keep the removal as part of supervdsmServer
+1	1	this is the cause of the bug - you should remove it instead the other one if you want to keep the removal as part of supervdsmServer
 1	1	What are the meanings of D and C here? D for ""data"" and C for ""collection"". Could use longer names or comments.
 1	1	what about this case? if user selected sysprep/cloud init in run once (then we get here) but also have payload configured?
 1	1	consider using 0.0 instead of another variable called zero.
@@ -1101,7 +1101,7 @@ it's better to create a separate function, in case we will need to add a new ""l
 About "">= 0.6"": I monkeypatched the methods that are used by old websockify to use logger.
 
 (What I'm worried about is the fact I see duplicate lines in syslog - one line comes from ""journal"", the other one from ""ovirt-websocket-proxy"" and they are identical. I need to investigate this further.)
-1	2	This is a bug
+1	1	This is a bug
 
 if the disk is shareable then the disk will be updated with the last VM in the for loop.
 1	1	indent.
@@ -1135,12 +1135,12 @@ The idea is to have valid NotificationProperties
 We need a notification method (currently smtp and later smtp/snmp)
 So it cant ba validates inside smtp?
 1	1	it was made before mike's suggestion to merge similar messages. I agree that it would be better, but if we'll agree on the different comments and no other patch-set will be necessary for this patch, I prefer to make this message more generic in the patch that implements the export/import VM without read lock because this one is already verified (and there won't be duplicate entries until then)
-4	1	Good point. We need to make sure that we use jsonrpc.
+3	1	Good point. We need to make sure that we use jsonrpc.
 2	2	The convention is to have all mappers static in order to reduce their instantiations as they have no state. 
 
 Please extract it into a private static class.
 1	2	I'll remove it here, but so you know - there's a problem - if someone sets it to null (for example from REST), it fails with NPE in StorageComandBase. but that can be fixed in a different patch.
-4	1	if you put editable, no need for editableOnTemplate, its good for both
+3	1	if you put editable, no need for editableOnTemplate, its good for both
 2	3	this method only load data from the db
 i think that it's confusing to set this info to the disk within this scope, hard to debug and to track. please move it from here and preferably use the vm device instead of setting it to the disks.
 
@@ -1215,7 +1215,7 @@ but change its name to be more general
 2	1	Please use logs instead of System.out.
 
 You can add a log4j configuration to redirect to stdout if you want to see these printings.
-4	2	Suppose I am an administrator,  I will look into the log file to find what is happening in VDSM.  You can not suppose administrator to check the console or the code to know this.  IMO, every faulty path should have a log in the log file.  You can argue that many places in VDSM are not doing these,  but it is a good practice for system service program.
+3	2	Suppose I am an administrator,  I will look into the log file to find what is happening in VDSM.  You can not suppose administrator to check the console or the code to know this.  IMO, every faulty path should have a log in the log file.  You can argue that many places in VDSM are not doing these,  but it is a good practice for system service program.
 2	2	@Michael - trying to see if I understand your point.
 
 The general idea requires extracting this logic.
@@ -1342,7 +1342,7 @@ The dump_results handles printing of the results for the parallel version and as
 
 self.k8s_api = _create_k8s_api(k8s_master_url)
 1	1	LGTM but it would be better to follow the message format of the above 'print'.
-4	1	if so there will be some problems here - i mean, to authorise we need password/token - token is really not supported in that version of nova_client. dunno what password to use here - where we're using ctx from trust. Using service user creds here is not really a good idea.
+3	1	if so there will be some problems here - i mean, to authorise we need password/token - token is really not supported in that version of nova_client. dunno what password to use here - where we're using ctx from trust. Using service user creds here is not really a good idea.
 1	1	nit: The part1 patchset is ""port test_hypervisor into v3 part1"", does not include ""nova"".
 
 so how about removing ""nova"" from this part2 patchset, or adding ""nova"" to part1 patchset.
@@ -1354,7 +1354,7 @@ so how about removing ""nova"" from this part2 patchset, or adding ""nova"" to p
 1	2	Here we can assume that because the if statement above checks to see what extensions are enabled. If the config option has a single entry in the list, 'all', that means all extensions are supposed to be enabled on nova. 
 
 I just chose Hosts here because I wanted an extension that problem wasn't ever going to be removed. (also one that wasn't many characters)
-4	1	I like the first description by itself:
+3	1	I like the first description by itself:
 
 ""Add stack-wide context to a resource's scheduler_hints property at create time. Use in conjunction with scheduler filters that require such context. (boolean value)""
 
@@ -1363,7 +1363,7 @@ As for the examples and definition, I think that could live in a devref guide li
 2	1	please move command to system.py so this can be reduced to ""cmd_node_init"".
 2	2	We kind of discussed this last time - and thought that we didn't want to fail any calls if the operators were not recognised..
 1	1	this file is a legacy code and not used, but I can live with that change
-1	2	There are no such method as ""assert_called_once"". See: https://bugs.launchpad.net/manila/+bug/1330391
+1	1	There are no such method as ""assert_called_once"". See: https://bugs.launchpad.net/manila/+bug/1330391
 1	1	I saw you added a comment at https://review.openstack.org/#/c/138310/1/specs/kilo/store-capabilities.rst , I think you probably already know the reason of this, right?
 2	2	This is better, but the registered variable is unnecessary:
 
@@ -1419,7 +1419,7 @@ s/then/other than/ ?
 1	2	Do you plan to address the runtime problem with N calls to cinder, where N is the number of hosts?
 2	1	@jichenjc, @Chris, I will do it separated blueprint, thanks
 1	2	I'm still trying to understand what this new logic brings to the table...after all of this effort, we are still just enforcing that the project/tenant-id that created an entity (secret/order) is the same one that can perform operations on that entity. However, the database relationships used in the entity queries enforce this, so what does all of this do that is different? If we were doing attribute-level access control, it might make more sense to me, but entity level for tenant-id RBAC is redundant to the db queries to me.
-4	1	I guess it can be interpreted that its just being pointed out that this is a dependency, not necessarily that its a new dependency. And its good to have this documented.
+3	1	I guess it can be interpreted that its just being pointed out that this is a dependency, not necessarily that its a new dependency. And its good to have this documented.
 1	2	Not sure where these param are from args or kwargs? Suggest to doc them clearly:
 
         :param args: ...
@@ -1432,7 +1432,7 @@ config_path = os.path.abspath(config_path)
 1	2	what happens if this fails? You have already deleted at the backend...
 1	2	IMHO, we should explicitely add coverage for the method you're adding so we could isolate any problem later on
 1	2	if ignore_extra_args is set to false, we don't care about 'kw'. The return statement will never be executed because the UnknownArgument exception will be thrown before that.
-4	2	These are good, but I think we need another test which exercises the untested path in fault.py. Otherwise, if it is in fact unreachable, we need to eliminate that code path.
+3	2	These are good, but I think we need another test which exercises the untested path in fault.py. Otherwise, if it is in fact unreachable, we need to eliminate that code path.
 1	3	The use of 'count' confuses me. Would this be cleaner?
 
     self.assertIn('Unexpected method call', unicode(e))
@@ -1494,7 +1494,7 @@ self.NETWORK_INTERFACES
 1	1	http://en.wikipedia.beta.wmflabs.org/wiki/Hurricane_Celeste_(1972)
 1	1	Err, actually that won't hurt anything, and if anyone ever changes the canonical form to be this, then the entry would get used.
 1	1	It would be would to expand into '... main stats view in rt server' or similar.
-1	2	We ironed out the issues on bug 49965, a few patches are linked from it.
+1	1	We ironed out the issues on bug 49965, a few patches are linked from it.
 1	1	This class is too generic...
 
 It's likely better to take all configuration and wrap it in a class named ""misc::reportcard"".
@@ -1593,22 +1593,22 @@ It confuses me most of the time but this is the general rule - use msg when you 
 3	1	Do you need to check $result['edit']['result'] === 'Success'?
 2	1	Yeah, done. Removed the function and function calls. Thanks.
 1	1	I put it here because i think it belongs to the Apache site more than other places
-1	2	The incorrect spacing gets fixed here - https://gerrit.wikimedia.org/r/#/c/121369/
+1	3	The incorrect spacing gets fixed here - https://gerrit.wikimedia.org/r/#/c/121369/
 1	2	I generally prefer not to be credited in source files.
 1	3	This is done now. The regex will now not be applied on some invalid versions where it was before. Some types of invalid versions will still match the regex, though that is outside of the concerns of this function. It is not a version number validator after all.
-4	1	The name seems overly specific. This queries the list of entity pages, so perhaps EntityPageQuery would be a good name.
+3	1	The name seems overly specific. This queries the list of entity pages, so perhaps EntityPageQuery would be a good name.
 1	2	So per discussion with Roan and yourself, we want to avoid doing shell executions just to calculate the timestamp (GitInfo uses shell exec to git's bin to get the timestamp for the latest hash), as that would be slightly expensive for the startup module (every 5 minutes) and make this method more expensive than the actual module getScript, which ironically doesn't even need shell execution.
 
 Instead let's version this module based on the hash. You can look at core's ResourceLoaderLanguageDataModule for an example: https://github.com/wikimedia/mediawiki-core/blob/6c278b6d7eb3c4516888e25a21101ad7508f48cd/includes/resourceloader/ResourceLoaderLanguageDataModule.php#L110-L127
 1	1	This is not needed for files that only contain classes.
-4	2	If it sounds funny, I should fix it.  Your explanation is a good approximation of what's happening.  We are limiting traffic...  Any suggestion for how to improve?
+3	2	If it sounds funny, I should fix it.  Your explanation is a good approximation of what's happening.  We are limiting traffic...  Any suggestion for how to improve?
 
 Hmm, I think I see what you mean.  We are not changing the amount of traffic, just the proportion of that traffic which is ""going"" to the campaign.  What about, ""Throttle impressions""?
 1	1	It's feeling funky and not particularly DRY in here.  Do you think we should have a more consolidated response handler, then have these functions simply access already processed data?
 1	3	This whole last block from line 187 to 191 could be simplified to 
 
 return skipIfLastMatched != null && skipIfLastMatched && cache.lastMatched;
-4	4	Ah, good catch. I didn't see the enclosing call to the Title class there. I was assuming the output of $request->getVal( 'title', '' ); was being passed to $request->getVal( 'returnto', .. );
+3	4	Ah, good catch. I didn't see the enclosing call to the Title class there. I was assuming the output of $request->getVal( 'title', '' ); was being passed to $request->getVal( 'returnto', .. );
 
 Seems some really nasty logic going on with re-using variables and type-casting to strings etc.
 1	1	change this to /srv/deployment/mathoid/mathoid
@@ -1649,7 +1649,7 @@ You're going to have to explain how you expect 'redirected from' from a HTTP red
 1	1	Why not put this in begin(), so that all subclasses will have the trxFname logic?
 2	1	Yep, not sure why it was using a string there. Thanks.
 1	1	A title being edited will not show up in action=post-history.
-4	1	There should be some separation of code from the rest of the text, even if it's clear that it's a URL, to ensure that nobody gets the idea to translate it. <kbd> may be enough, but having quotes, too, is a good idea.
+3	1	There should be some separation of code from the rest of the text, even if it's clear that it's a URL, to ensure that nobody gets the idea to translate it. <kbd> may be enough, but having quotes, too, is a good idea.
 2	2	This makes the footer tuck up against the edit box nicely.
 1	1	The three tests above that checks namespaces should probably grouped together. They seems to be copy pasted and just change which setting is gathered.
 
@@ -1829,7 +1829,7 @@ The current code creates a SchResId object which has an operator OUString which 
 1	2	>OTOH we might grep in ""$@"" for ""project:"" and only add project:core if none was given.
 but then we could do the same with branch and status: default branch = master, default status = open => logerrit query would be translated to core/master/open. How about it?
 1	1	For the final commit remove ""[part 2of 2]"" and join the ""ODFF function FDIST"" to the first summary line.
-4	2	Conversion was done for binary files to be stored in earlier formats. Encountering such versions isn't the case anymore with copy&paste and conversion would never be executed, so that code could be removed along with the check. If you want you can remove that code in a follow-up patch, getting rid of unused code is always good :-)
+3	2	Conversion was done for binary files to be stored in earlier formats. Encountering such versions isn't the case anymore with copy&paste and conversion would never be executed, so that code could be removed along with the check. If you want you can remove that code in a follow-up patch, getting rid of unused code is always good :-)
 
 Probably the reason why you had to add the check if a version is set at all is related to that, actually the stream should have the version SOFFICE_FILEFORMAT_CURRENT set so all parts involved elsewhere that do check the version get that correct. Would be nice if you could spot the place where that should be done. Anyhow, I'll push the current patch as is.
 1	1	If AddSdrObject() method, test goes into infinite loop. Because there is already AddSdrObject() function with same parameter which is mandatory in both cases. So should I add new method in parent class?
@@ -1912,7 +1912,7 @@ Why? I am maintainer and have power of -2. I review a change and decide to put m
 Because I used your dashboard template, put this line and this change was filtered out:
 
    -label:Code-Review=-2,user=self
-5	1	Ahh that's funny! :D
+4	1	Ahh that's funny! :D
 
 Good that you payed attention!
 
@@ -2004,7 +2004,7 @@ I would prefer having myApprovals and strongestApprovals take a Set<Change.Id> a
 I see how it might be annoying to have to redo a change if you used the wrong branch the first time, though... Perhaps there is some Git magic that can let you do that painlessly?
 1	2	What happens if match is missing or empty? Does it do something sensible when trying to match against an empty pattern, or should such commentlink rules be skipped (e.g., with a 'continue;' statement here)?
 1	3	No need for Provider here, inject FlushCashe directly. Both PostCaches & FlushCache are singletons. So the Provider hurts more than it helps here. E. g. on line 105 it get called in a loop and returns allways the same singleton instance.
-4	1	I checked, and git does not clear the environment to run hooks. I also can't find subversion's reasoning around clearing it, so barring finding out that there's a good reason to, I think I'll just remove this line.
+3	1	I checked, and git does not clear the environment to run hooks. I also can't find subversion's reasoning around clearing it, so barring finding out that there's a good reason to, I think I'll just remove this line.
 1	1	This just feels wrong. The test setup code should not be writing to the notedb separately; there should be a method in PatchLineCommentsUtil that writes to the appropriate storage(s) based on the config.
 1	1	* Bumping the schema number forces a reindex to pick up the new file format.
 * LuceneChangeIndex has:
@@ -2015,7 +2015,7 @@ I see how it might be annoying to have to redo a change if you used the wrong br
 
  sorry I try every corner and cannot find the difference after adding this line.
 2	1	--add will add a value on top of another/others. The above line will replace any previous value with this one. Not sure which effect the author is looking for, but I personally don't understand why you'd want to have several download.scheme variables?
-1	2	This does not correspond to an issue on the gerrit issue tracker [1].
+1	1	This does not correspond to an issue on the gerrit issue tracker [1].
 
 Issues should be listed in the change footer in the form:
 
@@ -2091,7 +2091,7 @@ Support creating a request for authentication of a remote...
 1	1	OK.  I'll check if [1] still works with asiidoctor before pursuing it any further then.
 
 [1] https://gerrit-review.googlesource.com/#/c/49451/
-1	1	I got the idea for adding such a message from your change (only you had it even more verbose adding a message per approval that was copied). I can try to incorporate this into the patch set created message, but not sure if this is easily possible.
+2	1	I got the idea for adding such a message from your change (only you had it even more verbose adding a message per approval that was copied). I can try to incorporate this into the patch set created message, but not sure if this is easily possible.
 1	1	""that all 4 projects are imported"" or ""that it imports all 4 projects""
 3	1	I think as long as it's explained in the dev instructions you're checking in, this is fine.
 1	1	Sure, we could do it on master, but then the old API has to remain in 2.8.
@@ -2153,7 +2153,7 @@ java.lang.IllegalStateException: Committed
   at com.google.gerrit.httpd.AllRequestFilter$FilterProxy.doFilter(AllRequestFilter.java:57)
   at com.google.gerrit.httpd.RequestContextFilter.doFilter(RequestContextFilter.java:75)
 1	2	Wasn't the trailing slash already removed when the GitHub URL was read from the config?
-2	2	Hi Edwin
+2	1	Hi Edwin
 
  thank you to have a look.
  I removed them, because current version of ProjectsTable already has these 2 lines content .
@@ -2193,7 +2193,7 @@ However, if that's the case, I'm not sure just switching this to only happen wit
 1	2	This works for the example I provided in the review of the patch set 4 but it still fails to render """"r"""" in a little bit different case.
 For example change this file content:
 
-2	2	Since there is a Gerrit issue [1] for this bug, can you please add a reference to this bug as footer?
+2	1	Since there is a Gerrit issue [1] for this bug, can you please add a reference to this bug as footer?
 
   Bug: issue 871
 
@@ -2220,10 +2220,10 @@ The |download| call happens as part of the RPC call that's made to autotest to k
 I would suggest two commits. The first one is just the import without and mods. The second is a git mv of the ebuild file to the -r1 name and enabling the patch. This is done so that we retain history of pristine upstream ebuild and then successive changes to them locally.  So in this commit just pull in the upstream ebuild  as is, and a follow on with the modification. 
 
 Thanks
-4	1	Patch Set 1: Looks good to me, but someone else must approve
+3	1	Patch Set 1: Looks good to me, but someone else must approve
 
 Looks fine though agree with Chris's comment that exported strings should be defined in a header file that can be shared.
-4	1	Patch Set 1: Looks good to me, but someone else must approve
+3	1	Patch Set 1: Looks good to me, but someone else must approve
 
 (2 inline comments)
 
@@ -2231,7 +2231,7 @@ LGTM with a couple of small optional suggestions.  I agree that using more reali
 2	1	The variable you should probably use here is U_BOOT_FDT_USE, defined in make.conf.
 
 I agree the name is not great - we can change it if you like. But the intention is that this variable tells you which fdt to use, so there should be no need for this sort of logic in ebuilds.
-4	1	Patch Set 1: Looks good to me, approved
+3	1	Patch Set 1: Looks good to me, approved
 
 LGTM; and yes please do upstream.
 1	2	Patch Set 1:
@@ -2247,7 +2247,7 @@ x86inc.asm doesn't work when:
 (D) we're 32bit, pic is enabled, and the final binary does not use -mdynamic-no-pic or a non-gcc equivalent during linking
 
 My understanding is that Chrome on win32 does (C) (i.e. the windows/msvc linker does gcc's -mdynamic-no-pic behaviour by default), so there's definitely an argument to be made for keeping these assembly optimizations.
-4	2	machine_emergency_restart is a good place for the cache flush in the sense that it is already machine-specific.
+3	2	machine_emergency_restart is a good place for the cache flush in the sense that it is already machine-specific.
 
 But yes it's fine to take this approach. LGTM
 2	2	Patch Set 5:
@@ -2258,13 +2258,13 @@ But yes it's fine to take this approach. LGTM
 
 That's right, you only need to land the 9999 now. (Actually it's been supported since at least Oct 2010, but yeah there used to be a bug)
 1	1	Hmm I see what you mean. Yeah it might be possible to do what you describe.
-4	1	Patch Set 1: Looks good to me, but someone else must approve
+3	1	Patch Set 1: Looks good to me, but someone else must approve
 
 Would wonder about chattr during runtime, but yeah you're likely right (assuming this has been image tested too).
 2	4	Patch Set 2: (2 inline comments)
 
 the split string constants make me sad, but i'm not sure upstream u-boot has signed onto that sanity yet like the linux kernel.
-4	2	Patch Set 3: I would prefer that you didn't submit this
+3	2	Patch Set 3: I would prefer that you didn't submit this
 
 (2 inline comments)
 
@@ -2278,7 +2278,7 @@ Even if you do want to split things out like this, it would be better to take th
 
 
 Independent of whether splitting things up is a good idea, if Mike (who knows bash much better than I do, I think) likes the style of the new function you've made, it would be nice to incorporate the style changes back into the original function.
-4	1	Patch Set 2: Looks good to me, approved
+3	1	Patch Set 2: Looks good to me, approved
 
 I concur with jrbarnette@.  It sounds like we can do a separate issue/CL for removing the pragma.  To that end, I think a TODO() referring to that issue could be useful if added to this CL.
 2	1	NIT: a docstring of this Exception would be useful. Including the error above this.
@@ -2304,7 +2304,7 @@ Also, the hard-coded timeouts here need names, and some
 justification for their length.
 2	1	Is it always true for all CrOS devices that if eth1 exists it is an LTE system, and that we should use eth1 for communication in this test? I am guessing this would print out 'LTE system' on a CrOS device with on board Ethernet.
 4	1	Wow! Is this really true for any of the targets?
-1	2	Patch Set 4: Verified
+1	1	Patch Set 4: Verified
 
 PTAL now.  See referenced bug for scope traces.
 1	3	Patch Set 1: I would prefer that you didn't submit this
@@ -2388,7 +2388,7 @@ Thanks for the info.  I agree with your assessment on caching as well.
 And the other if you want to apply the setting now.
 
 Or... maybe the other way around... first ask if you want to apply firewall setting, then if selected yes to ask about manager etc...
-4	2	No it doesn't ""explode"", I am not changing a sebool, I am changing the file context. Yes a restorecon would un-do the change. We'll need to file a request for that but for now this is good enough.
+3	2	No it doesn't ""explode"", I am not changing a sebool, I am changing the file context. Yes a restorecon would un-do the change. We'll need to file a request for that but for now this is good enough.
 2	1	Maybe you could add a real description - yes it's just something really minor :)
 3	1	Patch Set 12: Code-Review+2
 
@@ -2434,7 +2434,7 @@ Go through all vds connect and after that refresh, no need for exception handlin
 especially additional refresh.
 No need for additional method that u introduced.
 Where it is 99% percent common. You already introduced a method that at some flow should return only true and complicated a very simple code. ""right now there is no need to copy the method in my opinion - 99%"" - your change at connectAndRefreshAllUpHosts in order to solve bug at reconstruct flow caused to regression in recovery flow. I don't think that these means 99% common.
-4	2	Patch Set 1:
+3	2	Patch Set 1:
 
 Alon,
 
@@ -2451,7 +2451,7 @@ Please abandon it.
 
 
 Sorry for the hassle.
-2	2	I understand that right not only root is supported by engine, but I prefer that the API layer will pass to the engine all the information that the user provided. Engine may choose to ignore, for now, all users aside for 'root'. 
+2	1	I understand that right not only root is supported by engine, but I prefer that the API layer will pass to the engine all the information that the user provided. Engine may choose to ignore, for now, all users aside for 'root'. 
 
 The way it's written here, is just a bug waiting to happen - tomorrow engine will support other users, and suddenly we will have a bug in the API: some users are not passed on to the engine, for some reason.
 1	1	this enabled should be only after no errors at all...
@@ -2527,7 +2527,7 @@ stderr = None
 retcode = 1
 Executing command --> 'ls /var/log/ovirt-engine -trll | grep setup | tail -n1 | grep -o ""[^ ]*[.]log$""'
 output = engine-setup_2013_04_04_14_15_27.log
-4	1	Patch Set 2: Looks good to me, but someone else must approve
+3	1	Patch Set 2: Looks good to me, but someone else must approve
 
 (3 inline comments)
 
@@ -2568,7 +2568,7 @@ Except for my spaces nitpicking, yes ;-)
 as this is pending for almost 10 months now, what should be the next steps? Do we want that, if yes we need a ticket in forge, Release info in commit message and probably the unit test changes. I can at least create the ticket and change the commit message, if anyone cares to comment on it here. Stephan woudl you provide the changed tests? 
 Otherwise we probably should drop the change.
 2	1	I would say this has never worked - as we do not support string comparisons in fluid so far. Thus, {std.value} == yes always equals to TRUE.
-4	2	Patch Set 4: Code-Review+2
+3	2	Patch Set 4: Code-Review+2
 
 Now it looks good, yeah it worked in the first patch set but the rebase missed the comma
 2	1	Patch Set 3: Code-Review-1
@@ -2578,7 +2578,7 @@ Now it looks good, yeah it worked in the first patch set but the rebase missed t
 2	1	Patch Set 1: I would prefer that you didn't submit this
 
 Seems like you commited some too much ;)
-4	2	Patch Set 5: Looks good to me, but someone else must approve
+3	2	Patch Set 5: Looks good to me, but someone else must approve
 
 Rebased with current master
 
@@ -2620,10 +2620,10 @@ What about a second argument in ""getNode()"" that allows to even fetch hidden/p
 2	2	Patch Set 1: Abandoned
 
 TYPO3 4.6 branch is at the end of bug fixing period. Only priority changes will be considered (compatibility fixes and security fixes) until end of April 2013.
-2	2	Patch Set 4:
+2	1	Patch Set 4:
 
 The indexer usage was not changed, it just fixes the bug and it works. :) Adapting to the new indexer is yet another task, of course.
-2	2	I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done...
+2	1	I know - but maybe it would make sense to correct it right away instead of creating a separate bug report which doubles or triples the effort to get it done...
 3	2	Patch Set 3:
 
 I have a separate TYPO3 installation running in an alias on the main site - that is in /home/. So domain.com is one TYPO3 installation and /home/ is a separate one using alias in Apache.
@@ -2635,10 +2635,10 @@ The automatically created JS and CSS has the filename http://domain.com/typo3tem
 Does the above make sense?
 
 This patch fixes the errors in the log where php tries to execute filemtime(""/home/domain.com/home/htdocs/http://domain.com/home/typo3temp..."")
-4	2	Patch Set 1: Looks good to me, but someone else must approve
+3	2	Patch Set 1: Looks good to me, but someone else must approve
 
 Just fix those three whitespace errors in the test class.
-4	1	Patch Set 2: Verified by team member; Looks good to me, approved
+3	1	Patch Set 2: Verified by team member; Looks good to me, approved
 
 I could not reproduce the errors - however the changes look straight-forward.
 1	2	Will fail with: ""uid , pid , crdate"".
@@ -2647,7 +2647,7 @@ I think the following would be better:
 /(^s*|,s*)uid(s*,|s*$)/
 
 I added space checks on both sides because TS objects can be also created programmatically, so spaces are not necessarily trimmed.
-4	2	Patch Set 6: Fails; Looks good to me, but someone else must approve
+3	2	Patch Set 6: Fails; Looks good to me, but someone else must approve
 
 Rebased on master. The changes introduced come from I076a02096fb62bb1b8a51d888287d68c6ca26965, which was merged after the ""security"" topic was rebased, reviewed and verified by Robert.
 
@@ -2658,12 +2658,12 @@ unit tests fail for me, please hold on (investigating)
 1	2	Patch Set 4:
 
 The failure has to do with the locales available on my system. de_DE.UTF-8 is not available, but when I change it to en_US.UTF-8 the test is ok.
-4	2	Patch Set 5: Verified by team member; Looks good to me, approved
+3	2	Patch Set 5: Verified by team member; Looks good to me, approved
 
 The last patch set adds an @outputBuffering to the test Bastian added to avoid failure when running PHPUnit in strict mode.
 
 Submitting with prior approval.
-4	3	Patch Set 2: Looks good to me, but someone else must approve
+3	3	Patch Set 2: Looks good to me, but someone else must approve
 
 Looks good to me.
 
@@ -2738,7 +2738,7 @@ I'm a bit concerned about making this too long, since it means there may be e.g.
 
 to convert it to a boolean value
 1	1	we can actually allocate a 4K buffer which would be bigger enough to store the message.
-1	1	Presumably this is easily implemented for the object iterator virtual index?
+2	1	Presumably this is easily implemented for the object iterator virtual index?
 1	1	I've started LU-2757 for that and have patches done. I placed it under lustre/dynlocks but it'd be easy enough to move anywhere else.
 2	1	please explain what part of mdd_object_create() you need to reuse() (except mdo_create())
 1	3	i'm very concerned that this is done at non-obvious place. it will be hard to observe that RPCs are found ""replied"" late in our context. we don't have any tests for this. if something is changed, then when we'll notice?
@@ -2835,7 +2835,7 @@ Next patchset implements your suggestion with two distinct callbacks, which I fi
 1	1	it's just not correct to skip ./.. in OSP because it doesn't know whether this is a stripe or just regular directory which we can access via OSP.
 1	1	(minor) Why out that in a comment instead of just using $((1024 * 2048)) below?
 1	2	(style)  unnecessary whitespace before a quoted newline
-4	3	There have been complaints of late on the mailing lists about configure not auto-detecting whether servers should be built or not.  I wonder if this will be good enough to fix that issue also.  Might be worth seeing if there are open tickets about that and closing them when this lands (assuming it does fix those cases).
+3	3	There have been complaints of late on the mailing lists about configure not auto-detecting whether servers should be built or not.  I wonder if this will be good enough to fix that issue also.  Might be worth seeing if there are open tickets about that and closing them when this lands (assuming it does fix those cases).
 1	1	(style)  code indent should use tabs where possible
 1	2	(style)  code indent should use tabs where possible
 (style)  space prohibited between function name and open parenthesis '('
@@ -2905,8 +2905,8 @@ then you won't need this check if you assume that cbfs is correct and if you don
 1	1	The ---?��?�?? is not the coding style I think. Could we change that right now?
 1	2	Is it possible to put this init function inside the nehalem romstage ? Or are there any problems
 2	1	this could probably be determined dynamically at build time. but not in this patch.
-4	1	ewwww. Longer term, why are we not just using monotonic timers on x86? Still, this is known good, we can take it as an action item, as there might be a reason.
-4	1	I have added the modulo because if int is actually 64 bits then the snprintf would mangle the string for values >= 2^32. OTOH it is quite unlikely that we ever see such high numbers(?), but you are right it is not really a good solution. I'll push a version that will work with 64 bits ints and the refined error message. Thanks a lot for taking the time to write the review!
+3	1	ewwww. Longer term, why are we not just using monotonic timers on x86? Still, this is known good, we can take it as an action item, as there might be a reason.
+3	1	I have added the modulo because if int is actually 64 bits then the snprintf would mangle the string for values >= 2^32. OTOH it is quite unlikely that we ever see such high numbers(?), but you are right it is not really a good solution. I'll push a version that will work with 64 bits ints and the refined error message. Thanks a lot for taking the time to write the review!
 2	3	Whitespace. It even replaced the proper tabs from before. Please fix the editor.
 2	1	It's left intentionally like that, so that a patch that actually enables one LFP looks cleaner.
 2	1	It makes sense that this is for the IOMMU since family 15 model xxx are the only parts that support it.
@@ -2923,7 +2923,7 @@ then you won't need this check if you assume that cbfs is correct and if you don
 1	2	Usually unbuffered is limited to four ranks per channel, but most boards I have seen can take either unbuff'd or reg'd. From what you've been describing, I think devicetree.cb is a more optimal answer. (You'll hear me say that a lot. sorry)
 2	1	So those need to be enabled on as as-needed basis. Kconfig knows about SSE and its ilk. Noted, will take care of it.
 1	1	And #include AGESA headers in a public coreboot header? Are you out of your mind?
-4	1	I see. I can probably help you with that. I would like to assert that if HAVE_USBDEBUG is available the chipset and/or mainboard does the setup in bootblock to get things at least halfway working. That or so early in romstage it is before console. I think that is a good goal to have.
+3	1	I see. I can probably help you with that. I would like to assert that if HAVE_USBDEBUG is available the chipset and/or mainboard does the setup in bootblock to get things at least halfway working. That or so early in romstage it is before console. I think that is a good goal to have.
 1	1	uint32_t as above.
 
 Also if you could format the comments with /* .. */ style would put ice on the cake.
@@ -2996,7 +2996,7 @@ A second option MMCONF_SUPPORT_DEFAULT is not set, so by default you would use P
 1	1	'*' next to struct name not type. Also, you don't need to use CamelCaseJustBecauseTheCodeWhereItSUsedUsesIt.
 
  see_what_i_mean ? yes : no;
-1	4	follow up? hate all this stuff getting bikeshed for weeks for that sort of thing.
+1	2	follow up? hate all this stuff getting bikeshed for weeks for that sort of thing.
 
 can you also check out 6465, 6463.
 2	4	Please add the tab. It?��?��?�s sad that the latest clean up patches for the Butterfly were not adapted.
@@ -3009,7 +3009,7 @@ can you also check out 6465, 6463.
 0xffdffffc has 0xffdfffa0 in it which would then be passed back to map.
 1	1	Reading this again, I realize: nothing. We want the two most significant bits and get them either way.
 2	2	Please don't declare symbols weak. Provide weak definitions.
-5	2	I don't always agree with Paul, but when I do, I'm either drunk or I have a very good reason.
+4	2	I don't always agree with Paul, but when I do, I'm either drunk or I have a very good reason.
 1	1	s/the//
 
 ?��?�?? rebase the FSP with Intel?��?��?�s tool BCT.
@@ -3064,7 +3064,7 @@ and blob friends have:
 
 and you set string in error_expected by default value is boolean. python allows it but it's not good to change the type of variable
 2	1	What status is the best here? I cannot use status from the current response here,  also I don't know status of the other responses here.
-4	1	Interesting. The ruby client have similar feature, but it  doesn't touch the packet (the user should explicitly specify which conversion he'd like to apply to value). I think your solution is good enough. Is it possible to generalize such flag so that I can mark the keys as 'marshalled'. But such generalization won't be portable between clients because all of them use different formats.
+3	1	Interesting. The ruby client have similar feature, but it  doesn't touch the packet (the user should explicitly specify which conversion he'd like to apply to value). I think your solution is good enough. Is it possible to generalize such flag so that I can mark the keys as 'marshalled'. But such generalization won't be portable between clients because all of them use different formats.
 
 Another good feature which is connected to value formats is flag which will says that the value is a valid document (json hash) because in this case the client could decide to map it to some high-level object
 2	1	No!! More sleeps!! I think we're up to 22 seconds now!
@@ -3104,7 +3104,7 @@ eventually we will follow this rule.
 2	2	I think it is probably cleaner to put CAS change in the caller rather than del() here.  The caller knows it is a normal deletion or delWithMeta(). The del() here is a generic function and should not take care of CAS issues. 
 
 Also, is it better to get a brand new CAS here? What is the point to increment the CAS for a normal deletion? CAS is a token, it is not meant to be incremented/decremented. We grab a new CAS for other operations, seems not quite consistent to me to increment it here.
-4	1	sounds good. will update once the dependence:
+3	1	sounds good. will update once the dependence:
 http://review.couchbase.org/#/c/33453/ is merged.
 1	3	Agree, (it was not added as part of this patch, but I'll fix it). Hopefully we'll be able to completely get rid of these parameters...
 1	1	increment out is extra here, you can use num_rebalance everywhere
@@ -3174,13 +3174,13 @@ Returning a metadataNotFound err here is more correct conceptually, since this c
 
 nitpick: It's better (more professional) to write these things in the 3rd person.  For instance ""It will be made smarter later"" rather than ""I'm not going to try to make it smarter"".
 1	1	why use -100? from the code below, it seems you meant -1 here.
-1	2	I thought that handle->last_hdr_bid represents the last header that was written into the file. Is this incorrect?
+1	3	I thought that handle->last_hdr_bid represents the last header that was written into the file. Is this incorrect?
 1	1	Yes, but it will change the output of EXPLAIN, so need to coordinate checkin with QE.
 1	2	can we avoid json_dump here , we are doing it few times in query generator. return the json format
 1	1	There is no need for a ""continue"" here, since it means the same as the normal program flow...
 1	1	we will need to log the error since it is ignored by caller
 3	2	if we assume that initCache() always succeeds - otherwise service constructor fails - we do not need to check for non-nil cache or return error for it anywhere
-1	2	There may be a minor bug here in that there can be a TMPFAIL at authentication time.  This doesn't seem to handle that.
+1	1	There may be a minor bug here in that there can be a TMPFAIL at authentication time.  This doesn't seem to handle that.
 1	1	How is 'bbox' supposed to be encoded for transmission over http?  Currently its encoded as a Javascript array, which is probably why its not behaving as expected.
 2	1	I believe you can only have one appender configured. The file based one is more useful to me, but maybe not to others.
 1	1	I'd expect that to autounbox.  Autounboxing *might* be less efficient, but it's more readable and won't matter much for a test.
@@ -3198,14 +3198,14 @@ the NOOP already returns from the loop, but the case where correlationId doesn't
 1	1	You shouldn't check ""_doc.length.bodylen == 0 && (iterator->opt & FDB_ITR_NO_DELETES)"" again because we already checked it above.
 2	1	Then shared_pointer is probably the way to go (if you're happy with the cost of refcounting them).
 1	1	We should not reset the current filter here, but still need to use it for incoming read operations, and then replace it with the new filter in an atomic way below.
-1	5	I personally hate this! commands should not go to a redirected file.
+1	3	I personally hate this! commands should not go to a redirected file.
 I think your redirect options should be off, on, verbose - and only verbose should add commands
 1	1	yeah.. that being said, the protocol explicitly state it to be two bytes ;-)
 1	1	skip_rebalance option is not needed here, it is always skipped unless nodes_init is provided
 why do you skip_cleanup?
 1	1	This can't guarantee there won't be two pipeline running concurrently for one replication.
-1	2	You can actually remove this entirely - I needed it to work around a bug in lcb when connecting to a non-standard port (i.e. ./cluster_run running on port 9000 instead of 8091). For use in perfrunner with standard packages we probably want CCCP.
-4	3	Good idea. Although I could now just have a single stat and remove scrubber:status? If we have a stat called scrubber:runs we can infer the status.
+1	1	You can actually remove this entirely - I needed it to work around a bug in lcb when connecting to a non-standard port (i.e. ./cluster_run running on port 9000 instead of 8091). For use in perfrunner with standard packages we probably want CCCP.
+3	3	Good idea. Although I could now just have a single stat and remove scrubber:status? If we have a stat called scrubber:runs we can infer the status.
 
 Is there a policy though of maintaining stats? any external tools reliant upon them that would be unhappy with removal of a stat?
 2	1	The error for the operation. If there is no error, this value will evaluate to `false`
@@ -3216,7 +3216,7 @@ Is there a policy though of maintaining stats? any external tools reliant upon t
 
 In this case the lcb_cntl user will get correct effective type
 1	1	I don't see where we append the rewinded header to the database file. Otherwise, when we open the db file next time, it will still give us the latest header that is not rollbacked.
-5	1	This isn't a very good function name.. (I assume that it doesn't initialize everything in memcached).. init_allocation_hooks() would probably be a better name..
+4	1	This isn't a very good function name.. (I assume that it doesn't initialize everything in memcached).. init_allocation_hooks() would probably be a better name..
 2	1	Please use uint64 or uint32 or uint16 if the size is known.
 1	1	Could you also update RELEASE_NOTES.markdown in the project root. You are adding interfaces, it would be great to document them there.
 2	1	You should put it into memcached_defaults instead. That handles the upgrade scenario and will allow us to change the value easily in future.
@@ -3242,7 +3242,7 @@ Strange to test that as it has no effect on the time selection, and no effect on
 1	2	I started with standard ReentrantLocks here, but when adding the lookFor...() method, I realized that that is a read-only operation, so concurrent queries didn't need to block each other.
 1	2	Shift + left click or drag to extend T1 of a current range always changes T1 to T2 (and T2 to T1)
 1	1	I'm not enough of a regex guru, but there is probably a way to merge all these matchers into one regex, so that we don't have to check all the patterns one by one over the same string.
-4	2	if this was copied from another IT (?)
+3	2	if this was copied from another IT (?)
 and the GAV was not changed, it will conflict with the other IT when 'mvn install' installs it into the local repo.
 
 It's a good idea to make all GAVs used  in test projects specific to the IT that is being run to avoid unwanted crosstalk/side-effects between unrelated ITs, esp. when they are being run in parallel. (and I know some ITs we have are not good examples for this...)
@@ -3296,7 +3296,7 @@ reset columns I will do. I can be convinced of using cpm too.
 1	1	not a big thing but sequence number should have been bumped
 2	1	it looks like createMergeConflictInfo() always shows the warning, then  adding the warning should be an implementation detail of createMergeConflictInfor() and the mergeResult needs to be passed to it as a parameter
 2	2	I think you miss the (complicated) case of a conflmict between a move in a branch vs a uncontrolling in another branch => In which case there is a deletion compared to origin on one side, and a rename on the other side.
-4	4	We usually make file of constants an interface instead of a class (and prefix the name of an 'I').  You would also add in the javadoc of the interface the line
+3	4	We usually make file of constants an interface instead of a class (and prefix the name of an 'I').  You would also add in the javadoc of the interface the line
 
  /** @noimplement This interface is not intended to be implemented by clients.*/
 
@@ -3340,7 +3340,7 @@ I decided to wrap it into a WrongGitFlowStateException because an empty reposito
 1	2	Is it possible that this is related to the Critical path view? Patrick said he saw a weird bug with time alignment being off because of the critical path.
 1	1	Add spaces to relation name to match those in type definition
 2	1	not sure whether this is needed but it's not harmful. We will get the NPE when (oldHeadId!=null && oldHeadLog==null). But if you look at line 724 this will not be the case. Anyhow: +1
-4	1	If we have a class hierarchy with one base class and many subclasses, in most cases it works well to have one base test classes and extended test classes, for each implementation. That way tests that apply to all implementations can go in the base class (and will be run for each sub-test).
+3	1	If we have a class hierarchy with one base class and many subclasses, in most cases it works well to have one base test classes and extended test classes, for each implementation. That way tests that apply to all implementations can go in the base class (and will be run for each sub-test).
 
 The ""state system tests"" in lttng2.kernel.tests are like this, and it works very well. Ideally these should be brought back in statesystem.core.tests. InMemoryBackendTest is a good start, but it should split the tests that are common to all backends in a base class.
 
@@ -3400,7 +3400,7 @@ more occurrences below
 Should it be 'wst'?
 1	2	What happen when you pass the same email and ask to delete it and set as preferred? Make it sense to check for this and reject this case as mutually exclusive options?
 2	1	If I understand this right the buildr process is able to load Java classes dynamically and invoke them with reflection? That does it make it slightly easier to do some complex steps.
-4	2	I think that this class makes more sense than the Branch class because there are several places in Gerrit where refs strings are manipulated without using Branch objects.  Jgit does define some of those constants, but we cannot use jgit everywhere, particularly in GWT, which I suspect is why this class is here in the first place.  We need a good place in Gerrit for these constants, and the Branch object itself is a much higher level object than this simple class (it isn't only about refs, but rather refs and projects).  These constants feel  more appropriate here to me than in the Branch class.  I have some more changes, which I will push, which move them out of the Branch class completely.  I am willing to update the comment here if need be, but this class feels appropriate to me (based on its name and location) and I don't think that ""naive"" comment should get in the way of that.
+3	2	I think that this class makes more sense than the Branch class because there are several places in Gerrit where refs strings are manipulated without using Branch objects.  Jgit does define some of those constants, but we cannot use jgit everywhere, particularly in GWT, which I suspect is why this class is here in the first place.  We need a good place in Gerrit for these constants, and the Branch object itself is a much higher level object than this simple class (it isn't only about refs, but rather refs and projects).  These constants feel  more appropriate here to me than in the Branch class.  I have some more changes, which I will push, which move them out of the Branch class completely.  I am willing to update the comment here if need be, but this class feels appropriate to me (based on its name and location) and I don't think that ""naive"" comment should get in the way of that.
 1	1	This should be just 'Authentication required' to make the message consistent with other REST endpoints.
 1	2	Put all of this into a static helper method that returns a Map<String,String> already configured for the Sun JNDI names used below. Then we only need a map for connection pooling as an instance member.
 2	3	I'd rather do the logging fix separately, and not in 2.9.2
@@ -3559,7 +3559,7 @@ When I changed the on-disk location (via the rename above) of my gitiles checkou
 2	1	Be consistent about inner class references. Here you use Metadata but above you use SecureStoreLoadUtil.Metadata. In this case I am OK with either form in the class but want them to be consistent within the ~60 lines of code you have.
 1	2	Would it be worth putting `-ex` here to get the echoed output and exit status?
 1	1	Docs in master are built from Buck. This Makefile should have been removed when the pom.xmls were removed.
-5	1	Good call!  New code uses work_git.rev_parse('HEAD').  PTAL.
+4	1	Good call!  New code uses work_git.rev_parse('HEAD').  PTAL.
 1	1	Don't use exceptions for control flow. Use Ints.tryParse instead.
 1	2	Change this to throw CompileException instead. Elsewhere on failure you throw IOException or CompileException.
 1	1	Maybe ""findSubClasses"" would be a better name for these methods?
@@ -3718,7 +3718,7 @@ The original code tested for S_ISDIR, which might well be best. I just wanted us
 2	4	gpu_info is still available when this gets called, so it can be safely passed to free_gpu().
 
 The only inconvenience is that if mdrun crashes or gets killed, the driver won't set the clocks back to the original values. I guess this could be an RFE - nvml could distinguish between admin and user access and tell the driver to set the clocks back after the application terminates.
-4	1	I'll add a comment. 
+3	1	I'll add a comment. 
 I don't think #ifdef is a good idea. It makes bugs more likely because you have more code and that code is less tested (because only one version is only compiled and run on any one system).  But I will include the non-workaround version in the comment.
 1	1	OK, moved back to shellfc.cpp.
 Implemented the std::array busines. Phew.
@@ -3727,20 +3727,20 @@ Implemented the std::array busines. Phew.
 We will gradually get more detection routines, so it does not make sense to have all routines available on all architectures, but usually non-functional.
 1	1	mdrun -nstlist > 0 is not affected by this change, it will still change nstlist. Or do you mean to add a note even with nstlist=0? nstlist=0 is explained as guess and 1 with 1 seems ok to me.
 1	2	That this was removed is clearly wrong, and seems to be the cause for the test which hang. It doesn't always hang but sometimes. For more details: http://redmine.gromacs.org/boards/6/topics/261?r=266
-5	2	That's a bit of a philosophical discussion. I thought about it earlier, but the reason for limiting the range is that we only use the single precision range in the SIMD parts of Gromacs - since all algorithms in particular need to work if the user has set the precision to single - we only use double to improve precision, not range.
+4	3	That's a bit of a philosophical discussion. I thought about it earlier, but the reason for limiting the range is that we only use the single precision range in the SIMD parts of Gromacs - since all algorithms in particular need to work if the user has set the precision to single - we only use double to improve precision, not range.
 
 One _could_ of course add double precision range tests, but then the next obvious question is why we allow routines to provide incorrect results for NaN, +-infinity, negative zero, etc? And, of course, not to mention - why we allow more than 1 ulp error :-)
 
 For the error functions I actually experimented a bit with only providing accurate results in a smaller-than-double-precision-range, and this might still be a useful optimization strategy in the future. Thus, I like the idea of merely testing what we actually need, and if somebody comes up with a neat idea to improve that while only altering things we don't need, that should fundamentally be a good thing(TM)!
 1	1	Should this include also the LJ PME contribution, either summed our as a separate line? I know that this functionality may change in the future, but for now would be better to keep up-to-date.
 1	1	with the suggested while loop this would become i =0
-5	1	whoops, this is not new code, but docs are always good!
+4	1	whoops, this is not new code, but docs are always good!
 2	1	Not in the present version at least. Note that I have not yet had access to xlc with VSX, so that will have to wait until we get that!
 1	1	Not all build tools use -j. Thus the simpler approach of directly setting build_cmd=""make -j2""/""jom -j4"" might be better.
 1	1	I could put the finalizeForCommandLine after processExceptionAtExit. Then it doesn't change anything for LIB_MPI and that wouldn't work anyhow as you point out.
 2	2	I started replacing C0 with c[0] because I didn't see a significant advantage of having C0 available. But then I saw this and realized this AI naming is used in some other places. And it might be helpful to have the I..M index. I thought about creating an enum to define I to M (to use as a[I]) but of course I to M would be by itself bad names which conflict easily with other things. And I thought it would be nice to have C and A by consistent. So I also created CO..C2 not just AI..AM. I think consistency with the previous name is more important than consistency to the variable name. But it doesn't really matter to me.
-4	2	Isn't ""a system dependent pseudo random seed"" even more cryptic to the average user? How would you formulate it isn't unusual verbose compared to the other options and not cryptic to the average user? A section in the manual explaining how our random numbers work is (while a good idea) outside the scope of this change.
-4	2	OK, thanks.
+3	2	Isn't ""a system dependent pseudo random seed"" even more cryptic to the average user? How would you formulate it isn't unusual verbose compared to the other options and not cryptic to the average user? A section in the manual explaining how our random numbers work is (while a good idea) outside the scope of this change.
+3	2	OK, thanks.
 
 The approach here and in my patch work fine if the user controls everything they way they want. 
 
@@ -3792,14 +3792,14 @@ Generic serialization is also a significant amount of code, even if straightforw
 
 Additionally, there are three more loops over the lists, can some of them be merged into one parallel region with this?
 1	1	""system-provided version"" or ""version provided by the system""
-4	1	Good point. I think it is related to the change as the new message is introduced here.
+3	1	Good point. I think it is related to the change as the new message is introduced here.
 1	1	could this moved to config.h instead of having it on the command line?
 1	1	indeed.  I see why it's there...I don't suppose there's a clean way to make this better?  Looking at do_xdr(), nothing comes to mind immediately.
 1	2	I far prefer the load/store naming since anybody who has ever worked with SIMD will know exactly what we're doing. 
 
 The point is to maybe make the SIMD code slightly less cluttered, and _maybe_ make it possible to for some simple routines to be templated, not to design a new language.
-4	2	We should move this to some other module since it has very little to do with SIMD, and it was only a hack for a single architecture. However, that will require us to write a different hardware module, so for now I've added a define for GMX_SIMD when any of the SIMD architectures is enabled (which is good to have anyway).
-4	1	It seems to me that the above helpers would be better suited in a different file to keep this file a purely generator one. Does that make sense? is there any good reason to keep it here?
+3	2	We should move this to some other module since it has very little to do with SIMD, and it was only a hack for a single architecture. However, that will require us to write a different hardware module, so for now I've added a define for GMX_SIMD when any of the SIMD architectures is enabled (which is good to have anyway).
+3	1	It seems to me that the above helpers would be better suited in a different file to keep this file a purely generator one. Does that make sense? is there any good reason to keep it here?
 3	2	It is not too late to do one. But because this runs also on the client and I am not sure how compatible those are with the Java ones I decided to write it this way.
 
 But you can look at the one I wrote for the source level in Utility.versionPattern if you feel nostalgic.
@@ -3978,7 +3978,7 @@ The rest will break GWT test for the cases where there is no metadata available.
 2	2	I think this is because JTypeOracle.isInstantiatedType(JReferenceType) returns true for any JsType.
 
 Roberto has a comment in there to remove this hack when CFA is more precise. By removing the JInstanceOf rescue, you now can no longer remove this hack.
-4	2	I already have another use case. If an app needs per package log configuration (as in JDK), this is good way to support that. So I prefer to keep it as it doesn't complicate the code.
+3	2	I already have another use case. If an app needs per package log configuration (as in JDK), this is good way to support that. So I prefer to keep it as it doesn't complicate the code.
 1	1	[error] Type Javadoc comment is missing an @param <T> tag.
 1	2	[info] Line matches the illegal pattern 'check that a space is left after a colon on an assembled error message'.
 2	1	flan
@@ -4070,7 +4070,7 @@ It should be && according to https://tools.ietf.org/html/rfc7432 (7, 7.4). If it
 1	1	I think this switch statement is getting big enough that this dissector should create a dissector table and have these dissectors register with it, not the other way around.
 1	1	Move up with other ""just set reserved = 7"" case statements?
 1	1	I don't think most of these are necessary.  The dissector is (and should be) organized to just define functions before they are used.
-4	1	I think there should be a maximum size, and scrolling should start from there. with 53 options, there would be a good case for implementing a tab-structure in the dialog.
+3	1	I think there should be a maximum size, and scrolling should start from there. with 53 options, there would be a good case for implementing a tab-structure in the dialog.
 1	1	same comment as above: use wmem_map_new() with file scope memory
 1	1	No need for the above...
 
@@ -4087,7 +4087,7 @@ if tokens = NULL, then parser->toknext will always be set to 0.
 That said, your change is somehow equivalent so we could keep it as-is.
 1	1	I prefer the Alcatel-lucent.xylan (i will update the dicto after...)
 1	2	In theory (per the comments) a retransmission should be caught in the code block above. This is not the case?
-4	3	Cosmetic: According to last changes related to tvb_captured_length and tvb_reported_length it is good point to start thinking about ""reported"" case (btsnoop format provide both frame length). In ""reported"" case we can have only part of frame: for example first 2 bytes. This dissector will fail at this line, so nothing will be dissected, but if you move lines 131-140,(169)171-181 directly before place when it will be use then we can dissect some fields. ""context"" can be filled somewhere about line current 202, ""rf_channel"" can be put between lines 144-145, ""aa_offenses"" can be fetch after 170 or where ""context"" is filled, the problem is ""flags"", but after moved it after line 147 you are able to decode ""btle_rf_channel"" field etc.
+3	3	Cosmetic: According to last changes related to tvb_captured_length and tvb_reported_length it is good point to start thinking about ""reported"" case (btsnoop format provide both frame length). In ""reported"" case we can have only part of frame: for example first 2 bytes. This dissector will fail at this line, so nothing will be dissected, but if you move lines 131-140,(169)171-181 directly before place when it will be use then we can dissect some fields. ""context"" can be filled somewhere about line current 202, ""rf_channel"" can be put between lines 144-145, ""aa_offenses"" can be fetch after 170 or where ""context"" is filled, the problem is ""flags"", but after moved it after line 147 you are able to decode ""btle_rf_channel"" field etc.
 1	1	Not needed (in this case) since a 'set' is being done immediately following
 1	1	You can add bitmasks to the hf_ item and still use proto_tree_add_item to get your desired effect.
 1	1	tabs instead of whitespaces as in the rest of the file
@@ -4160,7 +4160,7 @@ and also a generated hf with the padding length ?
 2	1	No need to check for NULL because g_strdup will do this.
 And if value == NULL then tv->value will be uninitialised.
 1	2	?? use _U_ on declaration function ? (to avoid unused parameter warning)
-1	2	As remember filtering name can be related to expert information - this give you more filtering options. For example ""btle.crc.incorrect"" and ""Incorrect CRC""
+1	3	As remember filtering name can be related to expert information - this give you more filtering options. For example ""btle.crc.incorrect"" and ""Incorrect CRC""
 1	1	Use tvb_ip_to_str.  That should eliminate the need for arpa/inet.h
 2	2	We need to enter in this IF block only in case of unknown protocol, so when dissector_try_heuristic() return value is 0.
 1	2	heuristics should check tvb_captured_length first to make sure there is enough data to run the heuristic, otherwise it might throw an exception just checking, and prevent subsequent heuristics from claiming the packet appropriately
@@ -4180,7 +4180,7 @@ Xylan has buy by Alcatel in 1999... (if i remember..)
 2	1	As every callback is only interested at the part starting at the token, what about using frame + offset here and dropping the p - frame in the callbacks?
 1	1	personally, i prefer to have only with space after comma
 1	1	You could eventually create 1 hf entry per size. For sizes <=32 bits, you can use the same filter name. But for those above 32 bits, you need another filter name (as seen in README.dissector chapter 1.5.1)
-1	1	I have some reservations about making this a user facing option. Each option should be easily understandable and widely applicable IMO. This is an internal debug aid.
+2	1	I have some reservations about making this a user facing option. Each option should be easily understandable and widely applicable IMO. This is an internal debug aid.
 2	1	Hi Nigel,
 
 Is it better to use ""nbsp;"" instead of "".""?
@@ -4197,7 +4197,7 @@ Ghada
 As the hook 'local_header_top_content()' can be used by anyone it should show the menu for any theme. 
 
 Currently the menu is hidden behind other things.
-1	1	Done. While writing the function I've also unpacked it from the current one-line version into a lengthier but more easily read equivalent using if-else.
+2	1	Done. While writing the function I've also unpacked it from the current one-line version into a lengthier but more easily read equivalent using if-else.
 1	1	Hmm, I still don't like these ternery operators used as statements, I would prefer using an if statement
 2	1	Make this something like
 
@@ -4210,7 +4210,7 @@ $lang is undefined at this point.
 
 Ghada
 1	1	i would add a new variable with the tag name, this will make it so you can show which tags don't have any results
-4	1	Ah good point - I hadn't noticed that patch get merged.
+3	1	Ah good point - I hadn't noticed that patch get merged.
 
 Have removed the field_exists and table_exists checks
 2	1	this is escapable, p['title'] could be something like '""><script>dodgycode</script><a href=""'
@@ -4239,7 +4239,7 @@ Also, this is a minor point, but ""onwards"" is not a meaningful thing to add. Y
 
 if there is a fix for this but not enough time to test best to let future programmer know where to look
 1	1	similar comments to the other one, you should use pieforms or a template for the form here, and adding to info_msg is probably not the most ideal way
-1	2	Just a pre-emptive note, I put these TODO's in the code, because they are separate refactoring issues, which would be better handled in a separate bug.
+1	1	Just a pre-emptive note, I put these TODO's in the code, because they are separate refactoring issues, which would be better handled in a separate bug.
 2	3	Hi Nigel,
 
 To expand on what Tobias said, when you change the content of a language string you also need to change its name. Otherwise the Launchpad translation site isn't smart enough to tell translators that they need to update it. See https://wiki.mahara.org/index.php/Developer_Area/Language_strings#Let_translators_know_when_lang_strings_change
@@ -4489,7 +4489,7 @@ One more thing, if these sites provide copy-and-paste embed tags, these matches 
 1	2	I think this $userid parameter is unnecessary, because having a User object instance implies that you're checking things for that one particular user account.
 
 Plus it doesn't really seem to be used.
-4	1	Using the . seems to be the preferred way of doing this and orca screenreader does not read out the fullstop so that is good
+3	1	Using the . seems to be the preferred way of doing this and orca screenreader does not read out the fullstop so that is good
 2	1	Please note that according to http://www.w3schools.com, the values ""table"", ""table-row"", and ""table-cell"" are not supported in IE7 and earlier. IE8 requires a !DOCTYPE.
 
 http://www.w3schools.com/cssref/pr_class_display.asp
@@ -4535,14 +4535,14 @@ It is just that this is quite a big block of code, and would be more readable fa
 2	1	ctr is not something that we would want to call out in UI as users may not understand what it is about. Please use the expanded form in all cases.
 1	2	syncop_fsetattr failures at line 1276 can still result in failure of migration of file. Only after 1276, it is guaranteed that src will be unlinked. So, we need to set this to false after line 1276. Infact it is even possible that unlink itself might fail. So, its better to set this at line number 1359 (where ret is set to 0).
 1	2	here we are changing the default to 0666 but in open it is 0777, we should have only one. I think 0777 was chosen based on what python os module does, but could be wrong...
-4	1	Sounds good to me. I shall handle these changes in the separate patch. Thanks!
+3	1	Sounds good to me. I shall handle these changes in the separate patch. Thanks!
 1	2	There's no actual need to have this routine similar to how it's done in bit-rot-scrub.c since there just one (1) option to reconfigure.
 
 Keep it simple and just do a GF_OPTION_{INIT,RECONF} in the appropriate function.
 1	2	features.quota-deem-statfs should be allowed to reset
 When resetting features.quota-deem-statfs, it should be cleared when quota is disabled. It should be set to on when quota is enabled
 1	2	why are you going to manager function if glusterd_svc_check_volfile_identical function will failed ???  you should simply return error.
-4	1	is this an optional call or clients should always call it at the end? when is it a good idea to call unmount?
+3	1	is this an optional call or clients should always call it at the end? when is it a good idea to call unmount?
 Can we add this info to some form of documentation?
 1	1	And We dont have all functions available in cluster.rc (volinfo_filed, get_quotad_count, ... so on
 2	1	Can't we club these two cases something like :
@@ -4550,7 +4550,7 @@ Can we add this info to some form of documentation?
 case GF_SNAP_OPTION_TYPE_ACTIVATE:
         GF_SNAP_OPTION_TYPE_DEACTIVATE:
 2	2	This is nearly true. glusterd's connection management and NLM (gluster-nfs) uses @name different than THIS->name. I am removing @ctx from the argument list.
-4	2	We do realize that the given glfd pointer, could now have been reallocated and hence pass all these checks still and crash, right? just checking :)
+3	2	We do realize that the given glfd pointer, could now have been reallocated and hence pass all these checks still and crash, right? just checking :)
 
 Ideally if we want to validate that this is a good pointer, which we sort of cannot unless we have  a table of valid pointers and check against that etc. or hand out numbers and map that into a table.
 1	2	I have tested this race using gdb (as result I commented below code), here we are just stopping new threads, we are not destroying rpc structure/any resource.
@@ -4579,7 +4579,7 @@ Please use a similar eval/echo/grep as on line 50.
 1	1	The error check is implicit in checking tmpfp below. If mkstemp has an error, tmpfd would be -1 and tmpfp would be NULL. Should I perhaps throw in a gf_log() line with the message ""could not create temp file""? This seems slightly redundant given that setting ret = -1 triggers another log message in the out section.
 2	3	This is more like an invalid option, not out of memory.
 1	2	Wondering if this message could be more descriptive in terms of specifying WHAT remote operation failed?
-4	1	Intentionally made this INFO, as restore being a not so common operation this log wouldn't be quite frequent, and also it's good to know why and who stopped bricks in these cases for debugging later, coz most customer setups don't run in debug mode
+3	1	Intentionally made this INFO, as restore being a not so common operation this log wouldn't be quite frequent, and also it's good to know why and who stopped bricks in these cases for debugging later, coz most customer setups don't run in debug mode
 1	1	use macro VKEY_FEATURES_INODE_QUOTA and VKEY_FEATURES_QUOTA
 1	1	Should we not loc_wipe parent at some point in time?
 1	1	I think I have addressed this in the updated version too.
@@ -4590,7 +4590,7 @@ Please use a similar eval/echo/grep as on line 50.
 
 P.S: I was confused between EBADF and EBADFD. Then I tried to be consistent as I see libgfapi returning EBADFD in several other glfs_* methods when glfs_resolve_fd() fails.
 1	1	Can you add a comment on how you can end up with a linkto file on cached-subvol and why lookup-everywhere is  needed?
-2	2	Couldn't this be simplified inline to rebalance_completed () ?
+2	1	Couldn't this be simplified inline to rebalance_completed () ?
 Please note rebalance_completed has a bug, you should only check for 'completed' status instead of inversing for 'in progress'.
 2	1	please add tests for fopen, we should test the different modes
 1	1	We certainly can use the errno here as we are invoking'fork'
@@ -4680,7 +4680,7 @@ If inode table limit has been reached, then better to increase the limit of ....
 Is there a need for GF_FREE() in out: at all? I think that only is useful for the error case when dict_set_bin() failed. It would be cleaner, and easier to understand if you do the GF_FREE(acl_xattr) above in the 'if (ret)' statements. There is no need for this 'acl_xattr = NULL' then anymore.
 
 If you do not like that approach (or if I missed something that makes it impractical), this 'acl_xattr = NULL' stetment desperately needs a comment.
-4	1	u mentioned that is ""good to have"". i will try to convert tests for distribute volume.
+3	1	u mentioned that is ""good to have"". i will try to convert tests for distribute volume.
 1	1	We should have a log for non-connect events as well, probably at trace or debug levels.
 1	2	This will cause a double free. The previous GF_REF_PUT() will already call auth_cache_entry_free() (where entry is free'd) if auth_cache_add() has failed.
 1	3	Even here LG_MSG_INVALID_ARG ? Just to maintain the uniformity
