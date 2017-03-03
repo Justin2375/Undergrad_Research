@@ -24,3 +24,4 @@ with open("SentiTool/sentiment-oracle-exclude-comments.csv", "r") as excl, open(
 
     excl.close()
     coms.close()
+    out.close()
