@@ -142,7 +142,7 @@ public class SentimentTest {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// Create a new test object and run SentiStrength
-		SentimentTest test = new SentimentTest("Sentiment-comments.csv");
+		SentimentTest test = new SentimentTest("Updated-comments.csv");
 	}
 
 }
