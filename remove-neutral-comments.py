@@ -2,7 +2,7 @@
 import csv
 
 #Read the comments from the provided file
-with open("sentiment-oracle-exclude-comments.csv", "r") as excl,open("Sentiment-comments.csv", "r", encoding="ISO-8859-1") as coms:
+with open("SentiTool/sentiment-oracle-exclude-comments.csv", "r") as excl,open("SentiTool/Sentiment-comments.csv", "r", encoding="ISO-8859-1") as coms:
     read_one = csv.reader(excl)
     read_two = csv.reader(coms)
 
