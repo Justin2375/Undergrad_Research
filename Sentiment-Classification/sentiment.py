@@ -15,6 +15,7 @@ from nltk.classify import SklearnClassifier
 
 import random
 import re
+import nltk
 
 from xlwt import Workbook
 from xlrd import open_workbook
@@ -318,6 +319,10 @@ def expand_contractions(s, contractions_dict=contractions_dict):
          return contractions_dict[match.group(0)]
      return contractions_regex.sub(replace, s.lower())
 
+def tokenize(comment):
+    tokens = nltk.word_tokenize(comment)
+    return tokens
+
 
 wb = open_workbook("sentiment-oracle.xlsx")
 s = wb.sheet_by_index(0)
@@ -349,7 +354,10 @@ for cell_num in range(1,2001):
         comments=replace_all(comments,emodict)
 	all_comments.append(comments)
 	all_ratings.append(s.cell(cell_num,14).value)
-	#print(comments)
+        com = tokenize(comments)
+        # for word in com:
+        #     print(word)
+	print(tokenize(comments))
 
 
 
