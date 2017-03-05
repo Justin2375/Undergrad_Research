@@ -356,22 +356,15 @@ for cell_num in range(1,2001):
 	all_comments.append(comments)
 	all_ratings.append(s.cell(cell_num,14).value)
         com = tokenize(comments)
-        # for word in com:
-        #     print(word)
-	# print(" ".join(tokenize(comments))+'\n')
-    #     print(senti_word_dict)
 
 for comment in all_comments:
     score = 0
     tokens = tokenize(comment)
     for word in tokens:
         if word in senti_word_dict:
-            #print("YES!")
             score += int(senti_word_dict.get(word))
     print(str(score)+" "+comment)
-        #print(word)
     print('\n')
-    #print(tokenize(comment))
 
 
 
