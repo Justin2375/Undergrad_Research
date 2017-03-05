@@ -4,18 +4,17 @@ import xlwt
 import xlrd
 import csv
 
+import nltk
+from nltk.stem.snowball import SnowballStemmer
 from nltk.classify import DecisionTreeClassifier
-
 from nltk.classify import NaiveBayesClassifier
 from nltk.classify import MaxentClassifier
 from nltk.classify import PositiveNaiveBayesClassifier
 from nltk.classify import WekaClassifier
 from nltk.classify import SklearnClassifier
 
-
 import random
 import re
-import nltk
 
 from xlwt import Workbook
 from xlrd import open_workbook
@@ -319,10 +318,26 @@ def expand_contractions(s, contractions_dict=contractions_dict):
          return contractions_dict[match.group(0)]
      return contractions_regex.sub(replace, s.lower())
 
+# Tokenize each of the comments 
 def tokenize(comment):
     tokens = nltk.word_tokenize(comment)
     return tokens
 
+# Get the stem word from the NLTK
+def get_stem(word):
+    st = SnowballStemmer("english")
+    stemmed_word = st.stem(word)
+    return '' if stemmed_word is None else stemmed_word
+
+# Get the overall sentiment score from the comment
+def get_comment_sentiment(comment):
+    score = 0
+    tokens = tokenize(comment)
+    for word in tokens:
+        current_word = get_stem(word)
+        if current_word in senti_word_dict:
+            score += int(senti_word_dict.get(current_word))
+    return str(score)+" "+comment+'\n'
 
 wb = open_workbook("sentiment-oracle.xlsx")
 s = wb.sheet_by_index(0)
@@ -346,7 +361,6 @@ with open("EmotionDictionary.txt", "r") as sentidict:
     dict_reader = csv.reader(sentidict, delimiter='\t')
     #Hash words from dictionary with their values
     senti_word_dict = {rows[0].strip('*'):rows[1] for rows in dict_reader}
-    #print(senti_word_dict)
     sentidict.close()
 
 
@@ -358,22 +372,4 @@ for cell_num in range(1,2001):
         com = tokenize(comments)
 
 for comment in all_comments:
-    score = 0
-    tokens = tokenize(comment)
-    for word in tokens:
-        if word in senti_word_dict:
-            score += int(senti_word_dict.get(word))
-    print(str(score)+" "+comment)
-    print('\n')
-
-
-
-#read the dictionary, tab separated file
-
-#remove trailing * from dictionary words
-
-#hash list : word->score
-
-#Tokenize the sentences
-
-#apply stemmers
+    print(get_comment_sentiment(comment))
