@@ -339,6 +339,7 @@ data_test.data=[i for i in range(75)]
 
 all_comments=[]
 all_ratings=[]
+senti_word_dict=[]
 
 # Read in the words with sentiment from the dictionary
 with open("EmotionDictionary.txt", "r") as sentidict:
@@ -357,7 +358,17 @@ for cell_num in range(1,2001):
         com = tokenize(comments)
         # for word in com:
         #     print(word)
-	print(tokenize(comments))
+	# print(" ".join(tokenize(comments))+'\n')
+    #     print(senti_word_dict)
+
+for comment in all_comments:
+    tokens = tokenize(comment)
+    for word in tokens:
+        if word in senti_word_dict:
+            print("YES!")
+        print(word)
+    print('\n')
+    #print(tokenize(comment))
 
 
 
