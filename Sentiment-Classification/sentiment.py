@@ -187,9 +187,6 @@ emodict={
 "|8c"	:  "NegativeSentiment",
 "|D"	:  "PositiveSentiment",
 "}:)"	:  "PositiveSentiment",
-
-
-
 }
 
 contractions_dict = { 
@@ -342,7 +339,8 @@ for cell_num in range(1,2001):
         comments=replace_all(comments,emodict)
 	all_comments.append(comments)
 	all_ratings.append(s.cell(cell_num,14).value)
-	print(cell_num)
+	print(comments)
+
 
 
 #read the dictionary, tab separated file
@@ -350,7 +348,6 @@ for cell_num in range(1,2001):
 #remove trailing * from dictionary words
 
 #hash list : word->score
-
 
 #Tokenize the sentences
 
