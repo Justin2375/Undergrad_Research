@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import xlwt
 import xlrd
+import csv
 
 from nltk.classify import DecisionTreeClassifier
 
@@ -186,7 +187,7 @@ emodict={
 "|8C"	:  "NegativeSentiment",
 "|8c"	:  "NegativeSentiment",
 "|D"	:  "PositiveSentiment",
-"}:)"	:  "PositiveSentiment",
+"}:)"	:  "PositiveSentiment"
 }
 
 contractions_dict = { 
@@ -334,12 +335,21 @@ data_test.data=[i for i in range(75)]
 all_comments=[]
 all_ratings=[]
 
+with open("EmotionDictionary.txt", "r") as sentidict:
+    dict_reader = csv.reader(sentidict, delimiter='\t')
+
+    #sent_score = list(zip(*dict_reader))[1]
+    senti_word_dict = {rows[0].strip('*'):rows[1] for rows in dict_reader}
+    print(senti_word_dict)
+    sentidict.close()
+
+
 for cell_num in range(1,2001):
 	comments=expand_contractions(s.cell(cell_num,9).value)
         comments=replace_all(comments,emodict)
 	all_comments.append(comments)
 	all_ratings.append(s.cell(cell_num,14).value)
-	print(comments)
+	#print(comments)
 
 
 
