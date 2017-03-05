@@ -335,12 +335,12 @@ data_test.data=[i for i in range(75)]
 all_comments=[]
 all_ratings=[]
 
+# Read in the words with sentiment from the dictionary
 with open("EmotionDictionary.txt", "r") as sentidict:
     dict_reader = csv.reader(sentidict, delimiter='\t')
-
-    #sent_score = list(zip(*dict_reader))[1]
+    #Hash words from dictionary with their values
     senti_word_dict = {rows[0].strip('*'):rows[1] for rows in dict_reader}
-    print(senti_word_dict)
+    #print(senti_word_dict)
     sentidict.close()
 
 
