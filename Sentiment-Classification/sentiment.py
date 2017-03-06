@@ -1,4 +1,5 @@
 from __future__ import print_function
+from __future__ import division
 
 import xlwt
 import xlrd
@@ -337,7 +338,7 @@ def get_comment_sentiment(comment):
         current_word = get_stem(word)
         if current_word in senti_word_dict:
             score += int(senti_word_dict.get(current_word))
-    return str(score)+" "+comment+'\n'
+    return score
 
 wb = open_workbook("sentiment-oracle.xlsx")
 s = wb.sheet_by_index(0)
@@ -376,7 +377,15 @@ for cell_num in range(1,2001):
 	all_ratings.append(s.cell(cell_num,14).value)
         com = tokenize(comments)
 
-for row in coded_sentiment_vals:
-    print(row)
-# for comment in all_comments:
-#     print(get_comment_sentiment(comment))
+count = 0
+
+for sentival, com in zip(coded_sentiment_vals, all_comments):
+    # print(sentival)
+    # print(com)
+    score_got = get_comment_sentiment(com)
+    if int(sentival) == score_got:
+        count += 1
+res = count/len(all_comments) * 100
+
+print("Accuracy: "+str(res)+"%")
+
