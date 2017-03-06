@@ -377,13 +377,40 @@ for cell_num in range(1,2001):
 	all_ratings.append(s.cell(cell_num,14).value)
         com = tokenize(comments)
 
-count = 0
+num_cor = 0
+
+neg_cor = 0
+neg_inc = 0
+neg_total = 0
+neg_rated = 0
+
+targ_rating = 0
 
 for sentival, com in zip(coded_sentiment_vals, all_comments):
     score_got = get_comment_sentiment(com)
+
+    if int(sentival) == targ_rating:
+        neg_rated += 1
+
+    if score_got == targ_rating:
+        neg_total += 1
+        if int(sentival) == targ_rating:
+            neg_cor += 1
+        else:
+            neg_inc += 1
+
     if int(sentival) == score_got:
-        count += 1
-res = count/len(all_comments) * 100
+        num_cor += 1
 
+res = neg_cor/len(all_comments) * 100
+prec = neg_cor/neg_rated
+rec = neg_cor/neg_total
+
+print("Target Rating: "+str(targ_rating))
+print("Total Comments: "+str(len(all_comments))+" Got Accurate: "+str(num_cor))
 print("Accuracy: "+str(res)+"%")
-
+print("Rated: "+str(neg_rated))
+print("Correct: "+str(neg_cor))
+print("Total: "+str(neg_total))
+print("Precision: "+str(prec))
+print("Recall: "+str(rec))
