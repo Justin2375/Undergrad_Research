@@ -380,8 +380,6 @@ for cell_num in range(1,2001):
 count = 0
 
 for sentival, com in zip(coded_sentiment_vals, all_comments):
-    # print(sentival)
-    # print(com)
     score_got = get_comment_sentiment(com)
     if int(sentival) == score_got:
         count += 1
