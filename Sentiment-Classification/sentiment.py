@@ -357,11 +357,16 @@ all_ratings=[]
 senti_word_dict=[]
 
 # Read in the words with sentiment from the dictionary
-with open("EmotionDictionary.txt", "r") as sentidict:
+with open("EmotionDictionary.txt", "r") as sentidict, open("Sentiment-comments.csv", "r") as codedvals:
     dict_reader = csv.reader(sentidict, delimiter='\t')
+    coded_reader = csv.reader(codedvals, delimiter=',')
+
     #Hash words from dictionary with their values
     senti_word_dict = {rows[0].strip('*'):rows[1] for rows in dict_reader}
+    coded_sentiment_vals = list(zip(*coded_reader))[2]
+
     sentidict.close()
+    codedvals.close()
 
 
 for cell_num in range(1,2001):
@@ -371,5 +376,7 @@ for cell_num in range(1,2001):
 	all_ratings.append(s.cell(cell_num,14).value)
         com = tokenize(comments)
 
-for comment in all_comments:
-    print(get_comment_sentiment(comment))
+for row in coded_sentiment_vals:
+    print(row)
+# for comment in all_comments:
+#     print(get_comment_sentiment(comment))
