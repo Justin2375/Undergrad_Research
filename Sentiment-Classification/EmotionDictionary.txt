@@ -2552,3 +2552,5 @@ yearn*	-2
 yelp	-2	General Inquirer Feb 2010
 zest*	2	kev add
 zestril	1	kev add
+poson	1
+negon	-1
