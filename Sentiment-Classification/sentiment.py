@@ -143,17 +143,11 @@ class SentiSentence(object):
 
     def _compute_sentiscores(self):
         scores = []
-        neg_flag = False
         for word in self.words:
             if DEBUG:
                 print(word)
             if word in senti_word_dict:
-                if(neg_flag):
-                    word_score = int(senti_word_dict.get(word)) * -1
-                else:
-                    word_score = int(senti_word_dict.get(word))
-                if negated(word):
-                    neg_flag = True
+                word_score = int(senti_word_dict.get(word))
                 if DEBUG:
                     print("[ " + str(word_score) + " ]")
                 scores.append(word_score)
