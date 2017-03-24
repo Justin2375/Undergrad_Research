@@ -87,13 +87,10 @@ with open("EmotionDictionaryLemma.csv", "r") as sentidict,\
     contractions.close()
     emotable.close()
 
-
 # Get the lemma word from the NLTK
 def get_lemma(word):
     lemma_word = wordnet_lemmatizer.lemmatize(word, pos="v")
     return '' if lemma_word is None else lemma_word
-
-
 
 contractions_regex = re.compile('(%s)' % '|'.join(contractions_dict.keys()))
 
@@ -227,25 +224,20 @@ def write_most_frequent_words(comment_list,file_name):
 wb = open_workbook(FILE_NAME)
 s = wb.sheet_by_index(0)
 
-
-
 for cell_num in range(1,COMMENT_COUNT+1):
 
     comments=s.cell(cell_num, 9).value
     all_comments.append(comments.encode('ascii','ignore'))
     all_ratings.append(s.cell(cell_num,14).value)
 
-
-
 #print(allWordDist)
-
 
 num_cor = 0
 
 num_total = 0
 num_rated = 0
 
-targ_rating = 0
+targ_rating = 1
 num_fn=0
 num_fp=0
 num_tp =0
@@ -288,7 +280,6 @@ for sentival, com in zip(all_ratings, all_comments):
 
     if int(sentival) == score_got:
         num_cor += 1
-
 
 res = num_cor/len(all_comments) * 100
 prec = num_tp / num_rated
