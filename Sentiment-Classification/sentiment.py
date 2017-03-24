@@ -69,7 +69,6 @@ emoticon_dict=[]
 wordnet_lemmatizer = WordNetLemmatizer()
 contractions_dict=[]
 
-
 # Read in the words with sentiment from the dictionary
 with open("EmotionDictionaryLemma.csv", "r") as sentidict,\
      open("Contractions.txt","r") as contractions,\
@@ -137,18 +136,24 @@ class SentiSentence(object):
         self.word_scores=self._compute_sentiscores()
 
     def _parse_words(self):
-        allwords=nltk.word_tokenize(self.sentence)
+        allwords = nltk.word_tokenize(self.sentence)
         allwords = [word for word in allwords if len(word) > 1]
         allwords = [get_lemma(word) for word in allwords]
         return allwords
 
     def _compute_sentiscores(self):
-        scores=[]
+        scores = []
+        neg_flag = False
         for word in self.words:
             if DEBUG:
                 print(word)
             if word in senti_word_dict:
-                word_score = int(senti_word_dict.get(word))
+                if(neg_flag):
+                    word_score = int(senti_word_dict.get(word)) * -1
+                else:
+                    word_score = int(senti_word_dict.get(word))
+                if negated(word):
+                    neg_flag = True
                 if DEBUG:
                     print("[ " + str(word_score) + " ]")
                 scores.append(word_score)
