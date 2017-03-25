@@ -165,14 +165,19 @@ class SentiSentence(object):
 
     def _compute_sentiscores(self):
         scores = []
-        for word in self.words:
-            if DEBUG:
-                print(word)
-            if word in senti_word_dict:
-                word_score = int(senti_word_dict.get(word))
-                if DEBUG:
-                    print("[ " + str(word_score) + " ]")
-                scores.append(word_score)
+        # for word in self.words:
+        #     if DEBUG:
+        #         print(word)
+        #     if word in senti_word_dict:
+        #         word_score = int(senti_word_dict.get(word))
+        #         if DEBUG:
+        #             print("[ " + str(word_score) + " ]")
+        #         scores.append(word_score)
+        if ow in self.words:
+            if senti_word_dict.get(ow) >= 1:
+                if 
+            elif senti_word_dict.get(ow) <= -1:
+                if 
         return scores
 
     def get_sentence_score(self):
