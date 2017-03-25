@@ -136,9 +136,25 @@ class SentiSentence(object):
         self.word_scores=self._compute_sentiscores()
 
     def _parse_words(self):
+        allwords = dict()
         allwords = nltk.word_tokenize(self.sentence)
+        print(allwords)
         allwords = [word for word in allwords if len(word) > 1]
         allwords = [get_lemma(word) for word in allwords]
+        # if(negated(allwords)):
+        #     for word in allwords:
+        #         if(word in negation_words):
+        #             print(word)
+        #             allwords[allwords.index(word)] = ("NEG")
+        print(allwords)
+        # allwords = {}
+        # tokens = nltk.word_tokenize(self.sentence)
+        # i = 0
+        # for tok in tokens:
+        #     if(len(tok) > 1):
+        #         allwords[tok] = i
+        #         i += 1
+        # print(allwords)
         return allwords
 
     def _compute_sentiscores(self):
@@ -151,8 +167,6 @@ class SentiSentence(object):
                 if DEBUG:
                     print("[ " + str(word_score) + " ]")
                 scores.append(word_score)
-            if(negated(word)):
-                neg_flag = True
         return scores
 
     def get_sentence_score(self):
@@ -237,7 +251,7 @@ num_cor = 0
 num_total = 0
 num_rated = 0
 
-targ_rating = 1
+targ_rating = -1
 num_fn=0
 num_fp=0
 num_tp =0
