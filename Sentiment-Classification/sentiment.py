@@ -174,6 +174,20 @@ class SentiSentence(object):
         for score in self.word_scores:
             sentence_score += score
         return sentence_score
+    
+    # Handle the but clauses in a possible sentence
+    def but_clause_rule(self):
+        for ow in self.words:
+            if self.words.index(ow) > self.words.index('but'):
+                if ow in senti_word_dict:
+                    score = senti_word_dict.get(ow)
+                    if score >= 1:
+                        orientation = -1
+                    elif score <= -1:
+                        orientation = 1
+                    else:
+                        orientation = 0
+        return orientation
 
 def negated(input_words):
     """
@@ -189,8 +203,6 @@ def negated(input_words):
         if i > 0 and input_words[i-1] != "at":
             return True
     return False
-
-
 
 all_comments=[]
 all_ratings=[]
