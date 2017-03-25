@@ -175,6 +175,7 @@ class SentiSentence(object):
         #         scores.append(word_score)
         if ow in self.words:
             if senti_word_dict.get(ow) >= 1:
+                #Need to see if the sentence contains the stop words 
                 if 
             elif senti_word_dict.get(ow) <= -1:
                 if 
