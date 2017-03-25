@@ -44,6 +44,12 @@ mystop_words=[
 negation_words =['not', 'never', 'none', 'nobody', 'nowhere', 'neither', 'barely', 'hardly',
                      'nothing', 'rarely', 'seldom', 'despite' ]
 
+# Still needs to be populated with more terms
+but_words = ['but', 'except']
+
+# Still needs to be populated with more terms
+too_words = ['too']
+
 sentiment_intensifiers = \
 {"absolutely": B_INCR, "amazingly": B_INCR, "awfully": B_INCR, "completely": B_INCR, "considerably": B_INCR,
  "decidedly": B_INCR, "deeply": B_INCR, "effing": B_INCR, "enormously": B_INCR,
