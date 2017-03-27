@@ -144,7 +144,7 @@ class SentiSentence(object):
     def _parse_words(self):
         allwords = dict()
         allwords = nltk.word_tokenize(self.sentence)
-        print(allwords)
+        #print(allwords)
         allwords = [word for word in allwords if len(word) > 1]
         allwords = [get_lemma(word) for word in allwords]
         # if(negated(allwords)):
@@ -173,12 +173,31 @@ class SentiSentence(object):
         #         if DEBUG:
         #             print("[ " + str(word_score) + " ]")
         #         scores.append(word_score)
-        if ow in self.words:
-            if senti_word_dict.get(ow) >= 1:
-                #Need to see if the sentence contains the stop words 
-                if 
-            elif senti_word_dict.get(ow) <= -1:
-                if 
+        # if ow in self.words:
+        # for ow in self.words:
+        #     if DEBUG:
+        #             print(ow)
+        #     if ow in senti_word_dict:
+        #         if senti_word_dict.get(ow) >= 1:
+        #             if negated(self.sentence) and self.words.index(ow) == self.words.index(ow):
+        #                 word_score = -1
+        #                 scores.append(word_score)
+        #             else:
+        #                 word_score = 1
+        #         if senti_word_dict.get(ow) <= 1:
+        #             if negated(self.sentence) and self.words.index(ow) == self.words.index(ow):
+        #                 word_score = 1
+        #                 scores.append(word_score)
+        #             else:
+        #                 word_score = -1
+        #         if DEBUG:
+        #                 print(word_score)
+                        
+        #     if senti_word_dict.get(ow) >= 1:
+        #         #Need to see if the sentence contains the stop words 
+        #         if negated(self.sentence) 
+        #     elif senti_word_dict.get(ow) <= -1:
+        #         if 
         return scores
 
     def get_sentence_score(self):
@@ -275,7 +294,7 @@ num_cor = 0
 num_total = 0
 num_rated = 0
 
-targ_rating = -1
+targ_rating = 1
 num_fn=0
 num_fp=0
 num_tp =0
