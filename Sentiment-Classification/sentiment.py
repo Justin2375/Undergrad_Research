@@ -165,14 +165,24 @@ class SentiSentence(object):
 
     def _compute_sentiscores(self):
         scores = []
-        # for word in self.words:
-        #     if DEBUG:
-        #         print(word)
-        #     if word in senti_word_dict:
-        #         word_score = int(senti_word_dict.get(word))
-        #         if DEBUG:
-        #             print("[ " + str(word_score) + " ]")
-        #         scores.append(word_score)
+        negated_flag = False 
+        for word in self.words:
+            if DEBUG:
+                print(word)
+            if word in senti_word_dict:
+                word_score = int(senti_word_dict.get(word))
+                if DEBUG:
+                    print("[ " + str(word_score) + " ]")
+                scores.append(word_score)
+            if negated(self.sentence):
+                negated_flag = True
+
+        """ 
+        Code from previous attempts.  Algorithm in paper is focused hard on features of a product
+        it organizes the possible features into a list and then processes their scores.  It seems 
+        like the approach we are taking won't work the best with that algorithm.  I will use the same
+        approach but a little bit differently.
+        """
         # if ow in self.words:
         # for ow in self.words:
         #     if DEBUG:
