@@ -144,29 +144,16 @@ class SentiSentence(object):
     def _parse_words(self):
         allwords = dict()
         allwords = nltk.word_tokenize(self.sentence)
-        #print(allwords)
         allwords = [word for word in allwords if len(word) > 1]
         allwords = [get_lemma(word) for word in allwords]
-        # if(negated(allwords)):
-        #     for word in allwords:
-        #         if(word in negation_words):
-        #             print(word)
-        #             allwords[allwords.index(word)] = ("NEG")
         print(allwords)
-        # allwords = {}
-        # tokens = nltk.word_tokenize(self.sentence)
-        # i = 0
-        # for tok in tokens:
-        #     if(len(tok) > 1):
-        #         allwords[tok] = i
-        #         i += 1
-        # print(allwords)
         return allwords
 
     def _compute_sentiscores(self):
         scores = []
         negated_flag = False 
         for word in self.words:
+            # Insert the algorithm here
             if DEBUG:
                 print(word)
             if word in senti_word_dict:
@@ -176,38 +163,6 @@ class SentiSentence(object):
                 scores.append(word_score)
             if negated(self.sentence):
                 negated_flag = True
-
-        """ 
-        Code from previous attempts.  Algorithm in paper is focused hard on features of a product
-        it organizes the possible features into a list and then processes their scores.  It seems 
-        like the approach we are taking won't work the best with that algorithm.  I will use the same
-        approach but a little bit differently.
-        """
-        # if ow in self.words:
-        # for ow in self.words:
-        #     if DEBUG:
-        #             print(ow)
-        #     if ow in senti_word_dict:
-        #         if senti_word_dict.get(ow) >= 1:
-        #             if negated(self.sentence) and self.words.index(ow) == self.words.index(ow):
-        #                 word_score = -1
-        #                 scores.append(word_score)
-        #             else:
-        #                 word_score = 1
-        #         if senti_word_dict.get(ow) <= 1:
-        #             if negated(self.sentence) and self.words.index(ow) == self.words.index(ow):
-        #                 word_score = 1
-        #                 scores.append(word_score)
-        #             else:
-        #                 word_score = -1
-        #         if DEBUG:
-        #                 print(word_score)
-                        
-        #     if senti_word_dict.get(ow) >= 1:
-        #         #Need to see if the sentence contains the stop words 
-        #         if negated(self.sentence) 
-        #     elif senti_word_dict.get(ow) <= -1:
-        #         if 
         return scores
 
     def get_sentence_score(self):
