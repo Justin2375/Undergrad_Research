@@ -168,7 +168,8 @@ class SentiSentence(object):
                 word_score = 0
             # Check to see if the part of speech is an adjective
             if part_of_speech[0][1] == 'ADJ':
-                word_score += senti_word_dict.get(word)
+                print("Test")
+                # word_score += senti_word_dict.get(word)
             # else:
             #     # This will handle if the 
 
