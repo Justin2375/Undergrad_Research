@@ -151,12 +151,11 @@ class SentiSentence(object):
 
     def _compute_sentiscores(self):
         scores = []
-        # taged_words = nltk.pos_tag(self.sentence)
-        # print(taged_words)
         for word in self.words:
-            # Insert the algorithm here
+            # Tag the word as it is read from the array
             part_of_speech = nltk.tag.pos_tag([word], tagset='universal')
-            # print(part_of_speech[0][1])
+            
+            # Check to see if the part of speech is an adjective
             if part_of_speech[0][1] == 'ADJ':
                 print(word) 
             if DEBUG:
