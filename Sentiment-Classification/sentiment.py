@@ -154,10 +154,24 @@ class SentiSentence(object):
         for word in self.words:
             # Tag the word as it is read from the array
             part_of_speech = nltk.tag.pos_tag([word], tagset='universal')
-            
+
+            if word in senti_word_dict:
+                word_score = int(senti_word_dict.get(word))
+                if word_score > 0:
+                    word_score = 1
+                else:
+                    if word_score < 0:
+                        word_score = -1
+                    else:
+                        word_score = 0
+            else:
+                word_score = 0
             # Check to see if the part of speech is an adjective
             if part_of_speech[0][1] == 'ADJ':
-                print(word) 
+                word_score += senti_word_dict.get(word)
+            # else:
+            #     # This will handle if the 
+
             if DEBUG:
                 print(word)
             if word in senti_word_dict:
