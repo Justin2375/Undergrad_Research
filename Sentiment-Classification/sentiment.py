@@ -202,6 +202,11 @@ class SentiSentence(object):
                         orientation = 0
         return orientation
 
+    # Named wordOrientation in the algorithm
+    def compute_word_score(self.word):
+        for word in self.words:
+            
+
 def negated(input_words):
     """
     Determine if input contains negation words
