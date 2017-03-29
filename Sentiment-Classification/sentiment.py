@@ -155,6 +155,26 @@ class SentiSentence(object):
         part_of_speech = nltk.tag.pos_tag(self.words, tagset='universal')
         for word in self.words:
             word_score = 0
+            if word == 'but':
+                scores.append(int(senti_word_dict.get('but')))
+                for clause_word in self.words[self.words.index(word)+1:len(self.words)]:
+                    print(clause_word)
+                    if clause_word in senti_word_dict:
+                        word_score = int(senti_word_dict.get(clause_word))
+                        if word_score > 0:
+                            word_score = -1
+                        else:
+                            if word_score < 0:
+                                word_score = 1 
+                            else: 
+                                word_score = 0
+                    else:
+                        word_score = 0
+                    scores.append(word_score)
+                    if DEBUG:
+                        print("BUT: [ " + str(word_score) + " ]")
+                return scores
+
             if word in senti_word_dict:
                 word_score = int(senti_word_dict.get(word))
                 if word_score > 0:
@@ -166,12 +186,6 @@ class SentiSentence(object):
                         word_score = 0
             else:
                 word_score = 0
-
-            # Check to see if the part of speech is an adjective
-            # if part_of_speech[self.words.index(word)][1] == 'ADJ':
-                
-            # else:
-                
 
             if DEBUG:
                 print(word)
@@ -206,15 +220,6 @@ class SentiSentence(object):
     # Named wordOrientation in the algorithm
     # def compute_word_score(self.word):
     #     for word in self.words:
-
-# Handles if the sentence contains a but clause rule
-def contains_but(input_words):
-    for word in input_words:
-        if word == "but":
-            return True
-        else: 
-            return False
-
 def negated(input_words):
     """
     Determine if input contains negation words
