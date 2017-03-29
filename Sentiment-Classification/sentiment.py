@@ -190,6 +190,9 @@ class SentiSentence(object):
                     else:
                         word_score = 0
                     scores.append(word_score)
+                    if DEBUG:
+                        print(clause_word)
+                        print("NOT: [ " + str(word_score) + " ]")
                 return scores
 
             if word in senti_word_dict:
@@ -307,7 +310,7 @@ num_cor = 0
 num_total = 0
 num_rated = 0
 
-targ_rating = 1
+targ_rating = -1
 num_fn=0
 num_fp=0
 num_tp =0
