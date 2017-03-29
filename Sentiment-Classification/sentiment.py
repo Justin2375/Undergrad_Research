@@ -45,7 +45,7 @@ negation_words =['not', 'never', 'none', 'nobody', 'nowhere', 'neither', 'barely
                      'nothing', 'rarely', 'seldom', 'despite' ]
 
 # # Still needs to be populated with more terms
-# but_words = ['but', 'except']
+but_clause_words = ['but', 'except']
 
 # Still needs to be populated with more terms
 too_words = ['too']
@@ -155,10 +155,9 @@ class SentiSentence(object):
         part_of_speech = nltk.tag.pos_tag(self.words, tagset='universal')
         for word in self.words:
             word_score = 0
-            if word == 'but':
+            if but_word(word):
                 scores.append(int(senti_word_dict.get('but')))
                 for clause_word in self.words[self.words.index(word)+1:len(self.words)]:
-                    print(clause_word)
                     if clause_word in senti_word_dict:
                         word_score = int(senti_word_dict.get(clause_word))
                         if word_score > 0:
@@ -172,7 +171,25 @@ class SentiSentence(object):
                         word_score = 0
                     scores.append(word_score)
                     if DEBUG:
+                        print(clause_word)
                         print("BUT: [ " + str(word_score) + " ]")
+                return scores
+            
+            if negated(word):
+                scores.append(int(senti_word_dict.get(word)))
+                for clause_word in self.words[self.words.index(word)+1:len(self.words)]:
+                    if clause_word in senti_word_dict:
+                        word_score = int(senti_word_dict.get(clause_word))
+                        if word_score > 0:
+                            word_score = -1
+                        else:  
+                            if word_score < 0:
+                                word_score = 1
+                            else:
+                                word_score = 0
+                    else:
+                        word_score = 0
+                    scores.append(word_score)
                 return scores
 
             if word in senti_word_dict:
@@ -202,24 +219,20 @@ class SentiSentence(object):
         for score in self.word_scores:
             sentence_score += score
         return sentence_score
-        
-    # # Handle the but clauses in a possible sentence
-    # def but_clause_rule(self):
-    #     for ow in self.words:
-    #         if self.words.index(ow) > self.words.index('but'):
-    #             if ow in senti_word_dict:
-    #                 score = senti_word_dict.get(ow)
-    #                 if score >= 1:
-    #                     orientation = -1
-    #                 elif score <= -1:
-    #                     orientation = 1
-    #                 else:
-    #                     orientation = 0
-    #     return orientation
 
-    # Named wordOrientation in the algorithm
-    # def compute_word_score(self.word):
-    #     for word in self.words:
+def but_word(input_words):
+    """
+    Determine if the sentence contains any but words
+    """
+    but_words = []
+    but_words.extend(but_clause_words)
+    for word in but_clause_words:
+        if word in input_words:
+            return True
+    return False
+    
+
+# Check to see if the sentence cotains any negation words 
 def negated(input_words):
     """
     Determine if input contains negation words
