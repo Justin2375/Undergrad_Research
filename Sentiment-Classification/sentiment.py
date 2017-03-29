@@ -44,8 +44,8 @@ mystop_words=[
 negation_words =['not', 'never', 'none', 'nobody', 'nowhere', 'neither', 'barely', 'hardly',
                      'nothing', 'rarely', 'seldom', 'despite' ]
 
-# Still needs to be populated with more terms
-but_words = ['but', 'except']
+# # Still needs to be populated with more terms
+# but_words = ['but', 'except']
 
 # Still needs to be populated with more terms
 too_words = ['too']
@@ -166,10 +166,12 @@ class SentiSentence(object):
                         word_score = 0
             else:
                 word_score = 0
-                
+
             # Check to see if the part of speech is an adjective
-            if part_of_speech[self.words.index(word)][1] == 'ADJ':
-                print("Test")
+            # if part_of_speech[self.words.index(word)][1] == 'ADJ':
+                
+            # else:
+                
 
             if DEBUG:
                 print(word)
@@ -187,23 +189,31 @@ class SentiSentence(object):
             sentence_score += score
         return sentence_score
         
-    # Handle the but clauses in a possible sentence
-    def but_clause_rule(self):
-        for ow in self.words:
-            if self.words.index(ow) > self.words.index('but'):
-                if ow in senti_word_dict:
-                    score = senti_word_dict.get(ow)
-                    if score >= 1:
-                        orientation = -1
-                    elif score <= -1:
-                        orientation = 1
-                    else:
-                        orientation = 0
-        return orientation
+    # # Handle the but clauses in a possible sentence
+    # def but_clause_rule(self):
+    #     for ow in self.words:
+    #         if self.words.index(ow) > self.words.index('but'):
+    #             if ow in senti_word_dict:
+    #                 score = senti_word_dict.get(ow)
+    #                 if score >= 1:
+    #                     orientation = -1
+    #                 elif score <= -1:
+    #                     orientation = 1
+    #                 else:
+    #                     orientation = 0
+    #     return orientation
 
     # Named wordOrientation in the algorithm
     # def compute_word_score(self.word):
     #     for word in self.words:
+
+# Handles if the sentence contains a but clause rule
+def contains_but(input_words):
+    for word in input_words:
+        if word == "but":
+            return True
+        else: 
+            return False
 
 def negated(input_words):
     """
