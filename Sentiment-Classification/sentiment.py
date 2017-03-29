@@ -151,9 +151,9 @@ class SentiSentence(object):
 
     def _compute_sentiscores(self):
         scores = []
-        part_of_speech = nltk.tag.pos_tag(self.sentence, tagset='universal')
+        #Tag the different parts of speech for classification
+        part_of_speech = nltk.tag.pos_tag(self.words, tagset='universal')
         for word in self.words:
-            # Tag the word as it is read from the array
             word_score = 0
             if word in senti_word_dict:
                 word_score = int(senti_word_dict.get(word))
@@ -166,15 +166,14 @@ class SentiSentence(object):
                         word_score = 0
             else:
                 word_score = 0
+                
             # Check to see if the part of speech is an adjective
             if part_of_speech[self.words.index(word)][1] == 'ADJ':
                 print("Test")
-                # word_score += senti_word_dict.get(word)
-            # else:
-            #     # This will handle if the 
 
             if DEBUG:
                 print(word)
+                # print(part_of_speech)
             if word in senti_word_dict:
                 word_score = int(senti_word_dict.get(word))
                 if DEBUG:
@@ -187,7 +186,7 @@ class SentiSentence(object):
         for score in self.word_scores:
             sentence_score += score
         return sentence_score
-    
+        
     # Handle the but clauses in a possible sentence
     def but_clause_rule(self):
         for ow in self.words:
