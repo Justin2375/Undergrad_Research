@@ -1514,7 +1514,7 @@ nerd*	-3
 nervous*	-3	
 neurotic*	-3	
 neutralize*	-2	General Inquirer Feb 2010
-nice*	2	
+nice*   2	
 nightmare	-3	General Inquirer Feb 2010
 nimble	2	Hannes GI add
 nincompoop	-2	Feb-11
@@ -1522,7 +1522,8 @@ ninny	-2	Feb-11
 nix	-2	General Inquirer Feb 2010
 noise	-1	General Inquirer Feb 2010
 nonchalant	-1	General Inquirer Feb 2010
-nonsens*	-2	Feb-11
+nonsens*	-2	Feb-1
+not -1
 nosey	-2	General Inquirer Feb 2010
 notorious*	-2	General Inquirer Feb 2010
 novice	-2	General Inquirer Feb 2010
