@@ -159,14 +159,7 @@ class SentiSentence(object):
                 scores.append(int(senti_word_dict.get('but')))
                 for clause_word in self.words[self.words.index(word)+1:len(self.words)]:
                     if clause_word in senti_word_dict:
-                        word_score = int(senti_word_dict.get(clause_word))
-                        if word_score > 0:
-                            word_score = -1
-                        else:
-                            if word_score < 0:
-                                word_score = 1 
-                            else: 
-                                word_score = 0
+                        word_score = reverse_sentiment(clause_word)
                     else:
                         word_score = 0
                     scores.append(word_score)
@@ -209,6 +202,14 @@ class SentiSentence(object):
             sentence_score += score
         return sentence_score
 
+# def too_word(input_words):
+#     """
+#     Determine if the sentence contains any too words 
+#     """
+#     too_words_list = []
+#     too_words_list.extends(too_words)
+#     for word in too_words_list
+
 def but_word(input_words):
     """
     Determine if the sentence contains any but words
@@ -220,7 +221,6 @@ def but_word(input_words):
             return True
     return False
 
-# Check to see if the sentence cotains any negation words 
 def negated(input_words):
     """
     Determine if input contains negation words
@@ -235,6 +235,7 @@ def negated(input_words):
         if i > 0 and input_words[i-1] != "at":
             return True
     return False
+
 """
 Reverse the sentiment of the words if they 
 appear in either a negation clause or a 
