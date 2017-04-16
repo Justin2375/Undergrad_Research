@@ -179,14 +179,7 @@ class SentiSentence(object):
                 scores.append(int(senti_word_dict.get(word)))
                 for clause_word in self.words[self.words.index(word)+1:len(self.words)]:
                     if clause_word in senti_word_dict:
-                        word_score = int(senti_word_dict.get(clause_word))
-                        if word_score > 0:
-                            word_score = -1
-                        else:  
-                            if word_score < 0:
-                                word_score = 1
-                            else:
-                                word_score = 0
+                        word_score = reverse_sentiment(clause_word)
                     else:
                         word_score = 0
                     scores.append(word_score)
@@ -196,14 +189,7 @@ class SentiSentence(object):
                 return scores
 
             if word in senti_word_dict:
-                word_score = int(senti_word_dict.get(word))
-                if word_score > 0:
-                    word_score = 1
-                else:
-                    if word_score < 0:
-                        word_score = -1
-                    else:
-                        word_score = 0
+                word_score = reverse_sentiment(word)
             else:
                 word_score = 0
 
@@ -233,7 +219,6 @@ def but_word(input_words):
         if word in input_words:
             return True
     return False
-    
 
 # Check to see if the sentence cotains any negation words 
 def negated(input_words):
@@ -250,6 +235,21 @@ def negated(input_words):
         if i > 0 and input_words[i-1] != "at":
             return True
     return False
+"""
+Reverse the sentiment of the words if they 
+appear in either a negation clause or a 
+but clause 
+"""
+def reverse_sentiment(clause_word):
+    word_score = int(senti_word_dict.get(clause_word))
+    if word_score > 0:
+        word_score = -1
+    else:  
+        if word_score < 0:
+            word_score = 1
+        else:
+            word_score = 0
+    return word_score
 
 all_comments=[]
 all_ratings=[]
@@ -302,8 +302,6 @@ for cell_num in range(1,COMMENT_COUNT+1):
     comments=s.cell(cell_num, 9).value
     all_comments.append(comments.encode('ascii','ignore'))
     all_ratings.append(s.cell(cell_num,14).value)
-
-#print(allWordDist)
 
 num_cor = 0
 
