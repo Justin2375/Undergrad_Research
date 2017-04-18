@@ -202,13 +202,13 @@ class SentiSentence(object):
             sentence_score += score
         return sentence_score
 
-# def too_word(input_words):
-#     """
-#     Determine if the sentence contains any too words 
-#     """
-#     too_words_list = []
-#     too_words_list.extends(too_words)
-#     for word in too_words_list
+def too_word(input_words):
+    """
+    Determine if the sentence contains any too words 
+    """
+    too_words_list = []
+    too_words_list.extends(too_words)
+
 
 def but_word(input_words):
     """
