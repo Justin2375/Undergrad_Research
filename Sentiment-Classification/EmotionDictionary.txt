@@ -1523,8 +1523,8 @@ nix	-2	General Inquirer Feb 2010
 noise	-1	General Inquirer Feb 2010
 nonchalant	-1	General Inquirer Feb 2010
 nonsens*	-2	Feb-1
-not -1
 nosey	-2	General Inquirer Feb 2010
+not	-1
 notorious*	-2	General Inquirer Feb 2010
 novice	-2	General Inquirer Feb 2010
 noxious*	-3	kev add
