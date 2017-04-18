@@ -15,9 +15,9 @@ from xlwt import Workbook
 from xlrd import open_workbook
 
 #Configuration
-DEBUG=True
-FILE_NAME="test-dataset.xlsx"
-COMMENT_COUNT=20
+DEBUG=False
+FILE_NAME="sentiment-oracle.xlsx"
+COMMENT_COUNT=2000
 
 B_INCR = 0.293
 B_DECR = -0.293
@@ -146,7 +146,7 @@ class SentiSentence(object):
         allwords = nltk.word_tokenize(self.sentence)
         allwords = [word for word in allwords if len(word) > 1]
         allwords = [get_lemma(word) for word in allwords]
-        print(allwords)
+        #print(allwords)
         return allwords
 
     def _compute_sentiscores(self):
@@ -156,7 +156,7 @@ class SentiSentence(object):
         for word in self.words:
             word_score = 0
             if but_word(word):
-                scores.append(int(senti_word_dict.get('but')))
+                scores.append(int(get_score('but')))
                 for clause_word in self.words[self.words.index(word)+1:len(self.words)]:
                     if clause_word in senti_word_dict:
                         word_score = reverse_sentiment(clause_word)
@@ -169,7 +169,7 @@ class SentiSentence(object):
                 return scores
             
             if negated(word):
-                scores.append(int(senti_word_dict.get(word)))
+                scores.append(int(get_score(word)))
                 for clause_word in self.words[self.words.index(word)+1:len(self.words)]:
                     if clause_word in senti_word_dict:
                         word_score = reverse_sentiment(clause_word)
@@ -190,7 +190,7 @@ class SentiSentence(object):
                 print(word)
                 # print(part_of_speech)
             if word in senti_word_dict:
-                word_score = int(senti_word_dict.get(word))
+                word_score = int()
                 if DEBUG:
                     print("[ " + str(word_score) + " ]")
                 scores.append(word_score)
@@ -201,6 +201,12 @@ class SentiSentence(object):
         for score in self.word_scores:
             sentence_score += score
         return sentence_score
+	
+def get_score(word):
+	value=senti_word_dict.get(word)
+	if value == None:
+		return 0
+	return value
 
 def too_word(input_words):
     """
